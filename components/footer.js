@@ -12,23 +12,23 @@ export default function Footer() {
           <nav className="mt-10 text-sm" aria-label="quick links">
             <ul className="-my-1 flex justify-center space-x-6">
               <li>
-                <Link href="#features">
+                <Link href="/about">
                   <a className="rounded-lg px-2 py-1 text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-                    Features
+                    About
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="#testimonials">
+                <Link href="/guide">
                   <a className="rounded-lg px-2 py-1 text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-                    Testimonials
+                    Guide
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="#pricing">
+                <Link href="/bank">
                   <a className="rounded-lg px-2 py-1 text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-                    Pricing
+                    Career Bank
                   </a>
                 </Link>
               </li>
@@ -39,7 +39,7 @@ export default function Footer() {
           <div className="flex space-x-6">
             <Link href="#">
               <a className="group">
-                <span className="sr-only">TaxPal on Twitter</span>
+                <span className="sr-only">Venture Miami on Twitter</span>
                 <svg
                   aria-hidden="true"
                   className="h-6 w-6 fill-slate-500 group-hover:fill-slate-700"
@@ -50,7 +50,7 @@ export default function Footer() {
             </Link>
             <Link href="#">
               <a className="group">
-                <span className="sr-only">TaxPal on GitHub</span>
+                <span className="sr-only">Venture Miami on GitHub</span>
                 <svg
                   aria-hidden="true"
                   className="h-6 w-6 fill-slate-500 group-hover:fill-slate-700"
@@ -61,8 +61,7 @@ export default function Footer() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500 sm:mt-0">
-            Copyright &copy; {new Date().getFullYear()} TaxPal. All rights
-            reserved.
+            Copyright &copy; {new Date().getFullYear()} Venture Miami-City of Miami
           </p>
         </div>
       </Container>

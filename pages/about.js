@@ -1,13 +1,10 @@
 import { Container } from '../components/container'
-import { Hero } from '../components/hero'
-import { Testimonials } from '../components/testimonials'
-import { CallToAction } from '../components/callToAction'
-import { SecondaryFeatures } from '../components/secondaryFeatures'
+import { Hero } from '../components/hero-about'
 import Layout from '../components/layout'
 import Head from 'next/head'
 
 
-export default function Index({ preview }) {
+export default function About({ preview }) {
  
   return (
     <>
@@ -17,9 +14,7 @@ export default function Index({ preview }) {
         </Head>
         <Container>
           <Hero />
-          <SecondaryFeatures />
-          <CallToAction />
-          {/* <Testimonials /> */}
+          
         </Container>
       </Layout>
     </>

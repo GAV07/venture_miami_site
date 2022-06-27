@@ -1,5 +1,6 @@
-module.exports = {
-  images: {
-    loader: 'custom',
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
 }
+
+module.exports = nextConfig
