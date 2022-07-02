@@ -1,4 +1,4 @@
-export function Logo(props) {
+export function Logo() {
   return (
     <svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M199.993 0H0V39.9157H199.993V0Z" fill="#3F47FF"/>

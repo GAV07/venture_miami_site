@@ -11,6 +11,8 @@ module.exports = {
         'accent-7': '#333',
         success: '#0070f3',
         cyan: '#79FFE1',
+        'vm-blue': '#3F47FF',
+        'vm-green': '#00E075'
       },
       spacing: {
         28: '7rem',

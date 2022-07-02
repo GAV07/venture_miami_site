@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 import { ButtonLink } from './button'
 import { Container } from './container'
-import { Logo } from './Logo'
+import { Logo } from './logo'
 
 function MobileNavigation() {
   return (
@@ -102,7 +102,7 @@ export default function Header() {
         <nav className="relative z-50 text-sm">
           <ul className="flex items-center">
             <li>
-              <Link href="#">
+              <Link href="/">
                 <a>
                   <span className="sr-only">Home</span>
                   <Logo className="h-10 w-auto" />
@@ -111,34 +111,27 @@ export default function Header() {
             </li>
             <li className="ml-12 hidden md:block">
               <Link href="/about">
-                <a className="rounded-lg py-1 px-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+                <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
                   About
                 </a>
               </Link>
             </li>
             <li className="ml-6 hidden md:block">
               <Link href="/guide">
-                <a className="rounded-lg py-1 px-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-                  Guide
-                </a>
-              </Link>
-            </li>
-            <li className="ml-6 hidden md:block">
-              <Link href="/bank">
-                <a className="rounded-lg py-1 px-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-                  Career Bank
+                <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
+                  Data Guide
                 </a>
               </Link>
             </li>
             <li className="ml-auto hidden md:block">
               <Link href="/login">
-                <a className="rounded-lg py-1 px-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+                <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
                   Speak with Us
                 </a>
               </Link>
             </li>
             <li className="ml-auto md:ml-8">
-              <ButtonLink href="/register" color="blue">
+              <ButtonLink href="/register" color="white">
                 <span>
                   Join<span className="hidden lg:inline"> Miami Companies</span>
                 </span>

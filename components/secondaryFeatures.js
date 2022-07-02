@@ -105,7 +105,7 @@ function Feature({ feature, isActive, className, ...props }) {
       <div
         className={clsx('w-9 rounded-lg', {
           'bg-blue-600': isActive,
-          'bg-slate-500': !isActive,
+          'bg-vm-green': !isActive,
         })}
       >
         <svg aria-hidden="true" className="h-9 w-9" fill="none">
@@ -115,15 +115,15 @@ function Feature({ feature, isActive, className, ...props }) {
       <h3
         className={clsx('mt-6 text-sm font-medium', {
           'text-blue-600': isActive,
-          'text-slate-600': !isActive,
+          'text-white': !isActive,
         })}
       >
         {feature.name}
       </h3>
-      <p className="mt-2 font-display text-xl text-slate-900">
+      <p className="mt-2 font-display text-xl text-white">
         {feature.summary}
       </p>
-      <p className="mt-4 text-sm text-slate-600">{feature.description}</p>
+      <p className="mt-4 text-sm text-white">{feature.description}</p>
     </div>
   )
 }
@@ -208,7 +208,7 @@ function FeaturesDesktop() {
   )
 }
 
-export function SecondaryFeatures() {
+export function SecondaryFeatures(props) {
   return (
     <section
       id="secondary-features"
@@ -219,11 +219,11 @@ export function SecondaryFeatures() {
         <div className="mx-auto max-w-2xl md:text-center">
           <h2
             id="secondary-features-title"
-            className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl"
+            className="font-display text-3xl tracking-tight text-white sm:text-4xl"
           >
             Simplify everyday business tasks.
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
+          <p className="mt-4 text-lg tracking-tight text-white">
             Because you’d probably be a little confused if we suggested you
             complicate your everyday business tasks instead.
           </p>
