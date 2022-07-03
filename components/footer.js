@@ -6,7 +6,7 @@ import { Logo } from './logo'
 export default function Footer() {
   return (
     <footer className="bg-vm-blue">
-      <Container>
+      <Container className="mx-auto max-w-7xl">
         <div className="py-16">
           <Logo className="mx-auto h-10 w-auto" />
           <nav className="mt-10 text-sm" aria-label="quick links">

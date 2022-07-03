@@ -5,6 +5,7 @@ import { Container } from './container'
 import backgroundImage from '../public/images/background-call-to-action.jpg'
 
 export function CallToAction(props) {
+  console.log(props)
   return (
     <section
       id="get-started-today"
@@ -23,14 +24,13 @@ export function CallToAction(props) {
       <Container className="relative">
         <div className="mx-auto max-w-lg text-center">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
-            Get started today
+            {props.content.title}
           </h2>
           <p className="mt-4 text-lg tracking-tight text-white">
-            It’s time to take control of your books. Buy our software so you can
-            feel like you’re doing something productive.
+            {props.content.subtitle}
           </p>
-          <ButtonLink href="/register" color="white" className="mt-10">
-            Get 6 months free
+          <ButtonLink href={props.content.button.fields.url} color="white" className="mt-10">
+            {props.content.button.fields.text}
           </ButtonLink>
         </div>
       </Container>

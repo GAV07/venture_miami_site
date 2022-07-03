@@ -28,7 +28,7 @@ const tabs = [
   
   export function Tabs() {
     return (
-      <div className="pb-5 border-b border-gray-200 sm:pb-0">
+      <div className="pb-5 border-b border-gray-200 mx-auto max-w-7xl  sm:pb-0">
         <h3 className="text-lg leading-6 font-medium text-white">Candidates</h3>
         <div className="mt-3 sm:mt-4">
           <div className="sm:hidden">
