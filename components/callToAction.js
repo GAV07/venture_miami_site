@@ -5,7 +5,6 @@ import { Container } from './container'
 import backgroundImage from '../public/images/background-call-to-action.jpg'
 
 export function CallToAction(props) {
-  console.log(props)
   return (
     <section
       id="get-started-today"

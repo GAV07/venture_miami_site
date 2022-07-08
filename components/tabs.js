@@ -14,22 +14,15 @@
   }
   ```
 */
-const tabs = [
-    { name: 'Applied', href: '#', current: true },
-    { name: 'Phone Screening', href: '#', current: false },
-    { name: 'Interview', href: '#', current: false },
-    { name: 'Offer', href: '#', current: false },
-    { name: 'Hired', href: '#', current: false },
-  ]
   
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
   
-  export function Tabs() {
+  export function Tabs(props) {
     return (
       <div className="pb-5 border-b border-gray-200 mx-auto max-w-7xl  sm:pb-0">
-        <h3 className="text-lg leading-6 font-medium text-white">Candidates</h3>
+        <h3 className="text-lg leading-6 font-medium text-white">{props.content.title}</h3>
         <div className="mt-3 sm:mt-4">
           <div className="sm:hidden">
             <label htmlFor="current-tab" className="sr-only">
@@ -39,19 +32,18 @@ const tabs = [
               id="current-tab"
               name="current-tab"
               className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-              defaultValue={tabs.find((tab) => tab.current).name}
             >
-              {tabs.map((tab) => (
-                <option key={tab.name}>{tab.name}</option>
+              {props.content.tabs.map((tab) => (
+                <option key={tab.fields.title}>{tab.fields.title}</option>
               ))}
             </select>
           </div>
           <div className="hidden sm:block mb-5">
             <nav className="-mb-px flex space-x-8">
-              {tabs.map((tab) => (
+              {props.content.tabs.map((tab) => (
                 <a
-                  key={tab.name}
-                  href={tab.href}
+                  key={tab.fields.text}
+                  href={tab.fields.url}
                   className={classNames(
                     tab.current
                       ? 'border-vm-green text-vm-green'
@@ -60,7 +52,7 @@ const tabs = [
                   )}
                   aria-current={tab.current ? 'page' : undefined}
                 >
-                  {tab.name}
+                  {tab.fields.text}
                 </a>
               ))}
             </nav>

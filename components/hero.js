@@ -17,9 +17,9 @@ export function Hero(props) {
         {props.content.subtitle}
       </p>
       <div className="mt-10 flex justify-center space-x-6">
-        {props.content.buttons.map((button, i) => (
+        {/* {props.content.buttons.map((button, i) => (
           <ButtonLink color="white" href={button.fields.url}>{button.fields.text}</ButtonLink>
-        ))}
+        ))} */}
       </div>
     </Container>
   )

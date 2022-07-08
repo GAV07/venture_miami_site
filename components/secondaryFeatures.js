@@ -60,7 +60,6 @@ function Feature({ feature, isActive, className, ...props }) {
 // }
 
 function FeaturesDesktop(props) {
-  console.log(props)
   return (
     <Tab.Group as="div" className="hidden lg:mt-20 lg:block">
       {({ selectedIndex }) => (
