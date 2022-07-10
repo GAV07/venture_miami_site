@@ -13,28 +13,28 @@ export default function Footer() {
             <ul className="-my-1 flex justify-center space-x-6">
               <li>
                 <Link href="/">
-                  <a className="rounded-lg px-2 py-1 text-vm-green hover:bg-white hover:text-vm-blue">
+                  <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
                     Home
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/about">
-                  <a className="rounded-lg px-2 py-1 text-vm-green hover:bg-white hover:text-vm-blue">
+                  <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
                     About
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/guide">
-                  <a className="rounded-lg px-2 py-1 text-vm-green hover:bg-white hover:text-vm-blue">
+                  <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
                     Data Guide
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/bank">
-                  <a className="rounded-lg px-2 py-1 text-vm-green hover:bg-white hover:text-vm-blue">
+                  <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
                     Career Bank
                   </a>
                 </Link>
