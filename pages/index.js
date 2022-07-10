@@ -3,6 +3,7 @@ import { Hero } from '../components/hero'
 import { MayorSection } from '../components/mayor'
 import { CallToAction } from '../components/callToAction'
 import { SecondaryFeatures } from '../components/secondaryFeatures'
+import { Features } from '../components/features'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/api'
@@ -18,7 +19,8 @@ export default function Index(props) {
         <Container>
           <Hero content={props.hero}/>
           <MayorSection content={props.mayor} />
-          <SecondaryFeatures content={props.actions} />
+          <Features content={props.actions}/>
+          {/* <SecondaryFeatures content={props.actions} /> */}
           <CallToAction content={props.cta} />
         </Container>
       </Layout>
