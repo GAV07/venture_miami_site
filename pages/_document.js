@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+// import barba from '@barba/core'
 
 export default class MyDocument extends Document {
   render() {
