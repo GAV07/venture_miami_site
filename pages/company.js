@@ -13,7 +13,7 @@ export default function Guide(props) {
     <>
       <Layout>
         <Head>
-          <title>Venture Miami - Innovation and Economic Development Office</title>
+          <title>Venture Miami - Companies</title>
         </Head>
         <Container>
           <Hero content={props.hero}/>

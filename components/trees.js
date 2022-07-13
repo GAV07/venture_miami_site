@@ -33,7 +33,7 @@ function Trees() {
   }, [viewport])
   return (
     <Float position={position} speed={speed} rotationIntensity={10} floatIntensity={40} dispose={null}>
-      <mesh scale={.25} geometry={geometry} material={material} />
+      <mesh scale={.15} geometry={geometry} material={material} />
     </Float>
   )
 }
