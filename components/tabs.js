@@ -22,7 +22,7 @@
   export function Tabs(props) {
     return (
       <div className="pb-5 border-b border-gray-200 mx-auto max-w-7xl  sm:pb-0">
-        <h3 className="text-lg leading-6 font-medium text-white">{props.content.title}</h3>
+        {/* <h3 className="text-lg leading-6 font-medium text-white">{props.content.title}</h3> */}
         <div className="mt-3 sm:mt-4">
           <div className="sm:hidden">
             <label htmlFor="current-tab" className="sr-only">
