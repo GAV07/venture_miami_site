@@ -1,6 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
   
   export function Hero(props) {
+    console.log(props)
     return (
       <div className="relative bg-gray-900">
         <div className="h-80 w-full absolute bottom-0 xl:inset-0 xl:h-full">

@@ -70,14 +70,14 @@ function MobileNavigation() {
                 <li>
                   <Link href="/company">
                     <a className="block w-full" onClick={() => close()}>
-                      For Companies
+                      Companies
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/talent">
                     <a className="block w-full" onClick={() => close()}>
-                      For Talent
+                      Talent
                     </a>
                   </Link>
                 </li>
@@ -126,14 +126,14 @@ export default function Header() {
             <li className="ml-6 hidden md:block">
               <Link href="/company">
                 <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
-                  For Companies
+                  Companies
                 </a>
               </Link>
             </li>
             <li className="ml-6 hidden md:block">
               <Link href="/talent">
                 <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
-                  For Talent
+                  Talent
                 </a>
               </Link>
             </li>
@@ -145,9 +145,18 @@ export default function Header() {
               </Link> */}
             </li>
             <li className="ml-auto md:ml-8">
-              <ButtonLink href="/register" color="white">
+              <ButtonLink href="https://airtable.com/shrHqS0j6ypB2QRKz" className="text-white bg-transparent">
                 <span>
-                  Join<span className="hidden lg:inline"> the List</span>
+                  {/* Join<span className="hidden lg:inline"> the List</span> */}
+                  Join Talent Database
+                </span>
+              </ButtonLink>
+            </li>
+            <li className="ml-auto md:ml-8">
+              <ButtonLink href="https://airtable.com/shr3zUTdjZIe2R3Hz" color="white">
+                <span>
+                  {/* Join<span className="hidden lg:inline"> the List</span> */}
+                  Join Founder Database
                 </span>
               </ButtonLink>
             </li>

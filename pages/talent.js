@@ -1,5 +1,5 @@
 import { Container } from '../components/container'
-import { Hero } from '../components/heroGuide'
+import { Hero } from '../components/heroTalent'
 import { Tabs } from '../components/tabs'
 import { MiamiData } from '../components/miamiData'
 import Layout from '../components/layout'
@@ -8,7 +8,6 @@ import { Client } from '../lib/api'
 
 
 export default function Talent(props) {
- 
   return (
     <>
       <Layout>
@@ -27,9 +26,9 @@ export default function Talent(props) {
 
 export async function getStaticProps() {
   
-  const hero = await Client.getEntry('73vwICCj0Av7SVJyuZgMex')
-  const tabs = await Client.getEntry('3BI4Nt92AqIWqW7Jz3Rppp')
-  const data = await Client.getEntry('yDAWGHZYx0jym4ysQX6JK', {include: 3})
+  const hero = await Client.getEntry('sPfwnHFfvJaLjE40fe0xM', {include: 3})
+  const tabs = await Client.getEntry('30iQqtglBuXGa77V3dZL5J')
+  const data = await Client.getEntry('27Tb8oRqA4rOI4T5IUtUBn', {include: 3})
   
   return {
     props: {

@@ -2,21 +2,12 @@ import * as THREE from 'three'
 import { useState, useMemo } from 'react'
 import { useThree } from '@react-three/fiber'
 import { useGLTF, Float } from '@react-three/drei'
-import { LayerMaterial, Base, Depth, Fresnel, Noise } from 'lamina/vanilla'
-//import { BufferGeometry } from 'three'
+import { LayerMaterial, Depth, Fresnel, Noise } from 'lamina'
 
 const colorA = new THREE.Color('#3F47FF').convertSRGBToLinear()
 const colorB = new THREE.Color('#0F1C4D').convertSRGBToLinear()
 const fresnel = new THREE.Color('#00E075').convertSRGBToLinear()
-const material = new LayerMaterial({
-  layers: [
-    //new Base({ color: colorA }),
-    new Depth({ colorA: colorA, colorB: colorB, alpha: 0.5, mode: 'normal', near: 0, far: 2, origin: [1, 1, 1] }),
-    new Depth({ colorA: 'purple', colorB: colorB, alpha: 0.5, mode: 'add', near: 3, far: 2, origin: [1, 1, 1] }),
-    new Fresnel({ mode: 'add', color: fresnel, intensity: 0.3, power: 2.5, bias: 0.0 }),
-    new Noise({ mapping: 'local', type: 'simplex', scale: 1000, colorA: '#00E075', colorB: 'black', mode: 'overlay' })
-  ]
-})
+
 
 function Trees() {
   const { viewport, camera } = useThree()
@@ -33,7 +24,14 @@ function Trees() {
   }, [viewport])
   return (
     <Float position={position} speed={speed} rotationIntensity={10} floatIntensity={40} dispose={null}>
-      <mesh scale={.15} geometry={geometry} material={material} />
+      <mesh scale={.15} geometry={geometry}>
+        <LayerMaterial color={colorA}>
+          <Depth colorA={colorA} colorB={colorB} alpha={0.5} mode='normal' near={0} far={2} origin={[1, 1, 1]}/>
+          <Depth colorA={colorB} colorB={colorB} alpha={0.5} mode='add' near={3} far= {2} origin={[1, 1, 1]}/>
+          <Fresnel mode='add' color={fresnel} intensity={0.3} power={2.5} bias={0.0} origin={[1, 1, 1]}/>
+          <Noise colorA={colorA} colorB={colorB} mode='overlay' mapping='local' type='simplex' scale={1000}/>
+        </LayerMaterial>
+      </mesh>
     </Float>
   )
 }
