@@ -37,7 +37,7 @@ function Trees() {
 }
 
 export default function Noodles() {
-  return Array.from({ length: 20 }, (_, i) => <Trees key={i} />)
+  return Array.from({ length: 25 }, (_, i) => <Trees key={i} />)
 }
 
 useGLTF.preload('/worms-transformed.glb')

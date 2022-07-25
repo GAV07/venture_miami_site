@@ -62,7 +62,7 @@ function Rig({ v = new THREE.Vector3() }) {
     );
   });
 }
-
+//origin changed from [100,100,-100]
 export function Bg() {
     return (
       <mesh scale={100}>
@@ -75,7 +75,7 @@ export function Bg() {
             mode="normal"
             near={130}
             far={200}
-            origin={[100, 100, -100]}
+            origin={[0, 0, 0]}
           />
           <Noise
             mapping="local"

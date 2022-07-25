@@ -26,16 +26,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/guide">
+                <Link href="/company">
                   <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
-                    Data Guide
+                    Companies
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/bank">
+                <Link href="/talent">
                   <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
-                    Career Bank
+                    Talent
                   </a>
                 </Link>
               </li>
