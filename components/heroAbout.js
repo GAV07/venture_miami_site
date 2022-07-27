@@ -1,7 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
   
   export function Hero(props) {
-    console.log(props)
     return (
       <div className="relative bg-gray-900">
         <div className="h-80 w-full absolute bottom-0 xl:inset-0 xl:h-full">
@@ -9,7 +8,7 @@
             <div className="h-full xl:relative xl:col-start-2">
               <img
                 className="h-full w-full object-cover opacity-25 xl:absolute xl:inset-0"
-                src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100"
+                src={props.content.image.fields.file.url}
                 alt="People working on laptops"
               />
               <div

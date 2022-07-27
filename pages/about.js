@@ -10,7 +10,7 @@ export default function About(props) {
  
   return (
     <>
-      <Layout >
+      <Layout content={props.footer}>
         <Head>
           <title>Venture Miami - Innovation and Economic Development Office</title>
         </Head>
@@ -29,12 +29,14 @@ export async function getStaticProps() {
   const hero = await Client.getEntry('5I0W4kRIxQafO0LHbQKc01')
   const team = await Client.getEntry('6OjUgBFCrNGHZ7CZ28prHb')
   const advisors = await Client.getEntry('7KUM58hhFdQcFqMGM6kLmb')
+  const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
 
   return {
     props: {
       hero: hero.fields,
       team: team.fields,
       advisors: advisors.fields,
+      footer: footer.fields
     }
   }
 }

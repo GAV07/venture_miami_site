@@ -15,7 +15,7 @@ function Trees() {
   //console.log(nodes.QueenPalmTree_Mesh.geometry)
   //const [geometry] = useState(() => nodes[`noodle_${Math.ceil(Math.random() * 4)}`].geometry)
   const [geometry, setGeometry] = useState(() => nodes.QueenPalmTree_Mesh.geometry)
-  console.log(geometry)
+  //console.log(geometry)
   const [speed] = useState(() => 0.1 + Math.random() / 10)
   const position = useMemo(() => {
     const z = Math.random() * -30

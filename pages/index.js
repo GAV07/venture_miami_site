@@ -6,19 +6,17 @@ import { Features } from '../components/features'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/api'
-import { Rankings } from '../components/rankings'
 
 
 export default function Index(props) {
   return (
     <>
-      <Layout>
+      <Layout content={props.footer}>
         <Head>
           <title>Venture Miami - Innovation and Economic Development Office</title>
         </Head>
         <Container>
           <Hero content={props.hero}/>
-          {/* <Rankings content={props.rankings}/> */}
           <MayorSection content={props.mayor} />
           <Features content={props.actions}/>
           <CallToAction content={props.cta} />
@@ -35,6 +33,8 @@ export async function getStaticProps() {
   const mayor = await Client.getEntry('2m2xTF7Yyl3unkoXwEFs4U')
   const actions = await Client.getEntry('7gs8HupYmj0jeWzQHHryJj')
   const cta = await Client.getEntry('1l4KOGbKXloI5m3NU3UC0w')
+  const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
+  
 
   return {
     props: {
@@ -43,6 +43,7 @@ export async function getStaticProps() {
       mayor: mayor.fields,
       actions: actions.fields,
       cta: cta.fields,
+      footer: footer.fields,
     }
   }
 }

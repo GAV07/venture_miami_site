@@ -3,7 +3,7 @@ import Footer from './footer'
 import Meta from '../components/meta'
 import Header from '../components/header'
 
-export default function Layout({ children }) {
+export default function Layout({ children, content }) {
   return (
     <>
       <Meta />
@@ -11,7 +11,7 @@ export default function Layout({ children }) {
         <Header />
         <main>{children}</main>
       </div>
-      <Footer />
+      <Footer socials={content}/>
     </>
   )
 }

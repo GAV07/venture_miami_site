@@ -41,8 +41,8 @@ import Image from "next/image"
                   objectFit="cover"
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-indigo-500 mix-blend-multiply" />
-                <div className="absolute inset-0 bg-gradient-to-t from-indigo-600 via-indigo-600 opacity-90" />
+                {/* <div className="absolute inset-0 bg-indigo-500 mix-blend-multiply" /> */}
+                <div className="absolute inset-0 bg-gradient-to-t from-indigo-600" />
                 <div className="relative self-end px-10">
                   {/* <div>
                     <img
