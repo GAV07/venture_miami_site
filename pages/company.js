@@ -1,6 +1,5 @@
 import { Container } from '../components/container'
 import { Hero } from '../components/heroGuide'
-import { Tabs } from '../components/tabs'
 import { MiamiData } from '../components/miamiData'
 import Layout from '../components/layout'
 import Head from 'next/head'
@@ -17,7 +16,6 @@ export default function Guide(props) {
         </Head>
         <Container>
           <Hero content={props.hero}/>
-          {/* <Tabs content={props.tabs}/> */}
           <MiamiData content={props.data}/>
         </Container>
       </Layout>
