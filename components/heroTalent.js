@@ -52,7 +52,7 @@ export function Hero(props) {
                     </ul>
                   </div>
                 </div>
-                <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
+                {/* <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
                   <p className="text-lg leading-6 font-medium text-gray-900">{program.fields.cta}</p>
                   <div className="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
                     <span>{program.fields.stat}</span>
@@ -73,12 +73,12 @@ export function Hero(props) {
                       </a>
                     </div>
                   </div>
-                  {/* <div className="mt-4 text-sm">
+                  <div className="mt-4 text-sm">
                     <a href="#" className="font-medium text-gray-900">
                       Get a free sample <span className="font-normal text-gray-500">(20MB)</span>
                     </a>
-                  </div> */}
-                </div>
+                  </div>
+                </div> */}
               </div>
             </div>
           </div>

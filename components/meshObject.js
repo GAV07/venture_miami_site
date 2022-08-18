@@ -27,7 +27,6 @@ function Caption({ children }) {
     <Text
       position={[0, 0, -5]}
       lineHeight={0.8}
-      font="/Ki-Medium.ttf"
       fontSize={width / 10}
       material-toneMapped={false}
       anchorX="center"
@@ -43,7 +42,6 @@ function Subtitle({ children }) {
     <Text
       position={[0, -1, -10]}
       lineHeight={0.8}
-      font="/Ki-Medium.ttf"
       fontSize={width / 32}
       material-toneMapped={false}
       anchorX="center"

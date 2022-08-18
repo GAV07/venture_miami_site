@@ -46,7 +46,7 @@ export default function Footer(props) {
             {props.socials.links.map((logo) => {
               if(logo.fields.text === "Twitter") {
                 return(
-                  <Link href={logo.fields.url}>
+                  <Link key={logo.fields.text} href={logo.fields.url}>
                     <a className="group">
                       <span className="sr-only">Venture Miami on Twitter</span>
                       <svg
@@ -60,7 +60,7 @@ export default function Footer(props) {
                 )
               } else if(logo.fields.text === "Instagram") {
                   return (
-                    <Link href={logo.fields.url}>
+                    <Link key={logo.fields.text} href={logo.fields.url}>
                       <a className="group">
                         <span className="sr-only">Venture Miami on Instagram</span>
                         <svg className="fill-white" width="24" height="24">
@@ -71,7 +71,7 @@ export default function Footer(props) {
                   )
               } else {
                    return (
-                     <Link href={logo.fields.url}>
+                     <Link key={logo.fields.text} href={logo.fields.url}>
                        <a className="group">
                          <span className="sr-only">Venture Miami on LinkedIn</span>
                          <svg className="fill-white" width="24" height="24">

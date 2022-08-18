@@ -6,11 +6,13 @@ import { Features } from '../components/features'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/api'
+import PreLoader from '../components/preLoader'
 
 
 export default function Index(props) {
+  
   return (
-    <>
+    <PreLoader played={props.storage} setPlayed={props.setStorage}>
       <Layout content={props.footer}>
         <Head>
           <title>Venture Miami - Innovation and Economic Development Office</title>
@@ -22,7 +24,7 @@ export default function Index(props) {
           <CallToAction content={props.cta} />
         </Container>
       </Layout>
-    </>
+    </PreLoader>
   )
 }
 
@@ -47,3 +49,5 @@ export async function getStaticProps() {
     }
   }
 }
+
+

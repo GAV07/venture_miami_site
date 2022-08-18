@@ -9,7 +9,7 @@ const colorB = new THREE.Color('#0F1C4D').convertSRGBToLinear()
 const fresnel = new THREE.Color('#00E075').convertSRGBToLinear()
 
 
-function Trees() {
+function Tree() {
   const { viewport, camera } = useThree()
   const { nodes } = useGLTF('/palm-tree.glb')
   //console.log(nodes.QueenPalmTree_Mesh.geometry)
@@ -36,8 +36,8 @@ function Trees() {
   )
 }
 
-export default function Noodles() {
-  return Array.from({ length: 25 }, (_, i) => <Trees key={i} />)
+export default function Trees() {
+  return Array.from({ length: 20 }, (_, i) => <Tree key={i} />)
 }
 
 useGLTF.preload('/worms-transformed.glb')
