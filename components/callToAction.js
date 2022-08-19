@@ -5,7 +5,7 @@ export function CallToAction(props) {
   return (
     
       <Container className="relative">
-        <div className="mx-auto max-w-lg text-center">
+        <div className="mx-auto max-w-lg px-5 text-center">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
             {props.content.title}
           </h2>

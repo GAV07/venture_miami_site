@@ -14,7 +14,7 @@ export function Hero(props) {
     <div className="bg-vm-blue">
       <div className="pt-12 sm:pt-16 lg:pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <div className="text-left md:text-center">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">{props.content.title}</h2>
             <p className="mt-4 text-xl text-white">
               {props.content.subtitle}
@@ -35,7 +35,7 @@ export function Hero(props) {
                   </p>
                   <div className="mt-8">
                     <div className="flex items-center">
-                      <h4 className="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">
+                      <h4 className="flex-wrap md:flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">
                         {program.fields.calloutTitle}
                       </h4>
                       <div className="flex-1 border-t-2 border-gray-200" />

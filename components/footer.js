@@ -7,7 +7,9 @@ export default function Footer(props) {
     <footer className="bg-vm-blue">
       <Container className="mx-auto max-w-7xl">
         <div className="py-16">
-          <Logo className="mx-auto h-10 w-auto" />
+          <div className="flex justify-center md:justify-start">
+            <Logo/>
+          </div>
           <nav className="mt-10 text-sm" aria-label="quick links">
             <ul className="-my-1 flex justify-center space-x-6">
               <li>
@@ -43,10 +45,10 @@ export default function Footer(props) {
         </div>
         <div className="flex flex-col items-center border-t border-white-400/10 py-10 sm:flex-row-reverse sm:justify-between">
           <div className="flex space-x-6">
-            {props.socials.links.map((logo) => {
-              if(logo.fields.text === "Twitter") {
+            {props.socials.links.map((icon) => {
+              if(icon.fields.text === "Twitter") {
                 return(
-                  <Link key={logo.fields.text} href={logo.fields.url}>
+                  <Link key={icon.fields.text} href={icon.fields.url}>
                     <a className="group">
                       <span className="sr-only">Venture Miami on Twitter</span>
                       <svg
@@ -58,9 +60,9 @@ export default function Footer(props) {
                     </a>
                   </Link>
                 )
-              } else if(logo.fields.text === "Instagram") {
+              } else if(icon.fields.text === "Instagram") {
                   return (
-                    <Link key={logo.fields.text} href={logo.fields.url}>
+                    <Link key={icon.fields.text} href={icon.fields.url}>
                       <a className="group">
                         <span className="sr-only">Venture Miami on Instagram</span>
                         <svg className="fill-white" width="24" height="24">
@@ -71,7 +73,7 @@ export default function Footer(props) {
                   )
               } else {
                    return (
-                     <Link key={logo.fields.text} href={logo.fields.url}>
+                     <Link key={icon.fields.text} href={icon.fields.url}>
                        <a className="group">
                          <span className="sr-only">Venture Miami on LinkedIn</span>
                          <svg className="fill-white" width="24" height="24">

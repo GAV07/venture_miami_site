@@ -27,7 +27,7 @@ function Caption({ children }) {
     <Text
       position={[0, 0, -5]}
       lineHeight={0.8}
-      fontSize={width / 10}
+      fontSize={width > 5 ? width / 10 : width / 8}
       material-toneMapped={false}
       anchorX="center"
       anchorY="middle"
@@ -42,7 +42,7 @@ function Subtitle({ children }) {
     <Text
       position={[0, -1, -10]}
       lineHeight={0.8}
-      fontSize={width / 32}
+      fontSize={width > 5 ? width / 32 : width / 18}
       material-toneMapped={false}
       anchorX="center"
       anchorY="middle"

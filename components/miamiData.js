@@ -11,7 +11,7 @@
                     <div key={point.sys.id} className="pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
                       <dt className="text-base font-medium text-white md:col-span-5">
                         <a className="link link--elara" href={point.fields.url}>
-                          <span>{point.fields.title}</span>
+                          <span className="underline md:no-underline vm-green">{point.fields.title}</span>
                         </a>
                       </dt>
                       <dd className="mt-2 md:mt-0 md:col-span-7">

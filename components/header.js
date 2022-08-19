@@ -23,12 +23,14 @@ function MobileNavigation() {
             >
               <path
                 d="M0 1H14M0 7H14M0 13H14"
+                stroke="#fff"
                 className={clsx('origin-center transition', {
                   'scale-90 opacity-0': open,
                 })}
               />
               <path
                 d="M2 2L12 12M12 2L2 12"
+                stroke="#fff"
                 className={clsx('origin-center transition', {
                   'scale-90 opacity-0': !open,
                 })}
@@ -61,6 +63,13 @@ function MobileNavigation() {
                 className="absolute inset-x-0 top-full mt-4 origin-top space-y-4 rounded-2xl bg-white p-6 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
               >
                 <li>
+                  <Link href="/">
+                    <a className="block w-full" onClick={() => close()}>
+                      Home
+                    </a>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/about">
                     <a className="block w-full" onClick={() => close()}>
                       About Us
@@ -81,18 +90,20 @@ function MobileNavigation() {
                     </a>
                   </Link>
                 </li>
-                {/* <li>
-                  <Link href="/bank">
+                <li>
+                  <Link href="https://airtable.com/shrHqS0j6ypB2QRKz">
                     <a className="block w-full" onClick={() => close()}>
-                      Career Bank
+                      Join Talent Database
                     </a>
                   </Link>
-                </li> */}
-                {/* <li className="border-t border-slate-300/40 pt-4">
-                  <Link href="/login">
-                    <a className="block w-full">Sign in</a>
+                </li>
+                <li>
+                  <Link href="https://airtable.com/shr3zUTdjZIe2R3Hz">
+                    <a className="block w-full" onClick={() => close()}>
+                      Join Founder Database
+                    </a>
                   </Link>
-                </li> */}
+                </li>
               </Popover.Panel>
             </Transition.Child>
           </Transition.Root>
@@ -104,65 +115,60 @@ function MobileNavigation() {
 
 export default function Header() {
   return (
-    <header className="py-10">
+    <header className="p-10">
       <Container className="mx-auto max-w-7xl ">
         <nav className="relative z-50 text-sm">
-          <ul className="flex items-center">
+          <ul className="min-w-full flex items-center justify-between">
             <li>
               <Link href="/">
                 <a>
                   <span className="sr-only">Home</span>
-                  <Logo className="h-10 w-auto" />
+                  <Logo/>
                 </a>
               </Link>
             </li>
-            <li className="ml-12 hidden md:block">
-              <Link href="/about">
-                <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
-                  About Us
-                </a>
-              </Link>
-            </li>
-            <li className="ml-6 hidden md:block">
-              <Link href="/company">
-                <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
-                  Companies
-                </a>
-              </Link>
-            </li>
-            <li className="ml-6 hidden md:block">
-              <Link href="/talent">
-                <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
-                  Talent
-                </a>
-              </Link>
-            </li>
-            <li className="ml-auto hidden md:block">
-              {/* <Link href="/login">
-                <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
-                  Speak with Us
-                </a>
-              </Link> */}
-            </li>
-            <li className="ml-auto md:ml-8">
-              <ButtonLink href="https://airtable.com/shrHqS0j6ypB2QRKz" className="text-white bg-transparent">
-                <span>
-                  {/* Join<span className="hidden lg:inline"> the List</span> */}
-                  Join Talent Database
-                </span>
-              </ButtonLink>
-            </li>
-            <li className="ml-auto md:ml-8">
-              <ButtonLink href="https://airtable.com/shr3zUTdjZIe2R3Hz" color="white">
-                <span>
-                  {/* Join<span className="hidden lg:inline"> the List</span> */}
-                  Join Founder Database
-                </span>
-              </ButtonLink>
-            </li>
-            <li className="ml-5 -mr-1 md:hidden">
-              <MobileNavigation />
-            </li>
+            <div className="flex items-center">
+              <li className="ml-12 hidden md:block">
+                <Link href="/about">
+                  <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
+                    About Us
+                  </a>
+                </Link>
+              </li>
+              <li className="ml-6 hidden md:block">
+                <Link href="/company">
+                  <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
+                    Companies
+                  </a>
+                </Link>
+              </li>
+              <li className="ml-6 hidden md:block">
+                <Link href="/talent">
+                  <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
+                    Talent
+                  </a>
+                </Link>
+              </li>
+              <li className="hidden md:block ml-auto md:ml-8">
+                <ButtonLink href="https://airtable.com/shrHqS0j6ypB2QRKz" className="text-white bg-transparent">
+                  <span>
+                    {/* Join<span className="hidden lg:inline"> the List</span> */}
+                    Join Talent Database
+                  </span>
+                </ButtonLink>
+              </li>
+              <li className="hidden md:block ml-auto md:ml-8">
+                <ButtonLink href="https://airtable.com/shr3zUTdjZIe2R3Hz" color="white">
+                  <span>
+                    {/* Join<span className="hidden lg:inline"> the List</span> */}
+                    Join Founder Database
+                  </span>
+                </ButtonLink>
+              </li>
+              <li className="ml-5 md:hidden">
+                <MobileNavigation />
+              </li>
+            </div>
           </ul>
         </nav>
       </Container>
