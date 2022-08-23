@@ -91,6 +91,13 @@ function MobileNavigation() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/contact">
+                    <a className="block w-full" onClick={() => close()}>
+                      Contact Us
+                    </a>
+                  </Link>
+                </li>
+                <li>
                   <Link href="https://airtable.com/shrHqS0j6ypB2QRKz">
                     <a className="block w-full" onClick={() => close()}>
                       Join Talent Database
@@ -146,6 +153,13 @@ export default function Header() {
                 <Link href="/talent">
                   <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
                     Talent
+                  </a>
+                </Link>
+              </li>
+              <li className="ml-6 hidden md:block">
+                <Link href="/contact" className="ml-6 hidden md:block">
+                  <a className="rounded-lg py-1 px-2 text-white hover:bg-slate-100 hover:text-slate-900">
+                    Contact Us
                   </a>
                 </Link>
               </li>

@@ -1,14 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useAnimation, useTime } from "framer-motion";
-import useTimeHook from "./useTimeHook";
+
 
 const PreLoader = (props) => {
-  const showAnimation = useTimeHook()
   const transition = { duration: 1, ease: "easeInOut" };
 
   return (
     <>
-      {/* {showAnimation ? ( */}
         <div className="relative">
           <motion.div
             className="slide-out"
@@ -84,9 +82,6 @@ const PreLoader = (props) => {
             </motion.div>
           </motion.div>
         </div>
-      {/* ) : (
-        <></>
-      )} */}
       {props.children}
     </>
   );

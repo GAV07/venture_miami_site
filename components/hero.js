@@ -5,7 +5,7 @@ import { Container } from './container'
 
 export function Hero(props) {
   return (
-    <Container className="h-[85vh] px-20 lg:pt-32">
+    <Container className="h-screen lg:h-[85vh] px-20 lg:pt-32">
       {/* <h1 className="max-w-4xl font-display text-5xl font-medium tracking-tight text-white sm:text-7xl">
         {props.content.title}
       </h1>
