@@ -39,19 +39,19 @@ export default function Header() {
               href="/company"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
-              Companies
+              Relocating to Miami?
             </a>
             <a
               href="/talent"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
-              Talent
+              Our Talent Ecosystem
             </a>
             <a
               href="/about"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
-              About
+              About Us
             </a>
             <a
               href="/contact"
@@ -228,19 +228,19 @@ export default function Header() {
               href="/company"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Companies
+              Relocating to Miami?
             </a>
             <a
               href="/talent"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Talent
+              Our Talent Ecosystem
             </a>
             <a
               href="/about"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              About
+              About Us
             </a>
             <a
               href="/contact"

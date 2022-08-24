@@ -44,13 +44,6 @@ import Image from "next/image"
                 {/* <div className="absolute inset-0 bg-indigo-500 mix-blend-multiply" /> */}
                 <div className="absolute inset-0 bg-gradient-to-t from-indigo-600" />
                 <div className="relative self-end px-10">
-                  {/* <div>
-                    <img
-                      className="h-12"
-                      src="https://tailwindui.com/img/logos/workcation.svg?color=white"
-                      alt="Workcation"
-                    />
-                  </div> */}
                   <blockquote className="mt-8">
                     <div className="relative text-lg font-medium text-white md:flex-grow">
                       <svg
@@ -93,10 +86,12 @@ import Image from "next/image"
             <div className="mt-10">
               <dl className="grid grid-cols-2 gap-x-4 gap-y-8">
                 {props.content.stats.map((stat, i) => (
-                  <div key={stat.fields.title} className="border-t-2 border-gray-100 pt-6">
-                    <dt className="text-base font-medium text-white">{stat.fields.title}</dt>
-                    <dd className="text-3xl font-extrabold tracking-tight text-white">{stat.fields.statistic}</dd>
-                  </div>
+                  <a target="_blank" href={stat.fields.url}>
+                    <div key={stat.fields.title} className="pointer border-t-2 border-gray-100 pt-6">
+                      <dt className="text-base font-medium text-white">{stat.fields.title}</dt>
+                      <dd className="text-3xl font-extrabold tracking-tight text-white">{stat.fields.statistic}</dd>
+                    </div>
+                  </a>
                 ))}
               </dl>
               <div className="mt-10">

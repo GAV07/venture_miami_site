@@ -11,7 +11,7 @@ export default function Talent(props) {
     <>
       <Layout content={props.footer}>
         <Head>
-          <title>Venture Miami - Talent</title>
+          <title>Venture Miami - Talent Ecosystem</title>
         </Head>
         <Container>
           <Hero content={props.hero}/>
