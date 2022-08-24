@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Hero(props) {
   return (
-    <div className="bg-vm-blue">
+    <div className="pt-40 bg-vm-blue">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="max-w-4xl mx-auto text-left md:text-center">
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl">

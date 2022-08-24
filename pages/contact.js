@@ -14,7 +14,7 @@ export default function Contact(props) {
   }
   return (
     <Layout content={props.footer}>
-      <header className="relative pb-36 bg-blue-gray-800">
+      <header className="pt-40 relative pb-36 bg-blue-gray-800">
         <div className="absolute inset-0">
           <div className="absolute opacity-80 bg-vm-blue w-full h-full" />
           <img

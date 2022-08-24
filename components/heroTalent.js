@@ -9,9 +9,8 @@ const includedFeatures = [
 ]
 
 export function Hero(props) {
-  console.log(props)
   return (
-    <div className="bg-vm-blue">
+    <div className="pt-40 bg-vm-blue">
       <div className="pt-12 sm:pt-16 lg:pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left md:text-center">
