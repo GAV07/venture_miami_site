@@ -2,7 +2,7 @@ import { Container } from "./container";
 import { InboxIcon, SparklesIcon } from "@heroicons/react/outline";
 
 export function Features(props) {
-
+  
   function leftFeature(feature) {
     return (
       <div key={feature.fields.summary} className="mt-10 relative">
@@ -24,13 +24,15 @@ export function Features(props) {
                 <p className="mt-4 text-lg text-white">
                   {feature.fields.description}
                 </p>
-                <div className="mt-6">
-                  <a
-                    href={"/" + feature.fields.name}
-                    className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700"
-                  >
-                    Get started
-                  </a>
+                <div className="mt-6 space-x-5">
+                  {feature.fields.buttons.map((button) => (
+                      <a
+                        href={button.fields.url}
+                        className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm last:text-vm-blue last:bg-white text-black bg-vm-accent hover:text-white hover:bg-blue-900"
+                      >
+                        {button.fields.text}
+                      </a>
+                    ))}
                 </div>
               </div>
             </div>
@@ -70,13 +72,15 @@ export function Features(props) {
                 <p className="mt-4 text-lg text-white">
                  {feature.fields.description}
                 </p>
-                <div className="mt-6">
-                  <a
-                    href={"/" + feature.fields.name}
-                    className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700"
-                  >
-                    Get started
-                  </a>
+                <div className="mt-6 space-x-5">
+                  {feature.fields.buttons.map((button) => (
+                    <a
+                      href={button.fields.url}
+                      className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm last:text-vm-blue last:bg-white text-black bg-vm-accent hover:text-white hover:bg-blue-900"
+                    >
+                      {button.fields.text}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

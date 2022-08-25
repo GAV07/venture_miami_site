@@ -20,7 +20,7 @@ export default function Index(props) {
         <Container>
           <Hero content={props.hero}/>
           <MayorSection content={props.mayor} />
-          <Features content={props.actions}/>
+          <Features content={props.features}/>
           <CallToAction content={props.cta} />
         </Container>
       </Layout>
@@ -33,7 +33,7 @@ export async function getStaticProps() {
   const hero = await Client.getEntry('6WLwahfXarspVrYhJzVyUY')
   const rankings = await Client.getEntry('6WLwahfXarspVrYhJzVyUY')
   const mayor = await Client.getEntry('2m2xTF7Yyl3unkoXwEFs4U')
-  const actions = await Client.getEntry('7gs8HupYmj0jeWzQHHryJj')
+  const features = await Client.getEntry('7gs8HupYmj0jeWzQHHryJj', {include: 3})
   const cta = await Client.getEntry('1l4KOGbKXloI5m3NU3UC0w')
   const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
   
@@ -43,7 +43,7 @@ export async function getStaticProps() {
       hero: hero.fields,
       rankings: rankings.fields,
       mayor: mayor.fields,
-      actions: actions.fields,
+      features: features.fields,
       cta: cta.fields,
       footer: footer.fields,
     }

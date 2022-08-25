@@ -4,11 +4,14 @@
   }
   
   export function MiamiActions(props) {
-    console.log(props.content)
     return (
       <>
+        <div className="mx-3 md:mx-20">
+          <h2 className="text-5xl tracking-tight font-bold text-white sm:text-6xl sm:tracking-tight">{props.content.name}</h2>
+          <p className="text-white text-lg">{props.content.subtitle}</p>
+        </div>
         {props.content.group.map((section) => (
-          <div className="bg-vm-blue pt-16 pb-20 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+          <div className="bg-vm-blue pt-16 pb-20 px-3 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
             <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
               <div>
                 <h2 className="text-3xl tracking-tight font-bold text-white sm:text-4xl sm:tracking-tight">

@@ -34,7 +34,12 @@ export default function Header() {
             </Popover.Button>
           </div>
           <Popover.Group as="nav" className="hidden md:flex space-x-10">
-           
+            <a
+              href="/about"
+              className="text-base font-medium text-white hover:text-vm-accent"
+            >
+              About Us
+            </a>
             <a
               href="/company"
               className="text-base font-medium text-white hover:text-vm-accent"
@@ -45,13 +50,7 @@ export default function Header() {
               href="/talent"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
-              Our Talent Ecosystem
-            </a>
-            <a
-              href="/about"
-              className="text-base font-medium text-white hover:text-vm-accent"
-            >
-              About Us
+              Our Initatives
             </a>
             <a
               href="/contact"
@@ -224,6 +223,12 @@ export default function Header() {
             </div>
             <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+            <a
+              href="/about"
+              className="text-base font-medium text-gray-500 hover:text-gray-900"
+            >
+              About Us
+            </a>
               <a
               href="/company"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
@@ -234,13 +239,7 @@ export default function Header() {
               href="/talent"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Our Talent Ecosystem
-            </a>
-            <a
-              href="/about"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              About Us
+              Our Initatives
             </a>
             <a
               href="/contact"

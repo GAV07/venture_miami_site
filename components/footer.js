@@ -22,14 +22,14 @@ export default function Footer(props) {
               <li>
                 <Link href="/about">
                   <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
-                    About
+                    About Us
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/company">
                   <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
-                    Companies
+                    Relocating?
                   </a>
                 </Link>
               </li>
@@ -37,6 +37,13 @@ export default function Footer(props) {
                 <Link href="/talent">
                   <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
                     Talent
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/talent">
+                  <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
+                    Contact Us
                   </a>
                 </Link>
               </li>
