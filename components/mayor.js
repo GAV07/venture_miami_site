@@ -3,7 +3,6 @@ import Image from "next/image"
 /* This example requires Tailwind CSS v2.0+ */
   
   export function MayorSection(props) {
-    console.log(props.content)
     return (
       <div className="relative bg-vm-blue py-16 sm:py-24">
         <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">

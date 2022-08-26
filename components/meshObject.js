@@ -40,7 +40,7 @@ function Subtitle({ children }) {
   const { width } = useThree((state) => state.viewport);
   return (
     <Text
-      position={[0, -1, -10]}
+      position={[0, -1, -7]}
       lineHeight={0.8}
       fontSize={width > 5 ? width / 32 : width / 18}
       material-toneMapped={false}

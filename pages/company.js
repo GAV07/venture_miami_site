@@ -2,6 +2,7 @@ import { Container } from '../components/container'
 import { Hero } from '../components/heroGuide'
 import { MiamiData } from '../components/miamiData'
 import { MiamiActions } from '../components/miamiActions'
+import { CityMap } from '../components/map'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/api'
@@ -17,6 +18,7 @@ export default function Guide(props) {
         </Head>
         <Container>
           <Hero content={props.hero}/>
+          <CityMap />
           <MiamiData content={props.data}/>
           <MiamiActions content={props.actions}/>
         </Container>

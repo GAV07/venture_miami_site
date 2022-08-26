@@ -18,7 +18,9 @@ function Tree() {
   //console.log(geometry)
   const [speed] = useState(() => 0.1 + Math.random() / 10)
   const position = useMemo(() => {
-    const z = Math.random() * -30
+    const min = Math.ceil(10)
+    const max = Math.floor(20)
+    const z = -Math.floor((Math.random() * (max - min)) + min)
     const bounds = viewport.getCurrentViewport(camera, [0, 0, z])
     return [THREE.MathUtils.randFloatSpread(bounds.width), THREE.MathUtils.randFloatSpread(bounds.height * 0.75), z]
   }, [viewport])

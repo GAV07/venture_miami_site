@@ -9,9 +9,6 @@ import {
 } from "@heroicons/react/outline";
 
 export default function Contact(props) {
-  {
-    console.log(props.contact);
-  }
   return (
     <Layout content={props.footer}>
       <header className="pt-40 relative pb-36 bg-blue-gray-800">
@@ -80,7 +77,7 @@ export default function Contact(props) {
         </section>
 
         {/* FAQ */}
-        <section
+        {/* <section
           className="max-w-md mx-auto py-24 px-4 divide-y-2 divide-blue-gray-200 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8"
           aria-labelledby="faq-heading"
         >
@@ -104,7 +101,7 @@ export default function Contact(props) {
               ))}
             </dl>
           </div>
-        </section>
+        </section> */}
       </div>
 
       {/* CTA Section */}
