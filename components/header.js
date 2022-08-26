@@ -8,6 +8,7 @@ import {
   PresentationChartBarIcon,
   InboxIcon,
   XIcon,
+  LightBulbIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Logo } from "./logo";
@@ -92,6 +93,23 @@ export default function Header() {
                     <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:-translate-x-60">
                       <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                         <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                          <a
+                            href="https://airtable.com/shr1TcBO7ZwcpRrWV"
+                            className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                          >
+                            <LightBulbIcon
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              aria-hidden="true"
+                            />
+                            <div className="ml-4">
+                              <p className="text-base font-medium text-gray-900">
+                                Have a Request or Idea?
+                              </p>
+                              <p className="mt-1 text-sm text-gray-500">
+                                We love making our community better with the people of our community. Let's Talk!
+                              </p>
+                            </div>
+                          </a>
                           <a
                             href="https://airtable.com/shrHqS0j6ypB2QRKz"
                             className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"

@@ -6,8 +6,8 @@
   export function MiamiActions(props) {
     return (
       <>
-        <div className="mx-3 md:mx-20">
-          <h2 className="text-5xl tracking-tight font-bold text-white sm:text-6xl sm:tracking-tight">{props.content.name}</h2>
+        <div className="px-3 lg:px-0 mx-auto max-w-lg lg:max-w-7xl">
+          <h2 className="text-4xl mb-2 tracking-tight font-bold text-white sm:text-5xl sm:tracking-tight">{props.content.name}</h2>
           <p className="text-white text-lg">{props.content.subtitle}</p>
         </div>
         {props.content.group.map((section) => (

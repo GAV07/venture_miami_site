@@ -36,7 +36,7 @@ export default function Footer(props) {
               <li>
                 <Link href="/talent">
                   <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
-                    Talent
+                    Initatives
                   </a>
                 </Link>
               </li>

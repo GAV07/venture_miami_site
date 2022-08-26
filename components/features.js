@@ -42,7 +42,7 @@ export function Features(props) {
               <img
                 className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                 src={feature.fields.image.fields.file.url}
-                alt="Inbox user interface"
+                alt="Venture Miami picture"
               />
             </div>
           </div>
@@ -90,7 +90,7 @@ export function Features(props) {
               <img
                 className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
                 src={feature.fields.image.fields.file.url}
-                alt="Customer profile user interface"
+                alt="Venture Miami picture"
               />
             </div>
           </div>
