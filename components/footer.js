@@ -36,12 +36,12 @@ export default function Footer(props) {
               <li>
                 <Link href="/talent">
                   <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
-                    Initatives
+                    Initiatives
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/talent">
+                <Link href="/contact">
                   <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
                     Contact Us
                   </a>
