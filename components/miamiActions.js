@@ -7,8 +7,8 @@
     return (
       <>
         <div className="px-3 lg:px-0 mx-auto max-w-lg lg:max-w-7xl">
-          <h2 className="text-4xl mb-2 tracking-tight font-bold text-white sm:text-5xl sm:tracking-tight">{props.content.name}</h2>
-          <p className="text-white text-lg">{props.content.subtitle}</p>
+          <h2 className="text-4xl text-left md:text-center mb-4 tracking-tight font-bold text-white sm:text-5xl sm:tracking-tight">{props.content.name}</h2>
+          <p className="text-white text-left md:text-center text-indigo-100 text-lg">{props.content.subtitle}</p>
         </div>
         {props.content.group.map((section) => (
           <div className="bg-vm-blue pt-16 pb-20 px-3 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">

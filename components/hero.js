@@ -13,7 +13,7 @@ export function Hero(props) {
         {props.content.subtitle}
       </p> */}
       <MeshObject title={props.content.title} subtitle={props.content.subtitle} trees={true}/>
-      <div className="absolute bottom-0 left-0 w-full h-[25%] bg-gradient-to-t from-[#3F47FF] "/>
+      {/* <div className="absolute bottom-0 left-0 w-full h-[25%] bg-gradient-to-t from-[#3F47FF] "/> */}
     </Container>
   )
 }

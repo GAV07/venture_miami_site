@@ -9,7 +9,7 @@ export function MeshObject({title, subtitle, trees}) {
   return (
     <div className="absolute top-0 left-0 w-full h-screen">
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
-        <Bg />
+        {/* <Bg /> */}
         <Suspense fallback={null}>
           {trees ? <Trees/> : null}
           <Caption>{title}</Caption>

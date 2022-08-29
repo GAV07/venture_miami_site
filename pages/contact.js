@@ -105,7 +105,7 @@ export default function Contact(props) {
       </div>
 
       {/* CTA Section */}
-      <section className="relative bg-vm-blue" aria-labelledby="join-heading">
+      <section className="relative bg-vm-blue py-32" aria-labelledby="join-heading">
         <div
           className="hidden absolute inset-x-0 h-1/2 bg-blue-gray-50 lg:block"
           aria-hidden="true"
