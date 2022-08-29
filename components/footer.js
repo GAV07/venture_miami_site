@@ -11,7 +11,7 @@ export default function Footer(props) {
             <Logo/>
           </div>
           <nav className="mt-10 text-sm" aria-label="quick links">
-            <ul className="-my-1 flex justify-center space-x-6">
+            <ul className="-my-1 flex flex-wrap gap-4 md:flex-nowrap px-3 md:px-0 md:justify-center md:space-x-6">
               <li>
                 <Link href="/">
                   <a className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue">
