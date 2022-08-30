@@ -10,8 +10,8 @@
           <h2 className="text-4xl text-left md:text-center mb-4 tracking-tight font-bold text-white sm:text-5xl sm:tracking-tight">{props.content.name}</h2>
           <p className="text-white text-left md:text-center text-indigo-100 text-lg">{props.content.subtitle}</p>
         </div>
-        {props.content.group.map((section) => (
-          <div className="bg-vm-blue pt-16 pb-20 px-3 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+        {props.content.group.map((section, i) => (
+          <div key={i} className="bg-vm-blue pt-16 pb-20 px-3 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
             <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
               <div>
                 <h2 className="text-3xl tracking-tight font-bold text-white sm:text-4xl sm:tracking-tight">
