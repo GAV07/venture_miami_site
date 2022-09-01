@@ -21,8 +21,8 @@ export function Hero(props) {
           </div>
         </div>
       </div>
-      {props.content.programs.map((program) => ( 
-        <div className="mt-8 bg-vm-blue pb-16 sm:mt-12 sm:pb-20 lg:pb-8">
+      {props.content.programs.map((program, i) => ( 
+        <div key={i} className="mt-8 bg-vm-blue pb-16 sm:mt-12 sm:pb-20 lg:pb-8">
           <div className="relative">
             <div className="absolute inset-0 h-1/2 bg-vm-blue" />
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,33 +51,35 @@ export function Hero(props) {
                     </ul>
                   </div>
                 </div>
-                {/* <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
-                  <p className="text-lg leading-6 font-medium text-gray-900">{program.fields.cta}</p>
-                  <div className="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
-                    <span>{program.fields.stat}</span>
-                    <span className="ml-3 text-xl font-medium text-gray-500">USD</span>
-                  </div>
-                  <p className="mt-4 text-sm">
-                    <a href={program.fields.button.fields.url} className="font-medium text-gray-500 underline">
-                      {program.fields.button.fields.text}
-                    </a>
-                  </p>
-                  <div className="mt-6">
-                    <div className="rounded-md shadow">
-                      <a
-                        href={program.fields.button.fields.url}
-                        className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"
-                      >
+                {program.fields.cta !== undefined ? 
+                  <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
+                    <p className="text-lg leading-6 font-medium text-gray-900">{program.fields.cta}</p>
+                    <div className="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
+                      <span>{program.fields.stat}</span>
+                      {/* <span className="ml-3 text-xl font-medium text-gray-500">USD</span> */}
+                    </div>
+                    {/* <p className="mt-4 text-sm">
+                      <a href={program.fields.button.fields.url} className="font-medium text-gray-500 underline">
                         {program.fields.button.fields.text}
                       </a>
+                    </p> */}
+                    <div className="mt-6">
+                      <div className="rounded-md shadow">
+                        <a
+                          href={program.fields.button.fields.url}
+                          className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"
+                        >
+                          {program.fields.button.fields.text}
+                        </a>
+                      </div>
                     </div>
+                    {/* <div className="mt-4 text-sm">
+                      <a href="#" className="font-medium text-gray-900">
+                        Get a free sample <span className="font-normal text-gray-500">(20MB)</span>
+                      </a>
+                    </div> */}
                   </div>
-                  <div className="mt-4 text-sm">
-                    <a href="#" className="font-medium text-gray-900">
-                      Get a free sample <span className="font-normal text-gray-500">(20MB)</span>
-                    </a>
-                  </div>
-                </div> */}
+                 : <></>}
               </div>
             </div>
           </div>
