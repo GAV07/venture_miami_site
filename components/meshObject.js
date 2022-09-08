@@ -31,6 +31,7 @@ function Caption({ children }) {
       material-toneMapped={false}
       anchorX="center"
       anchorY="middle"
+      font='fonts/FontsFree-Net-BasisGrotesquePro-Regular.ttf'
     >
       {children}
     </Text>
@@ -42,10 +43,13 @@ function Subtitle({ children }) {
     <Text
       position={[0, -1, -7]}
       lineHeight={0.8}
-      fontSize={width > 5 ? width / 32 : width / 18}
+      fontSize={width > 5 ? width / 32 : width / 14}
       material-toneMapped={false}
       anchorX="center"
       anchorY="middle"
+      maxWidth={width > 5 ? 10 : 4}
+      textAlign="center"
+      font='fonts/FontsFree-Net-BasisGrotesquePro-Regular.ttf'
     >
       {children}
     </Text>

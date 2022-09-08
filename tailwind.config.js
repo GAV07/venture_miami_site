@@ -15,6 +15,9 @@ module.exports = {
         'vm-green': '#00E075',
         'vm-accent': '#FED766'
       },
+      fontFamily: {
+        basis: ["Basis Grotesque Pro", "sans-serif"],
+      },
       spacing: {
         28: '7rem',
       },
