@@ -47,7 +47,7 @@ export default function Contact(props) {
             {props.contact.pointsofcontact.map((link) => (
               <div
                 key={link.fields.title}
-                className="md:max-w-[40%] flex flex-col bg-white rounded-2xl shadow-xl"
+                className="mb-12 md:max-w-[40%] flex flex-col bg-white rounded-2xl shadow-xl"
               >
                 <div className="flex-1 relative pt-16 px-6 pb-8 md:px-8">
                   <div className="absolute top-0 p-5 inline-block bg-blue-600 rounded-xl shadow-lg transform -translate-y-1/2">
@@ -105,9 +105,9 @@ export default function Contact(props) {
       </div>
 
       {/* CTA Section */}
-      <section className="relative bg-vm-blue py-32" aria-labelledby="join-heading">
+      <section className="relative bg-vm-blue md:py-32" aria-labelledby="join-heading">
         <div
-          className="hidden absolute inset-x-0 h-1/2 bg-blue-gray-50 lg:block"
+          className="hidden absolute inset-x-0 h-1/2 bg-vm-blue lg:block"
           aria-hidden="true"
         />
         <div className="max-w-7xl mx-auto bg-blue-600 lg:bg-transparent lg:px-8">
@@ -117,10 +117,10 @@ export default function Contact(props) {
                 className="absolute inset-x-0 h-1/2 bg-blue-gray-50 lg:hidden"
                 aria-hidden="true"
               />
-              <div className="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
+              <div className="max-w-md mx-auto sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
                 <div className="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
                   <img
-                    className="object-cover object-center rounded-3xl shadow-2xl"
+                    className="object-cover object-center md:rounded-3xl shadow-2xl"
                     src={props.contact.repositories.fields.image.fields.file.url}
                     alt=""
                   />
@@ -177,10 +177,10 @@ export default function Contact(props) {
                 <p className="text-lg text-vm-blue">
                   {props.contact.repositories.fields.subtitle}
                 </p>
-                <div className="flex w-full justify-start">
+                <div className="flex flex-wrap gap-2 w-full justify-start">
                     {props.contact.repositories.fields.buttons.map((button) => (
                         <a
-                        className="block w-full md:mr-6 py-3 px-5 text-center bg-vm-blue border border-transparent rounded-md shadow-md font-medium text-white hover:bg-vm-accent hover:text-black sm:inline-block sm:w-auto"
+                        className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm last:text-vm-blue last:bg-white text-black bg-vm-accent hover:text-white hover:bg-blue-900"
                         href={button.fields.url}
                         >
                         {button.fields.text}
