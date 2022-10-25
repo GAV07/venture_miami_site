@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/api'
 import PreLoader from '../components/preLoader'
+import Banner from '../components/banner'
 
 
 export default function Index(props) {
@@ -18,6 +19,7 @@ export default function Index(props) {
           <title>Venture Miami - Innovation and Economic Development Office</title>
         </Head>
         <Container>
+          <Banner />
           <Hero content={props.hero}/>
           <MayorSection content={props.mayor} />
           <Features content={props.features}/>

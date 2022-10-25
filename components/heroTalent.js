@@ -1,12 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { CheckCircleIcon } from '@heroicons/react/solid'
 
-const includedFeatures = [
-  'Private forum access',
-  'Member resources',
-  'Entry to annual conference',
-  'Official member t-shirt',
-]
 
 export function Hero(props) {
   return (
