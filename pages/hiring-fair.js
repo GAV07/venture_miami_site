@@ -75,7 +75,6 @@ function classNames(...classes) {
 export default function HiringFair(props) {
   return (
     <Layout content={props.footer}>
-        {console.log(icons[0])}
         <Head>
           <title>Venture Miami - Talent Ecosystem</title>
         </Head>
@@ -85,7 +84,6 @@ export default function HiringFair(props) {
               <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
                 {console.log(props.fair)}
                 {props.fair.logos.map((logo) => (
-                  
                   <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
                     <img className="h-12" src={logo.fields.image.fields.file.url} alt={logo.fields.name} />
                   </div>
@@ -95,8 +93,8 @@ export default function HiringFair(props) {
           </div>
           <div className="sm:pt-16 lg:pt-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-left md:text-center">
-                <h2 className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">{props.fair.title}</h2>
+              <div className="px-10 text-left md:text-center">
+                <h2 className="leading-5 text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">{props.fair.title}</h2>
                 <p className="mt-4 text-xl text-white">
                   {props.fair.subtitle}
                 </p>
@@ -114,13 +112,12 @@ export default function HiringFair(props) {
                 )}
               >
                 <div>
-                    {/* add company logos instead to each block */}
-                    {/* <icons[i] className="h-6 w-6" aria-hidden="true" /> */}
+                    <img className="h-12 rounded-md" src={block.fields.logo.fields.file.url} alt={block.fields.logo.fields.name} />
                 </div>
                 <div className="mt-8">
                   <div className="flex space-x-2">
-                    <p className="text-md">{block.fields.date}</p>
-                    <p className="text-sm">{block.fields.time}</p>
+                    <p className="text-md text-slate-500">{block.fields.date}</p>
+                    <p className="text-md text-vm-blue">at {block.fields.time}</p>
                   </div>
                   <h3 className="text-lg font-medium">
                     <a href={block.fields.link} className="focus:outline-none">
