@@ -52,7 +52,8 @@ export default function HiringFair(props) {
                 <div className="mt-8">
                   <div className="flex space-x-2">
                     <p className="text-md text-vm-blue font-bold">{block.fields.date}</p>
-                    <p className="text-md text-slate-500">at {block.fields.time}</p>
+                    {console.log(block.fields.time)}
+                    <p className="text-md text-slate-500">{block.fields.time !== undefined ? "at" : ""} {block.fields.time}</p>
                   </div>
                   <h3 className="text-lg font-medium">
                     <a href={block.fields.link} className="focus:outline-none">
