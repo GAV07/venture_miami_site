@@ -1,72 +1,8 @@
-import {
-  AcademicCapIcon,
-  CashIcon,
-  BadgeCheckIcon,
-  ClockIcon,
-  ReceiptRefundIcon,
-  UsersIcon,
-} from '@heroicons/react/outline'
 import { Container } from '../components/container'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/api'
 
-const actions = [
-  {
-    title: 'Building an Effective Resume',
-    date: "November 3rd at 5pm",
-    href: '#',
-    icon: ClockIcon,
-    iconForeground: 'text-teal-700',
-    iconBackground: 'bg-teal-50',
-  },
-  {
-    title: 'Rock Your LinkedIn Profile',
-    date: "November 3rd at 5pm",
-    href: '#',
-    icon: BadgeCheckIcon,
-    iconForeground: 'text-purple-700',
-    iconBackground: 'bg-purple-50',
-  },
-  {
-    title: 'Building an Effective Resume',
-    date: "November 3rd at 5pm",
-    href: '#',
-    icon: UsersIcon,
-    iconForeground: 'text-sky-700',
-    iconBackground: 'bg-sky-50',
-  },
-  {
-    title: 'Building an Effective Resume',
-    href: '#',
-    icon: CashIcon,
-    iconForeground: 'text-yellow-700',
-    iconBackground: 'bg-yellow-50',
-  },
-  {
-    title: 'Submit an expense',
-    href: '#',
-    icon: ReceiptRefundIcon,
-    iconForeground: 'text-rose-700',
-    iconBackground: 'bg-rose-50',
-  },
-  {
-    title: 'Training',
-    href: '#',
-    icon: AcademicCapIcon,
-    iconForeground: 'text-indigo-700',
-    iconBackground: 'bg-indigo-50',
-  },
-]
-
-const icons = [
-  ClockIcon,
-  BadgeCheckIcon,
-  UsersIcon,
-  CashIcon,
-  ReceiptRefundIcon,
-  AcademicCapIcon
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -80,12 +16,11 @@ export default function HiringFair(props) {
         </Head>
         <Container className="bg-vm-blue p-10">
           <div className="mt-20">
-            <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
-                {console.log(props.fair)}
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-center">
                 {props.fair.logos.map((logo) => (
-                  <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-                    <img className="h-12" src={logo.fields.image.fields.file.url} alt={logo.fields.name} />
+                  <div className="w-[75vw] flex justify-center align-center">
+                    <img className="" src={logo.fields.image.fields.file.url} alt={logo.fields.name} />
                   </div>
                 ))}
               </div>
@@ -116,8 +51,8 @@ export default function HiringFair(props) {
                 </div>
                 <div className="mt-8">
                   <div className="flex space-x-2">
-                    <p className="text-md text-slate-500">{block.fields.date}</p>
-                    <p className="text-md text-vm-blue">at {block.fields.time}</p>
+                    <p className="text-md text-vm-blue font-bold">{block.fields.date}</p>
+                    <p className="text-md text-slate-500">at {block.fields.time}</p>
                   </div>
                   <h3 className="text-lg font-medium">
                     <a href={block.fields.link} className="focus:outline-none">
