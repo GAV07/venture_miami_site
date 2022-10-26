@@ -16,7 +16,7 @@ export default function Banner() {
                         <SpeakerphoneIcon className="h-6 w-6 text-white" aria-hidden="true" />
                         </span>
                         <p className="ml-3 truncate font-medium text-vm-blue">
-                        <span className="md:hidden">Workshop Opportunities!</span>
+                        <span className="md:hidden">Venture Miami Hiring Fair!</span>
                         <span className="hidden md:inline">Workshop Opportunities! Come and get ready for the Venture Miami Hiring Fair.</span>
                         </p>
                     </div>
