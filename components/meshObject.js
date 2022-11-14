@@ -9,7 +9,6 @@ export function MeshObject({title, subtitle, trees}) {
   return (
     <div className="absolute top-0 left-0 w-full h-screen">
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
-        {/* <Bg /> */}
         <Suspense fallback={null}>
           {trees ? <Trees/> : null}
           <Caption>{title}</Caption>
@@ -23,37 +22,43 @@ export function MeshObject({title, subtitle, trees}) {
 
 function Caption({ children }) {
   const { width } = useThree((state) => state.viewport);
-  return (
-    <Text
-      position={[0, 0, -5]}
-      lineHeight={0.8}
-      fontSize={width > 5 ? width / 10 : width / 8}
-      material-toneMapped={false}
-      anchorX="center"
-      anchorY="middle"
-      font='fonts/FontsFree-Net-BasisGrotesquePro-Regular.ttf'
-    >
-      {children}
-    </Text>
-  );
+
+  if (width > 3) {
+    return (
+      <Text
+        position={[0, 0, -5]}
+        lineHeight={0.8}
+        fontSize={width > 5 ? width / 10 : width / 8}
+        material-toneMapped={false}
+        anchorX="center"
+        anchorY="middle"
+        font='fonts/FontsFree-Net-BasisGrotesquePro-Regular.ttf'
+      >
+        {children}
+      </Text>
+    );
+  } else null
 }
 function Subtitle({ children }) {
   const { width } = useThree((state) => state.viewport);
-  return (
-    <Text
-      position={[0, -1, -7]}
-      lineHeight={0.8}
-      fontSize={width > 5 ? width / 32 : width / 14}
-      material-toneMapped={false}
-      anchorX="center"
-      anchorY="middle"
-      maxWidth={width > 5 ? 10 : 4}
-      textAlign="center"
-      font='fonts/FontsFree-Net-BasisGrotesquePro-Regular.ttf'
-    >
-      {children}
-    </Text>
-  );
+
+  if (width > 3) {
+    return (
+      <Text
+        position={[0, -1, -7]}
+        lineHeight={0.8}
+        fontSize={width > 5 ? width / 32 : width / 14}
+        material-toneMapped={false}
+        anchorX="center"
+        anchorY="middle"
+        maxWidth={width > 5 ? 10 : 4}
+        textAlign="center"
+        font='fonts/FontsFree-Net-BasisGrotesquePro-Regular.ttf'
+      >
+        {children}
+      </Text>
+    );
+  } else null
 }
 
 function Rig({ v = new THREE.Vector3() }) {

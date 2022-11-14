@@ -19,7 +19,7 @@ export default function Index(props) {
           <title>Venture Miami - Innovation and Economic Development Office</title>
         </Head>
         <Container>
-          <Banner />
+          <Banner content={props.banner} />
           <Hero content={props.hero}/>
           <MayorSection content={props.mayor} />
           <Features content={props.features}/>
@@ -33,6 +33,7 @@ export default function Index(props) {
 export async function getStaticProps() {
   
   const hero = await Client.getEntry('6WLwahfXarspVrYhJzVyUY')
+  const banner = await Client.getEntry('5GU3ItwJF4hGtffkrP02i4')
   const rankings = await Client.getEntry('6WLwahfXarspVrYhJzVyUY')
   const mayor = await Client.getEntry('2m2xTF7Yyl3unkoXwEFs4U')
   const features = await Client.getEntry('7gs8HupYmj0jeWzQHHryJj', {include: 3})
@@ -43,6 +44,7 @@ export async function getStaticProps() {
   return {
     props: {
       hero: hero.fields,
+      banner: banner.fields,
       rankings: rankings.fields,
       mayor: mayor.fields,
       features: features.fields,
