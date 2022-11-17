@@ -21,14 +21,14 @@ export default function Banner(props) {
                             <p className="hidden md:inline">{props.content.subtitle}</p>
                         </div>
                     </div>
-                    <div className="order-3 mr-2 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
+                    {/* <div className="order-3 mr-2 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
                         <a
                         href="/hiring-fair"
                         className="flex items-center justify-center rounded-md border border-transparent bg-vm-accent px-4 py-2 text-sm font-medium text-vm-blue shadow-sm hover:bg-white hover:text-black"
                         >
                         Learning Workshops
                         </a>
-                    </div>
+                    </div> */}
                     <div className="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
                         <a
                         href="https://www.eventbrite.com/e/venture-miami-tech-hiring-fair-3-tickets-403469507157"
