@@ -14,11 +14,15 @@ export function Companies({records}) {
           <li key={record.id} className="col-span-1 flex rounded-md shadow-sm">
             <div
               className={classNames(
-                
-                'flex-shrink-0 bg-[#AFAAB9] flex items-center justify-center w-16 text-white text-sm font-medium rounded-l-md'
+                'flex-shrink-0 bg-black flex items-center justify-center w-16 text-white text-sm font-medium rounded-l-md'
               )}
             >
-              {record.fields.abv}
+              {/* {record.fields.Logo ?
+               <img href={record.fields.Logo} /> : 
+               record.fields.abv
+               }
+              {record.fields.abv} */}
+              {<img src={record.fields.Logo} className="w-[80%] h-[80%]"/>}
             </div>
             <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-t border-r border-b border-gray-200 bg-white">
               <div className="flex-1 truncate px-4 py-2 text-sm">

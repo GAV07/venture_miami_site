@@ -3,7 +3,7 @@
 export function QRCodes(props) {
     return (
       <div className="">
-        <div className="mx-auto max-w-2xl px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8">
           {/* Details section */}
           <section aria-labelledby="details-heading">
             <div className="flex flex-col items-center text-center">
@@ -16,6 +16,7 @@ export function QRCodes(props) {
             </div>
             <div className="mt-16 flex justify-center gap-20">
                 {props.content.qrCodes.map((code) => (
+                  <a href={code.fields.url}>
                     <div>
                         <p className="mb-8 text-base text-center text-white">
                             {code.fields.title}
@@ -28,6 +29,7 @@ export function QRCodes(props) {
                             />
                         </div>
                     </div>
+                  </a>
                 ))}
               </div>
           </section>
