@@ -6,8 +6,6 @@ function classNames(...classes) {
 }
 
 export function Companies({records}) {
-    // console.log(props)
-    
   return (
     <div>
       {/* <h2 className="text-sm font-medium text-gray-500">Pinned Projects</h2> */}
@@ -27,16 +25,17 @@ export function Companies({records}) {
                 <a href={record.fields.Jobs} className="font-medium text-gray-900 hover:text-gray-600">
                   {record.fields.Company}
                 </a>
-                <p className="text-gray-500">{record.fields.Industry}</p>
+                <p className="text-vm-blue">{record.fields.Industry}</p>
               </div>
               <div className="flex-shrink-0 pr-2">
-                <button
-                  type="button"
+                <a
+                  target="_blank"
+                  href={record.fields.Jobs}
                   className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white bg-transparent text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="sr-only">Open options</span>
                   <DotsVerticalIcon className="h-5 w-5" aria-hidden="true" />
-                </button>
+                </a>
               </div>
             </div>
           </li>
