@@ -14,11 +14,11 @@ export function QRCodes(props) {
                 Use these QR Codes to join our Talent Repository and then connect directly with companies while you are at the hiring fair.
               </p>
             </div>
-            <div className="mt-16 flex justify-center gap-20">
-                {props.content.qrCodes.map((code) => (
-                  <a href={code.fields.url}>
+            <div className="mt-16 flex flex-wrap justify-center gap-20">
+                {props.content.qrCodes.map((code, i) => (
+                  <a key={i} href={code.fields.url}>
                     <div>
-                        <p className="mb-8 text-base text-center text-white">
+                        <p className="mb-8 text-base text-center text-white max-w-md">
                             {code.fields.title}
                         </p>
                         <div className="md:p-10 bg-white drop-shadow-md w-full overflow-hidden rounded-lg">
