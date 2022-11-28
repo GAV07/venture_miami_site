@@ -1,4 +1,4 @@
-import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline'
+import { XIcon } from '@heroicons/react/outline'
 import { useState } from 'react'
 import { Transition } from '@headlessui/react'
 
