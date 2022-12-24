@@ -74,10 +74,8 @@ export function BankLanding(props) {
                 </p>
                 <div className="flex space-x-4">
                     {props.content.buttons.map((button) => (
-                        <Link href={button.fields.url}>
-                            <a className="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-indigo-700 hover:bg-gray-50 sm:inline-block sm:w-auto">
+                        <Link className="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-indigo-700 hover:bg-gray-50 sm:inline-block sm:w-auto" href={button.fields.url}>
                                 {button.fields.text}
-                            </a>
                         </Link>
                     ))}
                 </div>

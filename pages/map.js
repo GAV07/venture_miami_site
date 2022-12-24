@@ -13,7 +13,7 @@ export default function HiringFair(props) {
   return (
     <Layout content={props.footer}>
         <Head>
-          <title>Venture Miami - Hub</title>
+          <title>Venture Miami - Capital Map</title>
         </Head>
         <Container className="bg-vm-blue p-10">
           <Hero content={props.hero}/>
