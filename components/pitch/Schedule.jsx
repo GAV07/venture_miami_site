@@ -8,52 +8,40 @@ import backgroundImage from './images/background.jpg'
 
 const schedule = [
   {
-    date: 'Februrary 7',
+    date: 'Road to eMerge 2023',
     dateTime: '2022-04-04',
     summary:
-      'Pitch Competition Day where all the great things happen',
+      'eMerge is the biggest stage for Founders in Florida. Two Founders will be chosen to compete!',
     timeSlots: [
       {
-        name: 'Steven McHail',
-        description: 'Not so one-time payments',
+        name: 'Apply to Black History Pitch Competition',
+        description: 'Where it all begins',
         start: '9:00AM',
         end: '10:00AM',
       },
       {
-        name: 'Jaquelin Isch',
-        description: 'The finer print',
+        name: 'Eight Founders Chosen',
+        description: 'Participants are chosen and prep to pitch',
         start: '10:00AM',
         end: '11:00AM',
       },
       {
-        name: 'Dianne Guilianelli',
-        description: 'Post-purchase blackmail',
+        name: 'Competition Day',
+        description: 'Day of this competition',
         start: '11:00AM',
         end: '12:00PM',
       },
       {
-        name: 'Lunch',
+        name: 'eMerge Conference Prep',
         description: null,
         start: '12:00PM',
         end: '1:00PM',
       },
       {
-        name: 'Ronni Cantadore',
-        description: 'Buy or die',
+        name: 'eMerge Conference Pitch Competition',
+        description: null,
         start: '1:00PM',
         end: '2:00PM',
-      },
-      {
-        name: 'Erhart Cockrin',
-        description: 'In-person cancellation',
-        start: '2:00PM',
-        end: '3:00PM',
-      },
-      {
-        name: 'Parker Johnson',
-        description: 'The pay/cancel switcheroo',
-        start: '3:00PM',
-        end: '4:00PM',
       },
     ],
   },
@@ -178,7 +166,7 @@ function TimeSlots({ day, className }) {
 
 function ScheduleStatic() {
   return (
-    <div className="hidden lg:grid lg:grid-cols-3 lg:gap-x-8">
+    <div className="hidden lg:flex lg:mx-auto lg:max-w-lg justify-center">
       {schedule.map((day) => (
         <section key={day.dateTime}>
           <DaySummary day={day} />
@@ -193,7 +181,7 @@ export function Schedule() {
   return (
     <section id="schedule" aria-label="Schedule" className="py-20 sm:py-32">
       <Container className="relative z-10">
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-4xl lg:pr-24">
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-4xl lg:pl-52">
           <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
             Join other Founders to compete for a chance to pitch on the big stage!
           </h2>
@@ -213,7 +201,7 @@ export function Schedule() {
             unoptimized
           />
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white" />
-          <div className="absolute z-0 inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white" />
         </div>
         <Container className="relative">
           <ScheduleTabbed />

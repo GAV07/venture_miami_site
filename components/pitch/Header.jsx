@@ -1,4 +1,4 @@
-import { Button } from '../button'
+import { Button } from './Button'
 import { Container } from './Container'
 import { DiamondIcon } from './DiamondIcon'
 import { Logo } from '../logo-alt'

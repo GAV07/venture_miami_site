@@ -22,7 +22,7 @@ export function Hero() {
       </div>
       <Container className="relative">
         <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
-          <h1 className="font-display text-5xl font-bold tracking-tighter text-blue-600 sm:text-7xl">
+          <h1 className="font-display text-5xl font-bold tracking-tighter leading-tight text-blue-600 sm:text-7xl">
             eMerge Americas Black History Month Pitch Competition 
           </h1>
           <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-10 sm:mt-16 sm:gap-y-10 sm:gap-x-16 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
@@ -55,9 +55,10 @@ export function Hero() {
           </div>
           <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-10 sm:mt-16 sm:gap-y-10 sm:gap-x-16 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
             {[
-              ['Criteria 1', 'MVP Established'],
-              ['Criteria 2', 'Less than Two Years'],
-              ['Criteria 3', 'Less than $1M Raised'],
+              ['Product Development', 'MVP Established'],
+              ['Business Stage', 'Less than Two Years'],
+              ['Capital Raised', 'Less than $1M Raised'],
+              ['Location', 'Florida Company'],
             ].map(([name, value]) => (
               <div key={name}>
                 <dt className="font-mono text-sm text-blue-600">{name}</dt>
