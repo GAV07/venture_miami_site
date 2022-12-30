@@ -14,34 +14,28 @@ const schedule = [
       'eMerge is the biggest stage for Founders in Florida. Two Founders will be chosen to compete!',
     timeSlots: [
       {
-        name: 'Apply to Black History Pitch Competition',
-        description: 'Where it all begins',
-        start: '9:00AM',
-        end: '10:00AM',
-      },
-      {
-        name: 'Eight Founders Chosen',
-        description: 'Participants are chosen and prep to pitch',
-        start: '10:00AM',
-        end: '11:00AM',
-      },
-      {
-        name: 'Competition Day',
-        description: 'Day of this competition',
-        start: '11:00AM',
-        end: '12:00PM',
-      },
-      {
-        name: 'eMerge Conference Prep',
+        name: 'Applications Open',
         description: null,
-        start: '12:00PM',
-        end: '1:00PM',
+        start: 'December 30th',
+        end: null,
       },
       {
-        name: 'eMerge Conference Pitch Competition',
+        name: 'Applications Close',
         description: null,
-        start: '1:00PM',
-        end: '2:00PM',
+        start: 'January 27th',
+        end: null,
+      },
+      {
+        name: 'Top 8 Founders Announced',
+        description: null,
+        start: 'January 30th',
+        end: null,
+      },
+      {
+        name: 'Pitch Day',
+        description: null,
+        start: 'February 7th',
+        end: null,
       },
     ],
   },
@@ -152,11 +146,11 @@ function TimeSlots({ day, className }) {
             <time dateTime={`${day.dateTime}T${timeSlot.start}-08:00`}>
               {timeSlot.start}
             </time>{' '}
-            -{' '}
+            
             <time dateTime={`${day.dateTime}T${timeSlot.end}-08:00`}>
               {timeSlot.end}
             </time>{' '}
-            PST
+            
           </p>
         </li>
       ))}
