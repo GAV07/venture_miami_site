@@ -33,25 +33,26 @@ export function Hero() {
               ['Participants', '$2,000'],
             ].map(([name, value]) => (
               <div key={name}>
-                <dt className="font-mono text-sm text-blue-600">{name}</dt>
+                <dt className="font-mono text-sm text-blue-600">{name == 'Participants' ? <sup>*</sup> : ''}{name}</dt>
                 <dd className="mt-0.5 text-4xl font-semibold tracking-tight text-blue-900">
                   {value}
                 </dd>
               </div>
             ))}
           </dl>
+          <p className='text-xs mt-3'><sup>*</sup>Participants refers only to the remaining five participants that are selected to participate at the event</p>
           <Button href="https://airtable.com/shr6ef8fFSIFJ7VvI" className="mt-10 w-full sm:hidden">
             Apply Now
           </Button>
           <div className="mt-6 space-y-6 font-display text-2xl tracking-tight text-blue-900">
             <p>
-              Calling all entrepreneurs in Florida! Are you ready to pitch your startup and kick start your future by making history this Black History Month? Then don't miss the Silicon Valley Bank and eMerge Americas Black History Month Pitch Competition, presented by Venture Miami, eMerge Americas, and Silicon Valley Bank.
+            Calling all entrepreneurs in Florida! Are you ready to pitch your startup and kick start your future by making history this Black History Month? Then don't miss the Silicon Valley Bank and eMerge Americas Black History Month Pitch Competition, presented by Venture Miami, eMerge Americas, and Silicon Valley Bank.
             </p>
             <p>
-              This is your chance to showcase your business in front of a panel of VCs, the Miami Tech community, successful entrepreneurs, be in the running for grants, coaching, and more. A total of 8 companies will be selected to participate in the competition, where they will have 3 minutes to pitch their business idea to a panel of judges from Venture Miami, eMerge, and Silicon Valley Bank.
+            This is your chance to showcase your business in front of a panel of VCs, the Miami Tech community, successful entrepreneurs, be in the running for grants, coaching, and more. A total of 8 companies will be selected to participate in the competition, where they will have 3 minutes to pitch their business idea to a panel of judges from Venture Miami, eMerge, and Silicon Valley Bank.
             </p>
             <p>
-              The grand prize is $15,000, second-place prize of $10,000, third-prize $5,000, and all other participants will recieve $2,000. We know how valuable your time is so all selected participants will receive grants from Silicon Valley Bank All prize money will be awarded through  Silicon Valley Bank’s founder-focused no fee Startup Banking accounts that are designed to help entrepreneurs scale their business. But it’s not just about the prizes - it’s about the opportunity to make history and be a part of something bigger. The winners will also get fast tracked into the 2023 eMerge Americas Startup Showcase for the opportunity to win $420,000 investment into their company.
+            The grand prize is $15,000, second-place prize of $10,000, third-prize $5,000, and the remaining five participants will each receive $2,000. We know how valuable your time is so all eight selected participants will receive grants from Silicon Valley Bank. All prize money will be awarded through Silicon Valley Bank’s, founder-focused, no fee, Startup Banking accounts that are designed to help entrepreneurs scale their business. But it’s not just about the prizes - it’s about the opportunity to make history and be a part of something bigger. The top two companies will also get fast tracked into the 2023 eMerge Americas Startup Showcase for the opportunity to win $420,000 investment into their company.
             </p>
           </div>
           <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-10 sm:mt-16 sm:gap-y-10 sm:gap-x-16 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
@@ -59,7 +60,7 @@ export function Hero() {
               ['Product Development', 'MVP Established'],
               ['Business Stage', 'Less than Two Years'],
               ['Capital Raised', 'Less than $1M Raised'],
-              ['Location', 'Florida Company'],
+              ['Location', 'Florida Based Companies'],
             ].map(([name, value]) => (
               <div key={name}>
                 <dt className="font-mono text-sm text-blue-600">{name}</dt>
