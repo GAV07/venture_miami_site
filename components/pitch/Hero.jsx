@@ -27,7 +27,6 @@ export function Hero() {
           </h1>
           <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-10 sm:mt-16 sm:gap-y-10 sm:gap-x-16 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
             {[
-              ['Deadline', 'January 27th'],
               ['Grand Prize', '$15,000'],
               ['Second Prize', '$10,000'],
               ['Third Prize', '$5,000'],
