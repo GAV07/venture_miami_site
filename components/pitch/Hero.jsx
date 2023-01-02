@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { Button } from '../button'
+import { Button } from './Button'
 import { Container } from './Container'
 import backgroundImage from './images/background.jpg'
 

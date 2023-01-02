@@ -1,6 +1,5 @@
 import { Container } from '../components/container'
-import { Hero } from '../components/talent/Hero'
-import { Data } from '../components/talent/Data'
+
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/api'
@@ -11,11 +10,10 @@ export default function Data(props) {
     <>
       <Layout content={props.footer}>
         <Head>
-          <title>Venture Miami - Talent Ecosystem</title>
+          <title>Venture Miami - Data</title>
         </Head>
         <Container>
-          <Hero content={props.hero}/>
-          <Data content={props.data}/>
+          
         </Container>
       </Layout>
     </>
