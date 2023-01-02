@@ -1,4 +1,4 @@
-import { Container } from "./container";
+import { Container } from "../container";
 import { InboxIcon, SparklesIcon } from "@heroicons/react/outline";
 
 export function Features(props) {

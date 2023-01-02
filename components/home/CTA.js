@@ -1,7 +1,7 @@
-import { ButtonLink } from './button'
-import { Container } from './container'
+//import { ButtonLink } from './button'
+import { Container } from '../container'
 
-export function CallToAction(props) {
+export function CTA(props) {
   return (
     
       <Container className="relative">
@@ -12,9 +12,9 @@ export function CallToAction(props) {
           <p className="mt-4 text-lg tracking-tight text-white">
             {props.content.subtitle}
           </p>
-          <ButtonLink href={props.content.button.fields.url} color="white" className="mt-10">
+          {/* <ButtonLink href={props.content.button.fields.url} color="white" className="mt-10">
             {props.content.button.fields.text}
-          </ButtonLink>
+          </ButtonLink> */}
         </div>
       </Container>
   )

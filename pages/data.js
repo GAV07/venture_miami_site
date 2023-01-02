@@ -6,7 +6,7 @@ import Head from 'next/head'
 import { Client } from '../lib/api'
 
 
-export default function Talent(props) {
+export default function Data(props) {
   return (
     <>
       <Layout content={props.footer}>

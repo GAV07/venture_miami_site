@@ -1,13 +1,13 @@
 import { Container } from '../components/container'
-import { Hero } from '../components/hero'
-import { MayorSection } from '../components/mayor'
-import { CallToAction } from '../components/callToAction'
-import { Features } from '../components/features'
+import { Hero } from '../components/home/Hero'
+import { MayorSection } from '../components/home/Mayor'
+import { CallToAction } from '../components/home/CTA'
+import { Features } from '../components/home/Features'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/api'
-import PreLoader from '../components/preLoader'
-import Banner from '../components/banner'
+import PreLoader from '../components/home/PreLoader'
+import Banner from '../components/home/Banner'
 
 
 export default function Index(props) {
@@ -23,7 +23,7 @@ export default function Index(props) {
           <Hero content={props.hero}/>
           <MayorSection content={props.mayor} />
           <Features content={props.features}/>
-          <CallToAction content={props.cta} />
+          {/* <CallToAction content={props.cta} /> */}
         </Container>
       </Layout>
     </PreLoader>

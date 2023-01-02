@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export function BankLanding(props) {
+export function Bank(props) {
     return (
       <div className="relative py-16 bg-vm-blue">
         <div className="bg-vm-blue hidden absolute top-0 inset-x-0 h-1/2 bg-gray-50 lg:block" aria-hidden="true" />

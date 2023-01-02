@@ -42,7 +42,7 @@ export default function Header() {
               About Us
             </a>
             <a
-              href="/company"
+              href="/business"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
               Relocating to Miami?

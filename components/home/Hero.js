@@ -1,5 +1,5 @@
 import { MeshObject } from './meshObject'
-import { Container } from './container'
+import { Container } from '../container'
 
 export function Hero(props) {
   return (

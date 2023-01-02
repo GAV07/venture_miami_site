@@ -1,5 +1,5 @@
   
-  export function MiamiData(props) {
+  export function Data(props) {
     return (
       <div className="bg-vm-blue">
           {props.content.dataList.map((section) => (

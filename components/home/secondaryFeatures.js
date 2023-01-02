@@ -2,7 +2,7 @@ import React, { useId } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
-import { Container } from './container'
+import { Container } from '../container'
 
 function Feature({ feature, isActive, className, ...props }) {
   return (

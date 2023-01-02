@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Container } from './container';
+import { Container } from '../container';
 import Map, { FullscreenControl, Layer, Source, Popup, Marker } from 'react-map-gl'
 
 //mapboxgl.accessToken = process.env.YOUR_MAPBOX_ACCESS_TOKEN;
