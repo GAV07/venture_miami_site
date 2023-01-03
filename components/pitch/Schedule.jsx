@@ -16,7 +16,7 @@ const schedule = [
       {
         name: 'Applications Open',
         description: null,
-        start: 'December 30th',
+        start: 'January 3rd',
         end: null,
       },
       {
@@ -175,11 +175,11 @@ export function Schedule() {
   return (
     <section id="schedule" aria-label="Schedule" className="py-20 sm:py-32">
       <Container className="relative z-10">
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-4xl lg:pl-52">
-          <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
+        <div className="mx-auto max-w-2xl lg:max-w-2xl">
+          <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl lg:text-center">
             Join other Founders to compete for a chance to pitch on the big stage!
           </h2>
-          <p className="mt-4 font-display text-2xl tracking-tight text-blue-900">
+          <p className="mt-4 font-display text-2xl tracking-tight text-blue-900 lg: text-center">
             This is your chance to showcase your business in front of a panel of VCs, the Miami Tech community, and successful entrepreneurs, and be in the running for grants, coaching, and more.
           </p>
         </div>

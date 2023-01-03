@@ -72,7 +72,7 @@ export function CTA() {
               <h2 className="text-3xl font-bold tracking-tight text-white" id="join-heading">
                 Join the Competition!
               </h2>
-              <p className="text-lg text-white">
+              <p className="text-lg text-white text-justify">
                 Don't miss your chance to participate in this exciting opportunity! The deadline to submit your application is 5PM on Friday, January 27. Please note that by applying, you agree to allow Venture Miami, eMerge Americas, and Silicon Valley Bank to share your data with all parties.
               </p>
               <a

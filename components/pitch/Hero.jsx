@@ -54,7 +54,7 @@ export function Hero() {
           <Button href="https://airtable.com/shr6ef8fFSIFJ7VvI" className="mt-10 w-full sm:hidden">
             Apply Now
           </Button>
-          <div className="mt-6 space-y-6 font-display text-2xl tracking-tight text-blue-900">
+          <div className="mt-6 space-y-6 font-display text-2xl tracking-tight text-blue-900 lg:text-justify">
             <p>
             Calling all entrepreneurs in Florida! Are you ready to pitch your startup and kick start your future by making history this Black History Month? Then don't miss the Silicon Valley Bank and eMerge Americas Black History Month Pitch Competition, presented by Venture Miami, eMerge Americas, and Silicon Valley Bank.
             </p>
