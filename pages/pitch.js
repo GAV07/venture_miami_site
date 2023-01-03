@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Silicon Valley Bank and eMerge Americas Black History Month Pitch Competition</title>
+        <title>Black History Month Pitch Competition</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -49,7 +49,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Sponsors />
+        {/* <Sponsors /> */}
         {/* <Speakers /> */}
         <Schedule />
         <CTA />
