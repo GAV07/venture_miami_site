@@ -19,7 +19,7 @@ export default function Index(props) {
           <title>Venture Miami - Innovation and Economic Development Office</title>
         </Head>
         <Container>
-          {/* <Banner content={props.banner} /> */}
+          <Banner content={props.banner} />
           <Hero content={props.hero}/>
           <MayorSection content={props.mayor} />
           <Features content={props.features}/>
