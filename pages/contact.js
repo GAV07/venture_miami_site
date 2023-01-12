@@ -1,4 +1,4 @@
-import { Client } from "../lib/api";
+import { Client } from "../lib/contentful";
 import Layout from "../components/layout";
 import {
   MenuIcon,

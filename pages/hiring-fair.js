@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import Head from 'next/head'
-import { Client } from '../lib/api'
+import { Client } from '../lib/contentful'
 import { getPosts } from "../lib/getPosts"
 import { Container } from '../components/container'
 import { Hero } from '../components/hub/Hero'

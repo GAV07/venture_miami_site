@@ -4,7 +4,7 @@ import { Team } from '../components/about/Team'
 import { Advisors } from '../components/about/Advisors'
 import Layout from '../components/layout'
 import Head from 'next/head'
-import { Client } from '../lib/api'
+import { Client } from '../lib/contentful'
 
 export default function About(props) {
  

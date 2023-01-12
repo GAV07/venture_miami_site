@@ -5,7 +5,7 @@ import { CTA } from '../components/home/CTA'
 import { Features } from '../components/home/Features'
 import Layout from '../components/layout'
 import Head from 'next/head'
-import { Client } from '../lib/api'
+import { Client } from '../lib/contentful'
 import PreLoader from '../components/home/PreLoader'
 import Banner from '../components/home/Banner'
 

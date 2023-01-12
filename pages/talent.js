@@ -5,7 +5,7 @@ import { Companies } from '../components/talent/Companies'
 import { getPosts } from "../lib/getPosts"
 import Layout from '../components/layout'
 import Head from 'next/head'
-import { Client } from '../lib/api'
+import { Client } from '../lib/contentful'
 
 
 export default function Talent(props) {

@@ -5,7 +5,7 @@ import { Actions } from '../components/business/Actions'
 import { CityMap } from '../components/business/Map'
 import Layout from '../components/layout'
 import Head from 'next/head'
-import { Client } from '../lib/api'
+import { Client } from '../lib/contentful'
 
 
 export default function Guide(props) {
