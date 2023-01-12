@@ -72,11 +72,17 @@ export function CTA() {
               <h2 className="text-3xl font-bold tracking-tight text-white" id="join-heading">
                 Join the Competition!
               </h2>
-              <p className="text-lg text-white text-justify">
+              <p className="text-lg text-white lg:text-justify">
                 Don't miss your chance to participate in this exciting opportunity! The deadline to submit your application is 5PM on Friday, January 27. Please note that by applying, you agree to allow Venture Miami, eMerge Americas, and Silicon Valley Bank to share your data with all parties.
               </p>
               <a
-                className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-indigo-700 shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
+                className="block w-full rounded-md border border-transparent py-3 px-5 text-center text-base text-vm-blue font-medium bg-white shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
+                href="https://www.eventbrite.com/e/emerge-americas-silicon-valley-bank-black-history-month-pitch-competition-tickets-493023926837"
+              >
+                Attend Pitch
+              </a>
+              <a
+                className="lg:ml-3 block w-full rounded-md border border-transparent bg-vm-blue py-3 px-5 text-center text-base font-medium text-white shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
                 href="https://airtable.com/shr6ef8fFSIFJ7VvI"
               >
                 Apply Now

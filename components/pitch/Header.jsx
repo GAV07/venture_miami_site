@@ -19,7 +19,8 @@ export function Header() {
             <p>Miami, FL</p>
           </div>
         </div>
-        <div className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end">
+        <div className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end gap-2">
+          <Button className="bg-white text-vm-blue" href="https://https://www.eventbrite.com/e/emerge-americas-silicon-valley-bank-black-history-month-pitch-competition-tickets-493023926837.com/shr6ef8fFSIFJ7VvI">Attend Pitch</Button>
           <Button href="https://airtable.com/shr6ef8fFSIFJ7VvI">Apply Now</Button>
         </div>
       </Container>

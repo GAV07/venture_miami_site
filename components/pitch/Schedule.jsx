@@ -179,7 +179,7 @@ export function Schedule() {
           <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl lg:text-center">
             Join other Founders to compete for a chance to pitch on the big stage!
           </h2>
-          <p className="mt-4 font-display text-2xl tracking-tight text-blue-900 lg: text-center">
+          <p className="mt-4 font-display text-2xl tracking-tight text-blue-900 lg:text-center">
             This is your chance to showcase your business in front of a panel of VCs, the Miami Tech community, and successful entrepreneurs, and be in the running for grants, coaching, and more.
           </p>
         </div>
