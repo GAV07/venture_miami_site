@@ -1,7 +1,8 @@
 import Layout from '../components/layout'
 import Head from 'next/head'
-import { Client } from '../lib/api'
-import { getPosts } from "../lib/getPosts"
+import { Client } from '../lib/contentful'
+import { getPosts } from "../lib/getAirData"
+//import { getEvents } from "../lib/getEvents"
 import { Container } from '../components/container'
 import { Hero } from '../components/data/Hero'
 import { Dashboard } from '../components/data/Dashboard'
@@ -27,12 +28,13 @@ export async function getStaticProps() {
   const capital = await Client.getEntry('1ICyRAB3lMZDT343ZWvVrF', {include: 3})
   const companies = await getPosts("Confirmed Companies");
   const talent = await getPosts("Talent Database");
+  //const events = await getEvents();
   
   return {
     props: {
       footer: footer.fields,
       hero: capital.fields.hero,
-      data: {companies, talent}
+      data: {companies, talent},
     }
   }
 }

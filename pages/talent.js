@@ -2,7 +2,7 @@ import { Container } from '../components/container'
 import { Hero } from '../components/talent/Hero'
 import { Data } from '../components/talent/Data'
 import { Companies } from '../components/talent/Companies'
-import { getPosts } from "../lib/getPosts"
+import { getPosts } from "../lib/getAirData"
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/contentful'
