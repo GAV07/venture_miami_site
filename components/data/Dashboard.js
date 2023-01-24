@@ -13,7 +13,6 @@ import {
   XIcon,
 } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/outline'
-import { GeneralTab } from './GeneralTab'
 import { TalentTab } from './TalentTab'
 
 const user = {
@@ -24,8 +23,7 @@ const user = {
     'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'General', href: '#General', curnt: true },
-  { name: 'Talent', href: '#Talent', current: false },
+  { name: 'Talent', href: '#Talent', current: true },
   { name: 'Tech Companies', href: '#', current: false },
   { name: 'Building', href: '#', current: false },
 ]
@@ -213,8 +211,7 @@ export function Dashboard({data}) {
         {/* ****************************Dashboard Main Area*********************************** */}
         <main className="-mt-24 pb-8">
           {/* <p>The Tab is currently {tab}</p> */}
-          {tab == 0 ? <GeneralTab/> : null}
-          {tab == 1 ? <TalentTab data={data}/> : null}
+          {tab == 0 ? <TalentTab data={data}/> : null}
         </main>
         
       </div>
