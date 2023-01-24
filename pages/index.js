@@ -24,7 +24,7 @@ export default function Index(props) {
           <Banner content={props.banner} />
           <Hero content={props.hero}/>
           <MayorSection content={props.mayor} />
-          <Events content={props.events} />
+          {/* <Events content={props.events} /> */}
           <Features content={props.features}/>
           <CTA content={props.cta} />
         </Container>
