@@ -67,7 +67,7 @@ export function Dashboard({data}) {
                               onClick={() => handleClick(index)}
                               className={classNames(
                                 item.current ? 'text-white' : 'text-cyan-100',
-                                'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10'
+                                'text-sm text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10'
                               )}
                               aria-current={item.current ? 'page' : undefined}
                             >
@@ -166,7 +166,7 @@ export function Dashboard({data}) {
                               <a
                                 key={item.name}
                                 href={item.href}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                                className="block rounded-md px-3 py-2 font-medium text-white hover:bg-gray-100 hover:text-gray-800"
                               >
                                 {item.name}
                               </a>

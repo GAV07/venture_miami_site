@@ -1,13 +1,15 @@
 import { Container } from '../components/container'
 import { Hero } from '../components/home/Hero'
 import { MayorSection } from '../components/home/Mayor'
+import { Events } from '../components/home/Events'
 import { CTA } from '../components/home/CTA'
 import { Features } from '../components/home/Features'
 import Layout from '../components/layout'
 import Head from 'next/head'
-import { Client } from '../lib/contentful'
 import PreLoader from '../components/home/PreLoader'
 import Banner from '../components/home/Banner'
+import { Client } from '../lib/contentful'
+import { getSite } from '../lib/getAirData'
 
 
 export default function Index(props) {
@@ -22,6 +24,7 @@ export default function Index(props) {
           <Banner content={props.banner} />
           <Hero content={props.hero}/>
           <MayorSection content={props.mayor} />
+          <Events content={props.events} />
           <Features content={props.features}/>
           <CTA content={props.cta} />
         </Container>
@@ -39,6 +42,7 @@ export async function getStaticProps() {
   const features = await Client.getEntry('7gs8HupYmj0jeWzQHHryJj', {include: 3})
   const cta = await Client.getEntry('1l4KOGbKXloI5m3NU3UC0w')
   const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
+  const events = await getSite("Events Calendar")
   
 
   return {
@@ -50,6 +54,7 @@ export async function getStaticProps() {
       features: features.fields,
       cta: cta.fields,
       footer: footer.fields,
+      events: events,
     }
   }
 }

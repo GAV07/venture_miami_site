@@ -28,7 +28,7 @@ export default function Footer(props) {
                 </Link>
               </li>
               <li>
-                <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="/talent">
+                <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="/initatives">
                     Initiatives
                 </Link>
               </li>

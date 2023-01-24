@@ -48,7 +48,7 @@ export default function Header() {
               Relocating to Miami?
             </a>
             <a
-              href="/talent"
+              href="/initiatives"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
               Our Initiatives
@@ -260,7 +260,7 @@ export default function Header() {
               Relocating to Miami?
             </a>
             <a
-              href="/talent"
+              href="/initatives"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
               Our Initiatives
