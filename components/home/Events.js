@@ -41,14 +41,15 @@ function classNames(...classes) {
 export function Events(props) {
   return (
     <div className="">
-      <h2 className="text-center text-lg font-semibold text-white">Where is the Venture Miami Team</h2>
-      <div className="mx-auto flex flex-col gap-2 max-w-[50vw]">
-        <ol className="bg-white rounded p-4 mt-4 divide-y divide-gray-100 text-sm leading-6 lg:col-span-7 xl:col-span-8">
+      <h1 className="text-center text-3xl lg:text-6xl font-semibold text-white">Where is the Venture Miami Team</h1>
+      <div className="mx-auto flex flex-col gap-2 lg:max-w-[50vw]">
+        <ol className="bg-white rounded p-6 mt-4 divide-y divide-gray-100 text-sm leading-6 lg:col-span-7 xl:col-span-8">
           {props.content.map((event) => (
               <li key={event.id} className="relative flex space-x-6 py-6 xl:static">
               <img src={event.fields.Image} alt="" className="h-14 w-14 flex-none rounded-full" />
               <div className="flex-auto">
                 <h3 className="pr-10 font-semibold text-gray-900 xl:pr-0">{event.fields.Name}</h3>
+                <p className="text-gray-500">{event.fields.Description}</p>
                 <dl className="mt-2 flex flex-col text-gray-500 xl:flex-row">
                   <div className="flex items-start space-x-3">
                     <dt className="mt-0.5">
@@ -56,8 +57,14 @@ export function Events(props) {
                       <CalendarIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                     </dt>
                     <dd>
+                      <p>
+                        {event.fields.Day + " "}
+                      </p>
                       <time dateTime={event.fields.Date}>
-                        {event.fields.Date}
+                        {event.fields.Date + " "}
+                      </time>
+                      <time dateTime={event.fields.Time}>
+                        {event.fields.Time}
                       </time>
                     </dd>
                   </div>
@@ -70,7 +77,7 @@ export function Events(props) {
                   </div>
                 </dl>
               </div>
-              <Menu as="div" className="absolute top-6 right-0 xl:relative xl:top-auto xl:right-auto xl:self-center">
+              <Menu as="div" className="absolute top-6 right-0 xl:relative xl:top-auto xl:right-auto ">
                 <div>
                   <Menu.Button className="-m-2 flex items-center rounded-full p-2 text-gray-500 hover:text-gray-600">
                     <span className="sr-only">Open options</span>
