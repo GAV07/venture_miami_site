@@ -12,9 +12,6 @@ export default function Layout({ children, content }) {
         <main>{children}</main>
       </div>
       <Footer socials={content}/>
-      {/* Start of HubSpot Embed Code */}
-        <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/23515810.js"></script>
-      {/* End of HubSpot Embed Code */}
     </>
   )
 }
