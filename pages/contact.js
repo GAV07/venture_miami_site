@@ -1,5 +1,7 @@
 import { Client } from "../lib/contentful";
 import Layout from "../components/layout";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { MARKS, BLOCKS } from '@contentful/rich-text-types';
 import {
   MenuIcon,
   NewspaperIcon,
@@ -7,6 +9,20 @@ import {
   SupportIcon,
   XIcon,
 } from "@heroicons/react/outline";
+
+
+const Bold = ({ children }) => <p className="bold">{children}</p>;
+
+const H2 = ({ children }) => <h2 className="mt-6 mb-2 text-2xl underline">{children}</h2>;
+
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+  },
+  renderNode: {
+    [BLOCKS.HEADING_2]: (node, children) => <H2>{children}</H2>,
+  },
+};
 
 export default function Contact(props) {
   return (
@@ -76,36 +92,25 @@ export default function Contact(props) {
           </div>
         </section>
 
-        {/* FAQ */}
-        {/* <section
-          className="max-w-md mx-auto py-24 px-4 divide-y-2 divide-blue-gray-200 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8"
+        {/* Partnerships */}
+        <section
+          className="max-w-md mx-auto py-8 px-4 divide-y-2 divide-blue-gray-200 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8"
           aria-labelledby="faq-heading"
         >
           <h2
-            className="text-3xl tracking-tight font-bold text-white"
-            id="faq-heading"
+            className="text-4xl pb-2 tracking-tight font-bold text-white"
           >
-            Frequently asked questions
+            Partnering with Venture Miami
           </h2>
-          <div className="mt-6 pt-10">
-            <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 md:gap-y-12">
-              {props.contact.faqs.map((faq) => (
-                <div key={faq.fields.title}>
-                  <dt className="text-lg font-medium text-white">
-                    {faq.fields.title}
-                  </dt>
-                  <dd className="mt-2 text-base text-white">
-                    {faq.fields.description}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+          <div className="pt-4 text-white">
+            {documentToReactComponents(props.contact.partner, options)}
           </div>
-        </section> */}
+          
+        </section>
       </div>
 
       {/* CTA Section */}
-      <section className="relative bg-vm-blue md:py-32" aria-labelledby="join-heading">
+      <section className="relative bg-vm-blue md:py-16" aria-labelledby="join-heading">
         <div
           className="hidden absolute inset-x-0 h-1/2 bg-vm-blue lg:block"
           aria-hidden="true"

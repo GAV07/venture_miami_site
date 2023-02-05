@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
-    "@contentful/rich-text-react-renderer": "^15.4.0",
+    "@contentful/rich-text-react-renderer": "^15.16.2",
+    "@contentful/rich-text-types": "^16.0.2",
     "@headlessui/react": "^1.6.5",
     "@heroicons/react": "v1",
     "@react-three/drei": "^9.17.0",
