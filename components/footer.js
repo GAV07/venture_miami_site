@@ -23,12 +23,12 @@ export default function Footer(props) {
                 </Link>
               </li>
               <li>
-                <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="/company">
+                <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="/business">
                     Relocating?
                 </Link>
               </li>
               <li>
-                <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="/initatives">
+                <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="/initiatives">
                     Initiatives
                 </Link>
               </li>
