@@ -12,7 +12,7 @@ export default function About(props) {
     <>
       <Layout content={props.footer}>
         <Head>
-          <title>Venture Miami - Innovation and Economic Development Office</title>
+          <title>Venture Miami - Team</title>
         </Head>
         <Container>
           <Hero content={props.hero}/>
