@@ -19,12 +19,12 @@ export default function Footer(props) {
               </li>
               <li>
                 <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="/about">
-                    About Us
+                    About
                 </Link>
               </li>
               <li>
                 <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="/business">
-                    Relocating?
+                    Companies
                 </Link>
               </li>
               <li>
@@ -34,7 +34,7 @@ export default function Footer(props) {
               </li>
               <li>
                 <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="/contact">
-                    Contact Us
+                    Contact
                 </Link>
               </li>
             </ul>

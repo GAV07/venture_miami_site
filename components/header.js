@@ -39,19 +39,19 @@ export default function Header() {
               href="/about"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
-              About Us
+              About
             </a>
             <a
               href="/business"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
-              Relocating to Miami?
+              Companies
             </a>
             <a
               href="/initiatives"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
-              Our Initiatives
+              Initiatives
             </a>
             {/* <a
               href="/data"
@@ -63,7 +63,7 @@ export default function Header() {
               href="/contact"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
-              Contact Us
+              Contact
             </a>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
@@ -251,19 +251,19 @@ export default function Header() {
               href="/about"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              About Us
+              About
             </a>
               <a
-              href="/company"
+              href="/business"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Relocating to Miami?
+              Companies
             </a>
             <a
               href="/initiatives"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Our Initiatives
+              Initiatives
             </a>
             {/* <a
               href="/data"
@@ -275,7 +275,7 @@ export default function Header() {
               href="/contact"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Contact Us
+              Contact
             </a>
                 
               </div>
