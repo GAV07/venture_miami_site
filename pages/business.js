@@ -14,7 +14,7 @@ export default function Guide(props) {
     <>
       <Layout content={props.footer}>
         <Head>
-          <title>Venture Miami - Relocating?</title>
+          <title>Venture Miami - Companies</title>
         </Head>
         <Container>
           <Hero content={props.hero}/>
