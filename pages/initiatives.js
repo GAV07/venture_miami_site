@@ -13,12 +13,12 @@ export default function Talent(props) {
     <>
       <Layout content={props.footer}>
         <Head>
-          <title>Venture Miami - Talent Ecosystem</title>
+          <title>Venture Miami - Initiatives</title>
         </Head>
         <Container>
           <Hero content={props.hero}/>
           <Data content={props.data}/>
-          <Companies companies={props.companies}/>
+          {/* <Companies companies={props.companies}/> */}
         </Container>
       </Layout>
     </>
