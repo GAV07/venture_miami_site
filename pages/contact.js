@@ -1,5 +1,6 @@
 import { Client } from "../lib/contentful";
 import Layout from "../components/layout";
+import Head from 'next/head'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { MARKS, BLOCKS } from '@contentful/rich-text-types';
 import {
@@ -28,8 +29,8 @@ export default function Contact(props) {
   return (
     <Layout content={props.footer}>
       <Head>
-          <title>Venture Miami - Contact</title>
-        </Head>
+        <title>Venture Miami - Contact</title>
+      </Head>
       <header className="pt-40 relative pb-36 bg-blue-gray-800">
         <div className="absolute inset-0">
           <div className="absolute opacity-80 bg-vm-blue w-full h-full" />
