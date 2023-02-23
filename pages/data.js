@@ -1,7 +1,7 @@
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/contentful'
-import { getTalent } from "../lib/getAirData"
+import { getTalent } from "../lib/airtable"
 import { Container } from '../components/container'
 import { Hero } from '../components/data/Hero'
 import { Dashboard } from '../components/data/Dashboard'
