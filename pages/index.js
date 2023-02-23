@@ -7,9 +7,10 @@ import { Features } from '../components/home/Features'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import PreLoader from '../components/home/PreLoader'
-import Banner from '../components/home/Banner'
+//import Banner from '../components/home/Banner'
 import { Client } from '../lib/contentful'
-import { getSite } from '../lib/getAirData'
+import { getSite } from '../lib/airtable'
+//import { getCards } from '../lib/trello'
 
 
 export default function Index(props) {
@@ -43,6 +44,7 @@ export async function getStaticProps() {
   const cta = await Client.getEntry('1l4KOGbKXloI5m3NU3UC0w')
   const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
   const events = await getSite("Events Calendar")
+  //const cards = await getCards()
   
 
   return {
