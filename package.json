@@ -32,7 +32,8 @@
     "react-dom": "^18.2.0",
     "react-map-gl": "^7.0.19",
     "recharts": "^2.2.0",
-    "three": "^0.142.0"
+    "three": "^0.142.0",
+    "trello-node-api": "^0.0.9"
   },
   "devDependencies": {
     "autoprefixer": "10.4.2",

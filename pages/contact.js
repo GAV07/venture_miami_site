@@ -1,8 +1,6 @@
 import { Client } from "../lib/contentful";
 import Layout from "../components/layout";
 import Head from 'next/head'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { MARKS, BLOCKS } from '@contentful/rich-text-types';
 import {
   MenuIcon,
   NewspaperIcon,
@@ -11,19 +9,6 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 
-
-const Bold = ({ children }) => <p className="bold">{children}</p>;
-
-const H2 = ({ children }) => <h2 className="mt-6 mb-2 text-2xl underline">{children}</h2>;
-
-const options = {
-  renderMark: {
-    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
-  },
-  renderNode: {
-    [BLOCKS.HEADING_2]: (node, children) => <H2>{children}</H2>,
-  },
-};
 
 export default function Contact(props) {
   return (
@@ -94,22 +79,6 @@ export default function Contact(props) {
               </div>
             ))}
           </div>
-        </section>
-
-        {/* Partnerships */}
-        <section
-          className="max-w-md mx-auto py-8 px-4 divide-y-2 divide-blue-gray-200 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8"
-          aria-labelledby="faq-heading"
-        >
-          <h2
-            className="text-4xl pb-2 tracking-tight font-bold text-white"
-          >
-            Partnering with Venture Miami
-          </h2>
-          <div className="pt-4 text-white">
-            {documentToReactComponents(props.contact.partner, options)}
-          </div>
-          
         </section>
       </div>
 

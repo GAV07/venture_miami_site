@@ -20,7 +20,7 @@ function classNames(...classes) {
 export default function Header() {
   return (
     <Popover className="absolute z-[100] w-screen">
-      <div className=" w-screen px-4 sm:px-6">
+      <div className=" w-screen px-4 sm:px-6 bg-vm-blue">
         <div className="flex justify-between items-center border-gray-100 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="/">
@@ -60,10 +60,10 @@ export default function Header() {
               Data
             </a> */}
             <a
-              href="/contact"
+              href="/partnerships"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
-              Contact
+              Partnerships
             </a>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
@@ -272,10 +272,10 @@ export default function Header() {
               Data
             </a> */}
             <a
-              href="/contact"
+              href="/partnerships"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Contact
+              Partnerships
             </a>
                 
               </div>
