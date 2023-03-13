@@ -9,7 +9,6 @@ import { Client } from '../lib/contentful'
 export default function About(props) {
  
   return (
-    <>
       <Layout content={props.footer}>
         <Head>
           <title>Venture Miami - Team</title>
@@ -20,7 +19,6 @@ export default function About(props) {
           <Advisors content={props.advisors}/>
         </Container>
       </Layout>
-    </>
   )
 }
 
