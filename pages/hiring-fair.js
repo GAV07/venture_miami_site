@@ -8,7 +8,7 @@ import { Features } from '../components/hiring-fair/Features'
 import { FAQs } from '../components/hiring-fair/FAQ'
 import { Stats } from '../components/hiring-fair/Stats'
 import { Summmit } from '../components/hiring-fair/Summit'
-import { CompanyForm } from '../components/hiring-fair/companyForm'
+import { CompanyForm } from '../components/hiring-fair/CompanyForm'
 
 
 
