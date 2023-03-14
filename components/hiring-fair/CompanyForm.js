@@ -4,8 +4,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 
-export function CompanyForm() {
-    const [open, setOpen] = useState(false)
+export function CompanyForm({open, setOpen}) {
 
     return (
         <>
@@ -17,9 +16,9 @@ export function CompanyForm() {
                         Sign up today!
                     </h2>
                     <div className="mt-10 flex bg-white p-5 rounded items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-                        <a className="text-lg font-semibold leading-6 text-gray-900" onClick={() => setOpen(true)}>
-                            Learn more <span aria-hidden="true">→</span>
-                        </a>
+                        <button className="text-lg font-semibold leading-6 text-gray-900" onClick={() => setOpen(true)}>
+                            Learn more
+                        </button>
                     </div>
                 </div>
             </div>

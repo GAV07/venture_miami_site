@@ -16,7 +16,7 @@ export function Features(props) {
               {props.content.benefits.map((benefit) => (
                 <div key={benefit.fields.title} className="flex flex-col">
                   <dt className="text-base font-semibold leading-7 text-white">
-                    <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500">
+                    <div className="mb-6 flex items-center justify-center rounded-lg bg-indigo-500">
                       <img
                           className="rounded"
                           src={benefit.fields.image.fields.file.url}

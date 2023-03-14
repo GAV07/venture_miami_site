@@ -13,6 +13,7 @@ import { CompanyForm } from '../components/hiring-fair/CompanyForm'
 
 
 export default function HiringFair(props) {
+  const [open, setOpen] = useState(false)
 
   return (
 
@@ -21,11 +22,11 @@ export default function HiringFair(props) {
           <title>Venture Miami Hiring Fair</title>
         </Head>
         <Container>
-            <Hero content={props.hero}/>
+            <Hero content={props.hero} open={open} setOpen={setOpen}/>
             <Features content={props.benefits}/>
             <Stats content={props.stats}/>
             <Summmit content={props.summit}/>
-            <CompanyForm />
+            <CompanyForm open={open} setOpen={setOpen}/>
             <FAQs content={props.fair.faQs}/>
         </Container>
       </Layout>

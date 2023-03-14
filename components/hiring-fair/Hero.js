@@ -1,4 +1,20 @@
 import { ChevronDoubleRightIcon } from '@heroicons/react/solid'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { MARKS, BLOCKS } from '@contentful/rich-text-types';
+
+
+const Bold = ({ children }) => <p className="bold">{children}</p>;
+
+const H2 = ({ children }) => <h2 className="mt-6 mb-2 text-2xl underline">{children}</h2>;
+
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+  },
+  renderNode: {
+    [BLOCKS.HEADING_2]: (node, children) => <H2>{children}</H2>,
+  },
+};
 
 export function Hero(props) {
     return (
@@ -72,19 +88,19 @@ export function Hero(props) {
                     <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
                         {props.content.title}
                     </h1>
-                    <p className="mt-6 text-lg leading-8 text-gray-300">
-                        {props.content.subtitle}
-                    </p>
+                    <div className="mt-6 text-lg leading-8 text-gray-300">
+                        {documentToReactComponents(props.content.subtitle)}
+                    </div>
                     <div className="mt-10 flex items-center gap-x-6">
-                        <a
+                        <button
                             href="https://www.eventbrite.com/e/venture-miami-tech-hiring-fair-4-and-talent-summit-tickets-568374271747?aff=erelexpmlt"
                             className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                         >
-                            Attend Hiring Fair
-                        </a>
-                        {/* <a href="#" className="text-sm font-semibold leading-6 text-white">
-                            Employer <span aria-hidden="true">→</span>
-                        </a> */}
+                            Attend Hiring Fair →
+                        </button>
+                        <button onClick={() => props.setOpen(true)} className="text-sm font-semibold leading-6 text-white hover:text-gray-200">
+                            Employer Registration
+                        </button>
                     </div>
                 </div>
                 <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32">
