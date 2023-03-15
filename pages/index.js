@@ -7,10 +7,9 @@ import { Features } from '../components/home/Features'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import PreLoader from '../components/home/PreLoader'
-//import Banner from '../components/home/Banner'
+import Banner from '../components/home/Banner'
 import { Client } from '../lib/contentful'
 import { getSite } from '../lib/airtable'
-//import { getCards } from '../lib/trello'
 
 
 export default function Index(props) {
