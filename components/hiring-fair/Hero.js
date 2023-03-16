@@ -89,7 +89,7 @@ export function Hero(props) {
                         {props.content.title}
                     </h1>
                     <div className="mt-6 text-lg leading-8 text-gray-300">
-                        {documentToReactComponents(props.content.subtitle)}
+                        {documentToReactComponents(props.content.subtitle, options)}
                     </div>
                     <div className="mt-10 flex items-center gap-x-6">
                         <a

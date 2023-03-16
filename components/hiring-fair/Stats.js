@@ -1,35 +1,49 @@
-import { VictoryGroup, VictoryTheme, VictoryPie } from 'victory'
+import { ResponsivePie } from '@nivo/pie'
 
 
+const data = [
+    {
+      "id": "Bachelors",
+      "label": "Bachelors",
+      "value": 45.5,
+    },
+    {
+      "id": "Masters",
+      "label": "Masters",
+      "value": 18.9,      
+    },
+    {
+      "id": "Associates",
+      "label": "Associates",
+      "value": 13.7,
+    },
+    {
+      "id": "High School",
+      "label": "High School",
+      "value": 13.2,
+    },
+    {
+      "id": "Certificate",
+      "label": "Certificate",
+      "value": 6.8,
+    }
+  ]
 
 export function Stats(props) {
     return (
         <div className="flex flex-col md:flex-row mx-auto mt-24 max-w-7xl px-6 sm:mt-56 lg:px-8">
             {/* Chart */}
-            <div className="mx-auto w-[90vw] md:w-[50vw]">
+            <div className="mx-auto h-[50vh] w-[50vw]">
                 <h3 className="text-white text-center">Past Participants Breakdown</h3>
-                <VictoryPie
-                    style={{labels: {fontSize: 10, fill: "white"}}}
-                    padding={100}
-                    animate={{duration: 400}}
-                    colorScale={[
-                        "#003f5c",
-                        "#2f4b7c",
-                        "#665191",
-                        "#a05195",
-                        "#d45087",
-                        "#f95d6a",
-                        "#ff7c43",
-                        "#ffa600"
-                      ]}
-                    data={[
-                        { x: "Bachelors", y: 45.5 },
-                        { x: "Masters", y: 18.9 },
-                        { x: "Associate", y: 13.7 },
-                        { x: "High School", y: 13.2 },
-                        { x: "Certificate", y: 6.8 },
-                    ]}
-                    labels={({ datum }) => `${datum.x}: ${datum.y}%`}
+                <ResponsivePie
+                    data={data}
+                    margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+                    innerRadius={0.5}
+                    padAngle={0.7}
+                    cornerRadius={3}
+                    colors={{ scheme: 'nivo' }}
+                    borderWidth={1}
+                    arcLinkLabelsTextColor="#ffffff"
                 />
             </div>
             {/* Stats */}
