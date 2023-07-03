@@ -1,6 +1,6 @@
 import { Container } from '../components/container'
 import { Hero } from '../components/home/Hero'
-import { MayorSection } from '../components/home/Mayor'
+import { InfoSection } from '../components/home/Info'
 import { Events } from '../components/home/Events'
 import { CTA } from '../components/home/CTA'
 import { Features } from '../components/home/Features'
@@ -23,7 +23,7 @@ export default function Index(props) {
         <Container>
           {/* <Banner content={props.banner} /> */}
           <Hero content={props.hero}/>
-          <MayorSection content={props.mayor} />
+          <InfoSection content={props.mayor} />
           {/* <Events content={props.events} /> */}
           <Features content={props.features}/>
           <CTA content={props.cta} />

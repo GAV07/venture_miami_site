@@ -2,7 +2,7 @@ import Image from "next/image"
 
 /* This example requires Tailwind CSS v2.0+ */
   
-  export function MayorSection(props) {
+  export function InfoSection(props) {
     return (
       <div className="relative bg-vm-blue py-16 sm:py-24">
         <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
@@ -112,7 +112,7 @@ import Image from "next/image"
                   </a>
                 ))}
               </dl>
-              <div className="flex w-full mt-10 space-x-5">
+              {/* <div className="flex w-full mt-10 space-x-5">
                 <p className="text-base font-medium text-white">
                   Follow Mayor Francis Suarez on
                 </p>
@@ -140,7 +140,7 @@ import Image from "next/image"
                     <path d="M42.042 13.856C43.773 15.577 44 18.311 44 25s-.227 9.423-1.958 11.144C40.311 37.864 38.508 38 25 38s-15.311-.136-17.042-1.856S6 31.689 6 25s.227-9.423 1.958-11.144S11.492 12 25 12s15.311.136 17.042 1.856zM21.76 30.933l9.717-5.63-9.717-5.543v11.173z"/>
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
