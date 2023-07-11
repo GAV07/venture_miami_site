@@ -8,9 +8,23 @@ import {
   SupportIcon,
   XIcon,
 } from "@heroicons/react/outline";
+import ContactForm from '../components/ContactForm';
+import Chat from '../components/chat/Chat';
+import {useState} from "react";
 
 
 export default function Contact(props) {
+
+  const [showContactForm, setShowContactForm] = useState(false);
+
+  const handleContactClick = () => {
+    setShowContactForm(true);
+  };
+
+  const handleCloseContactForm = () => {
+    setShowContactForm(!showContactForm);
+  };
+
   return (
     <Layout content={props.footer}>
       <Head>
@@ -72,6 +86,7 @@ export default function Contact(props) {
                   <a
                     href={link.fields.url}
                     className="text-base font-medium text-blue-700 hover:text-blue-600"
+                    onClick={handleContactClick}
                   >
                     Contact us<span aria-hidden="true"> &rarr;</span>
                   </a>
@@ -81,6 +96,18 @@ export default function Contact(props) {
           </div>
         </section>
       </div>
+
+      {/* DISPLAYS THE FORM WHEN CLICKED */}
+      {showContactForm && (
+          <div
+              className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-75"
+              onClick={handleCloseContactForm}
+          >
+            <div className="bg-white rounded-lg shadow-lg p-6 w-3/5">
+              <ContactForm closeModal={handleCloseContactForm} />
+            </div>
+          </div>
+      )}
 
       {/* CTA Section */}
       <section className="relative bg-vm-blue md:py-16" aria-labelledby="join-heading">
@@ -170,6 +197,7 @@ export default function Contact(props) {
           </div>
         </div>
       </section>
+      <Chat/>
     </Layout>
   );
 }
