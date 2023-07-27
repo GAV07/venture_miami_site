@@ -42,6 +42,11 @@ export default function Footer(props) {
                     Contact
                 </Link>
               </li>
+              <li>
+                <Link className="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-vm-blue" href="https://miamitechresourcehub.softr.app">
+                    Resource Hub
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

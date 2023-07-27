@@ -53,17 +53,17 @@ export default function Header() {
             >
               Initiatives
             </a>
-            {/* <a
-              href="/data"
-              className="text-base font-medium text-white hover:text-vm-accent"
-            >
-              Data
-            </a> */}
             <a
               href="/partnerships"
               className="text-base font-medium text-white hover:text-vm-accent"
             >
               Partnerships
+            </a>
+            <a
+              href="https://miamitechresourcehub.softr.app/"
+              className="text-base font-medium text-white hover:text-vm-accent"
+            >
+              Resource Hub
             </a>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
@@ -265,19 +265,18 @@ export default function Header() {
             >
               Initiatives
             </a>
-            {/* <a
-              href="/data"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Data
-            </a> */}
             <a
               href="/partnerships"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
               Partnerships
             </a>
-                
+            <a
+              href="https://miamitechresourcehub.softr.app/"
+              className="text-base font-medium text-gray-500 hover:text-gray-900"
+            >
+              Resource Hub
+            </a>
               </div>
             </div>
           </div>
