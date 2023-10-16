@@ -177,6 +177,7 @@ export function CityMap(props) {
 
                         <div className={"relative w-[787px] rounded-[8px] mr-[23px]"}>
 
+
                             {/* RESET POSITION AND ZOOM CONTROL */}
                             <div
                                 className="absolute mt-[200px] ml-[10px] z-50 rounded-md flex flex-col justify-center items-center ring-2 ring-black/10 divide-y divide-black/10">
