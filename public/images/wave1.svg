@@ -1,0 +1,51 @@
+<!--
+<svg
+        id="visual"
+        viewBox="0 0 900 600"
+        width="900"
+        height="600"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+>
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: #f9b6fe; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #ffffff; stop-opacity: 1" />
+        </linearGradient>
+    </defs>
+    <path
+            d="M0 232L21.5 240C43 248 86 264 128.8 250.2C171.7 236.3 214.3 192.7 257.2 178.3C300 164 343 179 385.8 213.2C428.7 247.3 471.3 300.7 514.2 295.7C557 290.7 600 227.3 642.8 211.7C685.7 196 728.3 228 771.2 243.5C814 259 857 258 878.5 257.5L900 257L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z"
+            fill="url(#gradient)"
+            stroke-linecap="round"
+            stroke-linejoin="miter"
+    ></path>
+</svg>
+-->
+<!--
+
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: #E8A5F3; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #ffffff; stop-opacity: 1" />
+        </linearGradient>
+    </defs>
+
+-->
+<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: rgba(232, 165, 243, 0); stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #E8A5F3; stop-opacity: 1" />
+        </linearGradient>
+    </defs>
+    <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            fill="url(#gradient)"
+            stroke-linecap="round"
+            stroke-linejoin="miter"
+            transform="scale(1, -1) translate(0, -120)"
+
+    />
+</svg>
+
