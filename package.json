@@ -12,6 +12,7 @@
     "@contentful/rich-text-types": "^16.0.2",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^1.0.6",
+    "@netlify/plugin-nextjs": "^4.40.1",
     "@nivo/core": "^0.80.0",
     "@nivo/pie": "^0.80.0",
     "@react-three/drei": "^9.17.0",

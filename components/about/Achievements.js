@@ -8,7 +8,7 @@ export function Achievements() {
 
             <div className={"w-[95%] m-auto xl:w-[85%]"}>
                 <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
-                    <h1 className="text-[24px] lg:text-[56px] md:text-[36px] font-bold text-[#0e1012] mb-3">
+                    <h1 className="text-[26px] lg:text-[48px] md:text-[38px] font-bold text-[#0e1012] mb-3">
                         Our approach centers on enhancing lives within the Miami community, creating value and positive
                         transformation. </h1>
                     <p className="text-[16px] md:text-[20px] text-[#566171] leading-8 text-vm-blue">

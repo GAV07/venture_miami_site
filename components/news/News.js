@@ -32,14 +32,17 @@ export default function News(props){
                 </div>
 
                 :
-                <div className="bg-white py-24 sm:py-32">
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                        <div className="mx-auto max-w-2xl lg:max-w-4xl">
-                            <h2 className="text-7xl text-center font-bold text-gray-900">From Venture <span className={"italic bg-pink-200 text-white uppercase"}>Miami</span></h2>
-                            <p className="mt-2 text-2xl text-gray-400 font-light text-center">
+                <div className={"w-full m-auto pt-16"}>
+                    <div className={"w-[90%] m-auto xl:w-[85%]"}>
+                        <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
+                            <h2 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">From Venture <span className={"italic bg-pink-200 text-white uppercase"}>Miami</span></h2>
+
+                            <p className="text-[16px] md:text-[20px] text-[#566171] leading-8 text-vm-blue">
                                 Stay up-to-date with all Venture Miami news.
                             </p>
-                            <div className="mt-16 divide-y-2 space-y-20 lg:mt-20 lg:space-y-20">
+                        </div>
+
+                            <div className="w-[90%] mx-auto mt-16 divide-y-2 space-y-20 lg:mt-20 lg:space-y-20 flex flex-col items-center">
                                 {props.content.map((post) => (
                                     <article key={post.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
                                         <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
@@ -48,7 +51,7 @@ export default function News(props){
                                                 alt=""
                                                 className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                                             />
-                                            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+                                            {/*<div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />*/}
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-x-4 text-xs">
@@ -86,7 +89,7 @@ export default function News(props){
                                             <div className="group relative max-w-xl">
                                                 <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600 text-2xl">
                                                     <a
-                                                        href={`/news/${post.id}`}
+                                                        href={`/news/${post.fields.Title.trim().toLowerCase().split(" ").join("-")}`}
                                                         className={'bg-vm-blue text-white italic'}
                                                     >
                                                         <span className="absolute inset-0" />
@@ -113,7 +116,6 @@ export default function News(props){
                                     </article>
                                 ))}
                             </div>
-                        </div>
                     </div>
                 </div>
         }

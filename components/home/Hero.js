@@ -27,7 +27,7 @@ export default function Hero(props) {
 
     return (
 
-        <div className={"w-full m-auto pt-16"}>
+/*        <div className={"w-full m-auto pt-16"}>
 
             <div className={"w-[95%] m-auto xl:w-[85%]"}>
                 <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
@@ -51,12 +51,9 @@ export default function Hero(props) {
                     </div>
                 </div>
 
-
-
             </div>
 
-        </div>
-
+        </div>*/
 /*        <div className={"w-screen h-screen"}>
 
             <div className={"absolute z-[1] top-0 left-0 w-screen h-screen"}>
@@ -83,6 +80,31 @@ export default function Hero(props) {
 
         </div>*/
 
+        // <div className={"w-full h-screen bg-red-200"}>
+            <div className={"relative right-0 md:p-[100px] p-[50px] flex justify-between items-center z-[2] w-full min-h-screen ease-in duration-300"}>
+
+                <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover opacity-[0.8]">
+                    <source src="/videos/video.mp4" type="video/mp4"/>
+                </video>
+
+                <div className="absolute top-0 left-0 w-full h-full bg-[#03a9f4] mix-blend-overlay">
+                </div>
+
+                <div className={"relative z-[10]"}>
+                    <h2 className="text-white lg:text-[5em] md:text-[3em] sm:text-[2em] text-[2em] font-[800] leading-[1em] uppercase">
+                        Creating Opportunities for a Resilient Economy
+                    </h2>
+                    <p className="text-white lg:text-[1.1em] my-[20px] mx-[0px] font-[400] max-w-[700px]">
+                        We’re building the platform to change the way people and businesses navigate miami's tech Ecosystem.
+                    </p>
+                    <div className={"w-max grid grid-cols-1 md:grid-cols-2 gap-x-[20px] gap-y-[10px] mt-[10px]"}>
+                        <a href={"/resources"} className={"max-w-max rounded-full text-[14px] bg-white py-[10px] px-[30px] text-[#111] uppercase"}>Explore our resources</a>
+                        <a href={"/resources"} className={"max-w-max rounded-full text-[14px] bg-black py-[10px] px-[30px] text-white uppercase"}>Join our database</a>
+                    </div>
+                </div>
+
+            </div>
+        // </div>
 
     );
 }

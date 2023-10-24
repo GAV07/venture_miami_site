@@ -130,15 +130,13 @@ export function Data(props) {
                                 <div className={"grid grid-cols-1 md:grid-cols-3 gap-x-[32px] gap-y-[32px]"}>
                                     {section.fields.list.map((listItem) => {
 
-                                        console.log(listItem);
                                         return (
 
                                             <div className={"max-w-[350px] w-full flex flex-col"}>
                                                 <p className={"font-[20px] font-bold text-[#23262d] md:font-[18px] mb-[8px]"}>{listItem.fields.title}</p>
                                                 <p className={"font-[16px] text-[#566171] leading-[24px]"}>{listItem.fields.description}</p>
                                                 <p className={"py-[20px] mt-auto"}>
-                                                    <a className={"text-[#007afc]"} href={listItem.fields.url}>Learn
-                                                        more</a>
+                                                    <a className={"text-[#007afc]"} href={listItem.fields.url}>Learn more</a>
                                                 </p>
                                             </div>
                                         )

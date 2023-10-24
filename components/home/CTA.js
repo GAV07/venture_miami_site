@@ -22,8 +22,8 @@ export function CTA(props) {
 
         <div className={"w-full m-auto pt-16"}>
 
-            <div className={"w-[95%] m-auto xl:w-[85%]"}>
-                <div className={"m-auto bg-[#161A1D] rounded-[16px]"}>
+            <div className={"w-[90%] m-auto xl:w-[85%]"}>
+                {/*<div className={"m-auto bg-[#161A1D] rounded-[16px]"}>
 
                     <div className="font-bold flex flex-col justify-center items-center ml-auto mr-auto p-[80px]">
                         <h2 className="text-white text-[36px] text-center">
@@ -53,6 +53,20 @@ export function CTA(props) {
                             }
 
                         </div>
+                    </div>
+                </div>*/}
+
+                <div className={'w-full relative'}>
+
+                    <img className={"rounded-[8px] w-full h-full object-cover absolute top-0 left-0 h-full"} src="https://images.unsplash.com/photo-1652109348316-2ec63fa43632?auto=format&fit=crop&q=60&w=900&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fDRrJTIwaGQlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D" alt=""/>
+
+                    <div className={""}>
+                        <h2 className="text-white text-[36px] text-center">
+                            {props.content.title}
+                        </h2>
+                        <p className="text-[#9CA6B6] text-[18px] text-center">
+                            {props.content.subtitle}
+                        </p>
                     </div>
                 </div>
             </div>

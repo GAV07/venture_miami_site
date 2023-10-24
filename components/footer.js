@@ -1,85 +1,68 @@
-
-import Link from 'next/link'
-
 import {FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 export default function Footer(props) {
 
   return (
-      <footer className="mt-20 w-full bg-black">
-          <div className="w-[95%] text-white m-auto flex flex-col justify-center items-start py-16 gap-y-16">
+      <footer className="mt-20 w-full bg-vm-blue">
+          <div className="w-[90%] text-white mx-auto flex flex-col justify-center items-start pt-10 pb-0">
             <div className={"flex flex-col gap-y-6 justify-start w-full"}>
               <a href={"/"}>
                 <img width={130} height={130} src={"/images/logos/miami-logo-solid-yellow.png"} alt={"logo"}/>
               </a>
-              <p className={"text-2xl w-[30%] font-bold"}>Join us and become a part of the Miami movement.</p>
-
+              <h1
+                  className="text-2xl  lg:w-[30%] md:w-[40%] w-[50%] font-bold leading-10 tracking-tight"
+              >
+                <span className="">Join us and become a part of the </span>
+                <span className="italic mt-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-emerald-400 to-green-500 md:inline-block"
+                > Miami </span>
+                <span> movement</span>
+              </h1>
               <div className={"flex justify-start items-center gap-x-6"}>
                 {props.socials.links.map((icon) => {
                   if (icon.fields.text === "Twitter") {
 
                     return (
-                        <Link className="group shadow-lg flex justify-center items-center rounded-full w-[50px] h-[50px] bg-white transition-transform hover:scale-105" key={icon.fields.text} href={icon.fields.url}>
-                          <FaTwitter size={25} color={"#1D9BF0"}/>
-                        </Link>
+                        <a className="group shadow-lg flex justify-center items-center rounded-full w-[40px] h-[40px] bg-white transition-transform hover:scale-105" key={icon.fields.text} href={icon.fields.url}>
+                          <FaTwitter size={20} color={"#1D9BF0"}/>
+                        </a>
                     )
 
                   }else if (icon.fields.text === "Instagram") {
 
                     return (
-                        <Link className="group shadow-lg flex justify-center items-center rounded-full w-[50px] h-[50px] bg-white transition-transform hover:scale-105" key={icon.fields.text} href={icon.fields.url}>
-                          <FaInstagram size={25} color={"#E1306C"}/>
-                        </Link>
+                        <a className="group shadow-lg flex justify-center items-center rounded-full w-[40px] h-[40px] bg-white transition-transform hover:scale-105" key={icon.fields.text} href={icon.fields.url}>
+                          <FaInstagram size={20} color={"#E1306C"}/>
+                        </a>
                     )
                   }else if (icon.fields.text === "LinkedIn") {
 
                     return (
-                        <Link className="group shadow-lg flex justify-center items-center rounded-full w-[50px] h-[50px] bg-white transition-transform hover:scale-105" key={icon.fields.text} href={icon.fields.url}>
-                          <FaLinkedin size={25} color={"#0A66C2"}/>
-                        </Link>
+                        <a className="group shadow-lg flex justify-center items-center rounded-full w-[40px] h-[40px] bg-white transition-transform hover:scale-105" key={icon.fields.text} href={icon.fields.url}>
+                          <FaLinkedin size={20} color={"#0A66C2"}/>
+                        </a>
                     )
                   }
-                  return null;
                 })}
               </div>
             </div>
-            <nav className={"flex flex-wrap justify-center items-center gap-x-10 gap-y-6 w-full"}>
 
-              <Link className="rounded-md px-3 py-2 text-base font-semibold hover:text-white/80" href="/">
-                Home
-              </Link>
-
-              <Link className="rounded-md px-3 py-2 text-base font-semibold hover:text-white/80" href="/about">
-                About
-              </Link>
-
-              <Link className="rounded-md px-3 py-2 text-base font-semibold hover:text-white/80" href="/business">
-                Companies
-              </Link>
-
-              <Link className="rounded-md px-3 py-2 text-base font-semibold hover:text-white/80" href="/initiatives">
-                Initiatives
-              </Link>
-
-              <Link className="rounded-md px-3 py-2 text-base font-semibold hover:text-white/80" href="/partnerships">
-                Partnerships
-              </Link>
-
-              <Link className="rounded-md px-3 py-2 text-base font-semibold hover:text-white/80" href="/news">
-                News
-              </Link>
-
-              <Link className="rounded-md px-3 py-2 text-base font-semibold hover:text-white/80" href="/contact">
-                Contact
-              </Link>
-
-              <Link className="rounded-md px-3 py-2 text-base font-semibold hover:text-white/80" href="https://miamitechresourcehub.softr.app">
-                Resource Hub
-              </Link>
+            <nav className={"pt-[30px] flex flex-wrap justify-center items-center w-full mx-auto gap-x-[40px] gap-y-[10px]"}>
+              <a href="/" className={"text-center text-[14px] text-white hover:text-white"}>Home</a>
+              <a href="/about" className={"text-center text-[14px] text-white hover:text-white"}>About</a>
+              <a href="/business" className={"text-center text-[14px] text-white hover:text-white"}>Companies</a>
+              <a href="/initiatives" className={"text-center text-[14px] text-white hover:text-white"}>Initiatives</a>
+              <a href="/partnerships" className={"text-center text-[14px] text-white hover:text-white"}>Partnerships</a>
+              <a href="/events" className={"text-center text-[14px] text-white hover:text-white"}>Events</a>
+              <a href="/news" className={"text-center text-[14px] text-white hover:text-white"}>News</a>
+              <a href="/business/#contact" className={"text-center text-[14px] text-white hover:text-white"}>Contact</a>
+              <a href="https://miamitechresourcehub.softr.app" className={"text-center text-[14px] text-white hover:text-white"}>Resource Hub</a>
             </nav>
-            <div className={"w-full flex flex-col justify-center items-start gap-y-12"}>
-              <hr className="border-t-2 border-white w-full"/>
-              <p className="text-sm sm:mt-0 text-center w-full font-light">
+
+
+            <div className={"mt-[15px] w-full flex flex-col justify-center items-center mb-[10px]"}>
+              {/*<hr className="ring-[0.5px] ring-white w-full"/>*/}
+              <hr className="h-[1px] w-full my-8 bg-white border-0"/>
+                <p className="text-[12px] text-white">
                 Copyright &copy; {new Date().getFullYear()} Venture Miami-City of Miami
               </p>
             </div>

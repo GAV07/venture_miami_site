@@ -68,7 +68,7 @@ export default function Community() {
             </div>
 
             {/* IMAGES */}
-            <div className={"rounded-xl h-[800px] mt-16"}>
+            <div className={"rounded-xl mt-16"}>
                 <Slider items={sliderItems} styles={sliderStyles} buttonPosition={'bottom'}/>
             </div>
         </div>

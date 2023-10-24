@@ -1,15 +1,15 @@
-import { Container } from '../components/container'
-import { Hero } from '../components/about/Hero'
-import { Team } from '../components/about/Team'
-import Layout from '../components/layout'
+import { Container } from '../../components/container'
+import { Hero } from '../../components/about/Hero'
+import { Team } from '../../components/about/Team'
+import Layout from '../../components/layout'
 import Head from 'next/head'
-import { Client } from '../lib/contentful'
-import {Partnerships} from "../components/about/Partnerships";
-import Community from "../components/about/Community";
-import {Achievements} from "../components/about/Achievements";
-import Values from "../components/about/Values";
+import { Client } from '../../lib/contentful'
+import {Partnerships} from "../../components/about/Partnerships";
+import Community from "../../components/about/Community";
+import {Achievements} from "../../components/about/Achievements";
+import Values from "../../components/about/Values";
 
-export default function About(props) {
+export default function Index(props) {
  
   return (
       <Layout content={props.footer}>

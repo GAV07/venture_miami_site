@@ -2,7 +2,6 @@ import Link from "next/link";
 
 export function Hero(props) {
 
-    console.log(props)
     return (
 
 
@@ -22,8 +21,12 @@ export function Hero(props) {
                     {props.content.stats.map((info, index) => {
                         return (
                             <div className={"mb-[32px]  md:mr-[32px] w-full text-center"}>
-                                <h3 className={"text-[24px] md:text-[28px] mb-[8px] leading-[32px] text-[#007AFC] font-bold"}>{info.fields.statistic}</h3>
-                                <p className={"font-[16px] mb-[8px] text-[#566171] leading-[24px]"}>{info.fields.title}</p>
+                                <h3 className={"max-w-max mx-auto text-[24px] md:text-[28px] mb-[8px] leading-[32px] text-[#007AFC] font-bold"}>
+                                    <a href={info.fields.url}>{info.fields.statistic}</a>
+                                </h3>
+                                <p className={"font-[16px] max-w-max mx-auto mb-[8px] text-[#566171] leading-[24px]"}>
+                                    <a href={info.fields.url}>{info.fields.title}</a>
+                                </p>
                             </div>
                         )
                     })}

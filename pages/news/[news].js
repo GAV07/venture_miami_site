@@ -6,28 +6,43 @@ import Head from "next/head";
 import {Container} from "../../components/container";
 import News from "../../components/news/News";
 import NewsDetails from "../../components/news/NewsDetails";
+import NotFound from "../404";
 
 
 export default function NewsDetail(props) {
 
     const router = useRouter();
 
-    const {newsId} = router.query;
+    const {news} = router.query;
+
+    // sorts newest to oldest
+    let sortedNews = props.news.sort((event1, event2) => {
+        return new Date(event2.fields.Date) - new Date(event1.fields.Date);
+    });
+
+    const index = sortedNews.findIndex((ne) => {
+        return ne.fields.Title.trim().toLowerCase() === news.trim().toLowerCase().split("-").join(" ");
+    });
 
     return (
-        <>
-            <Layout content={props.footer}>
-                <Head>
-                    <title>Venture Miami - News</title>
-                </Head>
-                <Container>
-                    <NewsDetails content={{
-                        newsId: newsId,
-                        news: props.news
+
+        (
+            index === -1 ?
+                <NotFound/>
+                :
+                <Layout content={props.footer}>
+                    <Head>
+                        <title>Venture Miami - News</title>
+                    </Head>
+                    <Container>
+                         <NewsDetails content={{
+                        sortedNews: sortedNews,
+                        index: index
                     }}/>
-                </Container>
-            </Layout>
-        </>
+                    </Container>
+                </Layout>
+        )
+
     )
 }
 
@@ -51,7 +66,7 @@ export async function getStaticPaths() {
     const news = await getRecords("VM Site", "News");
 
     const paths = news.map((newsItem) => ({
-        params: {newsId: newsItem.id.toString()},
+        params: {news: newsItem.fields.Title.trim().toLowerCase().split(" ").join("-")},
     }));
 
     return {

@@ -18,47 +18,7 @@ export function Hero(props) {
                     </p>
                 </div>
 
-                {/*<div className={"pl-4 pr-4 mt-24 flex flex-col space-y-[20px]"}>*/}
                 <div className={"mt-24 flex flex-col space-y-[20px]"}>
-
-{/*                    <div className={"rounded-md"}>
-                        <img
-                            src="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min.png"
-                            loading="lazy"
-                            srcSet="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-500.png 500w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-800.png 800w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1080.png 1080w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1600.png 1600w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-2000.png 2000w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min.png 2621w"
-                            // sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 45vw, 46vw"
-                            alt=""
-                            className="rounded-[16px]"/>
-
-                    </div>
-
-                    <div className={"flex flex-col space-x-0 space-y-[20px] md:flex-row justify-center items-center md:space-x-[40px] md:space-y-0"}>
-
-                        <div className={"rounded-md"}>
-                            <img
-                                src="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min.png"
-                                loading="lazy"
-                                srcSet="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-500.png 500w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-800.png 800w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1080.png 1080w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1600.png 1600w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-2000.png 2000w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min.png 2621w"
-                                // sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 45vw, 46vw"
-                                alt=""
-                                className="rounded-[16px]"/>
-
-                        </div>
-
-                        <div>
-                            <img
-                                src="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min.png"
-                                loading="lazy"
-                                srcSet="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-500.png 500w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-800.png 800w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1080.png 1080w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1600.png 1600w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-2000.png 2000w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min.png 2621w"
-                                // sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 45vw, 46vw"
-                                alt=""
-                                className="rounded-[16px]"/>
-
-                        </div>
-                    </div>*/}
-
-                    {/*<div className={"bg-[url('https://images.unsplash.com/photo-1501509497947-782640bc1412?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWlhbWklMjB0ZWNofGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60')] bg-no-repeat bg-cover rounded-md w-full max-h-[725px] h-[725px]"}>*/}
-                    {/*<div className={"bg-[url('https://images.unsplash.com/photo-1501509497947-782640bc1412?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWlhbWklMjB0ZWNofGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60')] bg-no-repeat bg-cover rounded-md w-full xl:h-[725px] lg:h-[570px] md:h-[430px] sm:h-[360px] h-[260px]"}>*/}
                     <div className={`rounded-md w-full
                             min-[1270px]:h-[725px] 
                                 min-[1147px]:h-[657px]
@@ -70,9 +30,7 @@ export function Hero(props) {
                             h-[260px]`}>
                        <img
                             src="https://images.unsplash.com/photo-1501509497947-782640bc1412?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWlhbWklMjB0ZWNofGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60"
-                            // loading="lazy"
-                            // srcSet="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-500.png 500w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-800.png 800w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1080.png 1080w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1600.png 1600w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-2000.png 2000w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min.png 2621w"
-                            // sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 45vw, 46vw"
+                            loading="lazy"
                             alt=""
                             className="rounded-[16px] w-full h-full"/>
 
@@ -92,8 +50,6 @@ export function Hero(props) {
                             <img
                                 src="https://images.unsplash.com/photo-1501509497947-782640bc1412?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWlhbWklMjB0ZWNofGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60"
                                 loading="lazy"
-                                // srcSet="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-500.png 500w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-800.png 800w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1080.png 1080w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-1600.png 1600w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min-p-2000.png 2000w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/6509dbe6db1994a390ce19f2_Unboxed_Helsinki_crop-min.png 2621w"
-                                // sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 45vw, 46vw"
                                 alt=""
                                 className="rounded-[16px] w-full h-full"/>
 

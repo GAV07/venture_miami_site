@@ -8,28 +8,33 @@ export default function CTA() {
         <img
             src={'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80'}
             alt=""
-            className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
+            // className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
+            className="w-full h-full object-cover rounded-[24px]"
         />,
         <img
             src={'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80'}
             alt=""
-            className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
+            // className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
+            className="w-full h-full object-cover rounded-[24px]"
         />,
         <img
             src={'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80'}
             alt=""
-            className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
+            // className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
+            className="w-full h-full object-cover rounded-[24px]"
         />,
         <img
             src={'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80'}
             alt=""
-            className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
+            // className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
+            className="w-full h-full object-cover rounded-[24px]"
         />
 
     ]
 
     const [sliderItems, setSliderItems] = useState([]);
-    const [sliderStyles, setSliderStyles] = useState("max-h-[615px]"); // this allows the styles in index.css to be applied
+    // const [sliderStyles, setSliderStyles] = useState("max-h-[615px]"); // this allows the styles in index.css to be applied
+    const [sliderStyles, setSliderStyles] = useState("partnerships"); // this allows the styles in index.css to be applied
 
     useEffect(()=>{
 

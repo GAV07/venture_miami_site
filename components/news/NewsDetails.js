@@ -1,28 +1,21 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
+import {BsChevronLeft, BsChevronRight} from "react-icons/bs";
 
 export default function NewsDetails(props) {
 
 
-    const [newsId, setNewsId] = useState(props.content.newsId);
+    const [news, setNews] = useState(props.content.sortedNews);
+    const [index, setIndex] = useState(props.content.index);
     const [post, setPost] = useState(null);
 
-    useEffect(() => {
-        const posts = props.content.news;
-        const singlePost = posts.find((post) => post.id === newsId);
-
-        // Check if singlePost is found
-        if (singlePost) {
-            setPost(singlePost);
-        }
-    }, [props.content.news, newsId]);
 
     // Skeleton loading when fetching news details
-    if (!post) {
+    if (!news) {
         return (
 
             <div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
                 <div
-                    className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                    className="relative mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
                     <div
                         className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                         <div className="lg:pr-4">
@@ -34,7 +27,7 @@ export default function NewsDetails(props) {
                         </div>
                     </div>
                     <div
-                        className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+                        className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:right-0 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
                         <img
                             className="w-[48rem] max-w-none rounded-xl sm:w-[57rem] h-[300px] bg-slate-200 animate-pulse"
                             src=""
@@ -90,77 +83,138 @@ export default function NewsDetails(props) {
         <>
 
 
-                        <div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
-                            <div
-                                className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-                                <div
-                                    className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                                    <div className="lg:pr-4">
-                                        <div className="lg:max-w-lg">
-                                            <p className="text-base font-semibold leading-7 bg-vm-blue max-w-max text-white italic">{post.fields.SubTitle}</p>
-                                            <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{post.fields.Title}</h1>
-                                            <p className="mt-6 text-xl leading-8 text-gray-700 italic first-letter:text-4xl">
-                                                {post.fields.Description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    className="-ml-12 -mt-12 p-12 sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                                    <img
-                                        className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-                                        src={post.fields.ImageUrl}
-                                        alt=""
-                                    />
-                                </div>
-                                <div
-                                    className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                                    <div className="lg:pr-4">
-                                        <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-                                            <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
-                                                {post.fields.P1Title}
-                                            </h2>
-                                            <p className="mt-8">
-                                                {post.fields.P1Content}
-                                            </p>
-                                            <ul role="list" className="mt-8 space-y-8 text-gray-600 list-disc">
-                                                <li className="flex gap-x-3">
-                                                    <span>
-                                                        <strong className="font-semibold text-gray-900">{post.fields.Point1} </strong>
-                                                        {post.fields.Point1Content}
-                                                    </span>
-                                                </li>
-                                                <li className="flex gap-x-3">
-                                                    <span>
-                                                        <strong className="font-semibold text-gray-900">{post.fields.Point2} </strong>
-                                                        {post.fields.Point2Content}
-                                                    </span>
-                                                </li>
-                                                <li className="flex gap-x-3">
-                                                    <span>
-                                                        <strong className="font-semibold text-gray-900">{post.fields.Point3} </strong>
-                                                        {post.fields.Point3Content}
-                                                    </span>
-                                                </li>
-                                            </ul>
-
-                                            <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
-                                                {post.fields.P2Title}
-                                            </h2>
-                                            <p className="mt-8">
-                                                {post.fields.P2Content}
-                                            </p>
-                                            <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
-                                                {post.fields.P3Title}
-                                            </h2>
-                                            <p className="mt-6">
-                                                {post.fields.P3Content}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+            <div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+                <div
+                    className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                    <div
+                        className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                        <div className="lg:pr-4">
+                            <div className="lg:max-w-lg">
+                                <p className="text-base font-semibold leading-7 bg-vm-blue max-w-max text-white italic">{news[index].fields.SubTitle}</p>
+                                <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{news[index].fields.Title}</h1>
+                                <p className="mt-6 text-xl leading-8 text-gray-700 italic first-letter:text-4xl">
+                                    {news[index].fields.Description}
+                                </p>
                             </div>
                         </div>
+                    </div>
+                    <div
+                        className="-ml-12 -mt-12 p-12 sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+                        <img
+                            className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+                            src={news[index].fields.ImageUrl}
+                            alt=""
+                        />
+                    </div>
+                    <div
+                        className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                        <div className="lg:pr-4">
+                            <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
+                                <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+                                    {news[index].fields.P1Title}
+                                </h2>
+                                <p className="mt-8">
+                                    {news[index].fields.P1Content}
+                                </p>
+                                <ul role="list" className="mt-8 space-y-8 text-gray-600 list-disc">
+                                    <li className="flex gap-x-3">
+                                                    <span>
+                                                        <strong
+                                                            className="font-semibold text-gray-900">{news[index].fields.Point1} </strong>
+                                                        {news[index].fields.Point1Content}
+                                                    </span>
+                                    </li>
+                                    <li className="flex gap-x-3">
+                                                    <span>
+                                                        <strong
+                                                            className="font-semibold text-gray-900">{news[index].fields.Point2} </strong>
+                                                        {news[index].fields.Point2Content}
+                                                    </span>
+                                    </li>
+                                    <li className="flex gap-x-3">
+                                                    <span>
+                                                        <strong
+                                                            className="font-semibold text-gray-900">{news[index].fields.Point3} </strong>
+                                                        {news[index].fields.Point3Content}
+                                                    </span>
+                                    </li>
+                                </ul>
+
+                                <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+                                    {news[index].fields.P2Title}
+                                </h2>
+                                <p className="mt-8">
+                                    {news[index].fields.P2Content}
+                                </p>
+                                <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+                                    {news[index].fields.P3Title}
+                                </h2>
+                                <p className="mt-6">
+                                    {news[index].fields.P3Content}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={"w-[90%] mx-auto flex justify-between items-center"}>
+
+                    {/* IF PREVIOUS EVENT EXISTS */}
+{/*                    <div>
+
+                        {
+                            index - 1 >= 0 && (
+
+
+                                <a
+                                    href={`/about/${news[index - 1].fields.Title.toLowerCase().split(" ").join("-")}`}
+                                    className={"flex items-center space-x-[10px]"}
+                                >
+                                    <BsChevronLeft/>
+                                    <span>
+                                    <h2 className={"text-[14px] text-start"}>{news[index - 1].fields.Subtitle}</h2>
+
+                                <p className={"text-[12px]"}>
+
+                                    {news[index - 1].fields.Title}
+
+                                </p>
+                                </span>
+                                </a>
+
+                            )
+                        }
+                    </div>*/}
+
+
+                    {/* IF NEXT EVENT EXISTS */}
+                    <div>
+
+                        {
+                            index + 1 < news.length && (
+
+
+                                <a
+                                    href={`/about/${news[index + 1].fields.Title.toLowerCase().split(" ").join("-")}`}
+                                    className={"flex items-center space-x-[10px]"}
+                                >
+                                <span>
+                                    <h2 className={"text-[14px] text-end"}>Read next</h2>
+
+                                <p className={"text-[12px]"}>
+
+                                    {news[index + 1].fields.Title}
+
+                                </p>
+                                </span>
+                                    <BsChevronRight/>
+                                </a>
+
+                            )
+                        }
+                    </div>
+                </div>
+            </div>
 
         </>
 

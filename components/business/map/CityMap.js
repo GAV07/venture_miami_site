@@ -19,6 +19,7 @@ import {miamiGeoJSON} from "./miamiGeoJSON";
 //mapboxgl.accessToken = process.env.YOUR_MAPBOX_ACCESS_TOKEN;
 
 
+
 export function CityMap(props) {
 
     const [poiData, setPoiData] = useState(props.content); // original poi data
@@ -35,6 +36,25 @@ export function CityMap(props) {
     const [lng, setLng] = useState(-80.19);
     const [lat, setLat] = useState(25.76);
     const [zoom, setZoom] = useState(10);
+
+
+    const [isShowing, setIsShowing] = useState(false);
+
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+
+        function handleClickOutside(event) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsShowing(false);
+            }
+        }
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
 
     useEffect(() => {
 
@@ -134,13 +154,19 @@ export function CityMap(props) {
 
             const updatedPointOfInterests = prevClickedPointOfInterests.map((poiItem) => {
 
+                let copyItem = poiItem;
+
+                // if the property is true then set it to false
+                if( copyItem.firstRender ){ copyItem.firstRender = false }
+
                 // update it to either true or false for the selection
-                if (poi === poiItem.type) {
-                    return {...poiItem, selected: !poiItem.selected};
+                if (poi === copyItem.type) {
+                    return {...copyItem, selected: true};
                 }
-                return poiItem.firstRender ?
-                    {...poiItem, firstRender: false} :  // make first render false
-                    poiItem;
+
+                // if not a match
+                return {...copyItem, selected: false} // make first render false and set the selected false
+
             });
 
             // check if all selected values were false
@@ -158,6 +184,23 @@ export function CityMap(props) {
         });
     }
 
+    // shows all the pois back on the map
+    function resetPOI() {
+
+        setPointOfInterests((prevClickedPointOfInterests) => {
+
+            let prevPOIs = prevClickedPointOfInterests.map((poi)=>{
+
+                return {...poi, firstRender: true, selected: false}
+            });
+
+
+            return prevPOIs;
+        })
+
+    }
+
+
     return (
 
         <div className={"w-full m-auto pt-16"}>
@@ -170,16 +213,18 @@ export function CityMap(props) {
                         Miami has a lot to offer
                     </h1>
                     <p className="text-[16px] md:text-[20px] text-[#9ba2b2] leading-8">
-                        Whether you're looking for ....
+                        Whether you're looking for art, parks, restaurants, schools, venues, and more, Miami has a lot to offer!
                     </p>
 
-                    <div className={"w-full min-h-[450px] mt-[56px] flex flex-col lg:flex-row"}>
+                    {/*<div className={"w-full min-h-[450px] mt-[56px] flex flex-col lg:flex-row bg-yellow-200"}>*/}
+                    <div className={"w-full h-full h-[450px] mt-[56px] flex flex-col lg:flex-row"}>
 
-                        <div className={"relative w-[787px] rounded-[8px] mr-[23px]"}>
+                        {/*<div className={"relative bg-red-200 w-full h-full lg:w-[787px] rounded-[8px] mr-[23px]"}>*/}
+                        <div className={"relative h-full w-full lg:w-[787px] rounded-[8px] mr-[23px]"}>
 
 
                             {/* RESET POSITION AND ZOOM CONTROL */}
-                            <div
+                           <div
                                 className="absolute mt-[200px] ml-[10px] z-50 rounded-md flex flex-col justify-center items-center ring-2 ring-black/10 divide-y divide-black/10">
 
                                 <button
@@ -216,7 +261,64 @@ export function CityMap(props) {
                               </button>
 
                           </div>*/}
-                            <Map
+
+                            {/* MOBILE POI */}
+                            <div
+                                ref={dropdownRef}
+                                className={"lg:hidden absolute top-0 right-0 mt-[10px] mr-[10px] z-50 w-[250px] bg-[#22262e] border-[1px] border-[#515762] flex flex-col rounded-[8px] max-h-[400px]"}>
+
+                                <button className={`flex justify-center items-center bg-[#2b303c] py-[8px] ${isShowing ? 'rounded-t-[8px]' : 'rounded-[8px]'}`}
+                                    onClick={()=>{ setIsShowing(!isShowing) }}
+                                >
+                                    <p className={`text-[15px] font-medium w-full text-white rounded-t-[8px] ${isShowing ? '' : ''}`}>Point of interests</p>
+                                    {/*<span className="text-xs text-white">{isShowing ? '▲' : '▼'}</span>*/}
+                                </button>
+
+                                <div className={`${isShowing ? 'flex flex-col overflow-y-scroll' : 'hidden' } rounded-b-[8px]`}>
+
+
+                                    <button
+                                        className={`px-[20px] flex items-center py-[10px]`}
+
+                                        onClick={() => {
+                                            resetPOI()
+                                        }}
+                                    >
+                                        <div className={"mr-[16px] rounded-full p-2 ring-2 ring-white bg-red-400 w-[27px] h-[27px] flex justify-center items-center"}><GrPowerReset size={15} color={"white"}/>
+                                        </div>
+                                        <div className={""}>
+                                            <p className={"mr-[8px] text-left text-[13px] text-white font-medium"}>Show all</p>
+                                        </div>
+                                    </button>
+
+                                    {
+                                        pointOfInterests.map((poi) => {
+
+                                            return (
+
+                                                <button
+                                                    className={`px-[20px] flex items-center ${poi.selected && 'bg-[#2b303c]'} py-[10px]`}
+
+                                                    onClick={() => {
+                                                        handlePOIClick(poi.type)
+                                                    }}
+                                                >
+                                                    <div className={"mr-[16px]"}><Pin type={poi.type.toLowerCase()}
+                                                                                      place={""}/>
+                                                    </div>
+                                                    <div className={""}>
+                                                        <p className={"mr-[8px] text-left text-[13px] text-white font-medium"}>{poi.type}</p>
+                                                        {/*<p className={"mr-[8px] text-left text-[11px] text-[#8b96aa] text-[13px] mt-[2px] font-light"}>all
+                                                            sports miami has to offer</p>*/}
+                                                    </div>
+                                                </button>
+                                            )
+                                        })
+                                    }
+
+                                </div>
+                            </div>
+                            {<Map
                                 ref={mapRef}
                                 initialViewState={{
                                     latitude: lat,
@@ -244,7 +346,6 @@ export function CityMap(props) {
                                         {
                                             return (poi.selected || poi.firstRender) && (
 
-                                                /* MARKERS */
                                                 <div
                                                     key={index}
                                                     className={"w-300px bg-red-200"}
@@ -260,10 +361,6 @@ export function CityMap(props) {
                                                             url: poi.url,
                                                         });
                                                     }}
-                                                    /*onMouseLeave={() => {
-
-                                                        setPopupInfo(null);
-                                                    }}*/
 
                                                     onClick={(e) => {
 
@@ -315,16 +412,15 @@ export function CityMap(props) {
                                         style={{borderRadius: '8px'}}
                                         maxWidth={'500px'}
                                     >
-                                        {/*<div className={"w-[95%] mx-auto h-[95%] my-auto shadow-md shadow-slate-200 rounded-[10px] h-full flex flex-col"}>*/}
                                         <div
                                             className={"w-full h-full my-auto shadow-md shadow-slate-200 rounded-[10px] flex flex-col overflow-hidden"}>
-                                            {<div className={"w-full h-[100px]"}>
+                                            {/*<div className={"w-full h-[100px]"}>
                                                 <img
                                                     src={'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80'}
                                                     alt=""
                                                     className="rounded-t-[10px] object-cover"
                                                 />
-                                            </div>}
+                                            </div>*/}
 
                                             <div
                                                 className={"flex flex-col justify-center items-center px-[24px] py-[32px] bg-white w-full h-[80%] rounded-b-[10px] space-y-[8px]"}>
@@ -352,24 +448,39 @@ export function CityMap(props) {
                                         }}
                                     />
                                 </Source>
-                            </Map>
+                            </Map>}
                         </div>
 
-                        <div
-                            className={"relative w-[390px] bg-[#22262e] border-[1px] border-[#515762] flex flex-col rounded-[8px] max-h-[450px] overflow-y-scroll"}>
+                        {/* DESKTOP POI */}
+                       <div
+                            className={"hidden lg:relative lg:w-[390px] bg-[#22262e] lg:border-[1px] lg:border-[#515762] lg:flex lg:flex-col lg:rounded-[8px] lg:max-h-[450px]"}>
 
-                            <div className={"sticky top-0 left-0 bg-[#2b303c] py-[8px] rounded-tl-[8px]"}>
-                                <p className={"text-[15px] font-medium w-full text-white"}>Point of interests</p>
+                            <div className={"sticky top-0 left-0 bg-[#2b303c] py-[8px] rounded-t-[8px]"}>
+                                <p className={"text-[15px] font-medium w-full text-white rounded-t-[8px]"}>Point of interests</p>
                             </div>
 
-                            <div className={"flex flex-col"}>
-                                {
+                           <div className={"flex flex-col overflow-y-scroll"}>
+
+                               <button
+                                   className={`px-[20px] flex items-center py-[10px]`}
+
+                                   onClick={() => {
+                                       resetPOI()
+                                   }}
+                               >
+                                   <div className={"mr-[16px] rounded-full p-2 ring-2 ring-white bg-red-400 w-[27px] h-[27px] flex justify-center items-center"}><GrPowerReset size={15} color={"white"}/>
+                                   </div>
+                                   <div className={""}>
+                                       <p className={"mr-[8px] text-left text-[13px] text-white font-medium"}>Show all</p>
+                                   </div>
+                               </button>
+
+                               {
                                     pointOfInterests.map((poi) => {
 
                                         return (
 
                                             <button
-                                                className={`px-[20px] flex items-center hover:bg-[#2b303c] ${poi.selected && 'bg-[#2b303c]'} py-[10px]`}
                                                 className={`px-[20px] flex items-center ${poi.selected && 'bg-[#2b303c]'} py-[10px]`}
 
                                                 onClick={() => {
@@ -381,8 +492,8 @@ export function CityMap(props) {
                                                 </div>
                                                 <div className={""}>
                                                     <p className={"mr-[8px] text-left text-[13px] text-white font-medium"}>{poi.type}</p>
-                                                    <p className={"mr-[8px] text-left text-[11px] text-[#8b96aa] text-[13px] mt-[2px] font-light"}>all
-                                                        sports miami has to offer</p>
+                                                    {/*<p className={"mr-[8px] text-left text-[11px] text-[#8b96aa] text-[13px] mt-[2px] font-light"}>all
+                                                        sports miami has to offer</p>*/}
                                                 </div>
                                             </button>
                                         )
@@ -391,6 +502,7 @@ export function CityMap(props) {
 
                             </div>
                         </div>
+
                     </div>
                 </div>
 

@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import {TeamCard} from "./TeamCard";
 import {FaLinkedin, FaTwitter} from "react-icons/fa"
-import {useState} from "react";
+import React, {useState} from "react";
+import {BsArrowRight} from "react-icons/bs";
 
 export function Team(props) {
 
@@ -11,7 +12,7 @@ export function Team(props) {
 
         <div className={"w-full m-auto pt-16"}>
 
-            <div className={"w-[95%] m-auto xl:w-[85%]"}>
+            <div className={"w-[85%] m-auto xl:w-[85%]"}>
                 {/* TEAM */}
                 <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
                     <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
@@ -23,33 +24,35 @@ export function Team(props) {
                 </div>
 
                 <div
-                    className="flex flex-wrap md1:flex-wrap md1:justify-start items-stretch pt-[80px]"
+                    className="grid grid-cols-1 md:grid-cols-3 md: gap-x-[40px] gap-y-[40px] pt-[40px]"
                     // className="grid grid-cols-2 md1:grid-cols-3 pt-[80px]"
                 >
                     {props.content.team.teammates.map((person) => (
-                        <button key={person.fields.name}
-                            className={"flex flex-col justify-stretch rounded-t-[10px] basis-1/2 md1:basis-1/4 pb-[20px] pl-[20px] pr-[20px]"}
-                            onClick={()=>{ setTeamInfo({
-                                name: person.fields.name,
-                                title: person.fields.jobTitle,
-                                description: "Before stepping into his role as Chief Executive Officer in March 2021, Peter served as Senior Vice President of Engineering at Mapbox. He focused on defining and building search, map, navigation, and logistic services, building scalable distributed systems, and operating services at a large scale.&nbsp; Before stepping into his role as Chief Executive Officer in March 2021, Peter served as Senior Vice President of Engineering at Mapbox. He focused on defining and building search, map, navigation, and logistic services, building scalable distributed systems, and operating services at a large scale.&nbsp; Before stepping into his role as Chief Executive Officer in March 2021, Peter served as Senior Vice President of Engineering at Mapbox. He focused on defining and building search, map, navigation, and logistic services, building scalable distributed systems, and operating services at a large scale.&nbsp;",
-                                imageUrl: person.fields.image.fields.file.url,
-                                twitter: person.fields.twitter,
-                                linkedIn: person.fields.linkedIn
-                            }) }}
-                        >
-                            <img className="aspect-[14/13] w-full rounded-t-[10px] object-cover"
-                                 src={person.fields.image.fields.file.url} alt={person.fields.image.fields.fileName}/>
-                            <div className={"self-stretch h-full px-3 pb-3 flex flex-col gap-y-1 rounded-b-[10px] bg-white shadow-md"}>
-                                <p className="mt-6 text-[20px] text-[#23262d] font-bold leading-8">{person.fields.name}</p>
-                                <p className="text-[12px] leading-7 text-[#566171] uppercase">{person.fields.jobTitle}</p>
+                        <div className={"flex flex-col space-y-[10px]"}>
+
+                            <img src={`${person.fields.image.fields.file.url}`} alt="" className={`w-full object-cover
+                            min-[1270px]:h-[360px]
+                            min-[1209px]:h-[322px]
+                            min-[1148px]:h-[284px]
+                            min-[1087px]:h-[246px]
+                            min-[1026px]:h-[208px]
+                            min-[768px]:h-[230px]
+                            h-[375px]
+
+                            `}/>
+
+                            <div className={"flex flex-col space-y-[20px]"}>
+                                <h2 className={"text-[20px]"}>{person.fields.name}</h2>
+                                <p className={"text-[14px]"}>{person.fields.jobTitle}</p>
+                                <a href={`/about/${person.fields.name.trim().toLowerCase().split(" ").join("-")}`} className={"max-w-max text-[14px] text-vm-blue flex items-center space-x-[20px]"}><span>About {person.fields.name}</span> <BsArrowRight size={14}/></a>
                             </div>
-                        </button>
+
+                        </div>
                     ))}
                 </div>
 
                 {/* ADVISORS */}
-                <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
+                <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center mt-[80px]"}>
                     <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
                         {props.content.advisors.title}
                     </h1>
@@ -59,27 +62,30 @@ export function Team(props) {
                 </div>
 
                 <div
-                    className="flex flex-wrap md1:flex-wrap md1:justify-start md:1items-stretch pt-[80px]"
+                    className="grid grid-cols-1 md:grid-cols-3 md: gap-x-[40px] gap-y-[40px] pt-[40px]"
+                    // className="grid grid-cols-2 md1:grid-cols-3 pt-[80px]"
                 >
                     {props.content.advisors.teammates.map((person) => (
-                        <button key={person.fields.name}
-                                className={"flex flex-col justify-stretch rounded-t-[10px] basis-1/2 md1:basis-1/4 pb-[20px] pl-[20px] pr-[20px]"}
-                                onClick={()=>{ setTeamInfo({
-                                    name: person.fields.name,
-                                    title: person.fields.jobTitle,
-                                    description: "Before stepping into his role as Chief Executive Officer in March 2021, Peter served as Senior Vice President of Engineering at Mapbox. He focused on defining and building search, map, navigation, and logistic services, building scalable distributed systems, and operating services at a large scale.&nbsp; Before stepping into his role as Chief Executive Officer in March 2021, Peter served as Senior Vice President of Engineering at Mapbox. He focused on defining and building search, map, navigation, and logistic services, building scalable distributed systems, and operating services at a large scale.&nbsp; Before stepping into his role as Chief Executive Officer in March 2021, Peter served as Senior Vice President of Engineering at Mapbox. He focused on defining and building search, map, navigation, and logistic services, building scalable distributed systems, and operating services at a large scale.&nbsp;",
-                                    imageUrl: person.fields.image.fields.file.url,
-                                    twitter: person.fields.twitter,
-                                    linkedIn: person.fields.linkedIn
-                                }) }}
-                        >
-                            <img className="aspect-[14/13] w-full rounded-t-[10px] object-cover"
-                                 src={person.fields.image.fields.file.url} alt={person.fields.image.fields.fileName}/>
-                            <div className={"self-stretch h-full px-3 pb-3 flex flex-col gap-y-1 rounded-b-[10px] bg-white shadow-md"}>
-                                <p className="mt-6 text-[20px] text-[#23262d] font-bold leading-8">{person.fields.name}</p>
-                                <p className="text-[12px] leading-7 text-[#566171] uppercase">{person.fields.jobTitle}</p>
+                        <div className={"flex flex-col space-y-[10px]"}>
+
+                            <img src={`${person.fields.image.fields.file.url}`} alt="" className={`w-full object-cover
+                            min-[1270px]:h-[360px]
+                            min-[1209px]:h-[322px]
+                            min-[1148px]:h-[284px]
+                            min-[1087px]:h-[246px]
+                            min-[1026px]:h-[208px]
+                            min-[768px]:h-[230px]
+                            h-[375px]
+
+                            `}/>
+
+                            <div className={"flex flex-col space-y-[20px]"}>
+                                <h2 className={"text-[20px]"}>{person.fields.name}</h2>
+                                <p className={"text-[14px]"}>{person.fields.jobTitle}</p>
+                                <a href={`/about/${person.fields.name.trim().toLowerCase().split(" ").join("-")}`} className={"max-w-max text-[14px] text-vm-blue flex items-center space-x-[20px]"}><span>About {person.fields.name}</span> <BsArrowRight size={14}/></a>
                             </div>
-                        </button>
+
+                        </div>
                     ))}
                 </div>
             </div>

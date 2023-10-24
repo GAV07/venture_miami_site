@@ -72,48 +72,12 @@ export default function PartnershipInfo(props) {
 
     }
 
-    const contentComponent = (text) => {
-
-        return (
-
-            <div
-                className={`w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2`}>
-                <div
-                    className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                    <p className={'text-black text-[24px] font-bold'}>{text.partnership}</p>
-                    <p className={'text-[#A0AABA] text-[18px]'}>{text.description}</p>
-                </div>
-            </div>
-        )
-    }
-    const mediaComponent = (url) => {
-
-        return (
-
-            <div className={"relative lg:basis-[730px] xs:basis-1/2"}>
-                <img
-                                src="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio).webp"
-                                // src="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/651e8557b730b61ff947f814_homepage__search-p-1080.png"
-                                // loading="lazy" width="730"
-                                sizes="(max-width: 479px) 92vw, (max-width: 767px) 90vw, (max-width: 991px) 42vw, 53vw"
-                                alt=""
-                                // srcSet="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio)-p-500.webp 500w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio)-p-800.webp 800w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio)-p-1080.webp 1080w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio).webp 1460w"
-                />
-                {/*<video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-xl">
-                    <source src="/videos/video.mp4" type="video/mp4"
-                        // sizes="(max-width: 479px) 92vw, (max-width: 767px) 90vw, (max-width: 991px) 42vw, 53vw"
-                    />
-                </video>*/}
-            </div>
-        )
-    }
-
 
     return (
 
         <div className={"w-full m-auto pt-16"}>
 
-            <div className={"w-[95%] m-auto xl:w-[85%]"}>
+            <div className={"w-[90%] m-auto xl:w-[85%]"}>
                 <div className={"m-auto"}>
                     <h1 className="text-[28px] md:text-[36px] font-bold text-[#0e1012] mb-3">
                         {props.content.leadIn}
@@ -123,16 +87,30 @@ export default function PartnershipInfo(props) {
                     </p>
                 </div>
 
-                <div className={"w-full m-auto flex flex-col"}>
+                <div className={"w-full m-auto flex flex-col mt-[80px]"}>
                     {partnerships.map((text, index) => {
 
                         return (
                             <div key={index}
-                                 className={`mb-[140px] space-x-0 w-full overflow-hidden flex flex-col-reverse justify-center  items-center md:flex-row md:space-x-[70px] md:justify-between md:items-center`}>
+                                 className={`mb-[45px] md:mb-[140px] space-x-0 w-full overflow-hidden flex flex-col justify-center  items-center md:flex-row  md:space-x-[70px] md:justify-between md:items-center`}>
 
-                                {index % 2 === 0 ? contentComponent(text) : mediaComponent(text.imageUrl)}
+                                {/*<div className={`relative lg:basis-[730px] xs:basis-1/2 ${index % 2 === 0 ? 'order-last bg-red-200' : 'order-first bg-yellow-2'}`}>*/}
+                                <div className={`relative lg:basis-[730px] xs:basis-1/2`}>
+                                    <img
+                                        src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
+                                        alt=""
+                                        className={'w-full h-full rounded-[15px]'}
+                                    />
+                                </div>
 
-                                {index % 2 === 0 ? mediaComponent(text.imageUrl) : contentComponent(text)}
+                                <div
+                                    className={`w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2`}>
+                                    <div
+                                        className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
+                                        <p className={'text-black text-[24px] font-bold'}>{text.partnership}</p>
+                                        <p className={'text-[#A0AABA] text-[16px]'}>{text.description}</p>
+                                    </div>
+                                </div>
 
                             </div>
                         )
