@@ -12,6 +12,7 @@ import {EventsAndSocialFeeds} from "../components/home/events-and-socials/EventA
 
 export default function Index(props) {
 
+  console.log(props.hero)
   return (
       // <PreLoader played={props.storage} setPlayed={props.setStorage}>
       <Layout content={props.footer} transparent={true}>
@@ -51,7 +52,6 @@ export async function getStaticProps() {
   // const founders = await getRecords("Founder Database", "Pitchbook Miami CSA VC Deals - 2013/2023")
   //const cards = await getCards()
 
-  console.log(hero);
   // console.log(newHero);
 
 /*
