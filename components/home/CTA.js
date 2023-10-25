@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-export function CTA(props) {
+export default function CTA(props) {
 
     useEffect(() => {
 
@@ -15,7 +15,7 @@ export function CTA(props) {
         "text-black"
     ];
     const bgColor = [
-        "bg-[#007afc]",
+        "bg-vm-blue",
         "bg-white"
     ]
     return (
@@ -38,7 +38,6 @@ export function CTA(props) {
                     {/*<div className="absolute top-0 left-0 w-full h-full">
                         <div className="w-full h-full bg-black bg-opacity-40"></div>
                     </div>*/}
-
                     <div className="rounded-[8px] absolute top-0 left-0 w-full h-full">
                         <div className="rounded-[8px] w-full h-full bg-gradient-to-b from-vm-blue to-red-200 bg-opacity-40"></div>
                     </div>

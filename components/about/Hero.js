@@ -9,12 +9,10 @@ export function Hero(props) {
             <div className={"w-[95%] m-auto xl:w-[85%]"}>
                 <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
                     <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
-                        Fostering a Miami that works for <span className={"italic bg-vm-blue text-white"}>Everyone</span>
+                        {props.content.title}
                     </h1>
                     <p className="text-[16px] md:text-[20px] text-[#566171] leading-8 text-vm-blue">
-                        Venture Miami is an office within the City of Miami focused on improving the City's standard of
-                        living through the creation of jobs, support for innovation, increase in wealth, and an overall
-                        improvement in the quality of life.
+                        {props.content.subtitle}
                     </p>
                 </div>
 

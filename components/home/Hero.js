@@ -24,6 +24,19 @@ export default function Hero(props) {
     })
 
 
+    const buttonsOptions = [
+
+        {
+            color: "text-black",
+            background: "bg-white"
+        },
+        {
+            color: "text-white",
+            background: "bg-black"
+
+        }
+    ];
+
 
     return (
 
@@ -92,15 +105,22 @@ export default function Hero(props) {
 
                 <div className={"relative z-[10]"}>
                     <h2 className="text-white lg:text-[5em] md:text-[3em] sm:text-[2em] text-[2em] font-[800] leading-[1em] uppercase">
-                        Creating Opportunities for a Resilient Economy
+                        {props.content.title}
                     </h2>
                     <p className="text-white lg:text-[1.1em] my-[20px] mx-[0px] font-[400] max-w-[700px]">
-                        We’re building the platform to change the way people and businesses navigate miami's tech Ecosystem.
+                        {props.content.subtitle}
                     </p>
                     <div className={"w-max grid grid-cols-1 md:grid-cols-2 gap-x-[20px] gap-y-[10px] mt-[10px]"}>
-                        <a href={"/resources"} className={"max-w-max rounded-full text-[14px] bg-white py-[10px] px-[30px] text-[#111] uppercase"}>Explore our resources</a>
-                        <a href={"/resources"} className={"max-w-max rounded-full text-[14px] bg-black py-[10px] px-[30px] text-white uppercase"}>Join our database</a>
-                    </div>
+                        {
+                            props.content.buttons.map((button, index)=>{
+
+                                return <a key={index} href={button.fields.url} className={`max-w-max rounded-full text-[14px] py-[10px] px-[30px] ${buttonsOptions[index].background} ${buttonsOptions[index].color} uppercase`}>{button.fields.text}</a>
+
+                            })
+
+
+                        }
+                  </div>
                 </div>
 
             </div>

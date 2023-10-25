@@ -10,19 +10,20 @@ import {Achievements} from "../../components/about/Achievements";
 import Values from "../../components/about/Values";
 
 export default function Index(props) {
- 
+
+    console.log(props.heroSection)
   return (
       <Layout content={props.footer}>
         <Head>
           <title>Venture Miami - Team</title>
         </Head>
         <Container>
-          <Hero content={props.hero}/>
-          <Community/>
-          <Achievements/>
+          <Hero content={props.heroSection}/>
+          {/*<Community/>*/}
+          {/*<Achievements/>*/}
           {/*<Values/>*/}
-          <Team content={{team: props.team, advisors: props.advisors}}/>
-          <Partnerships/>
+          {/*<Team content={{team: props.team, advisors: props.advisors}}/>*/}
+          {/*<Partnerships/>*/}
         </Container>
       </Layout>
   )
@@ -30,16 +31,16 @@ export default function Index(props) {
 
 export async function getStaticProps() {
   
-  const hero = await Client.getEntry('5I0W4kRIxQafO0LHbQKc01')
-  const team = await Client.getEntry('6OjUgBFCrNGHZ7CZ28prHb')
-  const advisors = await Client.getEntry('7KUM58hhFdQcFqMGM6kLmb')
+  const heroSection = (await Client.getEntry('6eOV7sQdGhbNkB6GyVB6qD')).fields;
+  // const team = await Client.getEntry('6OjUgBFCrNGHZ7CZ28prHb')
+  // const advisors = await Client.getEntry('7KUM58hhFdQcFqMGM6kLmb')
   const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
 
   return {
     props: {
-      hero: hero.fields,
-      team: team.fields,
-      advisors: advisors.fields,
+      heroSection: heroSection,
+      // team: team.fields,
+      // advisors: advisors.fields,
       footer: footer.fields
     }
   }

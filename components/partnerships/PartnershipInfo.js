@@ -49,8 +49,8 @@ export default function PartnershipInfo(props) {
 
         for (let x = 1; x < size - 1; x += 2) {
 
-            // every 2 item is both the heading and info (partnership type, info about the partnership type)
-            // where x = the heading and x+1 is the info
+            // every 2 item is both the heading and stats (partnership type, stats about the partnership type)
+            // where x = the heading and x+1 is the stats
 
             const contentSize = props.content.mainText.content[x].content.length;
 
