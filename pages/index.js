@@ -32,11 +32,27 @@ export default function Index(props) {
 
 export async function getStaticProps() {
 
-  const heroSection = (await Client.getEntry('2lONtuW7BxG5DeNo7cHXrP')).fields;
-  const statsSection = (await Client.getEntry('ZIqOo0KybKXl16IyTGACL')).fields
-  const ctaSection = (await Client.getEntry('5Eh6ec01u2oh1vQjEqivrS')).fields;
-  const infoSection = (await Client.getEntry('7a3z9EpBnoMEo0gGAfpAWx')).fields;
-  const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
+    // home page
+    const homePageEntry = await Client.getEntry("6gZiocNJVwo7xWGjuL7dBB", {include: 10});
+
+    // hero section
+    const hero = homePageEntry.fields.heroSection;
+    const heroSection = (await Client.getEntry(hero.sys.id, {include: 10})).fields;
+
+    // stats section
+    const stats = homePageEntry.fields.statsSection;
+    const statsSection = (await Client.getEntry(stats.sys.id, {include: 10})).fields;
+
+    // cta section
+    const cta = homePageEntry.fields.ctaSection;
+    const ctaSection = (await Client.getEntry(cta.sys.id, {include: 10})).fields;
+
+    // info section
+    const info = homePageEntry.fields.infoSection;
+    const infoSection = (await Client.getEntry(info.sys.id, {include: 10})).fields;
+
+
+    const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
   // const founders = await getRecords("Founder Database", "Pitchbook Miami CSA VC Deals - 2013/2023")
 
 /*
