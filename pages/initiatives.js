@@ -16,7 +16,7 @@ export default function Talent(props) {
           <title>Venture Miami - Initiatives</title>
         </Head>
         <Container>
-          <Hero content={props.hero}/>
+          <Hero />
           {/*<Data content={props.data}/>*/}
           {/* <Companies companies={props.companies}/> */}
         </Container>
@@ -27,17 +27,26 @@ export default function Talent(props) {
 
 export async function getStaticProps() {
   
-  const hero = await Client.getEntry('sPfwnHFfvJaLjE40fe0xM', {include: 3})
-  const tabs = await Client.getEntry('30iQqtglBuXGa77V3dZL5J')
-  const data = await Client.getEntry('27Tb8oRqA4rOI4T5IUtUBn', {include: 3})
+  // const hero = await Client.getEntry('sPfwnHFfvJaLjE40fe0xM', {include: 3})
+  // const tabs = await Client.getEntry('30iQqtglBuXGa77V3dZL5J')
+  // const data = await Client.getEntry('27Tb8oRqA4rOI4T5IUtUBn', {include: 3})
   const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
   //const records = await getTalent("Confirmed Companies");
 
+  // about page
+  const initiativesPageEntry = await Client.getEntry("2tzuviGPn9Szt5greBXhpo", {include: 10});
+
+  // hero section
+  const hero = initiativesPageEntry.fields.heroSection;
+  const heroSection = (await Client.getEntry(hero.sys.id, {include: 10})).fields;
+
+
+
   return {
     props: {
-      hero: hero.fields,
-      tabs: tabs.fields,
-      data: data.fields,
+      hero: heroSection,
+      // tabs: tabs.fields,
+      // data: data.fields,
       footer: footer.fields
     }
   }

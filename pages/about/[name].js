@@ -3,7 +3,6 @@ import {useRouter} from "next/router";
 import Layout from "../../components/layout";
 import Head from "next/head";
 import {Container} from "../../components/container";
-import EventDetails from "../../components/events/EventDetails";
 import AboutDetails from "../../components/about/AboutDetails";
 
 
@@ -12,23 +11,10 @@ export default function AboutDetail(props) {
     const router = useRouter();
 
     const {name} = router.query;
-    console.log(props.advisors);
 
-    let team = [];
-
-    // put them all into one array
-    for(let x = 0; x < props.team.teammates.length; x++  ){
-
-        team.push(props.team.teammates[x]);
-    }
-
-    for(let x = 0; x < props.advisors.teammates.length; x++  ){
-
-        team.push(props.advisors.teammates[x]);
-    }
 
     // find the matching person
-    let index = team.findIndex((team)=>{
+    let index = props.teamSection.findIndex((team)=>{
 
         return team.fields.name.trim().toLowerCase() === name.trim().toLowerCase().split("-").join(" ")
     });
@@ -42,7 +28,7 @@ export default function AboutDetail(props) {
                 <Container>
 
                     <AboutDetails content={{
-                        team: team,
+                        team: props.teamSection,
                         index: index
                     }}/>
 
@@ -54,17 +40,24 @@ export default function AboutDetail(props) {
 
 export async function getStaticProps() {
 
-    const hero = await Client.getEntry('5I0W4kRIxQafO0LHbQKc01')
-    const team = await Client.getEntry('6OjUgBFCrNGHZ7CZ28prHb')
-    const advisors = await Client.getEntry('7KUM58hhFdQcFqMGM6kLmb')
-    const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
+    // about page
+    const aboutPageEntry = await Client.getEntry("6tHurDmzti6EYjCOCb9qLD", {include: 10});
+
+    // team section
+    const team = aboutPageEntry.fields.teamSection;
+    const teamSection = (await Client.getEntry(team.sys.id, {include: 10})).fields;
+
+    // advisors section
+    const advisors = aboutPageEntry.fields.advisorsSection;
+    const advisorsSection = (await Client.getEntry(advisors.sys.id, {include: 10})).fields;
+
+
+     const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
 
 
     return {
         props: {
-            hero: hero.fields,
-            team: team.fields,
-            advisors: advisors.fields,
+            teamSection: teamSection.members.concat(advisorsSection.members),
             footer: footer.fields
         }
     }
@@ -72,22 +65,23 @@ export async function getStaticProps() {
 
 export async function getStaticPaths() {
 
-    const team = await Client.getEntry('6OjUgBFCrNGHZ7CZ28prHb')
-    const advisors = await Client.getEntry('7KUM58hhFdQcFqMGM6kLmb')
 
-    let teams = [];
+    // about page
+    const aboutPageEntry = await Client.getEntry("6tHurDmzti6EYjCOCb9qLD", {include: 10});
 
-    for(let x = 0; x < team.fields.teammates.length; x++  ){
+    // team section
+    const team = aboutPageEntry.fields.teamSection;
+    const teamSection = (await Client.getEntry(team.sys.id, {include: 10})).fields;
 
-        teams.push(team.fields.teammates[x]);
-    }
+    // advisors section
+    const advisors = aboutPageEntry.fields.advisorsSection;
+    const advisorsSection = (await Client.getEntry(advisors.sys.id, {include: 10})).fields;
 
-    for(let x = 0; x < advisors.fields.teammates.length; x++  ){
 
-        teams.push(advisors.fields.teammates[x]);
-    }
+    const teamsArray = teamSection.members.concat(advisorsSection.members);
 
-    const paths = teams.map((teammate) =>{
+    const paths = teamsArray.map((teammate) =>{
+
         return {
             params: {name: teammate.fields.name.trim().toLowerCase().split(" ").join("-")},
         }

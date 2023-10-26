@@ -3,7 +3,7 @@
     return classes.filter(Boolean).join(' ')
   }
   
-  export function Actions(props) {
+  export default function Actions(props) {
     return (
       <>
         <div className="px-3 lg:px-0 mx-auto max-w-lg lg:max-w-7xl">

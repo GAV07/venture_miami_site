@@ -20,9 +20,9 @@ import {miamiGeoJSON} from "./miamiGeoJSON";
 
 
 
-export function CityMap(props) {
+export default function CityMap(props) {
 
-    const [poiData, setPoiData] = useState(props.content); // original poi data
+    const [poiData, setPoiData] = useState(props.content.mapboxData); // original poi data
 
     const [pointOfInterests, setPointOfInterests] = useState([]); // original Points of interest
 
@@ -210,10 +210,10 @@ export function CityMap(props) {
                 {/* CONTENT */}
                 <div className={"max-w-[1200px] mx-auto text-center"}>
                     <h1 className="text-[36px] md:text-[36px] font-bold text-[white] mb-[16px]">
-                        Miami has a lot to offer
+                        {props.content.mapHero.title}
                     </h1>
                     <p className="text-[16px] md:text-[20px] text-[#9ba2b2] leading-8">
-                        Whether you're looking for art, parks, restaurants, schools, venues, and more, Miami has a lot to offer!
+                        {props.content.mapHero.subtitle}
                     </p>
 
                     {/*<div className={"w-full min-h-[450px] mt-[56px] flex flex-col lg:flex-row bg-yellow-200"}>*/}
@@ -292,11 +292,12 @@ export function CityMap(props) {
                                     </button>
 
                                     {
-                                        pointOfInterests.map((poi) => {
+                                        pointOfInterests.map((poi, index) => {
 
                                             return (
 
                                                 <button
+                                                    key={index}
                                                     className={`px-[20px] flex items-center ${poi.selected && 'bg-[#2b303c]'} py-[10px]`}
 
                                                     onClick={() => {
@@ -476,11 +477,12 @@ export function CityMap(props) {
                                </button>
 
                                {
-                                    pointOfInterests.map((poi) => {
+                                    pointOfInterests.map((poi, index) => {
 
                                         return (
 
                                             <button
+                                                key={index}
                                                 className={`px-[20px] flex items-center ${poi.selected && 'bg-[#2b303c]'} py-[10px]`}
 
                                                 onClick={() => {
