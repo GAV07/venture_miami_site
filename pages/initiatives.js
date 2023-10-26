@@ -6,9 +6,12 @@ import { Data } from '../components/talent/Data'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/contentful'
+import Initiatives from "../components/talent/Initiatives";
 
 
 export default function Talent(props) {
+
+  console.log(props.heroSection)
   return (
     <>
       <Layout content={props.footer}>
@@ -16,7 +19,8 @@ export default function Talent(props) {
           <title>Venture Miami - Initiatives</title>
         </Head>
         <Container>
-          <Hero />
+          <Hero content={props.heroSection} />
+          <Initiatives content={props.initiativesSection}/>
           {/*<Data content={props.data}/>*/}
           {/* <Companies companies={props.companies}/> */}
         </Container>
@@ -33,18 +37,32 @@ export async function getStaticProps() {
   const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
   //const records = await getTalent("Confirmed Companies");
 
-  // about page
-  const initiativesPageEntry = await Client.getEntry("2tzuviGPn9Szt5greBXhpo", {include: 10});
+  // initiatives page
+  const initiativesPageEntry = await Client.getEntry("5MGgo41UeA4MfpxWBnrYGD", {include: 10});
+
 
   // hero section
   const hero = initiativesPageEntry.fields.heroSection;
   const heroSection = (await Client.getEntry(hero.sys.id, {include: 10})).fields;
 
 
+  // initiatives section
+  const initiatives = initiativesPageEntry.fields.initiativesSection;
+
+  // gets the entries for each initiatives in the array
+  const initiativesArray = await Promise.all(
+      initiatives.map(async (initiative) => {
+        const init = (await Client.getEntry(initiative.sys.id, { include: 10 })).fields;
+        return init;
+      })
+  );
+
 
   return {
     props: {
-      hero: heroSection,
+      initiativesSection: initiativesArray,
+      heroSection: heroSection,
+      // initiativesSection: initiativesSection,
       // tabs: tabs.fields,
       // data: data.fields,
       footer: footer.fields

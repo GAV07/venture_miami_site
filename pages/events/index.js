@@ -9,6 +9,7 @@ import React from "react";
 
 export default function Index(props) {
 
+    console.log(props.heroSection)
     return (
         // <PreLoader played={props.storage} setPlayed={props.setStorage}>
         <Layout content={props.footer} transparent={true}>
@@ -16,10 +17,7 @@ export default function Index(props) {
                 <title>Venture Miami - Events</title>
             </Head>
             <Container>
-                <Hero content={{
-                    text: "Events",
-                    url: "https://uhdwallpapers.org/uploads/cache/1886431627/sunset-from-grand-teton_600x338-mm-90.webp"
-                }}/>
+                <Hero content={props.heroSection}/>
                 <EventsInfo content={props.events}/>
             </Container>
         </Layout>
@@ -32,10 +30,22 @@ export async function getStaticProps() {
     const events = await getSite("Events Calendar")
     const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
 
+
+
+    // events page
+    const eventsPageEntry = await Client.getEntry("2wbz2i7s1dSVNkSL1FPeTT", {include: 10});
+
+
+    // hero section
+    const heroSection = eventsPageEntry.fields.heroSection.fields;
+
+
+
     return {
         props: {
             footer: footer.fields,
-            events: events
+            events: events,
+            heroSection: heroSection
         }
     }
 }

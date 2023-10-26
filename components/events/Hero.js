@@ -2,6 +2,7 @@ import React from "react";
 
 export default function Hero(props){
 
+    console.log(props)
     return (
 
         <div className={`relative right-0 flex justify-between items-center z-[2] w-full ease-in duration-300
@@ -12,7 +13,7 @@ export default function Hero(props){
         `}>
 
             <img
-                src={props.content.url}
+                src={props.content.backgroundImage.fields.file.url}
                 className={`absolute top-0 left-0 w-full object-cover
                    max-h-full h-full
 
@@ -29,7 +30,7 @@ export default function Hero(props){
 
             <div className={"relative z-[10] w-full mt-auto p-[50px]"}>
                 <h2 className="text-white lg:text-[5em] md:text-[3em] text-[2.2em] font-[800] leading-[1em] uppercase">
-                    {props.content.text}
+                    {props.content.title}
                 </h2>
             </div>
 

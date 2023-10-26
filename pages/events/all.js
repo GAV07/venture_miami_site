@@ -18,10 +18,7 @@ export default function All(props){
                 <title>Venture Miami - All Events</title>
             </Head>
             <Container>
-                <Hero content={{
-                    text: "Upcoming Events",
-                    url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZXZlbnRzfGVufDB8fDB8fHww"
-                }}/>
+                <Hero content={props.heroSection}/>
                 <AllEvents content={events}/>
             </Container>
         </Layout>
@@ -40,10 +37,17 @@ export async function getStaticProps() {
         return new Date(event1.fields.Date) - new Date(event2.fields.Date)
     });
 
+    // eventsAll page
+    const eventsAllPageEntry = await Client.getEntry("UPiqTNq5lggoughkbsI89", {include: 10});
+
+    // hero section
+    const heroSection = eventsAllPageEntry.fields.heroSection.fields;
+
     return {
         props: {
             footer: footer.fields,
-            events: sortedEvents
+            events: sortedEvents,
+            heroSection: heroSection
         }
     }
 }

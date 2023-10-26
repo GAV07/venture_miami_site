@@ -3,10 +3,13 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 import {Slider} from "../Slider";
 
-export function Hero(props) {
+export default function Initiatives(props) {
 
-    const [initiative, setInitiative] = useState(props.content.programs[0]);
-    const [initiatives, setInitiatives] = useState(props.content.programs.map((program)=> program));
+
+    console.log(props.content)
+
+    const [initiative, setInitiative] = useState(props.content[0]); // gets the first initiative
+    const [initiatives, setInitiatives] = useState(props.content.map((program)=> program)); // stores all the initiatives
     const [sliderButtons, setSliderButtons] = useState([]); // these buttons go into the slider
 
     useEffect(()=>{
@@ -14,10 +17,10 @@ export function Hero(props) {
         let buttons = initiatives.map((init)=>{
 
             let componentObj = {
-                type: <button key={init.fields.title} className={`text-[14px] md:text-[16px] px-[16px] py-[8px] rounded-full ${initiative === init ? 'bg-[#007afc] text-white' : 'bg-white ring-1 ring-black'} font-base`}
+                type: <button key={init.title} className={`text-[14px] md:text-[16px] px-[16px] py-[8px] rounded-full ${initiative === init ? 'bg-[#007afc] text-white' : 'bg-white ring-1 ring-black'} font-base`}
                               onClick={()=>{ setInitiative(init) }}
                 >
-                    {init.fields.title}
+                    {init.title}
                 </button>
             }
             return componentObj;
@@ -35,13 +38,6 @@ export function Hero(props) {
                 {/* CONTENT */}
                 <div className={"max-w-[1200px] mx-auto text-center"}>
 
-                    <h1 className="text-[36px] md:text-[36px] font-bold text-[white] mb-[16px]">
-                        {props.content.title}
-                    </h1>
-                    <p className="text-[16px] md:text-[20px] text-[#9ba2b2] leading-8">
-                        {props.content.subtitle}
-                    </p>
-
                     <div className={"w-full min-h-[450px] mt-[56px] flex flex-col space-y-10"}>
 
                         <div className={""}>
@@ -58,10 +54,10 @@ export function Hero(props) {
                                         return (
 
                                             // <button key={init.fields.title} className={`text-[13px] px-[12px] py-[8px] max-w-max rounded-full ${initiative === init ? 'bg-[#007afc] text-white' : 'text-[#9ba2b2]'}`}
-                                            <button key={init.fields.title} className={`font-semibold mx-auto text-[13px] px-4 py-2 max-w-max rounded-full ${initiative === init ? 'bg-[#007afc] text-white' : 'text-black bg-white ring-1 ring-black'}`}
+                                            <button key={init.title} className={`font-semibold mx-auto text-[13px] px-4 py-2 max-w-max rounded-full ${initiative === init ? 'bg-[#007afc] text-white' : 'text-black bg-white ring-1 ring-black'}`}
                                                     onClick={()=>{ setInitiative(init) }}
                                             >
-                                                {init.fields.title}
+                                                {init.title}
                                             </button>
                                         )
                                     })
@@ -78,16 +74,16 @@ export function Hero(props) {
                                     <div className={`w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2`}>
                                         <div className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
                                             <p className={'text-white text-[24px] font-bold text-center'}>
-                                                {initiative.fields.title}
+                                                {initiative.title}
                                             </p>
                                             <p className={'text-[#9ba2b2] text-[16px] text-center'}>
-                                                {initiative.fields.description}
+                                                {initiative.description}
                                             </p>
                                             {
-                                                initiative.fields.calloutTitle && (
+                                                initiative.calloutTitle && (
                                                     // <p className={'w-full text-center bg-[#eff7ff] text-[#007afc] text-[14px] px-[4px] py-[8px] rounded-[4px]'}>
                                                     <p className={'w-full text-center bg-[#1d2023] text-vm-green text-[14px] px-[4px] py-[8px] rounded-[4px]'}>
-                                                        {initiative.fields.calloutTitle}
+                                                        {initiative.calloutTitle}
                                                     </p>
                                                 )
                                             }
@@ -96,7 +92,7 @@ export function Hero(props) {
                                                 // className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base leading-7 sm:grid-cols-2"
                                                 className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base leading-7"
                                             >
-                                                {initiative.fields.callouts.map((callout, index) => (
+                                                {initiative.callouts.map((callout, index) => (
                                                     <li key={index} className="flex gap-x-3">
                                                         <AiFillCheckCircle className="text-green-300 h-7 w-5 flex-none" aria-hidden="true" />
                                                         <p className="ml-3 text-sm text-[#9ba2b2] ml-auto mr-auto">{callout.fields.text}</p>
@@ -105,13 +101,13 @@ export function Hero(props) {
                                             </ul>
                                             {
 
-                                                initiative.fields.button !== undefined &&
+                                                initiative.button !== undefined &&
                                                 <div className="rounded-full shadow max-w-max">
                                                     <a
-                                                        href={initiative.fields.button.fields.url}
+                                                        href={initiative.button.fields.url}
                                                         className="flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#007afc]"
                                                     >
-                                                        {initiative.fields.button.fields.text}
+                                                        {initiative.button.fields.text}
                                                     </a>
                                                 </div>
                                             }
