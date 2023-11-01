@@ -31,12 +31,12 @@ export default function Initiatives(props) {
 
     }, [])
     return (
-        <div className={"w-full m-auto pt-16"}>
+        <div className={"w-full m-auto"}>
 
-            <div className={"bg-[#15181b] pt-[140px] pb-[70px] px-[40px]"}>
+            <div className={"bg-white pb-[70px] px-[40px]"}>
 
                 {/* CONTENT */}
-                <div className={"max-w-[1200px] mx-auto text-center"}>
+                <div className={"max-w-[1200px] mx-auto"}>
 
                     <div className={"w-full min-h-[450px] mt-[56px] flex flex-col space-y-10"}>
 
@@ -47,7 +47,7 @@ export default function Initiatives(props) {
                             </div>*/}
                             {/*<div className={"hidden md:block"}>*/}
                             {/*<div className={"relative w-full mx-auto rounded-[8px] flex justify-center flex-wrap space-x-[10px]"}>*/}
-                            <div className={"relative w-full mx-auto rounded-[8px] flex flex-wrap justify-between items-center gap-x-[20px] gap-y-[20px]"}>
+                            <div className={"relative w-[80%] mx-auto rounded-[8px] flex flex-wrap items-center gap-x-[3px] gap-y-[20px]"}>
                                 {
                                     initiatives.map((init)=>{
 
@@ -73,16 +73,16 @@ export default function Initiatives(props) {
 
                                     <div className={`w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2`}>
                                         <div className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                            <p className={'text-white text-[24px] font-bold text-center'}>
+                                            <p className={'text-black text-[24px] font-bold text-center'}>
                                                 {initiative.title}
                                             </p>
-                                            <p className={'text-[#9ba2b2] text-[16px] text-center'}>
+                                            {/* <p className={'text-black text-[16px] text-center'}>
                                                 {initiative.description}
-                                            </p>
+                                            </p> */}
                                             {
                                                 initiative.calloutTitle && (
                                                     // <p className={'w-full text-center bg-[#eff7ff] text-[#007afc] text-[14px] px-[4px] py-[8px] rounded-[4px]'}>
-                                                    <p className={'w-full text-center bg-[#1d2023] text-vm-green text-[14px] px-[4px] py-[8px] rounded-[4px]'}>
+                                                    <p className={'w-full text-vm-blue text-[14px]'}>
                                                         {initiative.calloutTitle}
                                                     </p>
                                                 )
@@ -95,7 +95,7 @@ export default function Initiatives(props) {
                                                 {initiative.callouts.map((callout, index) => (
                                                     <li key={index} className="flex gap-x-3">
                                                         <AiFillCheckCircle className="text-green-300 h-7 w-5 flex-none" aria-hidden="true" />
-                                                        <p className="ml-3 text-sm text-[#9ba2b2] ml-auto mr-auto">{callout.fields.text}</p>
+                                                        <p className="text-sm text-[#9ba2b2] ">{callout.fields.text}</p>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -133,19 +133,19 @@ export default function Initiatives(props) {
                                 min-[381px]:h-[370px]
                             min-[288px]:h-[345px]                         
                             `}
-                                    >                                                {/*<img
-                                src="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio).webp"
-                                // src="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/651e8557b730b61ff947f814_homepage__search-p-1080.png"
-                                // loading="lazy" width="730"
-                                sizes="(max-width: 479px) 92vw, (max-width: 767px) 90vw, (max-width: 991px) 42vw, 53vw"
-                                alt=""
-                                // srcSet="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio)-p-500.webp 500w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio)-p-800.webp 800w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio)-p-1080.webp 1080w, https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio).webp 1460w"
-                            />*/}
-                                        <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-xl">
-                                            <source src="/videos/video.mp4" type="video/mp4"
+                                    >                                                
+                                        <img
+                                            className="w-full h-full object-cover rounded-xl"
+                                            src={initiative.media.fields.file.url}
+                                            sizes="(max-width: 479px) 92vw, (max-width: 767px) 90vw, (max-width: 991px) 42vw, 53vw"
+                                            alt=""
+                                        />
+
+                                        {/* <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-xl">
+                                            <source src="/videos/VM.mp4" type="video/mp4"
                                                 // sizes="(max-width: 479px) 92vw, (max-width: 767px) 90vw, (max-width: 991px) 42vw, 53vw"
                                             />
-                                        </video>
+                                        </video> */}
                                     </div>
 
                                 </div>

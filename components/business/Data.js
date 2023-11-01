@@ -40,34 +40,36 @@ export default function Incentives(props) {
                         }
                     </div>
                 </div>
-            {
-                props.content.contentBlock.map((section, index) => {
+                <div className="w-full gap-x-10 flex flex-wrap">
+                    {
+                        props.content.contentBlock.map((section, index) => {
 
-                    return (
+                            return (
 
-                        <div key={index} className={"grid grid-cols-1 md:grid-cols-3 gap-x-[32px] gap-y-[32px]"}>
+                                <div key={index} className={"max-w-[400px]"}>
 
-                                    <div className={"max-w-[350px] w-full flex flex-col"}>
-                                        <p className={"font-[20px] font-bold text-[#23262d] md:font-[18px] mb-[8px]"}>{section.fields.title}</p>
-                                        <p className={"font-[16px] text-[#566171] leading-[24px]"}>{section.fields.subtitle}</p>
-                                        <p className={"py-[20px] mt-auto"}>
-                                            {
-                                                section.fields.buttons.map((button, index)=>{
+                                            <div className={"max-w-[350px] w-full flex flex-col"}>
+                                                <p className={"font-[20px] font-bold text-[#23262d] md:font-[18px] mb-[8px]"}>{section.fields.title}</p>
+                                                <p className={"font-[16px] text-[#566171] leading-[24px]"}>{section.fields.subtitle}</p>
+                                                <p className={"py-[20px] mt-auto"}>
+                                                    {
+                                                        section.fields.buttons.map((button, index)=>{
 
-                                                    return (
+                                                            return (
 
-                                                        <a key={index} className={"text-[#007afc]"} href={button.fields.url}>{button.fields.text}</a>
-                                                    )
+                                                                <a key={index} className={"text-[#007afc]"} href={button.fields.url}>{button.fields.text}</a>
+                                                            )
 
-                                                })
-                                            }
-                                        </p>
-                                    </div>
-                        </div>
-                    )
-                })
+                                                        })
+                                                    }
+                                                </p>
+                                            </div>
+                                </div>
+                            )
+                        })
 
-                }
+                    }
+                </div>
             </div>
             </div>
     )

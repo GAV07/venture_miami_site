@@ -1,7 +1,7 @@
 import {Slider} from "../Slider";
 import {useEffect, useState} from "react";
 
-export function Partnerships(props) {
+export function PartnerRotate(props) {
 
     // temporary until we get images in the DB
     const images = [

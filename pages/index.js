@@ -7,11 +7,12 @@ import Head from 'next/head'
 import PreLoader from '../components/home/PreLoader'
 import { Client } from '../lib/contentful'
 // import {/*getRecords,*/ getSite} from '../lib/airtable'
+import { getSite } from "../lib/airtable";
 import Info from "../components/home/info/Info";
 
 
 export default function Index(props) {
-
+  
   return (
       // <PreLoader played={props.storage} setPlayed={props.setStorage}>
       <Layout content={props.footer} transparent={true}>
@@ -20,9 +21,9 @@ export default function Index(props) {
         </Head>
         <Container>
 
-          <Hero content={props.heroSection}/>
+          <Hero content={props.heroSection} video={props.bgVideo}/>
           <Stats content={props.statsSection} />
-          {/*<Info content={props.infoSection} />*/}
+          <Info content={props.infoSection} />
           <CTA content={props.ctaSection} />
         </Container>
       </Layout>
@@ -53,6 +54,9 @@ export async function getStaticProps() {
 
 
     const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
+
+    // main bg video
+    const bgVideo = await getSite("Media Content");
   // const founders = await getRecords("Founder Database", "Pitchbook Miami CSA VC Deals - 2013/2023")
 
 /*
@@ -106,7 +110,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-
+      bgVideo: bgVideo,
       heroSection: heroSection,
       statsSection: statsSection,
       infoSection: infoSection,

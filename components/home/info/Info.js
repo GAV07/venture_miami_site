@@ -8,7 +8,7 @@ import Swipe from "../../Swipe";
 
 
 export default function Info(props) {
-
+    console.log(props.content)
     return (
 
         <div className={"w-full m-auto pt-16"}>
@@ -75,10 +75,10 @@ export default function Info(props) {
                             className={'w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2'}>
                             <div
                                 className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                <p className={'text-black text-[24px] font-bold'}>Business Development</p>
-                                <p className={'text-[#A0AABA] text-[18px]'}>Whether you’re a founder, funder or individual interested in relocating to the City of Miami, we'll provide you with concierge-level support to make your transition seamless.</p>
+                                <p className={'text-black text-[24px] font-bold'}>{props.content.contentBlock[0].fields.title}</p>
+                                <p className={'text-[#A0AABA] text-[18px]'}>{props.content.contentBlock[0].fields.subtitle}</p>
                                 <div className={"flex justify-start items-center w-full space-x-[30px]"}>
-                                    <a href={"/resources"} className={"text-[14px] md:text-[16px] text-vm-blue font-semibold"}>Get started</a>
+                                    <a href={"/business"} className={"text-[14px] md:text-[16px] text-vm-blue font-semibold"}>Get started</a>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@ export default function Info(props) {
                             `}
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1652109348316-2ec63fa43632?auto=format&fit=crop&q=60&w=900&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fDRrJTIwaGQlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D"
+                                src={props.content.contentBlock[0].fields.images[0].fields.file.url}
                                 loading="lazy" width={"100%"}
                                 alt=""
                                 className={"rounded-[1.5rem] h-full object-cover w-full"}
@@ -116,9 +116,10 @@ export default function Info(props) {
 
                         <div className={"relative lg:basis-[730px] xs:basis-1/2 max-h-[530px] mx-auto"}>
                             <img
-                                src="https://assets-global.website-files.com/6050a76fa6a633d5d54ae714/650469400e6eca12e09a8949_Transparent%20iPad%20Pro%2011%E2%80%B3%20Space%20Gray%20Mockup%20(Mockuuups%20Studio).webp"
+                                src={props.content.contentBlock[1].fields.images[0].fields.file.url}
                                 loading="lazy" width="730"
                                 alt=""
+                                className={"rounded-[1.5rem] h-full object-cover w-full"}
                             />
                         </div>
 
@@ -126,8 +127,8 @@ export default function Info(props) {
                             className={'w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2'}>
                             <div
                                 className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                <p className={'text-black text-[24px] font-bold'}>Opportunities for Miamians</p>
-                                <p className={'text-[#A0AABA] text-[18px]'}>We connect our local talent with the businesses, career opportunities, and the resources they need to succeed.</p>
+                                <p className={'text-black text-[24px] font-bold'}>{props.content.contentBlock[1].fields.title}</p>
+                                <p className={'text-[#A0AABA] text-[18px]'}>{props.content.contentBlock[1].fields.subtitle}</p>
                                 <div className={"flex justify-start items-center w-full space-x-[30px]"}>
                                     <a href={"/resources"} className={"text-[14px] md:text-[16px] text-vm-blue font-semibold"}>Get started</a>
                                 </div>

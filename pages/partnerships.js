@@ -7,6 +7,8 @@ import {CameraIcon} from '@heroicons/react/solid'
 import PartnershipInfo from "../components/partnerships/PartnershipInfo";
 import Partnerships from "../components/partnerships/Partnerships";
 import CTA from "../components/partnerships/CTA";
+import { PartnerRotate } from "../components/partnerships/PartnerRotate";
+
 
 
 export default function Contact(props) {
@@ -16,9 +18,10 @@ export default function Contact(props) {
             <Head>
                 <title>Venture Miami - Partnerships</title>
             </Head>
-            <CTA content={props.heroSection}/>
+            {/* <Partnerships /> */}
+            {/* <PartnerRotate content={props.partnersSection}/> */}
             <PartnershipInfo content={props.partnershipsSection}/>
-            {/*<Partnerships />*/}
+            <CTA content={props.heroSection}/>
         </Layout>
     );
 }
@@ -42,6 +45,10 @@ export async function getStaticProps() {
     // partnerships section
     const partnerships = partnershipsPageEntry.fields.partnerships;
     const partnershipsSection = (await Client.getEntry(partnerships.sys.id, {include: 10})).fields;
+
+    // partners section (fix this!!!!!!)
+    // const partners = aboutPageEntry.fields.partnersSection;
+    // const rotateSection = (await Client.getEntry(partners.sys.id, {include: 10})).fields;
 
 
     return {

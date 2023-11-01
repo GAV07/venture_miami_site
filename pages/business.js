@@ -26,7 +26,7 @@ export default function Guide(props) {
           <CityMap content={props.mapSection} />
           <Data content={props.incentivesSection}/>
           {/*<Actions content={props.actions}/>*/}
-          {/*<CTA content={props.airtableData}/>*/}
+          {/* <CTA content={props.airtableData}/> */}
           {/*<Form/>*/}
         </Container>
       </Layout>
@@ -74,7 +74,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      companiesPageData: companiesPageData,
+      //companiesPageData: companiesPageData,
       // data: data.fields,
       // actions: actions.fields,
       footer: footer.fields,

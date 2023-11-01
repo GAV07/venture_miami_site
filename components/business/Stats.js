@@ -6,7 +6,7 @@ export default function Stats(props) {
 
             <div className={"w-[95%] m-auto xl:w-[85%]"}>
 
-                <div className={"grid grid-cols-1 md:grid-cols-4 md:gap-x-[32px] pt-16"}>
+                <div className={"flex flex-col md:flex-row md:gap-x-[32px]"}>
                     {props.content.stats.map((stat, index) => {
                         return (
                             <div className={"mb-[32px]  md:mr-[32px] w-full text-center"}>

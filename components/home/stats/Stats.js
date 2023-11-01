@@ -30,7 +30,7 @@ export default function Stats(props) {
                     </p>
                 </div>
 
-                <div className={"grid grid-cols-1 md:grid-cols-4 md:gap-x-[32px] pt-16"}>
+                <div className={"flex  pt-16"}>
                     {props.content.stats.map((info, index) => {
                         return (
                             <div key={index} className={"mb-[32px]  md:mr-[32px] w-full text-center"}>

@@ -12,8 +12,8 @@ export default function Footer(props) {
               <h1
                   className="text-2xl  lg:w-[30%] md:w-[40%] w-[50%] font-bold leading-10 tracking-tight"
               >
-                <span className="">Join us and become a part of the </span>
-                <span className="italic mt-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-emerald-400 to-green-500 md:inline-block"
+                <span className="">Follow us and become a part of the </span>
+                <span className="italic pr-1 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-emerald-400 to-green-500 md:inline-block"
                 > Miami </span>
                 <span> movement</span>
               </h1>
@@ -52,9 +52,9 @@ export default function Footer(props) {
               <a href="/business" className={"text-center text-[14px] text-white hover:text-white"}>Companies</a>
               <a href="/initiatives" className={"text-center text-[14px] text-white hover:text-white"}>Initiatives</a>
               <a href="/partnerships" className={"text-center text-[14px] text-white hover:text-white"}>Partnerships</a>
-              <a href="/events" className={"text-center text-[14px] text-white hover:text-white"}>Events</a>
-              <a href="/news" className={"text-center text-[14px] text-white hover:text-white"}>News</a>
-              <a href="/business/#contact" className={"text-center text-[14px] text-white hover:text-white"}>Contact</a>
+              {/* <a href="/events" className={"text-center text-[14px] text-white hover:text-white"}>Events</a> */}
+              {/* <a href="/news" className={"text-center text-[14px] text-white hover:text-white"}>News</a> */}
+              {/* <a href="/business/#contact" className={"text-center text-[14px] text-white hover:text-white"}>Contact</a> */}
               <a href="https://miamitechresourcehub.softr.app" className={"text-center text-[14px] text-white hover:text-white"}>Resource Hub</a>
             </nav>
 

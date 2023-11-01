@@ -35,7 +35,7 @@ export default function Community(props) {
             <div className={"w-[95%] m-auto xl:w-[85%]"}>
 
                 {/* CONTENT */}
-                        <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
+                        <div className={" mx-auto w-[80%] m-auto text-center"}>
                             <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
                                 {props.content.title}
                             </h1>

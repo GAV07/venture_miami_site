@@ -35,7 +35,6 @@ export default function PartnershipInfo(props) {
                                 {/*<div className={`relative lg:basis-[730px] xs:basis-1/2 ${index % 2 === 0 ? 'order-last bg-red-200' : 'order-first bg-yellow-2'}`}>*/}
                                 <div className={`relative lg:basis-[730px] xs:basis-1/2`}>
                                     {
-
                                         <img
                                         src={content.fields.images[0].fields.file.url}
                                         alt=""

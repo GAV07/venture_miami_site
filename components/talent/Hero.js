@@ -7,10 +7,10 @@ export function Hero(props) {
 
     return (
 
-        <div className={"w-full m-auto pt-16"}>
+        <div className={"w-full m-auto pt-32"}>
 
             <div className={"w-[90%] m-auto xl:w-[85%]"}>
-                <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
+                <div className={"mx-auto w-[80%] m-auto text-center"}>
                     <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
                         {props.content.title}
                     </h1>

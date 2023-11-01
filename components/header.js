@@ -6,6 +6,7 @@ import {FaTwitter } from 'react-icons/fa'
 import {BiBarChart, BiNavigation, BiHelpCircle, BiSolidBusiness} from 'react-icons/bi'
 import {useEffect, useRef, useState} from "react";
 import {useRouter} from "next/router";
+import { Logo } from "./logo.js"
 
 export default function Header({makeTransparent}) {
 
@@ -51,15 +52,11 @@ export default function Header({makeTransparent}) {
         {/*<div className={`relative h-[68px] bg-black flex items-center`}>*/}
         <div className={`${makeTransparent ? 'bg-transparent w-full absolute top-0 left-0 z-[30]' : 'bg-vm-blue relative'} flex h-[50px] items-center`}>
             {/* DESKTOP NAV */}
-            <div className={"w-[90%] h-full m-auto flex justify-between items-center"}>
+            <div className={"w-[90%] py-5 h-full m-auto flex justify-between items-center"}>
                 <a
                     href={"/"}
                     className="flex-shrink-0">
-                    <img
-                        className="h-5 w-[120px]"
-                        src={"/images/logos/miami-logo-solid-yellow.png"}
-                        alt="Venture Miami Logo"
-                    />
+                    <Logo/>
                 </a>
 
                 <ul className={'hidden w-full navBreak:h-full navBreak:flex navBreak:justify-center navBreak:items-center navBreak:gap-x-[40px]'}>
@@ -98,20 +95,20 @@ export default function Header({makeTransparent}) {
                             Partnerships
                         </a>
                     </li>
-                    <li className={"h-full flex items-center"}>
+                    {/* <li className={"h-full flex items-center"}>
                         <a href="/events"
                            className={`text-[14px] tracking-[0px] text-white`}
                         >
                             Events
                         </a>
-                    </li>
-                    <li className={"h-full flex items-center"}>
+                    </li> */}
+                    {/* <li className={"h-full flex items-center"}>
                         <a href="/news"
                            className={`text-[14px] tracking-[0px] text-white`}
                         >
                             News
                         </a>
-                    </li>
+                    </li> */}
                     <li className={"h-full flex items-center"}>
                         <a
                             href="https://miamitechresourcehub.softr.app/"
@@ -132,7 +129,7 @@ export default function Header({makeTransparent}) {
                         menuClicked && (
 
                             // <div  className={"hidden navBreak:w-[400px] navBreak:absolute navBreak:right-0 navBreak:-bottom-[100%] navBreak:translate-y-[100%] navBreak:z-[100] navBreak:rounded-md navBreak:shadow-md navBreak:bg-white navBreak:block"}>
-                            <div  className={"hidden navBreak:w-[400px] navBreak:absolute navBreak:-bottom-[100%] navBreak:right-0  navBreak:translate-y-[100%] navBreak:z-[2000] navBreak:rounded-md navBreak:shadow-md navBreak:bg-[#161a1d] navBreak:block navBreak:flex navBreak:flex-col navBreak:items-center navBreak:space-x-[10px] navBreak:space-y-[20px] p-[20px]"}>
+                            <div  className={"hidden navBreak:w-[400px] navBreak:absolute navBreak:-bottom-[100%] navBreak:right-0  navBreak:translate-y-[100%] navBreak:z-[2000] navBreak:rounded-md navBreak:shadow-md navBreak:bg-vm-blue navBreak:block navBreak:flex navBreak:flex-col navBreak:items-center navBreak:space-x-[10px] navBreak:space-y-[20px] p-[20px]"}>
 
                                 <div className={"w-full text-[16px] "}>
                                     <a href="https://twitter.com/VentureMiami" className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
@@ -149,7 +146,7 @@ export default function Header({makeTransparent}) {
                                     </a>
                                 </div>
                                 <div className={"w-full text-[16px] "}>
-                                    <a href="/business/#contact"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
+                                    <a href="https://airtable.com/shr3zUTdjZIe2R3Hz"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
                                         <div className={""}>
                                             <div className="flex justify-center items-center rounded-full w-[35px] h-[35px] bg-[#f7f9fc]">
                                                 <BiSolidBusiness
@@ -164,7 +161,7 @@ export default function Header({makeTransparent}) {
                                             <p className="text-[14px]">
                                                 Join Our Founder Database
                                             </p>
-                                            <p className="text-[12px] text-gray-500">
+                                            <p className="text-[12px] text-gray-200">
                                                 Continue growing in the Miami ecosystem by tapping into local resources.
                                             </p>
                                         </div>
@@ -186,14 +183,14 @@ export default function Header({makeTransparent}) {
                                             <p className="text-[14px]">
                                                 Join Our Talent Database
                                             </p>
-                                            <p className="text-[12px] text-gray-500">
+                                            <p className="text-[12px] text-gray-200">
                                                 Connect with local and incoming companies looking for Miami talent.
                                             </p>
                                         </div>
                                     </a>
                                 </div>
                                 <div className={"w-full text-[16px] "}>
-                                    <a href="/business/#contact"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
+                                    <a href="https://airtable.com/shr1TcBO7ZwcpRrWV"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
                                         <div className={""}>
                                             <div className="flex justify-center items-center rounded-[100%] w-[35px] h-[35px] bg-[#f7f9fc]">
                                                 <BsFillLightbulbFill
@@ -207,7 +204,7 @@ export default function Header({makeTransparent}) {
                                             <p className="text-[14px]">
                                                 Have a Request or Idea?
                                             </p>
-                                            <p className="text-[12px] text-gray-500">
+                                            <p className="text-[12px] text-gray-200">
                                                 We love making our community better with the people of our community. Let's Talk!
                                             </p>
                                         </div>
@@ -278,11 +275,11 @@ export default function Header({makeTransparent}) {
                                                 <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Events</p>
                                             </a>
                                         </li>
-                                        <li className={"w-[200px] text-[16px] "}>
+                                        {/* <li className={"w-[200px] text-[16px] "}>
                                             <a href="/news" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
                                                 <p className={"text-left mr-[8px] hover:rounded-[8px]"}>News</p>
                                             </a>
-                                        </li>
+                                        </li> */}
                                         <li className={"w-[200px] text-[16px] "}>
                                             <a href="/contact" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
                                                 <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Contact</p>

@@ -3,11 +3,12 @@ import Community from "./Community";
 import {Achievements} from "./Achievements";
 
 export function Hero(props) {
+    console.log(props.content)
     return (
         <div className={"w-full m-auto pt-16"}>
 
             <div className={"w-[90%] m-auto xl:w-[85%]"}>
-                <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
+                <div className={"max-w-[80%] mx-auto w-[80%] m-auto text-center"}>
                     <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
                         {props.content.title}
                     </h1>
@@ -17,24 +18,16 @@ export function Hero(props) {
                 </div>
 
                 <div className={"mt-24 flex flex-col space-y-[20px]"}>
-                    <div className={`rounded-md w-full
-                            min-[1270px]:h-[725px] 
-                                min-[1147px]:h-[657px]
-                            min-[1024px]:h-[609px] 
-                                min-[896px]:h-[551px]
-                            min-[768px]:h-[493px]
-                                min-[704px]:h-[435px] 
-                            min-[640px]:h-[377px] 
-                            h-[260px]`}>
+                    <div >
                         <img
-                            src="https://images.unsplash.com/photo-1501509497947-782640bc1412?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWlhbWklMjB0ZWNofGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60"
+                            src={props.content.backgroundImage.fields.file.url}
                             loading="lazy"
                             alt=""
                             className="rounded-[16px] w-full h-full"/>
 
                     </div>
 
-                    <div
+                    {/* <div
                         className={"flex flex-col space-x-0 space-y-[20px] md:flex-row justify-center items-center md:space-x-[40px] md:space-y-0"}>
 
                         <div className={`rounded-md w-full
@@ -72,7 +65,7 @@ export function Hero(props) {
                                 className="rounded-[16px] w-full h-full"/>
 
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
             </div>

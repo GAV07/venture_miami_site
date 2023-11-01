@@ -205,14 +205,14 @@ export default function CityMap(props) {
 
         <div className={"w-full m-auto pt-16"}>
 
-            <div className={"bg-[#15181b] pt-[140px] pb-[70px] px-[40px]"}>
+            <div className={"bg-vm-blue pt-[140px] pb-[70px] px-[40px]"}>
 
                 {/* CONTENT */}
                 <div className={"max-w-[1200px] mx-auto text-center"}>
-                    <h1 className="text-[36px] md:text-[36px] font-bold text-[white] mb-[16px]">
+                    <h1 className="text-[36px] md:text-[36px] font-bold text-white mb-[16px]">
                         {props.content.mapHero.title}
                     </h1>
-                    <p className="text-[16px] md:text-[20px] text-[#9ba2b2] leading-8">
+                    <p className="text-[16px] md:text-[20px] text-white leading-8">
                         {props.content.mapHero.subtitle}
                     </p>
 
