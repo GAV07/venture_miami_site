@@ -117,22 +117,22 @@ export default function Initiatives(props) {
 
                                     <div
                                         className={`relative lg:basis-[730px] md:basis-1/2 max-h-[530px]
-                            min-[1270px]:h-[530px] 
-                                min-[1207px]:h-[493px] 
-                            min-[1144px]:h-[457px] 
-                                min-[1081px]:h-[420px] 
-                            min-[1019px]:h-[384px] 
-                                min-[952px]:h-[347px] 
-                            min-[893px]:h-[311px] 
-                                min-[830px]:h-[274px] 
-                            min-[768px]:h-[235px]
-                            
-                            min-[767px]:h-[515px]
-                                min-[639px]:h-[460px]
-                            min-[510px]:h-[405px]
-                                min-[381px]:h-[370px]
-                            min-[288px]:h-[345px]                         
-                            `}
+                                                    min-[1270px]:h-[530px] 
+                                                        min-[1207px]:h-[493px] 
+                                                    min-[1144px]:h-[457px] 
+                                                        min-[1081px]:h-[420px] 
+                                                    min-[1019px]:h-[384px] 
+                                                        min-[952px]:h-[347px] 
+                                                    min-[893px]:h-[311px] 
+                                                        min-[830px]:h-[274px] 
+                                                    min-[768px]:h-[235px]
+                                                    
+                                                    min-[767px]:h-[515px]
+                                                        min-[639px]:h-[460px]
+                                                    min-[510px]:h-[405px]
+                                                        min-[381px]:h-[370px]
+                                                    min-[288px]:h-[345px]                         
+                                        `}
                                     >                                                
                                         <img
                                             className="w-full h-full object-cover rounded-xl"
