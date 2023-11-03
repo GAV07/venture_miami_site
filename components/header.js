@@ -270,21 +270,21 @@ export default function Header({makeTransparent}) {
                                                 <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Partnerships</p>
                                             </a>
                                         </li>
-                                        <li className={"w-[200px] text-[16px] "}>
+                                        {/* <li className={"w-[200px] text-[16px] "}>
                                             <a href="/events" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
                                                 <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Events</p>
                                             </a>
-                                        </li>
+                                        </li> */}
                                         {/* <li className={"w-[200px] text-[16px] "}>
                                             <a href="/news" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
                                                 <p className={"text-left mr-[8px] hover:rounded-[8px]"}>News</p>
                                             </a>
                                         </li> */}
-                                        <li className={"w-[200px] text-[16px] "}>
+                                        {/* <li className={"w-[200px] text-[16px] "}>
                                             <a href="/contact" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
                                                 <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Contact</p>
                                             </a>
-                                        </li>
+                                        </li> */}
                                         <li className={"w-[200px] text-[16px] "}>
                                             <a href="https://miamitechresourcehub.softr.app/" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
                                                 <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Resource Hub</p>

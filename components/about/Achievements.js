@@ -17,20 +17,30 @@ export function Achievements(props) {
 
             </div>
 
-            <div className={"w-[90%] lg:w-[75%] md:w-[90%] m-auto mt-10 grid grid-cols-2 gap-x-[24px] gap-y-[24px]"}>
+            <div className={"md:min-w-[30vw] md:max-w-[50vw] mt-10 grid grid-cols-1 md:grid-cols-2 mx-auto gap-y-4 gap-x-4 px-4 md:px-0"}>
 
                 {
                     props.content.stats.map((stat, index)=>{
 
                         return (
 
-                            <div key={index} className={"p-[30px] bg-vm-blue h-full max-w-full rounded-[10px]"}>
-                                <div className={"mb-[32px] flex flex-col space-y-3"}>
-                                    <p className={"text-white font-[18px] font-bold"}>{stat.fields.title}</p>
+                            <div key={index} className={"relative p-[30px] bg-vm-blue h-full max-w-full rounded-[10px]"}>
+                                <img
+                                    src={stat.fields.image.fields.file.url}
+                                    className={`rounded-[8px] absolute top-0 left-0 w-full object-cover max-h-full h-full z-0`}
+                                />
+                                <div className="relative z-[1]">
+                                    <div className={"mb-[32px] flex flex-col space-y-3"}>
+                                        <p className={"text-white font-[18px] font-bold"}>{stat.fields.title}</p>
+                                    </div>
+                                    <div>
+                                        <p className={"text-white text-[28px]"}>{stat.fields.statistic}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p className={"text-white text-[28px]"}>{stat.fields.statistic}</p>
+                                <div className="absolute rounded-[8px] top-0 left-0 w-full h-full">
+                                    <div className="rounded-[8px] w-full h-full bg-gradient-to-b from-vm-blue"></div>
                                 </div>
+                                
                             </div>
                         )
                     })

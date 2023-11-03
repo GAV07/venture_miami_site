@@ -104,14 +104,14 @@ export default function Hero(props) {
                 <div className="absolute top-0 left-0 w-full h-full bg-[#03a9f4] mix-blend-overlay">
                 </div>
 
-                <div className={"absolute bottom-10 z-[10]"}>
+                <div className={"absolute left-0 bottom-10 z-[10]"}>
                     {/* <h2 className="text-white lg:text-[5em] md:text-[3em] sm:text-[2em] text-[2em] font-[800] leading-[1em] uppercase">
                         {props.content.title}
                     </h2> */}
                     {/* <p className="text-white lg:text-[1.1em] my-[20px] mx-[0px] font-[400] max-w-[700px]">
                         {props.content.subtitle}
                     </p> */}
-                    <div className={"w-max grid grid-cols-1 md:grid-cols-2 gap-x-[20px] gap-y-[10px] mt-[10px]"}>
+                    <div className={"w-max flex md:flex-row flex-col ml-5 gap-x-2 gap-y-2 mt-[10px]"}>
                         {
                             props.content.buttons.map((button, index)=>{
 

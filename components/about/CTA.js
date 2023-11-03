@@ -39,7 +39,7 @@ export default function CTA(props) {
                         <div className="rounded-[8px] w-full h-full bg-gradient-to-b from-vm-blue to-transparent bg-opacity-40"></div>
                     </div>
 
-                    <div className="relative z-[1] font-bold flex flex-col justify-center items-center ml-auto mr-auto p-[80px]">
+                    <div className="relative z-[1] font-bold flex flex-col justify-center items-center ml-auto mr-auto md:p-[80px] p-6">
                         <h2 className="text-white text-[36px] text-center">
                             {props.content.title}
                         </h2>
