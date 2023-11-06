@@ -5,8 +5,6 @@ import Link from 'next/link';
 
 export default function CTA(props) {
 
-    console.log(props);
-
     const [sectionSelected, setSectionSelected] = useState("");
 
     const [forms, setForms] = useState(new Map())
@@ -56,18 +54,21 @@ export default function CTA(props) {
     return (
         <div id={"contact"} className={"w-full m-auto pt-16"}>
 
-            <div className={"bg-[#15181b] pt-[140px] pb-[70px] px-[40px]"}>
+            {/*<div className={"bg-vm-blue pt-[140px] pb-[70px] px-[40px]"}>*/}
+            <div className={"bg-white pt-[140px] pb-[70px] px-[40px]"}>
 
                 {/* CONTENT */}
                 <div className={"max-w-[1200px] mx-auto text-center"}>
                     {/*<h1 className="text-[36px] md:text-[36px] font-bold text-[white] mb-[16px]">
                         Ready to Relocate and Become a part of the Miami Ecosystem?
                     </h1>*/}
-                    <h1 className="text-[36px] md:text-[36px] font-bold text-[white] mb-[16px]">
-                        How Can We Help?
+                    {/*<h1 className="text-[36px] md:text-[36px] font-bold text-[white] mb-[16px]">*/}
+                    <h1 className="text-[36px] md:text-[36px] font-bold text-[#0e1012] mb-[16px]">
+                        {props.content.title}
                     </h1>
-                    <p className="text-[16px] md:text-[20px] text-[#9ba2b2] leading-8">
-                        Venture Miami is committed to ...
+                    {/*<p className="text-[16px] md:text-[20px] text-[#9ba2b2] leading-8">*/}
+                    <p className="text-[16px] md:text-[20px] text-[#566171] leading-8">
+                        {props.content.subtitle}
                     </p>
 
                     <div className={"w-full mt-[56px] flex flex-col space-y-10"}>
@@ -78,7 +79,7 @@ export default function CTA(props) {
 
                                     return (
 
-                                        <button key={key} className={`text-[14px] md:text-[16px] px-[16px] py-[8px] rounded-full ${key === sectionSelected ? 'bg-[#007afc] text-white' : 'bg-white ring-1 ring-black'} font-base`}
+                                        <button key={key} className={`text-[14px] md:text-[16px] px-[16px] py-[8px] rounded-full ${key === sectionSelected ? 'bg-vm-blue text-white' : 'bg-white ring-1 ring-black'} font-base`}
                                             onClick={()=>{ setSectionSelected(key) }}
                                         >
                                             {key}
@@ -89,7 +90,7 @@ export default function CTA(props) {
                         </div>
 
                         <div
-                            className={"relative w-full mx-auto lg:w-[60%] mx-auto bg-[#22262e] border-[1px] border-[#515762] flex flex-col rounded-[8px]"}>
+                            className={"relative w-full mx-auto lg:w-[60%] mx-auto flex flex-col rounded-[8px]"}>
                             {forms.get(sectionSelected)}
                         </div>
                     </div>

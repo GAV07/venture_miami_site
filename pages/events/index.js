@@ -8,8 +8,6 @@ import Hero from "../../components/events/Hero";
 import React from "react";
 
 export default function Index(props) {
-
-    console.log(props.heroSection)
     return (
         // <PreLoader played={props.storage} setPlayed={props.setStorage}>
         <Layout content={props.footer} transparent={true}>

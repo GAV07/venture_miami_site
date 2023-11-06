@@ -7,7 +7,7 @@ import {BiSolidQuoteAltLeft} from 'react-icons/bi'
 
 
 export default function Hero(props) {
-    console.log(props.video[0].fields.Media[0].url)
+
     const [heroText, setHeroText] = useState("Creating Opportunities for a Resilient Economy.");
     const [showCursor, setShowCursor] = useState(true);
 

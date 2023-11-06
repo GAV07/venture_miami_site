@@ -47,7 +47,7 @@ export async function getStaticProps() {
 
   // initiatives section
   const initiatives = initiativesPageEntry.fields.initiativesSection;
-  console.log(initiatives)
+
   // gets the entries for each initiatives in the array
   const initiativesArray = await Promise.all(
       initiatives.map(async (initiative) => {

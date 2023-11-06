@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Hero(props){
 
-    console.log(props)
     return (
 
         <div className={`relative right-0 flex justify-between items-center z-[2] w-full ease-in duration-300

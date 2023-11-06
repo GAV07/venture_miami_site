@@ -69,8 +69,8 @@ export default function EventsInfo(props) {
                      <a
                          href={`/events/${event.fields.Name.trim().toLowerCase().split(" ").join("-")}`}
                          className={"block mt-[10px] flex flex-col justify-center items-start space-y-[2px]"}>
-                         <p className={"md:text-[18px] text-[15px] overflow-hidden whitespace-nowrap overflow-ellipsis w-full"}>{event.fields.Name}</p>
-                         <p className={"md:text-[14px] text-[12px]"}>{getMonthName(monthNumber,"long")} {date}, {new Date().getFullYear()}</p>
+                         <p className={"md:text-[18px] text-[15px] overflow-hidden whitespace-nowrap overflow-ellipsis w-full text-darkGray"}>{event.fields.Name}</p>
+                         <p className={"md:text-[14px] text-[12px] text-lightGray"}>{getMonthName(monthNumber,"long")} {date}, {new Date().getFullYear()}</p>
                      </a>
                  </div>
 
@@ -100,8 +100,8 @@ export default function EventsInfo(props) {
                                 <div
                                     className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
                                     <p className={'text-[12px] font-bold text-vm-blue'}>Featured Event</p>
-                                    <p className={'text-black text-[24px] font-bold'}>{events[0].fields.Name}</p>
-                                    <p className={'text-[#A0AABA] text-[18px]'}>{events[0].fields.Description}</p>
+                                    <p className={'text-darkGray text-[20px] md:text-[24px] font-bold'}>{events[0].fields.Name}</p>
+                                    <p className={'text-lightGray text-[14px] md:text-[18px]'}>{events[0].fields.Description}</p>
                                 </div>
                             </div>
 
@@ -129,7 +129,7 @@ export default function EventsInfo(props) {
                                     src={"https://images.squarespace-cdn.com/content/v1/6269cd93d85e045a6b7d5ab0/1696355400403-DK3IMYZAP6QAE4BKZMLV/DSC05708.jpg?format=500w"}
                                     loading="lazy" width={"100%"}
                                     alt=""
-                                    className={"rounded-[1.5rem] h-full object-cover w-full"}
+                                    className={"rounded-[10px] h-full object-cover w-full"}
                                 />
                             </div>
                         </div>
@@ -147,12 +147,12 @@ export default function EventsInfo(props) {
             {/* LIST OF EVENTS */}
             <div className={"mx-auto w-[90%]"}>
                 <div className={"max-w-[656px]"}>
-                    <h1 className="text-[36px] md:text-[44px] font-bold text-[#0e1012] mb-[40px]">
+                    <h1 className="text-[36px] md:text-[44px] font-bold text-darkGray mb-[40px]">
                         More Events
                     </h1>
                 </div>
                 <Slider items={sliderItems} styles={"events"} buttonPosition={"bottom"}/>
-                <a href={"/events/all"} className={"max-w-max text-[14px] text-[#161A1D] flex items-center space-x-[20px]"}><span>View all events</span> <BsArrowRight size={14}/></a>
+                <a href={"/events/all"} className={"max-w-max text-[14px] text-vm-blue flex items-center space-x-[20px]"}><span>View all events</span> <BsArrowRight size={14}/></a>
             </div>
         </div>
 

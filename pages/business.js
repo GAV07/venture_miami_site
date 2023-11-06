@@ -26,7 +26,7 @@ export default function Guide(props) {
           <CityMap content={props.mapSection} />
           <Data content={props.incentivesSection}/>
           {/*<Actions content={props.actions}/>*/}
-          {/* <CTA content={props.airtableData}/> */}
+           <CTA content={props.formSection}/>
           {/*<Form/>*/}
         </Container>
       </Layout>
@@ -51,10 +51,15 @@ export async function getStaticProps() {
   const incentives = businessPageEntry.fields.incentivesSection;
   const incentivesSection = (await Client.getEntry(incentives.sys.id, {include: 10})).fields;
 
+  // from section
+  const form = businessPageEntry.fields.formSection;
+  const formSection = (await Client.getEntry(form.sys.id, {include: 10})).fields;
+
 
   const footer = await Client.getEntry('6ismKzbJGVMc3w7KWoEvfA')
 
 
+  // map section
   const mapboxData = await getRecords("VM Site", "Map");
   const mapHero = (await Client.getEntry('2EfKHxbjjf45rZrqvV0g9i')).fields;
   const mapSection = {
@@ -82,6 +87,7 @@ export async function getStaticProps() {
       statsSection: statsSection,
       incentivesSection: incentivesSection,
       mapSection: mapSection,
+      formSection: formSection,
       // airtableData: airtableData
       // form:formTable
     }

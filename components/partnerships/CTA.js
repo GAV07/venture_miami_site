@@ -36,7 +36,7 @@ export default function CTA(props) {
 
             <div className={"w-[95%] m-auto xl:w-[85%]"}>
                 <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
-                    <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
+                    <h1 className="text-[36px] md:text-[56px] font-bold text-darkGray mb-3">
                         {props.content.heroSection.title}
                     </h1>
                     <p className="text-[16px] md:text-[20px] text-[#566171] leading-8 text-vm-blue mb-[24px]">
@@ -48,7 +48,7 @@ export default function CTA(props) {
 
                                 return (
 
-                                    <a key={index} href={button.fields.url} className={"cursor-pointer text-[14px] md:text-[16px] px-[20px] py-[12px] rounded-full text-white bg-[#007afc] font-semibold"}>{button.fields.text}</a>
+                                    <a key={index} href={button.fields.url} className={"cursor-pointer text-[14px] md:text-[16px] px-[20px] py-[12px] rounded-full text-white bg-vm-blue font-semibold"}>{button.fields.text}</a>
                                 )
                             })
                         }

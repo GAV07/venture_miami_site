@@ -3,16 +3,28 @@ import Community from "./Community";
 import {Achievements} from "./Achievements";
 
 export function Hero(props) {
-    console.log(props.content)
+
     return (
-        <div className={"w-full m-auto pt-16"}>
+        <div className={'w-full pt-16 bg-vm-blue pb-[40px] text-white'}>
+            <div className={"max-w-[80%] mx-auto w-[80%] m-auto text-center"}>
+                <h1 className="text-[36px] md:text-[56px] font-bold mb-3">
+                    {props.content.title}
+                </h1>
+                <p className="text-[16px] md:text-[20px] leading-8">
+                    {props.content.subtitle}
+                </p>
+            </div>
+        </div>
+
+
+       /* <div className={"w-full m-auto pt-16"}>
 
             <div className={"w-[90%] m-auto xl:w-[85%]"}>
                 <div className={"max-w-[80%] mx-auto w-[80%] m-auto text-center"}>
-                    <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
+                    <h1 className="text-[36px] md:text-[56px] font-bold text-darkGray mb-3">
                         {props.content.title}
                     </h1>
-                    <p className="text-[16px] md:text-[20px] text-[#566171] leading-8 text-vm-blue">
+                    <p className="text-[16px] md:text-[20px] text-lightGray leading-8 text-vm-blue">
                         {props.content.subtitle}
                     </p>
                 </div>
@@ -27,7 +39,7 @@ export function Hero(props) {
 
                     </div>
 
-                    {/* <div
+                    {/!* <div
                         className={"flex flex-col space-x-0 space-y-[20px] md:flex-row justify-center items-center md:space-x-[40px] md:space-y-0"}>
 
                         <div className={`rounded-md w-full
@@ -65,12 +77,12 @@ export function Hero(props) {
                                 className="rounded-[16px] w-full h-full"/>
 
                         </div>
-                    </div> */}
+                    </div> *!/}
                 </div>
 
             </div>
 
-        </div>
+        </div>*/
 
     )
 }

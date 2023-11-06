@@ -29,6 +29,8 @@ module.exports = {
         'accent-7': '#333',
         success: '#0070f3',
         cyan: '#79FFE1',
+        darkGray: "#0e1012",
+        lightGray: "#566171",
         'vm-blue': '#3F47FF',
         'vm-yellow': '#FDE12D',
         'vm-light-yellow': '#EDFF86',

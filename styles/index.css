@@ -164,23 +164,31 @@ html{
     display: none;
 }
 
+.embla.initiatives {
+    overflow: hidden;
+}
+.embla__container.initiatives {
+    display: flex;
+}
+
 .embla__slide.initiatives {
-    flex: 0 0 50%;
-    justify-content: center;
+    flex: 0 0 70%;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 100px;
+    /*margin: auto;*/
+    min-width: 0;
+    gap: 10px;
+
+    display: flex;
     align-items: center;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
 .embla__slide.initiatives * {
-    display: flex;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: center;
 
+    /*height: 50%;*/
 }
+
 
 
 

@@ -32,7 +32,7 @@ export default function Incentives(props) {
                                             src={image.fields.file.url}
                                             loading="lazy"
                                             alt=""
-                                            className="rounded-[16px] w-full h-full"/>
+                                            className="rounded-[16px] w-full h-full object-cover"/>
 
                                     </div>
                                 )
@@ -57,7 +57,7 @@ export default function Incentives(props) {
 
                                                             return (
 
-                                                                <a key={index} className={"text-[#007afc]"} href={button.fields.url}>{button.fields.text}</a>
+                                                                <a key={index} className={"text-vm-blue"} href={button.fields.url}>{button.fields.text}</a>
                                                             )
 
                                                         })

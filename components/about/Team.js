@@ -6,7 +6,6 @@ import {BsArrowRight} from "react-icons/bs";
 
 export function Team(props) {
 
-    console.log(props.content)
     const [teamInfo, setTeamInfo] = useState(null);
 
     return (
@@ -21,11 +20,11 @@ export function Team(props) {
 
                             <div>
                                 {/* TEAM */}
-                                <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
-                                    <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
+                                <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center pt-16"}>
+                                    <h1 className="text-[36px] md:text-[56px] font-bold text-darkGray mb-3">
                                         {teamSection.header.fields.title}
                                     </h1>
-                                    <p className="text-[16px] md:text-[20px] text-[#566171] leading-8 text-vm-blue">
+                                    <p className="text-[16px] md:text-[20px] text-lightGray leading-8 text-vm-blue">
                                         {teamSection.header.fields.subtitle}
                                     </p>
                                 </div>
@@ -34,8 +33,12 @@ export function Team(props) {
                                     className="grid grid-cols-1 md:grid-cols-3 md: gap-x-[40px] gap-y-[40px] pt-[40px]"
                                     // className="grid grid-cols-2 md1:grid-cols-3 pt-[80px]"
                                 >
-                                    {teamSection.members.map((member) => (
-                                        <div className={"flex flex-col space-y-[10px]"}>
+                                    {teamSection.members.map((member, index) => {
+
+
+                                        // alert( member.fields.name + " " + member.fields.image.fields.file.url)
+                                        return (
+                                        <div key={index} className={"flex flex-col space-y-[10px]"}>
 
                                             <img src={`${member.fields.image.fields.file.url}`} alt="" className={`w-full object-cover
                             min-[1270px]:h-[360px]
@@ -48,14 +51,22 @@ export function Team(props) {
 
                             `}/>
 
-                                            <div className={"flex flex-col space-y-[20px]"}>
+                                            <div className={"flex flex-col h-auto space-y-[20px]"}>
                                                 <h2 className={"text-[20px]"}>{member.fields.name}</h2>
                                                 <p className={"text-[14px]"}>{member.fields.jobTitle}</p>
-                                                <a href={`/about/${member.fields.name.trim().toLowerCase().split(" ").join("-")}`} className={"max-w-max text-[14px] text-vm-blue flex items-center space-x-[20px]"}><span>About {member.fields.name}</span> <BsArrowRight size={14}/></a>
+                                                <div className={"flex gap-x-[20px]"}>
+                                                    <a className="flex justify-center items-center rounded-full w-[40px] h-[40px]" href={member.fields.linkedIn}>
+                                                        <FaLinkedin size={20} color={"#0A66C2"}/>
+                                                    </a>
+                                                    <a className="flex justify-center items-center rounded-full w-[40px] h-[40px]" href={member.fields.twitter}>
+                                                        <FaTwitter size={20} color={"#1D9BF0"}/>
+                                                    </a>
+                                                </div>
+                                                {/*<a href={`/about/${member.fields.name.trim().toLowerCase().split(" ").join("-")}`} className={"max-w-max text-[14px] text-vm-blue flex items-center space-x-[20px] mt-auto"}><span>About {member.fields.name}</span> <BsArrowRight size={14}/></a>*/}
                                             </div>
 
-                                        </div>
-                                    ))}
+                                        </div>)
+                                    })}
                                 </div>
                             </div>
                         )

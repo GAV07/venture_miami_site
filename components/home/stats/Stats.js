@@ -24,18 +24,18 @@ export default function Stats(props) {
 
                 <div className={"max-w-[730px] mx-auto"}>
                     <p className={"w-full"}><BiSolidQuoteAltLeft size={50} color={"#3F47FF"}/></p>
-                    <p className="text-center mb-[24px] font-bold text-[#23262d] text-[24px] leading-[30px]">{props.content.header.fields.title}</p>
-                    <p className="mt-2 text-[16px] text-[#566171] font-light text-center">
+                    <p className="text-center mb-[24px] font-bold text-darkGray text-[24px] leading-[30px]">{props.content.header.fields.title}</p>
+                    <p className="mt-2 text-[16px] text-lightGray font-light text-center">
                         {props.content.header.fields.subtitle}
                     </p>
                 </div>
 
-                <div className={"flex  pt-16"}>
+                <div className={"grid grid-cols-1 gap-x-[20px] md:grid-cols-3 pt-16"}>
                     {props.content.stats.map((info, index) => {
                         return (
                             <div key={index} className={"mb-[32px]  md:mr-[32px] w-full text-center"}>
                                 <h3 className={"text-[24px] md:text-[28px] mb-[8px] leading-[32px] text-vm-blue font-bold"}>{info.fields.statistic}</h3>
-                                <p className={"font-[16px] mb-[8px] text-[#566171] leading-[24px]"}>{info.fields.title}</p>
+                                <p className={"font-[16px] mb-[8px] text-lightGray leading-[24px]"}>{info.fields.title}</p>
                             </div>
                         )
                     })}

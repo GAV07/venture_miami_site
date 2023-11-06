@@ -2,22 +2,21 @@ import {AiFillCheckCircle} from 'react-icons/ai'
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {Slider} from "../Slider";
+import Dropdown from "../home/stats/Dropdown";
+// import Dropdown from "../business/form/form-components/Dropdown";
 
 export default function Initiatives(props) {
-
-
-    console.log(props.content)
 
     const [initiative, setInitiative] = useState(props.content[0]); // gets the first initiative
     const [initiatives, setInitiatives] = useState(props.content.map((program)=> program)); // stores all the initiatives
     const [sliderButtons, setSliderButtons] = useState([]); // these buttons go into the slider
-
+    const [dropDownSelection, setDropdownSelection] = useState(initiative.title);
     useEffect(()=>{
 
         let buttons = initiatives.map((init)=>{
 
             let componentObj = {
-                type: <button key={init.title} className={`text-[14px] md:text-[16px] px-[16px] py-[8px] rounded-full ${initiative === init ? 'bg-[#007afc] text-white' : 'bg-white ring-1 ring-black'} font-base`}
+                type: <button key={init.title} className={`text-[14px] md:text-[16px] px-[16px] py-[8px] h-max mx-auto rounded-full ${initiative === init ? 'bg-vm-blue text-white' : 'bg-white ring-1 ring-darkGray'} font-bold`}
                               onClick={()=>{ setInitiative(init) }}
                 >
                     {init.title}
@@ -44,18 +43,22 @@ export default function Initiatives(props) {
 
                             {/*<div className={"block md:hidden"}>
                                 <Slider items={sliderButtons} styles={"initiatives"} autplay={false}/>
-                            </div>*/}
-                            {/*<div className={"hidden md:block"}>*/}
-                            {/*<div className={"relative w-full mx-auto rounded-[8px] flex justify-center flex-wrap space-x-[10px]"}>*/}
-                            <div className={"relative w-[80%] mx-auto rounded-[8px] flex flex-wrap items-center gap-x-[3px] gap-y-[20px]"}>
+                            </div>
+*/}
+                            <div className={`block ${initiatives.length > 3 ? 'md:block' : 'md:hidden'}`}>
+                                <Dropdown selected={initiative.title} bgColor={'bg-vm-blue'} textColor={'text-white'} selections={initiatives.map(init => init.title)} handleSelection={(selection)=>{ initiatives.forEach((init)=>{ selection === init.title && setInitiative(init) }) }}/>
+                            </div>
+
+
+                            <div className={`hidden ${initiatives.length > 3 ? 'md:hidden' : 'md:flex'} relative w-[80%] mx-auto rounded-[8px] flex flex-wrap items-center gap-x-[3px] gap-y-[20px]`}>
                                 {
                                     initiatives.map((init)=>{
 
                                         return (
 
-                                            // <button key={init.fields.title} className={`text-[13px] px-[12px] py-[8px] max-w-max rounded-full ${initiative === init ? 'bg-[#007afc] text-white' : 'text-[#9ba2b2]'}`}
-                                            <button key={init.title} className={`font-semibold mx-auto text-[13px] px-4 py-2 max-w-max rounded-full ${initiative === init ? 'bg-[#007afc] text-white' : 'text-black bg-white ring-1 ring-black'}`}
-                                                    onClick={()=>{ setInitiative(init) }}
+                                            // <button key={init.fields.title} className={`text-[13px] px-[12px] py-[8px] max-w-max rounded-full ${initiative === init ? 'bg-[#007afc] text-white' : 'text-lightGray'}`}
+                                            <button key={init.title} className={`font-semibold mx-auto text-[13px] px-4 py-2 max-w-max rounded-full ${initiative === init ? 'bg-vm-blue text-white' : 'text-darkGray bg-white ring-1 ring-darkGray'}`}
+                                                    onClick={()=>{ setInitiative(init); setDropdownSelection(init.title)}}
                                             >
                                                 {init.title}
                                             </button>
@@ -73,10 +76,10 @@ export default function Initiatives(props) {
 
                                     <div className={`w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2`}>
                                         <div className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                            <p className={'text-black text-[24px] font-bold text-center'}>
+                                            <p className={'text-darkGray text-[24px] font-bold text-center'}>
                                                 {initiative.title}
                                             </p>
-                                            {/* <p className={'text-black text-[16px] text-center'}>
+                                            {/* <p className={'text-darkGray text-[16px] text-center'}>
                                                 {initiative.description}
                                             </p> */}
                                             {
@@ -95,7 +98,7 @@ export default function Initiatives(props) {
                                                 {initiative.callouts.map((callout, index) => (
                                                     <li key={index} className="flex gap-x-3">
                                                         <AiFillCheckCircle className="text-green-300 h-7 w-5 flex-none" aria-hidden="true" />
-                                                        <p className="text-sm text-[#9ba2b2] ">{callout.fields.text}</p>
+                                                        <p className="text-sm text-lightGray ">{callout.fields.text}</p>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -105,7 +108,7 @@ export default function Initiatives(props) {
                                                 <div className="rounded-full shadow max-w-max">
                                                     <a
                                                         href={initiative.button.fields.url}
-                                                        className="flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#007afc]"
+                                                        className="flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-full text-white bg-vm-blue"
                                                     >
                                                         {initiative.button.fields.text}
                                                     </a>

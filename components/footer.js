@@ -1,19 +1,65 @@
 import {FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa'
+import {useState} from "react";
+import {Logo} from "./logo";
 
 export default function Footer(props) {
+
+  const [navigations, setNavigations] = useState([
+
+    {
+      nav: 'Home',
+      url:  '/'
+    },
+    {
+      nav: 'About',
+      url:  '/about'
+    },
+    {
+      nav: 'Companies',
+      url:  '/business'
+    },
+    {
+      nav: 'Initiatives',
+      url:  '/initiatives'
+    },
+    {
+      nav: 'Partnerships',
+      url:  '/partnerships'
+    },
+    {
+      nav: 'Events',
+      url:  '/events'
+    },
+    {
+      nav: 'News',
+      url:  '/news'
+    },
+    {
+      nav: 'Contact',
+      url:  '/business/#contact'
+    },
+    {
+      nav: 'Resource Hub',
+      url:  'https://miamitechresourcehub.softr.app/'
+    },
+  ])
 
   return (
       <footer className="mt-20 w-full bg-vm-blue">
           <div className="w-[90%] text-white mx-auto flex flex-col justify-center items-start pt-10 pb-0">
             <div className={"flex flex-col gap-y-6 md:justify-start w-full "}>
-              <a href={"/"}>
-                <img width={130} height={130} src={"/images/logos/miami-logo-solid-yellow.png"} alt={"logo"}/>
+
+              <a
+                  href={"/"}
+                  className="flex-shrink-0">
+                <Logo/>
+                {/*<img width={130} height={130} src={"/images/logos/miami-logo-solid-yellow.png"} alt={"logo"}/>*/}
               </a>
               <h1
                   className="text-2xl  lg:w-[30%] md:w-[40%] w-[80%] font-bold leading-10 tracking-tight"
               >
                 <span className="">Follow us and become a part of the </span>
-                <span className="italic pr-1 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-emerald-400 to-green-500 md:inline-block"
+                <span className="italic pr-1 bg-clip-text text-transparent bg-gradient-to-r from-vm-yellow via-vm-light-yellow to-vm-lighter-yellow md:inline-block"
                 > Miami </span>
                 <span> movement</span>
               </h1>
@@ -47,16 +93,25 @@ export default function Footer(props) {
             </div>
 
             <nav className={"pt-[30px] flex flex-wrap w-full md:justify-center mx-auto gap-x-[30px] gap-y-[20px]"}>
-              <a href="/" className={"text-center text-[14px] text-white hover:text-white"}>Home</a>
-              <a href="/about" className={"text-center text-[14px] text-white hover:text-white"}>About</a>
-              <a href="/business" className={"text-center text-[14px] text-white hover:text-white"}>Companies</a>
-              <a href="/initiatives" className={"text-center text-[14px] text-white hover:text-white"}>Initiatives</a>
-              <a href="/partnerships" className={"text-center text-[14px] text-white hover:text-white"}>Partnerships</a>
-              {/* <a href="/events" className={"text-center text-[14px] text-white hover:text-white"}>Events</a> */}
-              {/* <a href="/news" className={"text-center text-[14px] text-white hover:text-white"}>News</a> */}
-              {/* <a href="/business/#contact" className={"text-center text-[14px] text-white hover:text-white"}>Contact</a> */}
-              <a href="https://miamitechresourcehub.softr.app" className={"text-center text-[14px] text-white hover:text-white"}>Resource Hub</a>
-            </nav>
+
+              {
+                navigations.map((nav, index)=>{
+
+                  if (
+                      nav.nav !== 'Events' &&
+                      nav.nav !== 'News'
+                  ) {
+                    return(
+                        <a href={nav.url} className={"text-center text-[14px] text-white hover:text-white"}>{nav.nav}</a>
+
+                    )
+                  }
+
+                  return null;
+
+                })
+              }
+          </nav>
 
 
             <div className={"mt-[15px] w-full flex flex-col justify-center items-center mb-[10px]"}>
