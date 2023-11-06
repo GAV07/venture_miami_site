@@ -3,7 +3,7 @@ import Community from "./Community";
 import {Achievements} from "./Achievements";
 
 export function Hero(props) {
-    console.log(props.content)
+
     return (
         <div className={"w-full m-auto pt-16"}>
 

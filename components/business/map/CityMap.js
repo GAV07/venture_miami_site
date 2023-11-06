@@ -265,12 +265,12 @@ export default function CityMap(props) {
                             {/* MOBILE POI */}
                             <div
                                 ref={dropdownRef}
-                                className={"lg:hidden absolute top-0 right-0 mt-[10px] mr-[10px] z-50 w-[250px] bg-[#22262e] border-[1px] border-[#515762] flex flex-col rounded-[8px] max-h-[400px]"}>
+                                className={"lg:hidden absolute top-0 right-0 mt-[10px] mr-[10px] z-50 w-[250px] bg-white  ring-2 ring-black/10  flex flex-col rounded-[8px] max-h-[400px]"}>
 
-                                <button className={`flex justify-center items-center bg-[#2b303c] py-[8px] ${isShowing ? 'rounded-t-[8px]' : 'rounded-[8px]'}`}
+                                <button className={`flex justify-center items-center bg-white py-[8px] ${isShowing ? 'rounded-t-[8px]' : 'rounded-[8px]'} hover:bg-[#f2f2f2]`}
                                     onClick={()=>{ setIsShowing(!isShowing) }}
                                 >
-                                    <p className={`text-[15px] font-medium w-full text-white rounded-t-[8px] ${isShowing ? '' : ''}`}>Point of interests</p>
+                                    <p className={`text-[15px] font-medium w-full text-[#333333] rounded-t-[8px]  ${isShowing ? '' : ''} font-[700]`}>Point of interests</p>
                                     {/*<span className="text-xs text-white">{isShowing ? '▲' : '▼'}</span>*/}
                                 </button>
 
@@ -278,7 +278,7 @@ export default function CityMap(props) {
 
 
                                     <button
-                                        className={`px-[20px] flex items-center py-[10px]`}
+                                        className={`px-[20px] flex items-center py-[10px] border-t-[2px] border-bg-black/10`}
 
                                         onClick={() => {
                                             resetPOI()
@@ -287,7 +287,7 @@ export default function CityMap(props) {
                                         <div className={"mr-[16px] rounded-full p-2 ring-2 ring-white bg-red-400 w-[27px] h-[27px] flex justify-center items-center"}><GrPowerReset size={15} color={"white"}/>
                                         </div>
                                         <div className={""}>
-                                            <p className={"mr-[8px] text-left text-[13px] text-white font-medium"}>Show all</p>
+                                            <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>Show all</p>
                                         </div>
                                     </button>
 
@@ -298,7 +298,7 @@ export default function CityMap(props) {
 
                                                 <button
                                                     key={index}
-                                                    className={`px-[20px] flex items-center ${poi.selected && 'bg-[#2b303c]'} py-[10px]`}
+                                                    className={`px-[20px] flex items-center ${poi.selected && 'bg-black/10'} py-[10px]`}
 
                                                     onClick={() => {
                                                         handlePOIClick(poi.type)
@@ -308,7 +308,7 @@ export default function CityMap(props) {
                                                                                       place={""}/>
                                                     </div>
                                                     <div className={""}>
-                                                        <p className={"mr-[8px] text-left text-[13px] text-white font-medium"}>{poi.type}</p>
+                                                        <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>{poi.type}</p>
                                                         {/*<p className={"mr-[8px] text-left text-[11px] text-[#8b96aa] text-[13px] mt-[2px] font-light"}>all
                                                             sports miami has to offer</p>*/}
                                                     </div>
@@ -454,16 +454,16 @@ export default function CityMap(props) {
 
                         {/* DESKTOP POI */}
                        <div
-                            className={"hidden lg:relative lg:w-[390px] bg-[#22262e] lg:border-[1px] lg:border-[#515762] lg:flex lg:flex-col lg:rounded-[8px] lg:max-h-[450px]"}>
+                            className={"hidden lg:relative lg:w-[390px] bg-white lg:border-[1px] lg:border-bg-black/10 lg:flex lg:flex-col lg:rounded-[8px] lg:max-h-[450px]"}>
 
-                            <div className={"sticky top-0 left-0 bg-[#2b303c] py-[8px] rounded-t-[8px]"}>
-                                <p className={"text-[15px] font-medium w-full text-white rounded-t-[8px]"}>Point of interests</p>
+                            <div className={"sticky top-0 left-0 bg-white py-[8px] rounded-t-[8px]"}>
+                                <p className={"text-[15px] font-medium w-full text-[#333] rounded-t-[8px] "}>Point of interests</p>
                             </div>
 
                            <div className={"flex flex-col overflow-y-scroll"}>
 
                                <button
-                                   className={`px-[20px] flex items-center py-[10px]`}
+                                   className={`px-[20px] flex items-center py-[10px] border-t-[2px] border-bg-black/10`}
 
                                    onClick={() => {
                                        resetPOI()
@@ -472,7 +472,7 @@ export default function CityMap(props) {
                                    <div className={"mr-[16px] rounded-full p-2 ring-2 ring-white bg-red-400 w-[27px] h-[27px] flex justify-center items-center"}><GrPowerReset size={15} color={"white"}/>
                                    </div>
                                    <div className={""}>
-                                       <p className={"mr-[8px] text-left text-[13px] text-white font-medium"}>Show all</p>
+                                       <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>Show all</p>
                                    </div>
                                </button>
 
@@ -483,7 +483,7 @@ export default function CityMap(props) {
 
                                             <button
                                                 key={index}
-                                                className={`px-[20px] flex items-center ${poi.selected && 'bg-[#2b303c]'} py-[10px]`}
+                                                className={`px-[20px] flex items-center ${poi.selected && ''} py-[10px]`}
 
                                                 onClick={() => {
                                                     handlePOIClick(poi.type)
@@ -493,7 +493,7 @@ export default function CityMap(props) {
                                                                                   place={""}/>
                                                 </div>
                                                 <div className={""}>
-                                                    <p className={"mr-[8px] text-left text-[13px] text-white font-medium"}>{poi.type}</p>
+                                                    <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>{poi.type}</p>
                                                     {/*<p className={"mr-[8px] text-left text-[11px] text-[#8b96aa] text-[13px] mt-[2px] font-light"}>all
                                                         sports miami has to offer</p>*/}
                                                 </div>

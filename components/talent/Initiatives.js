@@ -5,9 +5,6 @@ import {Slider} from "../Slider";
 
 export default function Initiatives(props) {
 
-
-    console.log(props.content)
-
     const [initiative, setInitiative] = useState(props.content[0]); // gets the first initiative
     const [initiatives, setInitiatives] = useState(props.content.map((program)=> program)); // stores all the initiatives
     const [sliderButtons, setSliderButtons] = useState([]); // these buttons go into the slider
@@ -105,7 +102,7 @@ export default function Initiatives(props) {
                                                 <div className="rounded-full shadow max-w-max">
                                                     <a
                                                         href={initiative.button.fields.url}
-                                                        className="flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#007afc]"
+                                                        className="flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-full text-white bg-vm-blue"
                                                     >
                                                         {initiative.button.fields.text}
                                                     </a>

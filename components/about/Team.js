@@ -6,7 +6,6 @@ import {BsArrowRight} from "react-icons/bs";
 
 export function Team(props) {
 
-    console.log(props.content)
     const [teamInfo, setTeamInfo] = useState(null);
 
     return (

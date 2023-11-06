@@ -4,7 +4,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 export default function CTA(props) {
-    console.log(props.content.image.fields.file.url);
+
     useEffect(() => {
 
         Aos.init({duration: 200});

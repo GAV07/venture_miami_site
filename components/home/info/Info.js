@@ -8,7 +8,6 @@ import Swipe from "../../Swipe";
 
 
 export default function Info(props) {
-    console.log(props.content)
     return (
 
         <div className={"w-full m-auto pt-16"}>
@@ -17,22 +16,22 @@ export default function Info(props) {
 
                 <div className={"w-full m-auto flex flex-col"}>
 
- {/*                   {
+                    {
                         props.content.contentBlock.map((block, index)=>{
 
-                            return (
-
+                            return(
                                 <div
-                                    key={index} className="mb-[45px] md:mb-[140px] space-x-0 w-full overflow-hidden flex flex-col-reverse justify-center items-center md:flex-row md:space-x-[70px] md:justify-between md:items-center">
+                                    key={index}
+                                    className={`mb-[45px] md:mb-[140px] gap-x-0 w-full overflow-hidden flex flex-col-reverse justify-center items-center md:gap-x-[70px] md:justify-between md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
 
                                     <div
-                                        className={'w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2'}>
+                                        className={'w-full py-4 lg:basis-[480px] lg:gap-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2'}>
                                         <div
                                             className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                            <p className={'text-black text-[24px] font-bold'}>{"block.fields.title"}</p>
-                                            <p className={'text-[#A0AABA] text-[18px]'}>{"block.fields.subtitle"}</p>
-                                            <div className={"flex justify-start items-center w-full space-x-[30px]"}>
-                                                <a href={"/resources"} className={"text-[14px] md:text-[16px] text-vm-blue font-semibold"}>Get started</a>
+                                            <p className={'text-black text-[24px] font-bold'}>{block.fields.title}</p>
+                                            <p className={'text-[#A0AABA] text-[18px]'}>{block.fields.subtitle}</p>
+                                            <div className={"flex justify-start items-center w-full gap-x-[30px]"}>
+                                                <a href={"/business"} className={"text-[14px] md:text-[16px] text-vm-blue font-semibold"}>Get started</a>
                                             </div>
                                         </div>
                                     </div>
@@ -57,8 +56,7 @@ export default function Info(props) {
                             `}
                                     >
                                         <img
-                                            src={`https://images.unsplash.com/photo-1652109348316-2ec63fa43632?auto=format&fit=crop&q=60&w=900&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fDRrJTIwaGQlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D`}
-                                            // src={`${block.fields.images[0].url}`}
+                                            src={block.fields.images[0].fields.file.url}
                                             loading="lazy" width={"100%"}
                                             alt=""
                                             className={"rounded-[1.5rem] h-full object-cover w-full"}
@@ -67,77 +65,9 @@ export default function Info(props) {
                                 </div>
                             )
                         })
-                    }*/}
-                    <div
-                        className="mb-[45px] md:mb-[140px] space-x-0 w-full overflow-hidden flex flex-col-reverse justify-center items-center md:flex-row md:space-x-[70px] md:justify-between md:items-center">
+                    }
 
-                        <div
-                            className={'w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2'}>
-                            <div
-                                className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                <p className={'text-black text-[24px] font-bold'}>{props.content.contentBlock[0].fields.title}</p>
-                                <p className={'text-[#A0AABA] text-[18px]'}>{props.content.contentBlock[0].fields.subtitle}</p>
-                                <div className={"flex justify-start items-center w-full space-x-[30px]"}>
-                                    <a href={"/business"} className={"text-[14px] md:text-[16px] text-vm-blue font-semibold"}>Get started</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className={`w-full relative lg:basis-[730px] md:basis-1/2 max-h-[530px]
-                            min-[1270px]:h-[530px] 
-                                min-[1207px]:h-[493px] 
-                            min-[1144px]:h-[457px] 
-                                min-[1081px]:h-[420px] 
-                            min-[1019px]:h-[384px] 
-                                min-[952px]:h-[347px] 
-                            min-[893px]:h-[311px] 
-                                min-[830px]:h-[274px] 
-                            min-[768px]:h-[235px]
-                            
-                            min-[767px]:h-[515px]
-                                min-[639px]:h-[460px]
-                            min-[510px]:h-[405px]
-                                min-[381px]:h-[370px]
-                            min-[288px]:h-[345px]                         
-                            `}
-                        >
-                            <img
-                                src={props.content.contentBlock[0].fields.images[0].fields.file.url}
-                                loading="lazy" width={"100%"}
-                                alt=""
-                                className={"rounded-[1.5rem] h-full object-cover w-full"}
-                            />
-                        </div>
-                    </div>
-
-                    <div
-                        className="mb-[45px] md:mb-[140px] space-x-0 w-full overflow-hidden flex flex-col justify-center items-center md:flex-row md:space-x-[70px] md:justify-between md:items-stretch">
-
-                        <div className={"relative lg:basis-[730px] xs:basis-1/2 max-h-[530px] mx-auto"}>
-                            <img
-                                src={props.content.contentBlock[1].fields.images[0].fields.file.url}
-                                loading="lazy" width="730"
-                                alt=""
-                                className={"rounded-[1.5rem] h-full object-cover w-full"}
-                            />
-                        </div>
-
-                        <div
-                            className={'w-full py-4 lg:basis-[480px] lg:space-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2'}>
-                            <div
-                                className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                <p className={'text-black text-[24px] font-bold'}>{props.content.contentBlock[1].fields.title}</p>
-                                <p className={'text-[#A0AABA] text-[18px]'}>{props.content.contentBlock[1].fields.subtitle}</p>
-                                <div className={"flex justify-start items-center w-full space-x-[30px]"}>
-                                    <a href={"/resources"} className={"text-[14px] md:text-[16px] text-vm-blue font-semibold"}>Get started</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
-
             </div>
         </div>
     )
