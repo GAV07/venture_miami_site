@@ -11,10 +11,10 @@ export function Hero(props) {
 
             <div className={"w-[90%] m-auto xl:w-[85%]"}>
                 <div className={"mx-auto w-[80%] m-auto text-center"}>
-                    <h1 className="text-[36px] md:text-[56px] font-bold text-[#0e1012] mb-3">
+                    <h1 className="text-[36px] md:text-[56px] font-bold text-darkGray mb-3">
                         {props.content.title}
                     </h1>
-                    <p className="text-[16px] md:text-[20px] text-[#566171] leading-8 text-vm-blue">
+                    <p className="text-[16px] md:text-[20px] text-lightGray leading-8 text-vm-blue">
                         {props.content.subtitle}
                     </p>
                 </div>

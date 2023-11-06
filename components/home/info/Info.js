@@ -28,8 +28,8 @@ export default function Info(props) {
                                         className={'w-full py-4 lg:basis-[480px] lg:gap-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2'}>
                                         <div
                                             className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                            <p className={'text-black text-[24px] font-bold'}>{block.fields.title}</p>
-                                            <p className={'text-[#A0AABA] text-[18px]'}>{block.fields.subtitle}</p>
+                                            <p className={'text-darkGray text-[24px] font-bold'}>{block.fields.title}</p>
+                                            <p className={'text-lightGray text-[18px]'}>{block.fields.subtitle}</p>
                                             <div className={"flex justify-start items-center w-full gap-x-[30px]"}>
                                                 <a href={"/business"} className={"text-[14px] md:text-[16px] text-vm-blue font-semibold"}>Get started</a>
                                             </div>

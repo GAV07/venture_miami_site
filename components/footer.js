@@ -59,7 +59,7 @@ export default function Footer(props) {
                   className="text-2xl  lg:w-[30%] md:w-[40%] w-[80%] font-bold leading-10 tracking-tight"
               >
                 <span className="">Follow us and become a part of the </span>
-                <span className="italic pr-1 bg-clip-text text-transparent bg-gradient-to-r from-vm-yellow via-vm-aqua to-vm-lavender md:inline-block"
+                <span className="italic pr-1 bg-clip-text text-transparent bg-gradient-to-r from-vm-yellow via-vm-light-yellow to-vm-lighter-yellow md:inline-block"
                 > Miami </span>
                 <span> movement</span>
               </h1>

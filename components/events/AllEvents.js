@@ -54,19 +54,23 @@ export default function AllEvents(props){
 
                                     <div className={`basis-[35%] relative w-full
                         
-                            min-[768px]:h-[490px]
+                           
+                            
+
+                        `}>
+                                        <img
+                                            src={"https://images.squarespace-cdn.com/content/v1/6269cd93d85e045a6b7d5ab0/1696355400403-DK3IMYZAP6QAE4BKZMLV/DSC05708.jpg?format=500w"}
+                                            className={`object-cover w-full rounded-[0px]
+                                            
+                                                min-[768px]:h-[490px]
                             min-[744px]:h-[460px]
                             min-[720px]:h-[430px]
                             min-[696px]:h-[400px]
                             min-[672px]:h-[370px]
                             min-[648px]:h-[320px]
                             min-[640px]:h-[200px]
-
-
-                        `}>
-                                        <img
-                                            src={"https://images.squarespace-cdn.com/content/v1/6269cd93d85e045a6b7d5ab0/1696355400403-DK3IMYZAP6QAE4BKZMLV/DSC05708.jpg?format=500w"}
-                                            className={"object-cover w-full rounded-[0px]"}
+                            h-[400px]
+                                            `}
                                         />
                                         <div className={"absolute top-[10px] right-[10px] p-[3x] bg-white text-center w-[56px] h-[56px] flex flex-col justify-center items-center"}>
                                             <p className={"upper text-[14px] leading-[14px]"}>{getMonthName(event.fields.Date.split("/")[0], "long")}</p>
@@ -79,12 +83,12 @@ export default function AllEvents(props){
                                         className={'basis-[65%]'}>
                                         <div
                                             className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                            <p className={'text-black text-[24px] font-bold'}>{event.fields.Name}</p>
-                                            <p className={'text-[#A0AABA] text-[18px]'}>{event.fields.Time}</p>
-                                            <p className={'text-[#A0AABA] text-[18px]'}>{event.fields.Description}</p>
+                                            <p className={'text-darkGray text-[24px] font-bold'}>{event.fields.Name}</p>
+                                            <p className={'text-lightGray text-[18px]'}>{event.fields.Time}</p>
+                                            <p className={'text-lightGray text-[18px]'}>{event.fields.Description}</p>
                                             <div className={"flex flex-col justify-center items-start w-full space-y-[30px]"}>
-                                                <a href={`/events/${event.fields.Name.trim().toLowerCase().split(" " ).join("-")}`} className={"max-w-max rounded-none mt-auto h-full text-[14px] bg-white py-[10px] px-[30px] text-black ring-1 ring-black uppercase"}>Event details</a>
-                                                <a href={`${event.fields.URL}`} className={"max-w-max rounded-none mt-auto h-full text-[14px] bg-[#007afc] py-[10px] px-[30px] text-white uppercase"}>View event</a>
+                                                <a href={`/events/${event.fields.Name.trim().toLowerCase().split(" " ).join("-")}`} className={"max-w-max rounded-none mt-auto h-full text-[14px] bg-white py-[10px] px-[30px] text-darkGray ring-1 ring-black uppercase"}>Event details</a>
+                                                <a href={`${event.fields.URL}`} className={"max-w-max rounded-none mt-auto h-full text-[14px] bg-vm-blue py-[10px] px-[30px] text-white uppercase"}>View event</a>
                                             </div>
                                         </div>
                                     </div>
