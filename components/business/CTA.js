@@ -5,8 +5,6 @@ import Link from 'next/link';
 
 export default function CTA(props) {
 
-    console.log(props);
-
     const [sectionSelected, setSectionSelected] = useState("");
 
     const [forms, setForms] = useState(new Map())
@@ -66,11 +64,11 @@ export default function CTA(props) {
                     </h1>*/}
                     {/*<h1 className="text-[36px] md:text-[36px] font-bold text-[white] mb-[16px]">*/}
                     <h1 className="text-[36px] md:text-[36px] font-bold text-[#0e1012] mb-[16px]">
-                        How Can We Help?
+                        {props.content.title}
                     </h1>
                     {/*<p className="text-[16px] md:text-[20px] text-[#9ba2b2] leading-8">*/}
                     <p className="text-[16px] md:text-[20px] text-[#566171] leading-8">
-                        Venture Miami is committed to ...
+                        {props.content.subtitle}
                     </p>
 
                     <div className={"w-full mt-[56px] flex flex-col space-y-10"}>
