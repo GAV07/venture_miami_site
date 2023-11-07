@@ -276,12 +276,12 @@ export default function CityMap(props) {
 
                                 <div className={`${isShowing ? 'flex flex-col overflow-y-scroll' : 'hidden' } rounded-b-[8px]`}>
 
-
                                     <button
                                         className={`px-[20px] flex items-center py-[10px] border-t-[2px] border-bg-black/10`}
 
                                         onClick={() => {
                                             resetPOI()
+                                            setIsShowing(!isShowing)
                                         }}
                                     >
                                         <div className={"mr-[16px] rounded-full p-2 ring-2 ring-white bg-red-400 w-[27px] h-[27px] flex justify-center items-center"}><GrPowerReset size={15} color={"white"}/>
@@ -302,6 +302,7 @@ export default function CityMap(props) {
 
                                                     onClick={() => {
                                                         handlePOIClick(poi.type)
+                                                        setIsShowing(!isShowing)
                                                     }}
                                                 >
                                                     <div className={"mr-[16px]"}><Pin type={poi.type.toLowerCase()}

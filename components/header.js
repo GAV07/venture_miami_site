@@ -13,6 +13,8 @@ export default function Header({makeTransparent}) {
 
     const router = useRouter();
 
+    const [navsToExclude, setNavsToExclude] = useState(new Set());
+
     const [navigations, setNavigations] = useState([
 
         {
@@ -61,6 +63,13 @@ export default function Header({makeTransparent}) {
 
     useEffect(()=>{
 
+        let set = new Set();
+        set.add('Events');
+        set.add('Home');
+        set.add('News');
+        set.add('Contact');
+        setNavsToExclude(set);
+
         function handleClickOutside(event) {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
                 setMenuClicked(false);
@@ -71,21 +80,9 @@ export default function Header({makeTransparent}) {
         return () => {
             document.removeEventListener('click', handleClickOutside);
         };
+
 
     }, [])
-
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (menuRef.current && !menuRef.current.contains(event.target)) {
-                setMenuClicked(false);
-            }
-        }
-        document.addEventListener('click', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, []);
 
     return (
         <div className={"relative w-full"}>
@@ -109,10 +106,7 @@ export default function Header({makeTransparent}) {
                             navigations.map((nav, index)=>{
 
                                 if (
-                                    nav.nav !== 'Home' &&
-                                    // nav.nav !== 'Events' &&
-                                    // nav.nav !== 'News' &&
-                                    nav.nav !== 'Contact'
+                                    !navsToExclude.has(nav.nav)
                                 ) {
                                     return(
                                         <li key={index} className={"h-full flex items-center"}>
@@ -426,10 +420,7 @@ export default function Header({makeTransparent}) {
                                 navigations.map((nav, index)=>{
 
                                     if (
-                                        nav.nav !== 'Home' &&
-                                        // nav.nav !== 'Events' &&
-                                        // nav.nav !== 'News' &&
-                                        nav.nav !== 'Contact'
+                                        !navsToExclude.has(nav.nav)
                                     ) {
                                         return(
                                             <li key={index} className={"w-full"}>

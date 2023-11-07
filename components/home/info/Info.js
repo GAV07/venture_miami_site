@@ -5,7 +5,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import {Slider} from "../../Slider";
 import Swipe from "../../Swipe";
-
+import {BsArrowRightShort} from 'react-icons/bs'
 
 export default function Info(props) {
     return (
@@ -28,10 +28,10 @@ export default function Info(props) {
                                         className={'w-full py-4 lg:basis-[480px] lg:gap-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2'}>
                                         <div
                                             className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                            <p className={'text-darkGray text-[24px] font-bold'}>{block.fields.title}</p>
-                                            <p className={'text-lightGray text-[18px]'}>{block.fields.subtitle}</p>
+                                            <p className={'text-darkGray text-[32px] font-bold'}>{block.fields.title}</p>
+                                            <p className={'text-lightGray text-[15px]'}>{block.fields.subtitle}</p>
                                             <div className={"flex justify-start items-center w-full gap-x-[30px]"}>
-                                                <a href={"/business"} className={"text-[14px] md:text-[16px] text-vm-blue font-semibold"}>Get started</a>
+                                                <a href={"/business"} className={"text-[14px] text-vm-blue font-[500] border-solid border-[1.5px] border-vm-blue px-[10px] py-[4px] rounded-full flex items-center gap-x-[7px]"}><span>Get Started</span> <BsArrowRightShort color={"#3F47FF"} size={20}/></a>
                                             </div>
                                         </div>
                                     </div>

@@ -1,16 +1,6 @@
-import {useEffect} from "react";
 
 export default function Form(){
 
-/*
-    useEffect(async () => {
-
-        // const records = await getRecords("VM Site", "Website Intake");
-
-        // console.log(records);
-
-
-    });*/
 
     return(
 

@@ -53,7 +53,7 @@ export function Team(props) {
 
                                             <div className={"flex flex-col h-auto space-y-[20px]"}>
                                                 <h2 className={"text-[20px]"}>{member.fields.name}</h2>
-                                                <p className={"text-[14px]"}>{member.fields.jobTitle}</p>
+                                                <p className={"text-[14px] text-lightGray"}>{member.fields.jobTitle}</p>
                                                 <div className={"flex gap-x-[20px]"}>
                                                     <a className="flex justify-center items-center rounded-full w-[40px] h-[40px]" href={member.fields.linkedIn}>
                                                         <FaLinkedin size={20} color={"#0A66C2"}/>
