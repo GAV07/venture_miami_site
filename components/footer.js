@@ -1,8 +1,12 @@
 import {FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Logo} from "./logo";
 
 export default function Footer(props) {
+
+  const [navsToExclude, setNavsToExclude] = useState(new Set());
+  navsToExclude.add('Events');
+  navsToExclude.add('News');
 
   const [navigations, setNavigations] = useState([
 
@@ -43,6 +47,15 @@ export default function Footer(props) {
       url:  'https://miamitechresourcehub.softr.app/'
     },
   ])
+
+  useEffect(()=> {
+
+    let set = new Set();
+    set.add('Events');
+    set.add('News');
+    setNavsToExclude(set);
+
+  }, []);
 
   return (
       <footer className="mt-20 w-full bg-vm-blue">
@@ -98,8 +111,7 @@ export default function Footer(props) {
                 navigations.map((nav, index)=>{
 
                   if (
-                      nav.nav !== 'Events' &&
-                      nav.nav !== 'News'
+                      !navsToExclude.has(nav.nav)
                   ) {
                     return(
                         <a href={nav.url} className={"text-center text-[14px] text-white hover:text-white"}>{nav.nav}</a>

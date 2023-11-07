@@ -6,7 +6,7 @@ import Head from "next/head";
 import {Container} from "../../components/container";
 import News from "../../components/news/News";
 import NewsDetails from "../../components/news/NewsDetails";
-import NotFound from "../404";
+import NotFound from "../../pages/404";
 
 
 export default function NewsDetail(props) {

@@ -1,4 +1,3 @@
-// dropdown component when the screen reaches mobile size
 import { Transition } from '@headlessui/react';
 import { useEffect, useState, useRef } from 'react';
 
