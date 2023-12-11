@@ -1,5 +1,8 @@
 import {Slider} from "../Slider";
 import React, {useEffect, useState} from "react";
+import StyleManager from "../../services/StyleManager";
+import HeroComponent from "../HeroComponent";
+import CarouselComponent from "../CarouselComponent";
 
 export default function CTA(props) {
 
@@ -7,9 +10,9 @@ export default function CTA(props) {
     // const [sliderStyles, setSliderStyles] = useState("max-h-[615px]"); // this allows the styles in index.css to be applied
     const [sliderStyles, setSliderStyles] = useState("partnerships"); // this allows the styles in index.css to be applied
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        let items = props.content.gallery.map((image, index)=>{
+        let items = props.content.gallery.map((image, index) => {
 
             let componentObj = {
                 type: (
@@ -28,43 +31,94 @@ export default function CTA(props) {
 
         setSliderItems(items);
 
+    }, []);
+
+
+    const [styles, setStyles] = useState(null);
+
+    const styleManager = new StyleManager();
+
+    useEffect(() => {
+
+        setStyles(styleManager.getStyles());
+
+    }, []);
+
+    const [carouselComponents, setCarouseComponents] = useState([]);
+
+    useEffect(() => {
+
+
+        let components = props.content.gallery.map((item) => {
+
+            return(
+
+                <img
+                    src={item.fields.file.url}
+                    className={'w-full h-full object-cover'}
+                    alt={item.fields.file.url}
+                />
+
+
+            );
+        })
+
+        setCarouseComponents(components);
+
     }, [])
 
+
+    let sliderImages = (
+        <div className={"w-[95%] h-full mx-auto flex flex-col space-y-[20px]"}>
+            <div className={"rounded-xl"}>
+                <Slider items={sliderItems} styles={sliderStyles} buttonPosition={'side'}/>
+            </div>
+        </div>
+    )
     return (
 
-        <div className={"w-full m-auto pt-16"}>
+        /*        <div className={`w-full m-auto pt-64 pb-8 ${styles && `${'bg-'+styles.backgroundColor} ${'text-'+styles.textColor.color}` }`}>
 
-            <div className={"w-[95%] m-auto xl:w-[85%]"}>
-                <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
-                    <h1 className="text-[36px] md:text-[56px] font-bold text-darkGray mb-3">
-                        {props.content.heroSection.title}
-                    </h1>
-                    <p className="text-[16px] md:text-[20px] text-[#566171] leading-8 text-vm-blue mb-[24px]">
-                        {props.content.heroSection.subtitle}
-                    </p>
-                    <div className={"flex justify-around items-center w-full"}>
-                        {
-                            props.content.heroSection.buttons.map((button, index)=>{
+                    <div className={"w-[95%] m-auto xl:w-[85%]"}>
+                        <div className={"max-w-[656px] mx-auto w-[80%] m-auto text-center"}>
+                            <h1 className="text-[36px] md:text-[56px] font-light mb-3">
+                                {props.content.heroSection.title}
+                            </h1>
+                            <p className="text-[16px] md:text-[20px] leading-8 mb-[24px]">
+                                {props.content.heroSection.subtitle}
+                            </p>
+                            <div className={"flex justify-around items-center w-full"}>
+                                {
+                                    props.content.heroSection.buttons.map((button, index)=>{
 
-                                return (
+                                        return (
 
-                                    <a key={index} href={button.fields.url} className={"cursor-pointer text-[14px] md:text-[16px] px-[20px] py-[12px] rounded-full text-white bg-vm-blue font-semibold"}>{button.fields.text}</a>
-                                )
-                            })
-                        }
+                                            <a key={index} href={button.fields.url} className={"cursor-pointer text-[14px] md:text-[16px] px-[20px] py-[12px] rounded-full text-white bg-vm-blue font-semibold"}>{button.fields.text}</a>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+
+                        <div className={"w-[95%] h-full mx-auto mt-24 flex flex-col space-y-[20px]"}>
+
+                            <div className={"rounded-xl"}>
+                                <Slider items={sliderItems} styles={sliderStyles} buttonPosition={'side'}/>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
 
-                <div className={"w-[95%] h-full mx-auto mt-24 flex flex-col space-y-[20px]"}>
+                </div>*/
 
-                    <div className={"rounded-xl"}>
-                        <Slider items={sliderItems} styles={sliderStyles} buttonPosition={'side'}/>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
+        <HeroComponent title={props.content.heroSection.title}
+                       subtitle={props.content.heroSection.subtitle}
+                       buttons={props.content.heroSection.buttons}
+            // content={sliderImages}
+                       content={
+                           <CarouselComponent components={carouselComponents}/>
+                       }
+        />
     )
 
 }

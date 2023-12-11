@@ -1,13 +1,18 @@
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import {Disclosure, Menu, Transition} from '@headlessui/react'
 import {AiOutlineMenu} from 'react-icons/ai'
 import {RxCross2} from 'react-icons/rx'
 import {BsBriefcase, BsFillBriefcaseFill, BsFillLightbulbFill, BsLightbulb} from 'react-icons/bs'
-import {FaTwitter } from 'react-icons/fa'
+import {FaTwitter} from 'react-icons/fa'
 import {BiBarChart, BiNavigation, BiHelpCircle, BiSolidBusiness} from 'react-icons/bi'
 import {useEffect, useRef, useState} from "react";
 import {useRouter} from "next/router";
-import { XIcon, QrcodeIcon } from '@heroicons/react/solid'
-import { Logo } from "./logo.js"
+import {XIcon, QrcodeIcon} from '@heroicons/react/solid'
+import {Logo} from "./logo.js"
+import {IoIosMenu} from "react-icons/io";
+import {Squash as Hamburger} from 'hamburger-react'
+import StyleManager from "../services/StyleManager";
+import PathManager from "../services/PathManager";
+
 
 export default function Header({makeTransparent}) {
 
@@ -19,49 +24,51 @@ export default function Header({makeTransparent}) {
 
         {
             nav: 'Home',
-            url:  '/'
+            url: '/'
         },
         {
             nav: 'About',
-            url:  '/about'
+            url: '/about'
         },
         {
             nav: 'Companies',
-            url:  '/business'
+            url: '/business'
         },
         {
             nav: 'Initiatives',
-            url:  '/initiatives'
+            url: '/initiatives'
         },
         {
             nav: 'Partnerships',
-            url:  '/partnerships'
+            url: '/partnerships'
         },
         {
             nav: 'Events',
-            url:  '/events'
+            url: '/events'
         },
         {
             nav: 'News',
-            url:  '/news'
+            url: '/news'
         },
         {
             nav: 'Contact',
-            url:  '/business/#contact'
+            url: '/business/#contact'
         },
         {
             nav: 'Resource Hub',
-            url:  'https://miamitechresourcehub.softr.app/'
+            url: 'https://miamitechresourcehub.softr.app/'
         },
     ])
 
     const [currentPath, setCurrentPath] = useState(router.asPath);
 
-    const [menuClicked, setMenuClicked] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const menuRef = useRef(null);
 
-    useEffect(()=>{
+    const pathManager = new PathManager();
+
+    useEffect(() => {
 
         let set = new Set();
         set.add('Events');
@@ -71,10 +78,11 @@ export default function Header({makeTransparent}) {
         setNavsToExclude(set);
 
         function handleClickOutside(event) {
-            if (menuRef.current && !menuRef.current.contains(event.target)) {
-                setMenuClicked(false);
+            if (menuRef.current && menuRef.current.contains(event.target)) {
+                setMenuOpen(false);
             }
         }
+
         document.addEventListener('click', handleClickOutside);
 
         return () => {
@@ -82,370 +90,121 @@ export default function Header({makeTransparent}) {
         };
 
 
+    }, []);
+
+
+    const [styles, setStyles] = useState(null);
+
+    const styleManager = new StyleManager();
+
+    useEffect(() => {
+
+        setStyles(styleManager.getStyles());
+
     }, [])
 
+
+    const [scrolling, setScrolling] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+            scrollY >= 40 ?
+                setStyles({backgroundColor: 'white', textColor: {color: 'vm-blue', hexColor: '#3F47FF'}})
+                :
+                setStyles(styleManager.getStyles())
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <div className={"relative w-full"}>
 
-        {/*<div className={`relative h-[68px] bg-black flex items-center`}>*/}
-        <div className={`${makeTransparent ? 'bg-transparent w-full absolute top-0 left-0 z-[30]' : 'bg-vm-blue relative'} flex h-[50px] items-center`}>
-            {/* DESKTOP NAV */}
-            <div className={"w-[90%] h-full m-auto flex justify-between items-center"}>
+        <div
+            className={`h-[65px] w-full fixed top-0 left-0 z-[50] px-[10px] py-[10px] flex justify-between items-center ${styles && `${'bg-' + styles.backgroundColor} ${'text-' + styles.textColor.color}`}`}>
+            <a
+                href={"/"}
+                className="flex-shrink-0">
+                <Logo color={`${styles && styles.textColor.hexColor}`}/>
+            </a>
 
-                <a
-                    href={"/"}
-                    className="flex-shrink-0">
-                    <Logo/>
+            <ul className={'xl:flex hidden justify-center items-center gap-x-10 font-light'}>
+                {
+                    pathManager.getPaths().map((nav, index) => {
 
-                </a>
+                        return (
+                            <li key={index} className={"h-full flex items-center"}>
+                                <a href={nav.url}
+                                   className={`text-[14px] tracking-[0px]`}
+                                >
+                                    {nav.nav}
+                                </a>
+                            </li>
+                        )
 
+                    })
+                }
+            </ul>
 
-                    <ul className={'hidden w-full navBreak:h-full navBreak:flex navBreak:justify-center navBreak:items-center navBreak:gap-x-[40px]'}>
+            <div className={'xl:invisible visible'}>
+                {/*<IoIosMenu size={25} color={'white'} />*/}
+                <Hamburger size={20} toggled={menuOpen} toggle={setMenuOpen}/>
+            </div>
+
+            {/* MOBILE MENU */}
+            <div className={`fixed top-0 right-0 bottom-0 left-0 min-h-screen fixed ${menuOpen ? 'block' : 'hidden'}`}>
+
+                {/* OVERLAY */}
+                <div
+                    ref={menuRef}
+                    className={`opacity-100 fixed top-0 right-0 bottom-0 left-0 z-[100] bg-[rgba(0,0,0,0.5)] transition-all ease-in-out flex justify-end`}>
+
+                </div>
+
+                {/* MENU CONTAINER */}
+                <div className="ml-auto fixed top-0 right-0 bottom-0 left-0  z-[200] bg-white w-full md:w-[400px] h-full">
+
+                    <div className={'px-[10px] py-[10px] ml-auto flex justify-end items-center'}>
+                        {/*<IoIosMenu size={25} color={'white'} />*/}
+                        <Hamburger size={20} toggled={menuOpen} toggle={setMenuOpen} color={'#3F47FF'}/>
+                    </div>
+
+                    {/* MENU */}
+                    <ul className="text-vm-blue text-md mt-[100px] px-5 flex flex-col justify-center items-center">
 
                         {
-                            navigations.map((nav, index)=>{
+                            pathManager.getPaths().map((nav, index)=>{
 
-                                if (
-                                    !navsToExclude.has(nav.nav)
-                                ) {
-                                    return(
-                                        <li key={index} className={"h-full flex items-center"}>
-                                            <a href={nav.url}
-                                               className={`text-[14px] tracking-[0px] text-white`}
-                                            >
-                                                {nav.nav}
-                                            </a>
+                                return(
+                                    <a href={nav.url}
+                                       className={`w-full`}
+                                    >
+                                        <li key={index} className={"w-full border-solid border-b-2 border-bg-vm-blue py-[5px]"}>
+
+                                            {nav.nav}
                                         </li>
-                                    )
-                                }
 
-                                return null;
+                                    </a>
+                                )
 
                             })
                         }
+                    </ul>
 
-                </ul>
-
-                {/* DESKTOP DROP DOWN */}
-                <div className={"relative w-[120px] flex justify-end"}>
-
-                    <div className={'navBreak:hidden block flex items-center'}>
-                        {
-                            menuClicked ?
-                                <button onClick={()=>{ setMenuClicked(!menuClicked); }}> <XIcon className={'text-white w-[25px] h-[25px]'}/></button>
-                                :
-                                <button onClick={()=>{ setMenuClicked(!menuClicked); }}><AiOutlineMenu color={'white'} size={25}/></button>
-
-                        }
+                    {/* SEARCH */}
+                    <div className="absolute bottom-0 px-5 w-full h-auto mb-10">
+                        <input className="px-3 w-full h-[40px] ring-1 ring-bg-vm-blue/30 placeholder-bg-vm-blue/80" type="text"
+                               placeholder="Search"/>
                     </div>
-
-                    {/*{
-                        menuClicked && (
-
-                            <div  className={"hidden navBreak:w-[400px] navBreak:absolute navBreak:-bottom-[100%] navBreak:right-0  navBreak:translate-y-[100%] navBreak:z-[2000] navBreak:rounded-md navBreak:shadow-md navBreak:bg-[#161a1d] navBreak:block navBreak:flex navBreak:flex-col navBreak:items-center navBreak:space-x-[10px] navBreak:space-y-[20px] p-[20px]"}>
-
-                                <div className={"w-full text-[16px] "}>
-                                    <a href="https://twitter.com/VentureMiami" className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
-                                        <div className={""}>
-                                            <div className="flex justify-center items-center rounded-[100%] w-[35px] h-[35px] bg-[#f7f9fc]">
-                                                <FaTwitter size={20} color={"#1D9BF0"}/>
-                                            </div>
-                                        </div>
-                                        <div className="">
-                                            <p className="text-[14px]">
-                                                Questions? DM Us!
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div className={"w-full text-[16px] "}>
-                                    <a href="/business/#contact"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
-                                        <div className={""}>
-                                            <div className="flex justify-center items-center rounded-full w-[35px] h-[35px] bg-[#f7f9fc]">
-                                                <BiSolidBusiness
-                                                    size={20} color={"rgb(31 41 55)"}
-                                                    className="flex-shrink-0"
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div className="">
-                                            <p className="text-[14px]">
-                                                Join Our Founder Database
-                                            </p>
-                                            <p className="text-[12px] text-gray-500">
-                                                Continue growing in the Miami ecosystem by tapping into local resources.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div className={"w-full text-[16px] "}>
-                                    <a href="/business/#contact"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
-                                        <div className={""}>
-                                            <div className="flex justify-center items-center rounded-full w-[35px] h-[35px] bg-[#f7f9fc]">
-                                                <BsFillBriefcaseFill
-                                                    size={20} color={"rgb(31 41 55)"}
-                                                    className="flex-shrink-0"
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div className="">
-                                            <p className="text-[14px]">
-                                                Join Our Talent Database
-                                            </p>
-                                            <p className="text-[12px] text-gray-500">
-                                                Connect with local and incoming companies looking for Miami talent.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div className={"w-full text-[16px] "}>
-                                    <a href="/business/#contact"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
-                                        <div className={""}>
-                                            <div className="flex justify-center items-center rounded-[100%] w-[35px] h-[35px] bg-[#f7f9fc]">
-                                                <BsFillLightbulbFill
-                                                    size={20} color={"yellow"}
-                                                    className="flex-shrink-0"
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="">
-                                            <p className="text-[14px]">
-                                                Have a Request or Idea?
-                                            </p>
-                                            <p className="text-[12px] text-gray-500">
-                                                We love making our community better with the people of our community. Let's Talk!
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        )
-                    }*/}
                 </div>
 
             </div>
 
-
-            {
-                menuClicked && (
-                    // <div className={"navBreak:hidden w-[80%] mx-auto absolute top-[100%] left-1/2 -translate-x-1/2 z-[1000]  rounded-md shadow-md block flex flex-col divide-y"}>
-
-                    /*                       <div className={"navBreak:hidden rounded-[8px] w-[90%] mx-auto absolute top-[70px] left-1/2 -translate-x-1/2 z-[1000]  shadow-md block flex flex-col md:flex-row bg-vm-blue"}>
-                                               {/!* LEFT SECTION *!/}
-                                               <div className={"rounded-tr-[8px] rounded-tl-[8px] md:rounded-bl-[8px] md:rounded-tr-[0px] bg-vm-blue basis-[60%] pt-[32px] pr-[40px] pb-[32px] pl-[32px]"}>
-
-                                                   {/!* HEADER *!/}
-                                                   <div className={"mb-[10px] pb-[16px] flex items-center space-x-[10px] border-b-[1px] border-white"}>
-
-                                                       {/!* ICON *!/}
-                                                       <div className={"flex"}>
-                                                           <BiNavigation size={25} color={'white'}/>
-                                                       </div>
-                                                       <p className={"text-[12px] text-white uppercase"}>Navigation</p>
-
-                                                   </div>
-
-                                                   {/!* NAVIGATIONS *!/}
-                                                   <div>
-
-                                                       <ul className={"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-x-[16px] gap-y-[16px] pl-[0px]"}>
-
-                                                           {/!*<li className={"w-[200px] text-[16px] "}>
-                                                               <a href="/" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Home</p>
-                                                               </a>
-                                                           </li>*!/}
-                                                           {/!*text-[#a0aaba] - li , text-white - a *!/}
-                                                           <li className={"w-[200px] text-[16px] "}>
-                                                               <a href="/about" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>About</p>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-[200px] text-[16px] "}>
-                                                               <a href="/business" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Companies</p>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-[200px] text-[16px] "}>
-                                                               <a href="/initiatives" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Initiatives</p>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-[200px] text-[16px] "}>
-                                                               <a href="/partnerships" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Partnerships</p>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-[200px] text-[16px] "}>
-                                                               <a href="/events" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Events</p>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-[200px] text-[16px] "}>
-                                                               <a href="/news" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>News</p>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-[200px] text-[16px] "}>
-                                                               <a href="/contact" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Contact</p>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-[200px] text-[16px] "}>
-                                                               <a href="https://miamitechresourcehub.softr.app/" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Resource Hub</p>
-                                                               </a>
-                                                           </li>
-                                                       </ul>
-                                                   </div>
-
-                                               </div>
-
-                                               {/!* RIGHT SECTION *!/}
-                                               <div className={"rounded-bl-[8px] rounded-br-[8px] md:rounded-tr-[8px] md:rounded-bl-none bg-white basis-[40%] pt-[32px] pb-[32px] pt-[32px] pl-[20px] pr-[20px]"}>
-
-                                                   {/!* HEADER *!/}
-                                                   <div className={"mb-[10px] pb-[16px] flex items-center space-x-[10px] border-b-[1px] border-[#333943]"}>
-
-                                                       {/!* ICON *!/}
-                                                       <div className={"flex"}>
-                                                           <BiHelpCircle size={25} color={'black'}/>
-                                                       </div>
-                                                       <p className={"text-[12px] uppercase text-black"}>Resources</p>
-
-                                                   </div>
-
-                                                   {/!* NAVIGATIONS *!/}
-                                                   <div>
-
-                                                       <ul className={"grid grid-cols-1 gap-x-0 gap-y-[30px]"}>
-
-                                                           <li className={"w-full text-[16px] "}>
-                                                               <a href="https://twitter.com/VentureMiami" className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
-                                                                   <div className={""}>
-                                                                       <div className="flex justify-center items-center rounded-[100%] w-[35px] h-[35px] bg-[#f7f9fc]">
-                                                                           <FaTwitter size={20} color={"#1D9BF0"}/>
-                                                                       </div>
-                                                                   </div>
-                                                                   <div className="">
-                                                                       <p className="text-[14px]">
-                                                                           Questions? DM Us!
-                                                                       </p>
-                                                                   </div>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-full text-[16px] "}>
-                                                               <a href="https://twitter.com/VentureMiami"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
-                                                                   <div className={""}>
-                                                                       <div className="flex justify-center items-center rounded-full w-[35px] h-[35px] bg-[#f7f9fc]">
-                                                                           <BiSolidBusiness
-                                                                               size={20} color={"rgb(31 41 55)"}
-                                                                               className="flex-shrink-0"
-                                                                               aria-hidden="true"
-                                                                           />
-                                                                       </div>
-                                                                   </div>
-
-                                                                   <div className="">
-                                                                       <p className="text-[14px]">
-                                                                           Join Our Founder Database
-                                                                       </p>
-                                                                       <p className="text-[12px] text-gray-500">
-                                                                           Continue growing in the Miami ecosystem by tapping into local resources.
-                                                                       </p>
-                                                                   </div>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-full text-[16px] "}>
-                                                               <a href="https://airtable.com/shrHqS0j6ypB2QRKz"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
-                                                                   <div className={""}>
-                                                                       <div className="flex justify-center items-center rounded-full w-[35px] h-[35px] bg-[#f7f9fc]">
-                                                                           <BsFillBriefcaseFill
-                                                                               size={20} color={"rgb(31 41 55)"}
-                                                                               className="flex-shrink-0"
-                                                                               aria-hidden="true"
-                                                                           />
-                                                                       </div>
-                                                                   </div>
-
-                                                                   <div className="">
-                                                                       <p className="text-[14px]">
-                                                                           Join Our Talent Database
-                                                                       </p>
-                                                                       <p className="text-[12px] text-gray-500">
-                                                                           Connect with local and incoming companies looking for Miami talent.
-                                                                       </p>
-                                                                   </div>
-                                                               </a>
-                                                           </li>
-                                                           <li className={"w-full text-[16px] "}>
-                                                               <a href="https://airtable.com/shr1TcBO7ZwcpRrWV"  className={"text-white flex items-center justify-start space-x-[10px] relative w-full"}>
-                                                                       <div className={""}>
-                                                                           <div className="flex justify-center items-center rounded-[100%] w-[35px] h-[35px] bg-[#f7f9fc]">
-                                                                               <BsFillLightbulbFill
-                                                                                   size={20} color={"yellow"}
-                                                                                   className="flex-shrink-0"
-                                                                                   aria-hidden="true"
-                                                                               />
-                                                                           </div>
-                                                                       </div>
-                                                                       <div className="">
-                                                                           <p className="text-[14px]">
-                                                                               Have a Request or Idea?
-                                                                           </p>
-                                                                           <p className="text-[12px] text-gray-500">
-                                                                               We love making our community better with the people of our community. Let's Talk!
-                                                                           </p>
-                                                                       </div>
-                                                               </a>
-                                                           </li>
-                                                       </ul>
-                                                   </div>
-
-                                               </div>
-
-                                       </div>*/
-
-                    /* MOBILE DROPDOWN 2 */
-                    <div className={`navBreak:hidden block absolute ${makeTransparent ? 'bg-black/10 text-white' : 'bg-white text-black'} divide-vm-blue divide-y w-full z-[10] left-0 ${menuClicked ? 'top-[100%] transition delay-[3000]' : 'top-[-100%] transition'}`}>
-
-                        <ul className={'w-full'}>
-
-                            {
-                                navigations.map((nav, index)=>{
-
-                                    if (
-                                        !navsToExclude.has(nav.nav)
-                                    ) {
-                                        return(
-                                            <li key={index} className={"w-full"}>
-                                                <a href={nav.url} className={"text-[14px] pl-[10px] pt-[10px] pb-[10px] border-l-[5px] border-vm-gray hover:border-vm-blue flex items-center relative"}>
-                                                    <p className={"text-left mr-[8px] hover:rounded-[8px]"}>{nav.nav}</p>
-                                                </a>
-                                            </li>
-                                        )
-                                    }
-
-                                    return null;
-
-                                })
-                            }
-
-                        </ul>
-                    </div>
-
-                )
-            }
-
         </div>
-
-
-
-    </div>
     )
 }

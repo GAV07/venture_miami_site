@@ -13,41 +13,56 @@ export default function PartnershipInfo(props) {
 
     return (
 
-        <div className={"w-full m-auto pt-16"}>
+        <div className={"w-full m-auto pt-20"}>
 
-            <div className={"w-[90%] m-auto xl:w-[85%]"}>
-                <div className={"max-w-[80%] mx-auto w-[80%] m-auto text-center"}>
-                    <h1 className="text-[28px] md:text-[36px] font-bold text-darkGray mb-3">
+            <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-10"}>
+                <div className={"border-solid border-t-[1px] border-black mx-auto w-full m-auto text-left"}>
+                    <h1 className="text-[36px] md:text-[56px] font-light mb-3">
                         {props.content.title}
                     </h1>
-                    <p className="text-[16px] md:text-[20px] text-lightGray leading-8 text-vm-blue">
+                    <p className="text-[16px] md:text-[20px] leading-8">
                         {props.content.subtitle}
                     </p>
                 </div>
 
-                <div className={"w-full m-auto flex flex-col mt-[80px]"}>
+                <div className={"w-full mx-auto flex flex-col mt-[30px]"}>
                     {props.content.contentBlock.map((content, index) => {
 
                         return (
                             <div key={index}
-                                 className={`mb-[45px] md:mb-[140px] gap-x-0 w-full overflow-hidden flex flex-col justify-center  items-center md:gap-x-[70px] md:justify-between md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                                 className={`flex justify-between items-start flex-col-reverse gap-y-10 gap-x-10 pb-20 ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} md:gap-y-0`}>
 
-                                <div className={`relative lg:basis-[730px] xs:basis-1/2`}>
+                                <div className={`md:w-1/2 w-full h-full
+                                
+                                    rounded-md w-full
+                                min-[1270px]:h-[720px] 
+                                    min-[1147px]:h-[627px]
+                                min-[1024px]:h-[535px] 
+                                    min-[896px]:h-[442px]
+                                min-[768px]:h-[350px]
+                                
+                                
+                                min-[767px]:h-[700px] 
+                                    min-[634px]:h-[625px] 
+                                min-[500px]:h-[500px] 
+                  
+                                    
+                                `}>
                                     {
                                         <img
                                         src={content.fields.images[0].fields.file.url}
                                         alt=""
-                                        className={'w-full h-full rounded-[15px]'}
+                                        className={'w-full h-full rounded-[2px] object-cover'}
                                         />
                                     }
                                 </div>
 
                                 <div
-                                    className={`w-full py-4 lg:basis-[480px] lg:gap-x-0 md:flex-row md:justify-center md:items-center xs:basis-1/2`}>
+                                    className={`md:w-1/2 w-full text-[2.5rem]`}>
                                     <div
-                                        className={"w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
-                                        <p className={'text-black text-[24px] font-bold'}>{content.fields.title}</p>
-                                        <p className={'text-[#566171] text-[16px]'}>{content.fields.subtitle}</p>
+                                        className={"md:w-[80%] w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start"}>
+                                        <p className={'text-black text-[2.25rem] font-light underline decoration-[1.5px]'}>{content.fields.title}</p>
+                                        <p className={'text-black text-[1rem]'}>{content.fields.subtitle}</p>
                                     </div>
                                 </div>
 

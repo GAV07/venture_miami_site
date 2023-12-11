@@ -2,24 +2,18 @@ import {AiFillCheckCircle} from 'react-icons/ai'
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {Slider} from "../Slider";
+import StyleManager from "../../services/StyleManager";
+import HeroComponent from "../HeroComponent";
 
 export function Hero(props) {
 
     return (
 
-        <div className={"w-full m-auto pt-32"}>
-
-            <div className={"w-[90%] m-auto xl:w-[85%]"}>
-                <div className={"mx-auto w-[80%] m-auto text-center"}>
-                    <h1 className="text-[36px] md:text-[56px] font-bold text-darkGray mb-3">
-                        {props.content.title}
-                    </h1>
-                    <p className="text-[16px] md:text-[20px] text-lightGray leading-8 text-vm-blue">
-                        {props.content.subtitle}
-                    </p>
-                </div>
-            </div>
-        </div>
+    <HeroComponent
+        title={props.content.title}
+        subtitle={props.content.subtitle}
+        imageURL={"https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
+    />
 
     )
 }

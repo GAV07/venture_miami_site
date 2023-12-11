@@ -1,10 +1,11 @@
 import React from "react";
+import HeroComponent from "../HeroComponent";
 
 export default function Hero(props){
 
     return (
 
-        <div className={`relative right-0 flex justify-between items-center z-[2] w-full ease-in duration-300
+/*        <div className={`relative right-0 flex justify-between items-center z-[2] w-full ease-in duration-300
             
             lg:min-h-[70vh]
             min-h-[58vh]
@@ -18,10 +19,6 @@ export default function Hero(props){
 
                 `}
             />
-           {/* <div className="absolute top-0 left-0 w-full h-full bg-black/50 mix-blend-overlay">
-            </div>*/}
-
-
 
             <div className="absolute top-0 left-0 w-full h-full">
                 <div className="w-full h-full bg-black bg-opacity-40"></div>
@@ -33,6 +30,11 @@ export default function Hero(props){
                 </h2>
             </div>
 
-        </div>
+        </div>*/
+        <HeroComponent
+            title={props.content.title}
+            subtitle={props.content.subtitle}
+            imageURL={props.content.backgroundImage.fields.file.url}
+        />
     )
 }

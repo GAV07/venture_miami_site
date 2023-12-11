@@ -58,7 +58,7 @@ export default function EventDetails(props) {
 
                 <div className={"flex flex-col basis-[70%] space-y-[10px] h-full"}>
                     <p className={"text-[18px]"}>{events[index].fields.Description}</p>
-                    <a href={`${events[index].fields.URL}`} className={"max-w-max rounded-none mt-auto h-full text-[14px] bg-[#007afc] py-[10px] px-[30px] text-white uppercase"}>View event</a>
+                    <a href={`${events[index].fields.URL}`} className={"max-w-max rounded-none mt-auto h-full text-[14px] bg-vm-blue py-[10px] px-[30px] text-white uppercase"}>Got to event</a>
                 </div>
 
             </div>

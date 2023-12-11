@@ -9,14 +9,14 @@ export default function Stats(props) {
                 <div className={"flex flex-col md:flex-row md:gap-x-[32px]"}>
                     {props.content.stats.map((stat, index) => {
                         return (
-                            <div className={"mb-[32px]  md:mr-[32px] w-full text-center"}>
+                            <a href={stat.fields.url} className={"mb-[32px]  md:mr-[32px] w-full text-center"}>
                                 <h3 className={"max-w-max mx-auto text-[24px] md:text-[28px] mb-[8px] leading-[32px] text-vm-blue font-bold"}>
-                                    <a href={stat.fields.url}>{stat.fields.statistic}</a>
+                                    {stat.fields.statistic}
                                 </h3>
                                 <p className={"font-[16px] max-w-max mx-auto mb-[8px] text-[#566171] leading-[24px]"}>
-                                    <a href={stat.fields.url}>{stat.fields.title}</a>
+                                    {stat.fields.title}
                                 </p>
-                            </div>
+                            </a>
                         )
                     })}
                 </div>

@@ -1,25 +1,17 @@
-import {Events} from "./Events";
-import {Socials} from "./Socials";
-import React, {useEffect, useState} from "react";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import {Slider} from "../../Slider";
-import Swipe from "../../Swipe";
-import {BsArrowRightShort} from 'react-icons/bs'
-import {BiSolidQuoteAltLeft} from "react-icons/bi";
+import {BsArrowRightShort} from "react-icons/bs";
+import React from "react";
 
-export default function Info(props) {
-    return (
+let ContentComponent = ({contentBlock})=>{
+
+    return(
 
         <div className={"w-full m-auto pt-20"}>
 
-            <div className={"w-[95%] mx-auto"}>
-                <div className={"border-solid border-t-[1px] border-black mx-auto w-full m-auto text-left"}>
+            <div className={"w-[95%] m-auto"}>
 
-                </div>
-
-                <div className={"w-full mx-auto flex flex-col"}>
-                    {props.content.contentBlock.map((content, index) => {
+                {/* CONTENT */}
+                <div className={"w-full m-auto flex flex-col mt-[80px]"}>
+                    {contentBlock.map((content, index) => {
 
                         return (
                             <div key={index}
@@ -36,8 +28,8 @@ export default function Info(props) {
                                 
                                 
                                 min-[767px]:h-[700px] 
-                                    min-[634px]:h-[625px] 
-                                min-[500px]:h-[500px] 
+                                    min-[634]:h-[625px] 
+                                min-[500]:h-[500px] 
                   
                                     
                                 `}>
@@ -61,15 +53,15 @@ export default function Info(props) {
                                         </div>
                                     </div>
 
-
                                 </div>
 
                             </div>
                         )
                     })}
                 </div>
-
             </div>
         </div>
     )
 }
+
+export default ContentComponent;

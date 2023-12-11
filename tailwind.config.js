@@ -1,19 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 /* eslint-disable max-len */
-module.exports = {
+
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+module.exports = withMT({
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
+    "./**/@material-tailwind/**/*.{html,js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     screens:{
       xs: '480px',
+      smBETWEENxs: '560px',
       sm: '640px',
+      mdBETWEENsm: '704px',
       md: '768px',
-      navBreak: '768px',
-      md1: '990px',
+      lgBETWEENmd: '896px',
       lg: '1024px',
+      xlBETWEENlg: '1147px',
       xl: '1270px',
     },
     transparent: "transparent",
@@ -158,7 +164,7 @@ module.exports = {
     },
   ],
   plugins: [require("@headlessui/tailwindcss")],
-};
+});
 
 
 /*

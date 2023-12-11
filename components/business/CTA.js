@@ -2,6 +2,11 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 import RequestForm from "./form/RequestForm";
 import Link from 'next/link';
+import {BsArrowRightShort} from "react-icons/bs";
+import InputComponent from "../form/InputComponent";
+import RadioComponent from "../form/RadioComponent";
+import IntakeForm from "./form/IntakeForm";
+import TabsComponent from "../TabsComponent";
 
 export default function CTA(props) {
 
@@ -9,14 +14,14 @@ export default function CTA(props) {
 
     const [forms, setForms] = useState(new Map())
 
-    useEffect(()=>{
+    useEffect(() => {
 
         // set the forms
         forms.set(
             'Send requests and ideas',
-            <iframe className="airtable-embed bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+            <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
                     src="https://airtable.com/embed/app7M34O3rPHxQ9mB/shr1TcBO7ZwcpRrWV?backgroundColor=gray"
-                    frameBorder="0" onmousewheel="" width="100%" height="2000"
+                    frameBorder="0" onmousewheel="" width="100%" height="100%"
                 // style="background: transparent; border: 1px solid #ccc;"
             >
             </iframe>
@@ -25,23 +30,21 @@ export default function CTA(props) {
         );
         forms.set(
             'Founder looking to grow',
-            <iframe className="airtable-embed"
+            <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
                     src="https://airtable.com/embed/appU24wxHJtwLEMq4/shrkRDDFLh4XJLPud?backgroundColor=cyan"
-                    frameBorder="0" onmousewheel="" width="100%" height="2000"
+                    frameBorder="0" onmousewheel="" width="100%" height="100%"
                 // style="background: transparent; border: 1px solid #ccc;"
             >
             </iframe>
-
         );
         forms.set(
             'Join our miami talent',
-            <iframe className="airtable-embed"
+            <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
                     src="https://airtable.com/embed/appkpBZ1YDK7ggwpd/shrHqS0j6ypB2QRKz?backgroundColor=cyan"
-                    frameBorder="0" onmousewheel="" width="100%" height="2000"
+                    frameBorder="0" onmousewheel="" width="100%" height="100%"
                 // style="background: transparent; border: 1px solid #ccc;"
             >
             </iframe>
-
         );
 
         // alert(Array.from(forms)[0][0])
@@ -52,70 +55,64 @@ export default function CTA(props) {
 
     }, [])
     return (
-        <div id={"contact"} className={"w-full m-auto pt-16"}>
+        <div className={"w-full m-auto pt-16"}>
 
-            {/*<div className={"bg-vm-blue pt-[140px] pb-[70px] px-[40px]"}>*/}
-            <div className={"bg-white pt-[140px] pb-[70px] px-[40px]"}>
+            <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-10"}>
 
-                {/* CONTENT */}
-                <div className={"max-w-[1200px] mx-auto text-center"}>
-                    {/*<h1 className="text-[36px] md:text-[36px] font-bold text-[white] mb-[16px]">
-                        Ready to Relocate and Become a part of the Miami Ecosystem?
-                    </h1>*/}
-                    {/*<h1 className="text-[36px] md:text-[36px] font-bold text-[white] mb-[16px]">*/}
-                    <h1 className="text-[36px] md:text-[36px] font-bold text-[#0e1012] mb-[16px]">
+                {/* HEADER */}
+                <div className={"border-solid border-t-[1px] border-black mx-auto w-full m-auto text-left"}>
+                    <h1 className="text-[36px] md:text-[56px] font-light mb-3">
                         {props.content.title}
                     </h1>
-                    {/*<p className="text-[16px] md:text-[20px] text-[#9ba2b2] leading-8">*/}
-                    <p className="text-[16px] md:text-[20px] text-[#566171] leading-8">
+                    <p className="text-[16px] md:text-[20px] leading-8">
                         {props.content.subtitle}
                     </p>
-
-                    <div className={"w-full mt-[56px] flex flex-col space-y-10"}>
-
-                        <div className={"relative w-full md:w-[787px] rounded-[8px] flex justify-center items-center w-full gap-x-[20px] gap-y-[20px] flex-wrap mx-auto"}>
-                            {
-                                Array.from(forms).map(([key, value])=>{
-
-                                    return (
-
-                                        <button key={key} className={`text-[14px] md:text-[16px] px-[16px] py-[8px] rounded-full ${key === sectionSelected ? 'bg-vm-blue text-white' : 'bg-white ring-1 ring-black'} font-base`}
-                                            onClick={()=>{ setSectionSelected(key) }}
-                                        >
-                                            {key}
-                                        </button>
-                                    )
-                                })
-                            }
-                        </div>
-
-                        <div
-                            // className={"relative top-0 left-0 w-full mx-auto lg:w-[60%] mx-auto flex flex-col rounded-[8px]"}>
-                            className={"relative top-0 left-0 w-full mx-auto lg:w-[60%] mx-auto flex flex-col rounded-[8px]"}>
-
-                            {/*<div role="status" className={"relative top-0 left-0 mx-auto"}>
-                                <svg aria-hidden="true"
-                                     className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-                                     viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                                        fill="currentColor"/>
-                                    <path
-                                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                                        fill="currentFill"/>
-                                </svg>
-                            </div>*/}
-
-                            {/*<div className={"absolute top-0 left-0 top-0 w-full"}>*/}
-                            <div className={"w-full"}>
-                                {forms.get(sectionSelected)}
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
 
+                {/* FORM */}
+                <div className={"relative w-full h-[1400px] overflow-y-scroll"}>
+                    <TabsComponent data={[
+
+
+                       /* {
+                            label: 'Send requests and ideas',
+                            component: <IntakeForm/>
+                        },*/
+                        {
+                            label: 'Send requests and ideas',
+                            component:  <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+                                                src="https://airtable.com/embed/app7M34O3rPHxQ9mB/shr1TcBO7ZwcpRrWV?backgroundColor=gray"
+                                                frameBorder="0" onmousewheel="" width="100%" height="100%"
+                                // style="background: transparent; border: 1px solid #ccc;"
+                            >
+                            </iframe>
+                        },
+                        {
+                            label: 'Founder looking to grow',
+                            component:   <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+                                                 src="https://airtable.com/embed/appU24wxHJtwLEMq4/shrkRDDFLh4XJLPud?backgroundColor=cyan"
+                                                 frameBorder="0" onmousewheel="" width="100%" height="100%"
+                                // style="background: transparent; border: 1px solid #ccc;"
+                            >
+                            </iframe>
+                        },
+                        {
+                            label: 'Join our miami talent',
+                            component:    <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+                                                  src="https://airtable.com/embed/appkpBZ1YDK7ggwpd/shrHqS0j6ypB2QRKz?backgroundColor=cyan"
+                                                  frameBorder="0" onmousewheel="" width="100%" height="100%"
+                                // style="background: transparent; border: 1px solid #ccc;"
+                            >
+                            </iframe>
+                        },
+
+                    ]}/>
+
+                </div>
             </div>
+
+
+
         </div>
     )
 }

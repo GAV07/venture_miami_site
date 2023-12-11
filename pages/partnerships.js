@@ -18,10 +18,10 @@ export default function Contact(props) {
             <Head>
                 <title>Venture Miami - Partnerships</title>
             </Head>
-            {/* <Partnerships /> */}
-            {/* <PartnerRotate content={props.partnersSection}/> */}
-            <PartnershipInfo content={props.partnershipsSection}/>
+             {/*<Partnerships />*/}
+             {/*<PartnerRotate content={props.partnersSection}/>*/}
             <CTA content={props.heroSection}/>
+            <PartnershipInfo content={props.partnershipsSection}/>
         </Layout>
     );
 }
