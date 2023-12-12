@@ -70,7 +70,7 @@ export default function CTA(props) {
                 </div>
 
                 {/* FORM */}
-                <div className={"relative w-full h-[1400px] overflow-y-scroll"}>
+                <div className={"relative w-full h-[2000px]"}>
                     <TabsComponent data={[
 
 
@@ -80,30 +80,36 @@ export default function CTA(props) {
                         },*/
                         {
                             label: 'Send requests and ideas',
-                            component:  <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
-                                                src="https://airtable.com/embed/app7M34O3rPHxQ9mB/shr1TcBO7ZwcpRrWV?backgroundColor=gray"
-                                                frameBorder="0" onmousewheel="" width="100%" height="100%"
-                                // style="background: transparent; border: 1px solid #ccc;"
-                            >
-                            </iframe>
+                            component:  <div className={'md:w-1/2 w-full mx-auto h-full'}>
+                                <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+                                        src="https://airtable.com/embed/app7M34O3rPHxQ9mB/shr1TcBO7ZwcpRrWV?backgroundColor=gray"
+                                        frameBorder="0" onmousewheel="" width="100%" height="100%"
+                                    // style="background: transparent; border: 1px solid #ccc;"
+                                >
+                                </iframe>
+                            </div>
                         },
                         {
                             label: 'Founder looking to grow',
-                            component:   <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
-                                                 src="https://airtable.com/embed/appU24wxHJtwLEMq4/shrkRDDFLh4XJLPud?backgroundColor=cyan"
-                                                 frameBorder="0" onmousewheel="" width="100%" height="100%"
-                                // style="background: transparent; border: 1px solid #ccc;"
-                            >
-                            </iframe>
+                            component:  <div className={'md:w-1/2 w-full mx-auto h-full'}>
+                                <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+                                        src="https://airtable.com/embed/appU24wxHJtwLEMq4/shrkRDDFLh4XJLPud?backgroundColor=cyan"
+                                        frameBorder="0" onmousewheel="" width="100%" height="100%"
+                                    // style="background: transparent; border: 1px solid #ccc;"
+                                >
+                                </iframe>
+                            </div>
                         },
                         {
                             label: 'Join our miami talent',
-                            component:    <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
-                                                  src="https://airtable.com/embed/appkpBZ1YDK7ggwpd/shrHqS0j6ypB2QRKz?backgroundColor=cyan"
-                                                  frameBorder="0" onmousewheel="" width="100%" height="100%"
-                                // style="background: transparent; border: 1px solid #ccc;"
-                            >
-                            </iframe>
+                            component:    <div className={'md:w-1/2 w-full mx-auto h-full'}>
+                                <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+                                        src="https://airtable.com/embed/appkpBZ1YDK7ggwpd/shrHqS0j6ypB2QRKz?backgroundColor=cyan"
+                                        frameBorder="0" onmousewheel="" width="100%" height="100%"
+                                    // style="background: transparent; border: 1px solid #ccc;"
+                                >
+                                </iframe>
+                            </div>
                         },
 
                     ]}/>

@@ -1,3 +1,4 @@
+
 import {Disclosure, Menu, Transition} from '@headlessui/react'
 import {AiOutlineMenu} from 'react-icons/ai'
 import {RxCross2} from 'react-icons/rx'
@@ -14,53 +15,8 @@ import StyleManager from "../services/StyleManager";
 import PathManager from "../services/PathManager";
 
 
-export default function Header({makeTransparent}) {
+export default function Header() {
 
-    const router = useRouter();
-
-    const [navsToExclude, setNavsToExclude] = useState(new Set());
-
-    const [navigations, setNavigations] = useState([
-
-        {
-            nav: 'Home',
-            url: '/'
-        },
-        {
-            nav: 'About',
-            url: '/about'
-        },
-        {
-            nav: 'Companies',
-            url: '/business'
-        },
-        {
-            nav: 'Initiatives',
-            url: '/initiatives'
-        },
-        {
-            nav: 'Partnerships',
-            url: '/partnerships'
-        },
-        {
-            nav: 'Events',
-            url: '/events'
-        },
-        {
-            nav: 'News',
-            url: '/news'
-        },
-        {
-            nav: 'Contact',
-            url: '/business/#contact'
-        },
-        {
-            nav: 'Resource Hub',
-            url: 'https://miamitechresourcehub.softr.app/'
-        },
-    ])
-
-    const [currentPath, setCurrentPath] = useState(router.asPath);
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -69,13 +25,6 @@ export default function Header({makeTransparent}) {
     const pathManager = new PathManager();
 
     useEffect(() => {
-
-        let set = new Set();
-        set.add('Events');
-        set.add('Home');
-        set.add('News');
-        set.add('Contact');
-        setNavsToExclude(set);
 
         function handleClickOutside(event) {
             if (menuRef.current && menuRef.current.contains(event.target)) {
@@ -95,38 +44,45 @@ export default function Header({makeTransparent}) {
 
     const [styles, setStyles] = useState(null);
 
-    const styleManager = new StyleManager();
+    const router = useRouter();
+    const path = router.pathname.split('/')[1]; // gets the path
 
     useEffect(() => {
 
+        const styleManager = new StyleManager(path);
         setStyles(styleManager.getStyles());
 
     }, [])
 
 
+    useEffect(() => {
+
+        document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
+
+    }, [menuOpen])
     const [scrolling, setScrolling] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY || document.documentElement.scrollTop;
+    /*    useEffect(() => {
+            const handleScroll = () => {
+                const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-            scrollY >= 40 ?
-                setStyles({backgroundColor: 'white', textColor: {color: 'vm-blue', hexColor: '#3F47FF'}})
-                :
-                setStyles(styleManager.getStyles())
-        };
+                scrollY >= 40 ?
+                    setStyles({backgroundColor: 'white', textColor: {color: 'vm-blue', hexColor: '#3F47FF'}})
+                    :
+                    setStyles(styleManager.getStyles())
+            };
 
-        window.addEventListener('scroll', handleScroll);
+            window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }, []);*/
 
     return (
 
         <div
-            className={`h-[65px] w-full fixed top-0 left-0 z-[50] px-[10px] py-[10px] flex justify-between items-center ${styles && `${'bg-' + styles.backgroundColor} ${'text-' + styles.textColor.color}`}`}>
+            className={`h-[65px] w-full fixed top-0 left-0 z-[100] px-[10px] py-[10px] flex justify-between items-center ${styles && `${'bg-' + styles.backgroundColor} ${'text-' + styles.textColor.color}`}`}>
             <a
                 href={"/"}
                 className="flex-shrink-0">
@@ -157,7 +113,7 @@ export default function Header({makeTransparent}) {
             </div>
 
             {/* MOBILE MENU */}
-            <div className={`fixed top-0 right-0 bottom-0 left-0 min-h-screen fixed ${menuOpen ? 'block' : 'hidden'}`}>
+            <div className={`fixed top-0 right-0 bottom-0 left-0 z-[100] min-h-screen ${menuOpen ? 'block' : 'hidden'}`}>
 
                 {/* OVERLAY */}
                 <div
@@ -181,10 +137,10 @@ export default function Header({makeTransparent}) {
                             pathManager.getPaths().map((nav, index)=>{
 
                                 return(
-                                    <a href={nav.url}
+                                    <a key={index} href={nav.url}
                                        className={`w-full`}
                                     >
-                                        <li key={index} className={"w-full border-solid border-b-2 border-bg-vm-blue py-[5px]"}>
+                                        <li className={"w-full border-solid border-b-2 border-bg-vm-blue py-[5px]"}>
 
                                             {nav.nav}
                                         </li>
@@ -208,3 +164,5 @@ export default function Header({makeTransparent}) {
         </div>
     )
 }
+
+

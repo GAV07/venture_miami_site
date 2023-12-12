@@ -7,10 +7,9 @@ class StyleManager{
     #styles = new Map();
 
 
-    constructor() {
+    constructor(path) {
 
-        const router = useRouter();
-        this.#CURRENT_PATH = router.pathname.split('/')[1];
+        this.#CURRENT_PATH = path;
 
         this.#styles.set('about', {backgroundColor: 'vm-blue', textColor: { color: 'white', hexColor: '#FFF' }})
         // this.#styles.set('about', {backgroundColor: 'vm-lighter-yellow', textColor: { color: 'vm-blue', hexColor: '#3F47FF' }})

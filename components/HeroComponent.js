@@ -1,17 +1,22 @@
 import {useEffect, useState} from "react";
 import StyleManager from "../services/StyleManager";
+import {useRouter} from "next/router";
 
 let HeroComponent = ({title, subtitle, buttons, imageURL, videoURL, content})=>{
 
     const [styles, setStyles] = useState(null);
 
-    const styleManager = new StyleManager();
+    const router = useRouter();
 
-    useEffect(()=>{
+    useEffect(() => {
 
+
+        const path = router.pathname.split('/')[1]; // gets the path
+
+        const styleManager = new StyleManager(path);
         setStyles(styleManager.getStyles());
 
-    }, []);
+    }, [])
 
     return(
 
@@ -71,7 +76,7 @@ let HeroComponent = ({title, subtitle, buttons, imageURL, videoURL, content})=>{
 
                             {
                                 videoURL && <video
-                                    src={imageURL}
+                                    src={videoURL}
                                     className={`rounded-[2px] w-full h-full object-fit`}/>
                             }
 

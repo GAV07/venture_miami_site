@@ -41,9 +41,9 @@ export default function EventDetails(props) {
 
     return (
 
-        <div className={"w-[90%] mx-auto flex flex-col"}>
+        <div className={"w-[95%] mx-auto flex flex-col gap-y-10 pt-20"}>
 
-            <a href={"/events/all"} className={"mt-[30px] max-w-max text-[14px] text-white ring-1 ring-[#161A1D] bg-[#161A1D] flex items-center space-x-[20px] py-[10px] px-[30px]"}><BsArrowLeft size={14}/><span>View all events</span></a>
+            <a href={"/events/all"} className={"mt-[30px] max-w-max text-[14px] text-white ring-1 ring-[#161A1D] bg-[#161A1D] flex items-center space-x-[20px] py-[10px] px-[30px]"}><BsArrowLeft size={14}/><span>All events</span></a>
 
             <div className={"flex flex-col justify-center items-center space-y-[30px] sm:flex-row sm:items-center min-h-[500px] sm:space-x-[40px] sm:space-y-0"}>
 

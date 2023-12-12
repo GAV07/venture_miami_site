@@ -77,7 +77,7 @@ export default function Footer(props) {
                 <span> movement</span>
               </h1>
               <div className={"flex justify-start gap-x-6"}>
-                {props.socials.links.map((icon) => {
+                {props?.socials?.links.map((icon) => {
                   if (icon.fields.text === "Twitter") {
 
                     return (
