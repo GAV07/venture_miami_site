@@ -71,13 +71,13 @@ let HeroComponent = ({title, subtitle, buttons, imageURL, videoURL, content})=>{
                                     src={imageURL}
                                     loading="lazy"
                                     alt=""
-                                    className={`rounded-[2px] w-full h-full object-cover`}/>
+                                    className={`rounded-[8px] w-full h-full object-cover`}/>
                             }
 
                             {
                                 videoURL && <video
                                     src={videoURL}
-                                    className={`rounded-[2px] w-full h-full object-fit`}/>
+                                    className={`rounded-[2px] w-full h-full object-cover`}/>
                             }
 
                             {
