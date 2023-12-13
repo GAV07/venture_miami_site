@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {BsChevronLeft, BsChevronRight} from "react-icons/bs";
+import {BsArrowLeft, BsChevronLeft, BsChevronRight} from "react-icons/bs";
 
 export default function NewsDetails(props) {
 
@@ -83,9 +83,13 @@ export default function NewsDetails(props) {
         <>
 
 
-            <div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+            {/*<div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">*/}
+            <div className={"w-[95%] mx-auto flex flex-col gap-y-10 pt-20"}>
+
+                <a href={"/news"} className={"mt-[30px] max-w-max text-[14px] text-white ring-1 ring-[#161A1D] bg-[#161A1D] flex items-center space-x-[20px] py-[10px] px-[30px]"}><BsArrowLeft size={14}/><span>All news</span></a>
+
                 <div
-                    className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                    className="pt-10 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
                     <div
                         className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                         <div className="lg:pr-4">
@@ -157,22 +161,22 @@ export default function NewsDetails(props) {
                     </div>
                 </div>
 
-                <div className={"w-[90%] mx-auto flex justify-between items-center"}>
+                <div className={"w-full flex justify-between items-center"}>
 
                     {/* IF PREVIOUS EVENT EXISTS */}
-{/*                    <div>
+                    <div>
 
                         {
                             index - 1 >= 0 && (
 
 
                                 <a
-                                    href={`/about/${news[index - 1].fields.Title.toLowerCase().split(" ").join("-")}`}
+                                    href={`/news/${news[index - 1].fields.Title.toLowerCase().split(" ").join("-")}`}
                                     className={"flex items-center space-x-[10px]"}
                                 >
                                     <BsChevronLeft/>
                                     <span>
-                                    <h2 className={"text-[14px] text-start"}>{news[index - 1].fields.Subtitle}</h2>
+                                    <h2 className={"text-[14px] text-start"}>Prev</h2>
 
                                 <p className={"text-[12px]"}>
 
@@ -184,7 +188,7 @@ export default function NewsDetails(props) {
 
                             )
                         }
-                    </div>*/}
+                    </div>
 
 
                     {/* IF NEXT EVENT EXISTS */}
@@ -195,11 +199,11 @@ export default function NewsDetails(props) {
 
 
                                 <a
-                                    href={`/about/${news[index + 1].fields.Title.toLowerCase().split(" ").join("-")}`}
+                                    href={`/news/${news[index + 1].fields.Title.toLowerCase().split(" ").join("-")}`}
                                     className={"flex items-center space-x-[10px]"}
                                 >
                                 <span>
-                                    <h2 className={"text-[14px] text-end"}>Read next</h2>
+                                    <h2 className={"text-[14px] text-end"}>Next</h2>
 
                                 <p className={"text-[12px]"}>
 
