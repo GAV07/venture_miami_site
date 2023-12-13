@@ -55,7 +55,7 @@ export default function CTA(props) {
 
     }, [])
     return (
-        <div className={"w-full m-auto pt-16"}>
+        <div className={"w-full m-auto pt-20"}>
 
             <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-10"}>
 

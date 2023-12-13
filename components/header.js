@@ -22,7 +22,8 @@ export default function Header() {
 
     const menuRef = useRef(null);
 
-    const pathManager = new PathManager();
+    const pathManager = new PathManager(["Home", "Contact"]);
+
 
     useEffect(() => {
 
