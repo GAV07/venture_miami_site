@@ -18,7 +18,7 @@ export default function All(props){
                 <title>Venture Miami - All Events</title>
             </Head>
             <Container>
-                <Hero content={props.heroSection}/>
+                {/*<Hero content={props.heroSection}/>*/}
                 <AllEvents content={events}/>
             </Container>
         </Layout>

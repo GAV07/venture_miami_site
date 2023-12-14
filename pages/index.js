@@ -24,7 +24,7 @@ export default function Index(props) {
         </Head>
         <Container>
 
-          <Hero content={props.heroSection} video={props.bgVideo}/>
+          {/*<Hero content={props.heroSection} video={props.bgVideo}/>*/}
           <MayorsQuote content={props.mayorsQuoteSection} />
           <Stats content={props.statsSection} />
           <Info content={props.infoSection} />

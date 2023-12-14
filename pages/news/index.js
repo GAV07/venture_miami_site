@@ -15,7 +15,7 @@ export default function Index(props){
                     <title>Venture Miami - News</title>
                 </Head>
                 <Container>
-                    <Hero />
+                    {/*<Hero />*/}
                     <News content={props.news}/>
                 </Container>
             </Layout>

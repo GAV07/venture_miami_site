@@ -18,7 +18,7 @@ export default function Talent(props) {
           <title>Venture Miami - Initiatives</title>
         </Head>
         <Container>
-          <Hero content={props.heroSection} />
+          {/*<Hero content={props.heroSection} />*/}
           <Initiatives content={props.initiativesSection}/>
           {/*<Data content={props.data}/>*/}
           {/* <Companies companies={props.companies}/> */}
