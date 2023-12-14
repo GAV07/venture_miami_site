@@ -47,16 +47,16 @@ export function Team(props) {
                                                 <div key={index} className={"flex flex-col space-y-[10px]"}>
 
                                                     <img src={`${member.fields.image.fields.file.url}`} alt=""
-                                                         className={`w-full object-cover
-                            min-[1270px]:h-[360px]
-                            min-[1209px]:h-[322px]
-                            min-[1148px]:h-[284px]
-                            min-[1087px]:h-[246px]
-                            min-[1026px]:h-[208px]
-                            min-[768px]:h-[230px]
-                            h-[375px]
+                                                         className={`w-full rounded object-cover
+                                                        min-[1270px]:h-[360px]
+                                                        min-[1209px]:h-[322px]
+                                                        min-[1148px]:h-[284px]
+                                                        min-[1087px]:h-[246px]
+                                                        min-[1026px]:h-[208px]
+                                                        min-[768px]:h-[230px]
+                                                        h-[375px]
 
-                            `}/>
+                                                    `}/>
 
                                                     <div className={"flex flex-col h-auto space-y-[20px]"}>
                                                         <h2 className={"text-[20px]"}>{member.fields.name}</h2>

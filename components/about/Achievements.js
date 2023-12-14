@@ -20,14 +20,14 @@ export function Achievements(props) {
                 </div>
 
                 {/* IMAGES */}
-                <div className={"lg:w-[70%] mx-auto grid grid-cols-1 lg:grid-cols-2 mx-auto gap-y-4 gap-x-4"}>
+                <div className={"w-[95%] mx-auto grid grid-cols-1 lg:grid-cols-2 mx-auto gap-y-4 gap-x-4"}>
 
                     {
                         props.content.stats.map((stat, index)=>{
 
                             return (
 
-                                <div key={index} className={"relative p-[30px] bg-vm-blue h-full max-w-full rounded-[10px]"}>
+                                <div key={index} className={"relative p-[30px] bg-vm-blue h-full min-h-[500px] max-w-full rounded-[10px]"}>
                                     <img
                                         src={stat.fields.image.fields.file.url}
                                         className={`rounded-[8px] absolute top-0 left-0 w-full object-cover max-h-full h-full z-0`}
