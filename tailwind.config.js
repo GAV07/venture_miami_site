@@ -24,10 +24,13 @@ module.exports = withMT({
     },
     transparent: "transparent",
     current: "currentColor",
+    fontFamily: {
+      sans: ["Hanken Grotesk", 'sans-serif'],
+    },
     extend: {
       fontFamily: {
-        basis: [ "Basis Grotesque Pro", "sans-serif"],
-        sans: ['"Cera Pro"', '"Spline Sans"', 'sans-serif'],
+        hanken: ["Hanken Grotesk", "sans-serif"],
+        'spline': ['"Spline Sans"', 'sans-serif'],
       },
       colors: {
         'accent-1': '#FAFAFA',
@@ -165,6 +168,7 @@ module.exports = withMT({
   ],
   plugins: [require("@headlessui/tailwindcss")],
 });
+
 
 
 /*

@@ -15,17 +15,18 @@ let HeroComponent = ({title, subtitle, buttons, imageURL, videoURL, content})=>{
 
         const styleManager = new StyleManager(path);
         setStyles(styleManager.getStyles());
+    }, []);
 
-    }, [])
 
     return(
 
+        <div className={`w-full pt-40 pb-10 ${styles && `${'bg-'+styles.backgroundColor} ${'text-'+styles.textColor.color}` }`}>
+            
 
-        <div className={`w-full pt-52 pb-10 ${styles && `${'bg-'+styles.backgroundColor} ${'text-'+styles.textColor.color}` }`}>
 
-            <div className={`w-[95%] mx-auto flex flex-col justify-center items-start ${subtitle ? 'gap-y-24' : 'gap-y-12'}`}>
-                <div className={"mx-auto w-[100%] flex flex-col justify-start items-start gap-y-4"}>
-                    <h1 className="text-[43px] md:text-[55px] lg:text-[73px]">
+            <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-14"}>
+                <div className={"mx-auto w-[100%] flex flex-col justify-start items-start"}>
+                    <h1 className="text-[43px] md:text-[55px] lg:text-[90px] mb-3 font-spline font-extrabold" style={{WebkitTextStroke: `2px ${styles && `${styles.textColor.color}` }`, color: "transparent"}}>
                         {title}
                     </h1>
                     {
