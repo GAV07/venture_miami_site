@@ -10,17 +10,16 @@ let HeroComponent = ({title, subtitle, buttons, imageURL, videoURL, content})=>{
     useEffect(()=>{
 
         setStyles(styleManager.getStyles());
-
     }, []);
 
     return(
 
+        <div className={`w-full pt-40 pb-10 ${styles && `${'bg-'+styles.backgroundColor} ${'text-'+styles.textColor.color}` }`}>
+            
 
-        <div className={`w-full pt-52 pb-10 ${styles && `${'bg-'+styles.backgroundColor} ${'text-'+styles.textColor.color}` }`}>
-
-            <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-24"}>
+            <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-14"}>
                 <div className={"mx-auto w-[100%] flex flex-col justify-start items-start"}>
-                    <h1 className="text-[43px] md:text-[55px] lg:text-[73px] mb-3">
+                    <h1 className="text-[43px] md:text-[55px] lg:text-[90px] mb-3 font-spline font-extrabold" style={{WebkitTextStroke: `2px ${styles && `${styles.textColor.color}` }`, color: "transparent"}}>
                         {title}
                     </h1>
                     <p className="text-[18px] md:text-[20px] lg:text-[28px] leading-8">
