@@ -46,7 +46,11 @@ export default function Hero(props) {
 
                 {/* <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover opacity-[0.8]">
                     <source src={props.video[0].fields.Media[0].url} type="video/mp4"/>
-                </video> */}
+                </video>
+
+                {/*<iframe src="https://drive.google.com/file/d/1dZ-FuIsN5quta6TWLVJWnJnhIXEAWKRI/preview" width="640" height="480" allow="autoplay"></iframe>*/}
+
+
                 <WistiaPlayer
                     wrapper="wistia_wrapper"
                     className="absolute top-0 left-0 w-full h-full object-cover"

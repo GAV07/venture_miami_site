@@ -1,4 +1,4 @@
-export function Logo({color}) {
+export function Logo({color="white"}) {
     return (
         // <svg className="lg:w-[200px] w-[100px]" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <svg className="w-[200px]" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">

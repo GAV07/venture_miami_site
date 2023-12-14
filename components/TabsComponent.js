@@ -12,7 +12,7 @@ let TabsComponent = ({data})=>{
         <Tabs value={`${data[0].label}`} className={'h-full w-full'}>
             <TabsHeader className={'bg-gray-100 w-[90%] md:w-1/2 mx-auto'}>
                 {data.map(({ label}) => (
-                    <Tab className={'text-vm-blue text-sm'} key={label} value={label}>
+                    <Tab className={'text-black text-sm'} key={label} value={label}>
                         {label}
                     </Tab>
                 ))}

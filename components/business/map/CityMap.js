@@ -466,67 +466,67 @@ export default function CityMap(props) {
 
                     {/* DESKTOP POI */}
                     <div
-                        className={"hidden xl:block relative basis-[30%] rounded-[8px] ring-[1px] ring-black rounded-[8px] bg-white overflow-hidden"}>
+                        className={"hidden xl:block relative basis-[30%] rounded-[8px] ring-[1px] ring-black rounded-[8px] bg-[#f5f5f5] overflow-hidden"}>
 
-                    <div
-                        className={`flex justify-center items-center bg-white py-[8px]`}
+                        <div
+                            className={`flex justify-center items-center bg-black text-white py-[8px]`}
 
-                    >
-                        <p className={`text-[15px] font-medium w-full text-[#333333] rounded-t-[8px] font-[700] text-center`}>Point
-                            of interests</p>
-                        {/*<span className="text-xs text-white">{isShowing ? '▲' : '▼'}</span>*/}
-                    </div>
-
-                    <div
-                        className={`flex flex-col overflow-y-scroll rounded-b-[8px]`}>
-
-                        <button
-                            className={`px-[20px] flex items-center py-[10px] border-t-[1px] border-black`}
-
-                            onClick={() => {
-                                resetPOI()
-                                setIsShowing(!isShowing)
-                            }}
                         >
-                            <div
-                                className={"mr-[16px] rounded-full p-2 ring-2 ring-white bg-red-400 w-[27px] h-[27px] flex justify-center items-center"}>
-                                <GrPowerReset size={15} color={"white"}/>
-                            </div>
-                            <div className={""}>
-                                <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>Show
-                                    all</p>
-                            </div>
-                        </button>
+                            <p className={`text-[15px] font-medium w-full rounded-t-[8px] font-[700] text-center`}>Point
+                                of interests</p>
+                            {/*<span className="text-xs text-white">{isShowing ? '▲' : '▼'}</span>*/}
+                        </div>
 
-                        {
-                            pointOfInterests.map((poi, index) => {
+                        <div
+                            className={`flex flex-col overflow-y-scroll rounded-b-[8px]`}>
 
-                                return (
+                            <button
+                                className={`px-[20px] flex items-center py-[10px] border-t-[1px] border-black`}
 
-                                    <button
-                                        key={index}
-                                        className={`px-[20px] flex items-center ${poi.selected && 'bg-black/10'} py-[10px]`}
+                                onClick={() => {
+                                    resetPOI()
+                                    setIsShowing(!isShowing)
+                                }}
+                            >
+                                <div
+                                    className={"mr-[16px] rounded-full p-2 ring-2 ring-white bg-red-400 w-[27px] h-[27px] flex justify-center items-center"}>
+                                    <GrPowerReset size={15} color={"white"}/>
+                                </div>
+                                <div className={""}>
+                                    <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>Show
+                                        all</p>
+                                </div>
+                            </button>
 
-                                        onClick={() => {
-                                            handlePOIClick(poi.type)
-                                            setIsShowing(!isShowing)
-                                        }}
-                                    >
-                                        <div className={"mr-[16px]"}><Pin type={poi.type.toLowerCase()}
-                                                                          place={""}/>
-                                        </div>
-                                        <div className={""}>
-                                            <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>{poi.type}</p>
-                                            {/*<p className={"mr-[8px] text-left text-[11px] text-[#8b96aa] text-[13px] mt-[2px] font-light"}>all
+                            {
+                                pointOfInterests.map((poi, index) => {
+
+                                    return (
+
+                                        <button
+                                            key={index}
+                                            className={`px-[20px] flex items-center ${poi.selected && 'bg-black/10'} py-[10px]`}
+
+                                            onClick={() => {
+                                                handlePOIClick(poi.type)
+                                                setIsShowing(!isShowing)
+                                            }}
+                                        >
+                                            <div className={"mr-[16px]"}><Pin type={poi.type.toLowerCase()}
+                                                                              place={""}/>
+                                            </div>
+                                            <div className={""}>
+                                                <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>{poi.type}</p>
+                                                {/*<p className={"mr-[8px] text-left text-[11px] text-[#8b96aa] text-[13px] mt-[2px] font-light"}>all
                                                             sports miami has to offer</p>*/}
-                                        </div>
-                                    </button>
-                                )
-                            })
-                        }
+                                            </div>
+                                        </button>
+                                    )
+                                })
+                            }
 
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
