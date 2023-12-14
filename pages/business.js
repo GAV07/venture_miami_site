@@ -21,7 +21,7 @@ export default function Guide(props) {
           <title>Venture Miami - Companies</title>
         </Head>
         <Container>
-          {/*<Hero content={props.heroSection}/>*/}
+          <Hero content={props.heroSection}/>
           <Stats content={props.statsSection} />
           <CityMap content={props.mapSection} />
           <Data content={props.incentivesSection}/>

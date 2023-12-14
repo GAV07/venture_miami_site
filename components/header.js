@@ -47,10 +47,10 @@ export default function Header() {
 
     const router = useRouter();
     const path = router.pathname.split('/')[1]; // gets the path
+    const styleManager = new StyleManager(path);
 
     useEffect(() => {
 
-        const styleManager = new StyleManager(path);
         setStyles(styleManager.getStyles());
 
     }, [])
@@ -63,7 +63,7 @@ export default function Header() {
     }, [menuOpen])
     const [scrolling, setScrolling] = useState(false);
 
-    /*    useEffect(() => {
+        useEffect(() => {
             const handleScroll = () => {
                 const scrollY = window.scrollY || document.documentElement.scrollTop;
 
@@ -78,7 +78,7 @@ export default function Header() {
             return () => {
                 window.removeEventListener('scroll', handleScroll);
             };
-        }, []);*/
+        }, []);
 
     return (
 

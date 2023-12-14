@@ -15,7 +15,7 @@ export default function Index(props) {
                 <title>Venture Miami - Events</title>
             </Head>
             <Container>
-                {/*<Hero content={props.heroSection}/>*/}
+                <Hero content={props.heroSection}/>
                 <EventsInfo content={props.events}/>
             </Container>
         </Layout>

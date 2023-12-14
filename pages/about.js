@@ -19,7 +19,7 @@ export default function Index(props) {
                 <title>Venture Miami - Team</title>
             </Head>
             <Container>
-                {/*<Hero content={props.heroSection}/>*/}
+                <Hero content={props.heroSection}/>
                 {/* <Stats content={props.statsSection}/> */}
                 <Community content={props.communitySection}/>
                 <Achievements content={props.achievementsSection}/>

@@ -20,7 +20,7 @@ export default function Contact(props) {
             </Head>
              {/*<Partnerships />*/}
              {/*<PartnerRotate content={props.partnersSection}/>*/}
-            {/*<CTA content={props.heroSection}/>*/}
+            <CTA content={props.heroSection}/>
             <PartnershipInfo content={props.partnershipsSection}/>
         </Layout>
     );
