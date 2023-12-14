@@ -9,7 +9,7 @@ export default function CTA(props) {
 
     const [forms, setForms] = useState(new Map())
 
-    useEffect(()=>{
+    useEffect(() => {
 
         // set the forms
         forms.set(
@@ -31,7 +31,6 @@ export default function CTA(props) {
                 // style="background: transparent; border: 1px solid #ccc;"
             >
             </iframe>
-
         );
         forms.set(
             'Join our miami talent',
@@ -41,7 +40,6 @@ export default function CTA(props) {
                 // style="background: transparent; border: 1px solid #ccc;"
             >
             </iframe>
-
         );
 
         // alert(Array.from(forms)[0][0])
@@ -73,14 +71,18 @@ export default function CTA(props) {
                     <div className={"relative w-full mt-[56px] flex flex-col space-y-10 h-[1500px]"}>
 
                         {/* BUTTONS */}
-                        <div className={"w-full mx-auto md:w-[70%] md:mx-auto rounded-[8px] flex flex-wrap justify-center items-center gap-x-[20px] gap-y-[20px]"}>
+                        <div
+                            className={"w-full mx-auto md:w-[70%] md:mx-auto rounded-[8px] flex flex-wrap justify-center items-center gap-x-[20px] gap-y-[20px]"}>
                             {
-                                Array.from(forms).map(([key, value])=>{
+                                Array.from(forms).map(([key, value]) => {
 
                                     return (
 
-                                        <button key={key} className={`text-[14px] md:text-[16px] px-[16px] py-[8px] rounded-full ${key === sectionSelected ? 'bg-vm-blue text-white' : 'bg-white ring-1 ring-black'} font-base`}
-                                            onClick={()=>{ setSectionSelected(key) }}
+                                        <button key={key}
+                                                className={`text-[14px] md:text-[16px] px-[16px] py-[8px] rounded-full ${key === sectionSelected ? 'bg-vm-blue text-white' : 'bg-white ring-1 ring-black'} font-base`}
+                                                onClick={() => {
+                                                    setSectionSelected(key)
+                                                }}
                                         >
                                             {key}
                                         </button>

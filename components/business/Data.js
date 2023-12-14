@@ -23,7 +23,7 @@ export default function Incentives(props) {
                             className={"flex flex-col space-x-0 space-y-[20px] md:flex-row justify-center items-center md:space-x-[40px] md:space-y-0"}>
 
                             {
-                                props.content.images.map((image, index)=>{
+                                props.content.images.map((image, index) => {
 
                                     return (
 
@@ -53,11 +53,12 @@ export default function Incentives(props) {
                                             <p className={"font-[16px] text-[#566171] leading-[24px]"}>{section.fields.subtitle}</p>
                                             <p className={"py-[20px] mt-auto"}>
                                                 {
-                                                    section.fields.buttons.map((button, index)=>{
+                                                    section.fields.buttons.map((button, index) => {
 
                                                         return (
 
-                                                            <a key={index} className={"text-vm-blue"} href={button.fields.url}>{button.fields.text}</a>
+                                                            <a key={index} className={"text-vm-blue"}
+                                                               href={button.fields.url}>{button.fields.text}</a>
                                                         )
 
                                                     })
@@ -73,6 +74,6 @@ export default function Incentives(props) {
                 </div>
 
             </div>
-            </div>
+        </div>
     )
 }

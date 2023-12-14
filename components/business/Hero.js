@@ -8,7 +8,7 @@ export default function Hero(props) {
 
     const styleManager = new StyleManager();
 
-    useEffect(()=>{
+    useEffect(() => {
 
         setStyles(styleManager.getStyles());
 

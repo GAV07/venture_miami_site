@@ -9,11 +9,14 @@ import { Client } from '../lib/contentful'
 // import {/*getRecords,*/ getSite} from '../lib/airtable'
 import { getSite } from "../lib/airtable";
 import Info from "../components/home/info/Info";
+import MayorsQuote from "../components/home/MayorsQuote";
 
 
 export default function Index(props) {
-  
-  return (
+
+
+    console.log(props.mayorsQuoteSection)
+    return (
       // <PreLoader played={props.storage} setPlayed={props.setStorage}>
       <Layout content={props.footer} transparent={true}>
         <Head>
@@ -22,6 +25,7 @@ export default function Index(props) {
         <Container>
 
           <Hero content={props.heroSection} video={props.bgVideo}/>
+          <MayorsQuote content={props.mayorsQuoteSection} />
           <Stats content={props.statsSection} />
           <Info content={props.infoSection} />
           <CTA content={props.ctaSection} />
@@ -39,6 +43,10 @@ export async function getStaticProps() {
     // hero section
     const hero = homePageEntry.fields.heroSection;
     const heroSection = (await Client.getEntry(hero.sys.id, {include: 10})).fields;
+
+    // stats section
+    const mayorsQuote = homePageEntry.fields.mayorsQuote;
+    const mayorsQuoteSection = (await Client.getEntry(mayorsQuote.sys.id, {include: 10})).fields;
 
     // stats section
     const stats = homePageEntry.fields.statsSection;
@@ -112,6 +120,7 @@ export async function getStaticProps() {
     props: {
       bgVideo: bgVideo,
       heroSection: heroSection,
+      mayorsQuoteSection: mayorsQuoteSection,
       statsSection: statsSection,
       infoSection: infoSection,
       ctaSection: ctaSection,
