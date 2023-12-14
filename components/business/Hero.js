@@ -1,10 +1,9 @@
 import {useEffect, useState} from "react";
-// import StyleManager from "../../services/StyleManager";
-// import HeroComponent from '../../components/HeroComponent'
+import StyleManager from "../../services/StyleManager";
+import HeroComponent from '../../components/HeroComponent'
 
 export default function Hero(props) {
 
-/*
     const [styles, setStyles] = useState(null);
 
     const styleManager = new StyleManager();
@@ -14,7 +13,6 @@ export default function Hero(props) {
         setStyles(styleManager.getStyles());
 
     }, []);
-*/
 
     return (
 
@@ -53,12 +51,11 @@ export default function Hero(props) {
             </div>
         </div>*/
 
-        /*<HeroComponent
+        <HeroComponent
             title={props.content.title}
             subtitle={props.content.subtitle}
             imageURL={props.content.backgroundImage.fields.file.url}
-        />*/
-        <></>
+        />
 
     );
 }

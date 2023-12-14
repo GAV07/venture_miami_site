@@ -26,7 +26,7 @@ export default function Guide(props) {
           <CityMap content={props.mapSection} />
           <Data content={props.incentivesSection}/>
           {/*<Actions content={props.actions}/>*/}
-           <CTA content={props.formSection}/>
+          {/* <CTA content={props.formSection}/>*/}
           {/*<Form/>*/}
         </Container>
       </Layout>
