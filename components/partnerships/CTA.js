@@ -1,7 +1,7 @@
 import {Slider} from "../Slider";
 import React, {useEffect, useState} from "react";
-// import StyleManager from "../../services/StyleManager";
-// import HeroComponent from "../HeroComponent";
+import StyleManager from "../../services/StyleManager";
+import HeroComponent from "../HeroComponent";
 import CarouselComponent from "../CarouselComponent";
 
 export default function CTA(props) {
@@ -34,7 +34,7 @@ export default function CTA(props) {
     }, []);
 
 
-  /*  const [styles, setStyles] = useState(null);
+    const [styles, setStyles] = useState(null);
 
     const styleManager = new StyleManager();
 
@@ -42,7 +42,7 @@ export default function CTA(props) {
 
         setStyles(styleManager.getStyles());
 
-    }, []);*/
+    }, []);
 
     const [carouselComponents, setCarouseComponents] = useState([]);
 
@@ -112,15 +112,14 @@ export default function CTA(props) {
 
                 </div>*/
 
-   /*     <HeroComponent title={props.content.heroSection.title}
+        <HeroComponent title={props.content.heroSection.title}
                        subtitle={props.content.heroSection.subtitle}
                        buttons={props.content.heroSection.buttons}
                         // content={sliderImages}
                        content={
                            <CarouselComponent components={carouselComponents}/>
                        }
-        />*/
-        <></>
+        />
     )
 
 }
