@@ -150,7 +150,7 @@ export default function Initiatives(props) {
                                         <img
                                             src={initiative.media.fields.file.url}
                                             alt=""
-                                            className={'w-full h-full rounded-[2px] object-cover'}
+                                            className={'w-full h-full rounded-[8px] object-cover'}
                                         />
                                     }
                                 </div>

@@ -15,26 +15,27 @@ let HeroComponent = ({title, subtitle, buttons, imageURL, videoURL, content})=>{
 
         const styleManager = new StyleManager(path);
         setStyles(styleManager.getStyles());
-<<<<<<< HEAD
     }, []);
-=======
 
-    }, [])
->>>>>>> d3847f3abf528d8e23a6363c3f114fb7696d45fa
 
     return(
 
         <div className={`w-full pt-40 pb-10 ${styles && `${'bg-'+styles.backgroundColor} ${'text-'+styles.textColor.color}` }`}>
             
 
+
             <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-14"}>
                 <div className={"mx-auto w-[100%] flex flex-col justify-start items-start"}>
                     <h1 className="text-[43px] md:text-[55px] lg:text-[90px] mb-3 font-spline font-extrabold" style={{WebkitTextStroke: `2px ${styles && `${styles.textColor.color}` }`, color: "transparent"}}>
                         {title}
                     </h1>
-                    <p className="text-[18px] md:text-[20px] lg:text-[28px] leading-8">
-                        {subtitle}
-                    </p>
+                    {
+                        subtitle && (
+                            <p className="text-[18px] md:text-[20px] lg:text-[28px] leading-8">
+                                {subtitle}
+                            </p>
+                        )
+                    }
 
                     {
                         buttons && (
@@ -57,7 +58,8 @@ let HeroComponent = ({title, subtitle, buttons, imageURL, videoURL, content})=>{
                 {
                     ( imageURL || videoURL || content ) && (
 
-                        <div className={`w-full mx-auto
+                        <div className={`
+                        w-full mx-auto
                 
                      xl:h-[820px] 
                         xlBETWEENlg:h-[749px]
@@ -75,13 +77,13 @@ let HeroComponent = ({title, subtitle, buttons, imageURL, videoURL, content})=>{
                                     src={imageURL}
                                     loading="lazy"
                                     alt=""
-                                    className={`rounded-[2px] w-full h-full object-cover`}/>
+                                    className={`rounded-[6px] w-full h-full object-cover`}/>
                             }
 
                             {
                                 videoURL && <video
                                     src={videoURL}
-                                    className={`rounded-[2px] w-full h-full object-fit`}/>
+                                    className={`rounded-[2px] w-full h-full object-cover`}/>
                             }
 
                             {

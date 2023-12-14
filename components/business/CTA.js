@@ -7,15 +7,59 @@ import InputComponent from "../form/InputComponent";
 import RadioComponent from "../form/RadioComponent";
 import IntakeForm from "./form/IntakeForm";
 import TabsComponent from "../TabsComponent";
+import Form from "./Form";
 
 export default function CTA(props) {
 
     const [sectionSelected, setSectionSelected] = useState("");
 
-    const [forms, setForms] = useState(new Map())
+    const [forms, setForms] = useState([
+
+       /* {
+            label: 'Send requests and ideas',
+            component: <Form form={'website intake'}/>
+
+        },  {
+            label: 'Send requests and ideas2',
+            component: <Form form={'website intake'}/>
+
+        },*/
+        {
+            label: 'Send requests and ideas',
+            component:
+                <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+                        src="https://airtable.com/embed/app7M34O3rPHxQ9mB/shr1TcBO7ZwcpRrWV?backgroundColor=gray"
+                        frameBorder="0" onmousewheel="" width="100%" height="100%"
+                    // style="background: transparent; border: 1px solid #ccc;"
+                >
+                </iframe>
+
+            },  {
+            label: 'Founder looking to grow',
+            component:
+                <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+                        src="https://airtable.com/embed/appU24wxHJtwLEMq4/shrkRDDFLh4XJLPud?backgroundColor=cyan"
+                        frameBorder="0" onmousewheel="" width="100%" height="100%"
+                    // style="background: transparent; border: 1px solid #ccc;"
+                >
+                </iframe>
+
+        },{
+            label: 'Join our miami talent',
+            component:
+                <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
+                        src="https://airtable.com/embed/appkpBZ1YDK7ggwpd/shrHqS0j6ypB2QRKz?backgroundColor=cyan"
+                        frameBorder="0" onmousewheel="" width="100%" height="100%"
+                    // style="background: transparent; border: 1px solid #ccc;"
+                >
+                </iframe>
+
+        }
+    ])
 
     useEffect(() => {
 
+/*
         // set the forms
         forms.set(
             'Send requests and ideas',
@@ -51,6 +95,7 @@ export default function CTA(props) {
         // select the first item in the map as the form to display first
         setForms(forms);
         setSectionSelected(Array.from(forms)[0][0]);
+*/
 
 
     }, [])
@@ -70,50 +115,9 @@ export default function CTA(props) {
                 </div>
 
                 {/* FORM */}
-                <div className={"relative w-full h-[2000px]"}>
-                    <TabsComponent data={[
-
-
-                       /* {
-                            label: 'Send requests and ideas',
-                            component: <IntakeForm/>
-                        },*/
-                        {
-                            label: 'Send requests and ideas',
-                            component:  <div className={'md:w-1/2 w-full mx-auto h-full'}>
-                                <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
-                                        src="https://airtable.com/embed/app7M34O3rPHxQ9mB/shr1TcBO7ZwcpRrWV?backgroundColor=gray"
-                                        frameBorder="0" onmousewheel="" width="100%" height="100%"
-                                    // style="background: transparent; border: 1px solid #ccc;"
-                                >
-                                </iframe>
-                            </div>
-                        },
-                        {
-                            label: 'Founder looking to grow',
-                            component:  <div className={'md:w-1/2 w-full mx-auto h-full'}>
-                                <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
-                                        src="https://airtable.com/embed/appU24wxHJtwLEMq4/shrkRDDFLh4XJLPud?backgroundColor=cyan"
-                                        frameBorder="0" onmousewheel="" width="100%" height="100%"
-                                    // style="background: transparent; border: 1px solid #ccc;"
-                                >
-                                </iframe>
-                            </div>
-                        },
-                        {
-                            label: 'Join our miami talent',
-                            component:    <div className={'md:w-1/2 w-full mx-auto h-full'}>
-                                <iframe className="airtable-embed relative bg-transparent border-[1px] border-[#ccc] rounded-[10px]"
-                                        src="https://airtable.com/embed/appkpBZ1YDK7ggwpd/shrHqS0j6ypB2QRKz?backgroundColor=cyan"
-                                        frameBorder="0" onmousewheel="" width="100%" height="100%"
-                                    // style="background: transparent; border: 1px solid #ccc;"
-                                >
-                                </iframe>
-                            </div>
-                        },
-
-                    ]}/>
-
+                <div className={"relative w-full mx-auto h-[2000px]"}>
+                    {/*<TabsComponent data={forms}/>*/}
+                    <TabsComponent data={forms}/>
                 </div>
             </div>
 
