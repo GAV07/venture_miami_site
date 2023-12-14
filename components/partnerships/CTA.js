@@ -17,7 +17,7 @@ export default function CTA(props) {
             let componentObj = {
                 type: (
                     <img
-                        src={'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80'}
+                        // src={'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80'}
                         src={image.fields.file.url}
                         alt=""
                         // className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
@@ -49,11 +49,12 @@ export default function CTA(props) {
     useEffect(() => {
 
 
-        let components = props.content.gallery.map((item) => {
+        let components = props.content.gallery.map((item, index) => {
 
             return(
 
                 <img
+                    key={index}
                     src={item.fields.file.url}
                     className={'w-full h-full object-cover'}
                     alt={item.fields.file.url}

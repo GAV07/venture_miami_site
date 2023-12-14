@@ -20,11 +20,11 @@ export function Team(props) {
                 <div className={"mx-auto w-full text-center"}>
 
                     {
-                        props.content.map((teamSection) => {
+                        props.content.map((teamSection, index) => {
 
                             return (
 
-                                <div className={'w-full'}>
+                                <div key={index} className={'w-full'}>
                                     {/* TEAM */}
                                     <div className={"w-full mx-auto text-left"}>
                                         <h1 className="text-[36px] md:text-[56px] font-light mb-3 underline decoration-[1.5px]">

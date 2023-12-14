@@ -1,5 +1,3 @@
-import {useRouter} from "next/dist/client/compat/router";
-
 class StyleManager{
 
     #CURRENT_PATH;

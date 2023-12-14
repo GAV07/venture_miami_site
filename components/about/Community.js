@@ -34,10 +34,11 @@ export default function Community(props) {
     useEffect(()=>{
 
 
-        let components = props.content.images.map((item)=>{
+        let components = props.content.images.map((item, index)=>{
 
             return (
                 <img
+                    key={index}
                     src={item.fields.file.url}
                     className={'w-full h-full object-cover'}
                     alt={item.fields.file.url}
