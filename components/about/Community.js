@@ -65,7 +65,8 @@ export default function Community(props) {
                 </div>
 
                 <div className={"w-full"}>
-                    <CarouselComponent components={carouselComponents} styles={'xl:h-[700px] lg:h-[600px] md:h-[500px] h-[400px]'}/>
+                    <Slider items={sliderItems} styles={sliderStyles} buttonPosition={'side'}/>
+                    {/*<CarouselComponent components={carouselComponents} styles={'xl:h-[700px] lg:h-[600px] md:h-[500px] h-[400px]'}/>*/}
                 </div>
             </div>
 

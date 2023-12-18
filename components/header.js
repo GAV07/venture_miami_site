@@ -22,7 +22,7 @@ export default function Header() {
 
     const menuRef = useRef(null);
 
-    const pathManager = new PathManager(["Home", "Contact"]);
+    const pathManager = new PathManager(["Home", "contact"]);
 
 
     useEffect(() => {
@@ -84,20 +84,23 @@ export default function Header() {
 
         <div
             className={`h-[65px] w-full fixed top-0 left-0 z-[100] px-[10px] py-[10px] flex justify-between items-center ${styles && `${'bg-' + styles.backgroundColor} ${'text-' + styles.textColor.color}`}`}>
+
+            {/* LOGO */}
             <a
                 href={"/"}
-                className="flex-shrink-0">
+                className="flex-shrink-0 basis-1/3 flex justify-start">
                 <Logo color={`${styles && styles.textColor.hexColor}`}/>
             </a>
 
-            <ul className={'xl:flex hidden justify-center items-center gap-x-10 font-light'}>
+            {/* DESKTOP NAV */}
+            <ul className={'basis-1/3 xl:flex hidden justify-center items-center gap-x-10 font-light'}>
                 {
                     pathManager.getPaths().map((nav, index) => {
 
                         return (
                             <li key={index} className={"h-full flex items-center"}>
                                 <a href={nav.url}
-                                   className={`text-[14px] tracking-[0px]`}
+                                   className={`text-[16px] tracking-[0px]`}
                                 >
                                     {nav.nav}
                                 </a>
@@ -108,7 +111,7 @@ export default function Header() {
                 }
             </ul>
 
-            <div className={'xl:invisible visible'}>
+            <div className={'xl:invisible visible basis-1/3 flex justify-end'}>
                 {/*<IoIosMenu size={25} color={'white'} />*/}
                 <Hamburger size={20} toggled={menuOpen} toggle={setMenuOpen}/>
             </div>
@@ -141,8 +144,7 @@ export default function Header() {
                                     <a key={index} href={nav.url}
                                        className={`w-full`}
                                     >
-                                        <li className={"w-full border-solid border-b-2 border-bg-vm-blue py-[5px]"}>
-
+                                        <li className={"text-[16px] w-full border-solid border-b-2 border-bg-vm-blue py-[5px]"}>
                                             {nav.nav}
                                         </li>
 

@@ -46,7 +46,7 @@ export default function Header({makeTransparent}) {
             url:  '/news'
         },
         {
-            nav: 'Contact',
+            nav: 'contact',
             url:  '/business/#contact'
         },
         {
@@ -67,7 +67,7 @@ export default function Header({makeTransparent}) {
         set.add('Events');
         set.add('Home');
         set.add('News');
-        set.add('Contact');
+        set.add('contact');
         setNavsToExclude(set);
 
         function handleClickOutside(event) {
@@ -293,7 +293,7 @@ export default function Header({makeTransparent}) {
                                                            </li>
                                                            <li className={"w-[200px] text-[16px] "}>
                                                                <a href="/contact" className={"max-w-max text-white flex items-center relative pt-[10px] pb-[10px] text-[14px] font-medium"}>
-                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>Contact</p>
+                                                                   <p className={"text-left mr-[8px] hover:rounded-[8px]"}>contact</p>
                                                                </a>
                                                            </li>
                                                            <li className={"w-[200px] text-[16px] "}>

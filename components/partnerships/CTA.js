@@ -21,7 +21,7 @@ export default function CTA(props) {
                         src={image.fields.file.url}
                         alt=""
                         // className="w-[95%] sm:w-[80%] sm:px-0 m-auto h-full object-cover rounded-[24px]"
-                        className="w-full h-full object-cover rounded-[24px]"
+                        className="w-full h-full object-cover aspect-[1/1]"
                     />
                 )
             }
@@ -70,10 +70,8 @@ export default function CTA(props) {
 
 
     let sliderImages = (
-        <div className={"w-[95%] h-full mx-auto flex flex-col space-y-[20px]"}>
-            <div className={"rounded-xl"}>
+        <div className={`relative w-full aspect-[1/1]`}>
                 <Slider items={sliderItems} styles={sliderStyles} buttonPosition={'side'}/>
-            </div>
         </div>
     )
     return (
@@ -117,7 +115,8 @@ export default function CTA(props) {
                        buttons={props.content.heroSection.buttons}
                         // content={sliderImages}
                        content={
-                           <CarouselComponent components={carouselComponents}/>
+                           // <CarouselComponent components={carouselComponents}/>
+                           <Slider items={sliderItems} styles={sliderStyles} buttonPosition={'side'}/>
                        }
         />
     )

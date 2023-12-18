@@ -12,6 +12,7 @@ export function Hero(props) {
     <HeroComponent
         title={props.content.title}
         subtitle={props.content.subtitle}
+        rowDirection={!false}
         imageURL={props.content.backgroundImage.fields.file.url}
     />
 

@@ -15,65 +15,73 @@
 
         /* Hide scrollbar for IE, Edge and Firefox */
         .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
         }
     }
 }
 /* OUTLINE FONT */
 
-  
+
 @font-face {
-    font-family:Cerapro,sans-serif/*, "Cera Pro", "Basis Grotesque Pro"*/;
+    font-family: Cerapro, sans-serif/*, "Cera Pro", "Basis Grotesque Pro"*/
+;
     src: url("../public/fonts/FontsFree-Net-BasisGrotesquePro-Regular.ttf");
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
+
+/* DEFAULT EMBLA STYLES */
+.embla {
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+}
+
+.embla__slide {
+    flex: 0 0 100%;
+    /*min-width: 0;*/
+    /*padding-left: 1%;*/
+    /*padding-right: 1%;*/
+    /*aspect-ratio: 1/1;*/
+
+}
+
+@media (max-width: 768px) {
+
+    .embla__slide{
+
+        flex: 0 0 34%;
+        padding-right: 20px;
+        padding-left: 20px;
+        min-width: 0;
+    }
+}
+
 
 /* PARTNERSHIPS */
 
 .embla.partnerships {
     overflow: hidden;
 }
+
 .embla__container.partnerships {
     display: flex;
 }
+
 .embla__slide.partnerships {
     flex: 0 0 100%;
     min-width: 0;
-    padding-left: 80px;
-    padding-right: 80px;
-}
-.embla__button__side.partnerships.visibility{
-
-    display: flex !important;
-}
-
-@media (max-width: 768px) {
-
-    .embla__button__bottom.partnerships.visibility{
-
-        display: flex !important;
-    }
-
-    .embla__button__side.partnerships.visibility{
-
-        display: none !important;
-    }
-
-    .embla__slide.partnerships {
-
-        padding-left: 10px;
-        padding-right: 10px;
-    }
 }
 
 
 
 /* COMMUNITY */
-.embla__container.community{
+.embla__container.community {
 
     display: flex;
 
@@ -88,7 +96,7 @@ html{
 }
 
 
-.embla__button__bottom.community.visibility{
+.embla__button__bottom.community.visibility {
 
     display: flex !important;
 
@@ -108,9 +116,11 @@ html{
 /* ABOUT */
 .embla.partners {
 }
+
 .embla__container.partners {
     display: flex;
 }
+
 .embla__slide.partners {
     flex: 0 0 30%;
     min-width: 0;
@@ -126,9 +136,11 @@ html{
 .embla.events {
     overflow: hidden;
 }
+
 .embla__container.events {
     display: flex;
 }
+
 .embla__slide.events {
     display: flex;
     flex: 0 0 34%;
@@ -138,6 +150,7 @@ html{
     gap: 10px;
     /*background-color: orange;*/
 }
+
 /*
 .embla__slide.events div {
     !*flex: 0 0 33%;*!
@@ -146,7 +159,7 @@ html{
     !*min-width: 0;*!
 }*/
 
-.embla__button__bottom-right.events.visibility{
+.embla__button__bottom-right.events.visibility {
 
     display: flex !important;
 }
@@ -159,17 +172,18 @@ html{
 
 /* INITIATIVES */
 
-.embla__button__bottom.initiatives{
+.embla__button__bottom.initiatives {
     display: none;
 }
 
-.embla__button__side.initiatives{
+.embla__button__side.initiatives {
     display: none;
 }
 
 .embla.initiatives {
     overflow: hidden;
 }
+
 .embla__container.initiatives {
     display: flex;
 }
@@ -193,11 +207,9 @@ html{
 }
 
 
-
-
 /* BUTTONS */
 
-.embla__button__side{
+.embla__button__side {
 
     width: 100%;
     /*display: flex;*/
@@ -212,7 +224,7 @@ html{
     display: none;
 }
 
-.embla__button__bottom{
+.embla__button__bottom {
 
     width: 100%;
     /*display: flex;*/
@@ -223,7 +235,7 @@ html{
 
 }
 
-.embla__button__bottom-right{
+.embla__button__bottom-right {
 
     display: flex;
     justify-content: end;
@@ -240,11 +252,12 @@ html{
 
 .embla__button__side.visibility,
 .embla__button__bottom.visibility,
-.embla__button__bottom-right.visibility{
+.embla__button__bottom-right.visibility {
 
     display: none;
 
 }
+
 /*
 .swiper.events{
     width: 100%;
