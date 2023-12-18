@@ -17,7 +17,7 @@ export default function Community(props) {
                     <img
                         src={item.fields.file.url}
                         alt=""
-                        className="w-full h-full object-cover rounded-[24px]"
+                        className="w-full h-full object-cover"
                     />
                 )
             }
