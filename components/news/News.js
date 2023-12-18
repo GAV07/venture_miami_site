@@ -4,7 +4,7 @@ export default function News(props) {
 
     const [sortedNews, setSortedNews] = useState([]);
 
-    useEffect(()=> {
+    useEffect(() => {
 
         let sortedNews = props.content.sort((event1, event2) => {
             return new Date(event1.fields.Date) - new Date(event2.fields.Date)
@@ -25,22 +25,20 @@ export default function News(props) {
 
             {
                 /* IF NO NEWS AVAILABLE */
-                props.content.length === 0 ?
+                props.content.length <= 0 ?
 
-                    <div className="bg-white py-24 sm:py-32">
-                        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                            <div
-                                className="mx-auto max-w-2xl lg:max-w-4xl flex flex-col justify-center items-center gap-y-10">
+                    <div className={"w-full m-auto pt-20"}>
+                        <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-10"}>
+                            <div className={"border-solid border-t-[1px] border-black mx-auto w-full m-auto text-left"}>
 
-                                <div className={"flex flex-col justify-center items-center space-y-10"}>
-                                    <p className={"text-7xl font-bold text-center"}>Looks like there aren't any <span
-                                        className={"italic bg-pink-200 text-white uppercase"}>news</span></p>
-                                    <p className={"text-2xl text-gray-400 font-light text-center"}>Come back later</p>
+                                <div className={"flex flex-col justify-center items-start space-y-10"}>
+                                    <h1 className="text-[36px] md:text-[56px] font-light mb-3">
+                                        Looks like there aren't any news</h1>
                                 </div>
 
-                                <div className={"aspect-[16/9] w-full"}>
+                                <div className={"h-[400px] w-full"}>
                                     <img
-                                        className={"h-[400px] w-full object-cover"}
+                                        className={"h-full w-full object-cover"}
                                         src={"/images/newspaper.jpg"}
                                         alt={"newspaper"}
                                     />
@@ -62,19 +60,14 @@ export default function News(props) {
                                 </p>
                             </div>
                             <div
-                                className="w-full mx-auto grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-20">
+                                className="w-full mx-auto grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-20">
                                 {props.content.map((post) => (
 
-                                    <a href={`/news/${post.fields.Title.trim().toLowerCase().split(" ").join("-")}`} key={post.id} className={``}>
+                                    <a href={`/news/${post.fields.Title.trim().toLowerCase().split(" ").join("-")}`}
+                                       key={post.id} className={``}>
 
                                         {/* IMAGE */}
-                                        <div className={`w-full
-                                           xl:h-[350px]    
-                                           lg:h-[350px]
-                                           md:h-[360px]
-                                           sm:h-[650px]
-                                           h-[480px]
-                                        `}>
+                                        <div className={`w-full aspect-[1/1]`}>
                                             <img
                                                 src={post.fields.ImageUrl}
                                                 alt=""
@@ -88,7 +81,7 @@ export default function News(props) {
                                             {/* DETAILS */}
                                             <div className="w-full">
                                                 <h3 className="mt-3 text-lg font-semibold text-black">
-                                                        {post.fields.Title}
+                                                    {post.fields.Title}
                                                 </h3>
                                                 {/*<p className="mt-5 text-lg leading-6 text-gray-600">{post.fields.Description}</p>*/}
                                             </div>

@@ -23,7 +23,7 @@ class PathManager {
         this.#paths.push( { nav: 'Initiatives', url: '/initiatives' } );
         this.#paths.push( { nav: 'Events', url: '/events' } );
         this.#paths.push( { nav: 'News', url: '/news' } );
-        this.#paths.push( { nav: 'Contact', url: '/contact' } );
+        this.#paths.push( { nav: 'contact', url: '/contact' } );
 
         this.#removePaths(pathsToRemove)
     }

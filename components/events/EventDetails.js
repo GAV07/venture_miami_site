@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 import {BsArrowLeft, BsChevronLeft, BsChevronRight} from 'react-icons/bs'
+import Link from "next/link";
 
 export default function EventDetails(props) {
 
@@ -43,7 +44,7 @@ export default function EventDetails(props) {
 
         <div className={"w-[95%] mx-auto flex flex-col gap-y-10 pt-20"}>
 
-            <a href={"/events/all"} className={"mt-[30px] max-w-max text-[14px] text-white ring-1 ring-[#161A1D] bg-[#161A1D] flex items-center space-x-[20px] py-[10px] px-[30px]"}><BsArrowLeft size={14}/><span>All events</span></a>
+            <Link href={"/events/all"} className={"mt-[30px] max-w-max text-[14px] text-white ring-1 ring-[#161A1D] bg-[#161A1D] flex items-center space-x-[20px] py-[10px] px-[30px]"}><BsArrowLeft size={14}/><span>All events</span></Link>
 
             <div className={"flex flex-col justify-center items-center space-y-[30px] sm:flex-row sm:items-center min-h-[500px] sm:space-x-[40px] sm:space-y-0"}>
 
@@ -58,7 +59,7 @@ export default function EventDetails(props) {
 
                 <div className={"flex flex-col basis-[70%] space-y-[10px] h-full"}>
                     <p className={"text-[18px]"}>{events[index].fields.Description}</p>
-                    <a href={`${events[index].fields.URL}`} className={"max-w-max rounded-none mt-auto h-full text-[14px] bg-vm-blue py-[10px] px-[30px] text-white uppercase"}>Got to event</a>
+                    <Link href={`${events[index].fields.URL}`} className={"max-w-max rounded-none mt-auto h-full text-[14px] bg-vm-blue py-[10px] px-[30px] text-white uppercase"}>Got to event</Link>
                 </div>
 
             </div>
@@ -72,10 +73,9 @@ export default function EventDetails(props) {
                         index - 1 >= 0 && (
 
 
-                            <a
-                                href={`/events/${events[index - 1].fields.Name.trim().toLowerCase().split(" " ).join("-")}`}
-                                className={"flex items-center space-x-[10px]"}
+                            <Link href={`/events/${events[index - 1].fields.Name.trim().toLowerCase().split(" ").join("-")}`}                                 className={"flex items-center space-x-[10px]"}
                             >
+
                                 <BsChevronLeft/>
                                 <div>
                                     <h2 className={"text-[14px] text-start"}>{getMonthName(events[index - 1].fields.Date.split("/")[0])} {events[index - 1].fields.Date.split("/")[1]}, {new Date().getFullYear()}</h2>
@@ -86,7 +86,7 @@ export default function EventDetails(props) {
 
                                 </p>
                                 </div>
-                            </a>
+                            </Link>
 
                         )
                     }
@@ -100,7 +100,7 @@ export default function EventDetails(props) {
                         index + 1 < events.length && (
 
 
-                            <a
+                            <Link
                                 href={`/events/${events[index + 1].fields.Name.trim().toLowerCase().split(" " ).join("-")}`}
                                 className={"flex items-center space-x-[10px]"}
                             >
@@ -114,7 +114,7 @@ export default function EventDetails(props) {
                                 </p>
                                 </div>
                                 <BsChevronRight/>
-                            </a>
+                            </Link>
 
                         )
                     }

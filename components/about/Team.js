@@ -44,19 +44,12 @@ export function Team(props) {
 
                                             // alert( member.fields.name + " " + member.fields.image.fields.file.url)
                                             return (
-                                                <div key={index} className={"flex flex-col space-y-[10px]"}>
+                                                <div key={index} className={"aspect-[1/1] flex flex-col space-y-[10px]"}>
 
-                                                    <img src={`${member.fields.image.fields.file.url}`} alt=""
-                                                         className={`w-full rounded object-cover
-                                                        min-[1270px]:h-[360px]
-                                                        min-[1209px]:h-[322px]
-                                                        min-[1148px]:h-[284px]
-                                                        min-[1087px]:h-[246px]
-                                                        min-[1026px]:h-[208px]
-                                                        min-[768px]:h-[230px]
-                                                        h-[375px]
-
-                                                    `}/>
+                                                    {/*<div className={'w-full aspect-[1/1]'}>*/}
+                                                        <img src={`${member.fields.image.fields.file.url}`} alt=""
+                                                             className={`h-full w-full object-cover`}/>
+                                                    {/*</div>*/}
 
                                                     <div className={"flex flex-col h-auto space-y-[20px]"}>
                                                         <h2 className={"text-[20px]"}>{member.fields.name}</h2>

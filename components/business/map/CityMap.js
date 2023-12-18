@@ -267,7 +267,7 @@ export default function CityMap(props) {
                         {/* MOBILE POI */}
                         <div
                             ref={dropdownRef}
-                            className={"xl:hidden absolute top-0 right-0 mt-[10px] mr-[10px] z-50 w-[250px] bg-white ring-2 ring-black/10  flex flex-col rounded-[8px] max-h-[400px]"}>
+                            className={"xl:hidden absolute top-0 right-0 mt-[10px] mr-[10px] z-50 w-[250px] bg-[#f5f5f5] ring-2 ring-black/10  flex flex-col rounded-[8px] max-h-[400px]"}>
 
                             <button
                                 className={`flex justify-center items-center bg-white py-[8px] ${isShowing ? 'rounded-t-[8px]' : 'rounded-[8px]'} hover:bg-[#f2f2f2]`}
@@ -284,7 +284,7 @@ export default function CityMap(props) {
                                 className={`${isShowing ? 'flex flex-col overflow-y-scroll' : 'hidden'} rounded-b-[8px]`}>
 
                                 <button
-                                    className={`px-[20px] flex items-center py-[10px] border-t-[2px] border-black/10`}
+                                    className={`px-[20px] flex items-center py-[10px] border-solid border-t-[1px] border-black/10 hover:bg-[#f2f2f2]`}
 
                                     onClick={() => {
                                         resetPOI()
@@ -292,7 +292,7 @@ export default function CityMap(props) {
                                     }}
                                 >
                                     <div
-                                        className={"mr-[16px] rounded-full p-2 ring-2 ring-white bg-red-400 w-[27px] h-[27px] flex justify-center items-center"}>
+                                        className={"mr-[16px] rounded-full p-2 ring-2 ring-white w-[27px] h-[27px] flex justify-center items-center"}>
                                         <GrPowerReset size={15} color={"white"}/>
                                     </div>
                                     <div className={""}>
@@ -308,7 +308,7 @@ export default function CityMap(props) {
 
                                             <button
                                                 key={index}
-                                                className={`px-[20px] flex items-center ${poi.selected && 'bg-black/10'} py-[10px]`}
+                                                className={`px-[20px] flex items-center ${poi.selected && 'bg-black/10'} py-[10px] border-solid border-t-[1px] border-black/10 hover:bg-[#f2f2f2]`}
 
                                                 onClick={() => {
                                                     handlePOIClick(poi.type)
@@ -361,7 +361,7 @@ export default function CityMap(props) {
 
                                             <div
                                                 key={index}
-                                                className={"w-300px bg-red-200"}
+                                                className={"w-300px"}
                                                 onMouseEnter={(e) => {
 
                                                     e.stopPropagation();
@@ -481,7 +481,7 @@ export default function CityMap(props) {
                             className={`flex flex-col overflow-y-scroll rounded-b-[8px]`}>
 
                             <button
-                                className={`px-[20px] flex items-center py-[10px] border-t-[1px] border-black`}
+                                className={`px-[20px] flex items-center py-[10px] border-t-[1px] border-black hover:bg-[#f2f2f2]`}
 
                                 onClick={() => {
                                     resetPOI()
@@ -489,7 +489,7 @@ export default function CityMap(props) {
                                 }}
                             >
                                 <div
-                                    className={"mr-[16px] rounded-full p-2 ring-2 ring-white bg-red-400 w-[27px] h-[27px] flex justify-center items-center"}>
+                                    className={"mr-[16px] rounded-full p-2 ring-2 ring-white w-[27px] h-[27px] flex justify-center items-center"}>
                                     <GrPowerReset size={15} color={"white"}/>
                                 </div>
                                 <div className={""}>
@@ -505,7 +505,7 @@ export default function CityMap(props) {
 
                                         <button
                                             key={index}
-                                            className={`px-[20px] flex items-center ${poi.selected && 'bg-black/10'} py-[10px]`}
+                                            className={`px-[20px] flex items-center ${poi.selected && 'bg-black/10'} py-[10px] border-t-[1px] border-black/10 hover:bg-[#f2f2f2]`}
 
                                             onClick={() => {
                                                 handlePOIClick(poi.type)

@@ -25,22 +25,7 @@ export default function Info(props) {
                             <div key={index}
                                  className={`flex justify-between items-start flex-col-reverse gap-y-10 gap-x-10 pb-20 ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} md:gap-y-0`}>
 
-                                <div className={`md:w-1/2 w-full h-full
-                                
-                                    rounded-md w-full
-                                min-[1270px]:h-[720px] 
-                                    min-[1147px]:h-[627px]
-                                min-[1024px]:h-[535px] 
-                                    min-[896px]:h-[442px]
-                                min-[768px]:h-[350px]
-                                
-                                
-                                min-[767px]:h-[700px] 
-                                    min-[634px]:h-[625px] 
-                                min-[500px]:h-[500px] 
-                  
-                                    
-                                `}>
+                                <div className={`md:w-1/2 w-full h-full aspect-[1/1]`}>
                                     {
                                         <img
                                             src={content.fields.images[0].fields.file.url}

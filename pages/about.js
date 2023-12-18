@@ -21,7 +21,7 @@ export default function Index(props) {
             <Container>
                 <Hero content={props.heroSection}/>
                 {/* <Stats content={props.statsSection}/> */}
-                {/*<Community content={props.communitySection}/>*/}
+                <Community content={props.communitySection}/>
                 <Achievements content={props.achievementsSection}/>
                 {/*<Values/>*/}
                 <Team content={props.teamSection}/>
