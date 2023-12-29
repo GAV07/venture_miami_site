@@ -34,7 +34,7 @@ export default function Hero(props){
         <HeroComponent
             title={props.content.title}
             subtitle={props.content.subtitle}
-            imageURL={props.content.backgroundImage.fields.file.url}
+            // imageURL={props.content.backgroundImage.fields.file.url}
         />
     )
 }

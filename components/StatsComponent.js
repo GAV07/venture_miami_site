@@ -10,7 +10,7 @@ let StatsComponent = ({stats, title, subtitle}) => {
                 (title || subtitle) && (
 
                     <div className={'text-left'}>
-                        <h1 className="text-[20px] md:text-[25px] font-light mb-3">
+                        <h1 className="text-[20px] md:text-[25px] font-light mb-3 leading-tight">
                             {title}
                         </h1>
                         <p className="text-[18px] leading-8 italic">

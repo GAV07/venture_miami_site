@@ -45,7 +45,8 @@ export default function Hero(props) {
             <div className={"relative right-0 md:p-[100px] p-[50px] flex justify-between items-center z-[2] w-full min-h-screen ease-in duration-300"}>
 
                  <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover opacity-[0.8]">
-                    <source src={props.video[0].fields.Media[0].url} type="video/mp4"/>
+                    {/*<source src={props.video[0].fields.Media[0].url} type="video/mp4"/>*/}
+                    <source src={"https://firebasestorage.googleapis.com/v0/b/venture-miami-924c9.appspot.com/o/VM.mp4?alt=media&token=c1ccb147-60e6-4201-bab5-d0b06c667003"} type="video/mp4"/>
                 </video>
 
                 {/*<iframe src="https://drive.google.com/file/d/1dZ-FuIsN5quta6TWLVJWnJnhIXEAWKRI/preview" width="640" height="480" allow="autoplay"></iframe>*/}

@@ -78,6 +78,17 @@ export default function NewsDetails(props) {
 
     }
 
+    const transformDate = (newsDate)=>{
+
+        let date = new Date(newsDate);
+
+        const year = date.getFullYear();
+        const month = date.toLocaleString('default', {month: 'short'});
+        const day = date.getDate();
+
+        return month + ' ' + day + ', ' + year;
+    }
+
     return (
 
         <>
@@ -94,6 +105,7 @@ export default function NewsDetails(props) {
                         className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                         <div className="lg:pr-4">
                             <div className="lg:max-w-lg">
+                                <p className="text-sm text-gray-700">{transformDate(news[index].fields.Date)}</p>
                                 <p className="text-base font-semibold leading-7 bg-vm-blue max-w-max text-white italic">{news[index].fields.SubTitle}</p>
                                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{news[index].fields.Title}</h1>
                                 <p className="mt-6 text-xl leading-8 text-gray-700 italic first-letter:text-4xl">
