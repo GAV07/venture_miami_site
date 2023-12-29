@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import Section from "../Section";
 
 export default function News(props) {
 
@@ -18,6 +19,17 @@ export default function News(props) {
 
     }, [])
 
+    const transformDate = (newsDate)=>{
+
+        let date = new Date(newsDate);
+
+        const year = date.getFullYear();
+        const month = date.toLocaleString('default', {month: 'short'});
+        const day = date.getDate();
+
+        return month + ' ' + day + ', ' + year;
+    }
+
     return (
 
 
@@ -27,26 +39,12 @@ export default function News(props) {
                 /* IF NO NEWS AVAILABLE */
                 props.content.length <= 0 ?
 
-                    <div className={"w-full m-auto pt-20"}>
-                        <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-10"}>
-                            <div className={"border-solid border-t-[1px] border-black mx-auto w-full m-auto text-left"}>
-
-                                <div className={"flex flex-col justify-center items-start space-y-10"}>
-                                    <h1 className="text-[36px] md:text-[56px] font-light mb-3">
-                                        Looks like there aren't any news</h1>
-                                </div>
-
-                                <div className={"h-[400px] w-full"}>
-                                    <img
-                                        className={"h-full w-full object-cover"}
-                                        src={"/images/newspaper.jpg"}
-                                        alt={"newspaper"}
-                                    />
-                                </div>
-
-                            </div>
+                    <Section>
+                        <div className={"flex flex-col justify-center items-start space-y-10"}>
+                            <h1 className="text-[36px] md:text-[56px] font-light mb-3">
+                                Looks like there aren't any news</h1>
                         </div>
-                    </div>
+                    </Section>
 
                     :
                     <div className={"w-full m-auto pt-20"}>
@@ -54,6 +52,7 @@ export default function News(props) {
                             <div className={"border-solid border-t-[1px] border-black mx-auto w-full m-auto text-left"}>
                                 <h1 className="text-[36px] md:text-[56px] font-light mb-3">
                                     News
+                                    {props.content.title}
                                 </h1>
                                 <p className="text-[16px] md:text-[20px] leading-8">
                                     {props.content.subtitle}
@@ -117,11 +116,8 @@ export default function News(props) {
                                             </div>
 
                                             {/* DATE */}
-                                            {/*<time dateTime={post.fields.Date} className="text-gray-500 text-sm">
-                                                {post.fields.Date}
-                                            </time>*/}
-                                            <p className="text-gray-500 text-sm">
-                                                {post.fields.Date}
+                                            <p className="text-black text-xs">
+                                                {transformDate(post.fields.Date)}
                                             </p>
 
                                         </div>

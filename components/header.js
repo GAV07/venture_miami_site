@@ -1,4 +1,3 @@
-
 import {Disclosure, Menu, Transition} from '@headlessui/react'
 import {AiOutlineMenu} from 'react-icons/ai'
 import {RxCross2} from 'react-icons/rx'
@@ -42,18 +41,22 @@ export default function Header() {
 
     }, []);
 
+    const [defaultStyle, setDefaultStyle] = useState({
+        backgroundColor: 'transparent',
+        textColor: {color: 'white', hexColor: '#FFF'}
+    });
 
-    const [styles, setStyles] = useState(null);
+    const [styles, setStyles] = useState(defaultStyle);
 
     const router = useRouter();
     const path = router.pathname.split('/')[1]; // gets the path
     const styleManager = new StyleManager(path);
 
-    useEffect(() => {
+    /*useEffect(() => {
 
         setStyles(styleManager.getStyles());
 
-    }, [])
+    }, [])*/
 
 
     useEffect(() => {
@@ -63,22 +66,44 @@ export default function Header() {
     }, [menuOpen])
     const [scrolling, setScrolling] = useState(false);
 
-        useEffect(() => {
-            const handleScroll = () => {
-                const scrollY = window.scrollY || document.documentElement.scrollTop;
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-                scrollY >= 40 ?
-                    setStyles({backgroundColor: 'white', textColor: {color: 'vm-blue', hexColor: '#3F47FF'}})
-                    :
-                    setStyles(styleManager.getStyles())
-            };
+            scrollY >= 40 ?
+                setStyles({backgroundColor: 'white', textColor: {color: 'vm-blue', hexColor: '#3F47FF'}})
+                :
+                // setStyles(styleManager.getStyles())
+                setStyles(defaultStyle)
+        };
 
-            window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
 
-            return () => {
-                window.removeEventListener('scroll', handleScroll);
-            };
-        }, []);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+/*    const [placeholder, setPlaceHolder] = useState('Search...');
+    const [dots, setDots] = useState(3);
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setDots((prevDots) => (prevDots === 3 ? 0 : prevDots + 1));
+        }, 1000);
+
+        return () => clearInterval(intervalId);
+    }, [dots]);
+
+    useEffect(() => {
+        let text = 'Search';
+
+        for (let x = 0; x < dots; x++) {
+            text += '.';
+        }
+
+        setPlaceHolder(text);
+    }, [dots]);*/
 
     return (
 
@@ -86,11 +111,13 @@ export default function Header() {
             className={`h-[65px] w-full fixed top-0 left-0 z-[100] px-[10px] py-[10px] flex justify-between items-center ${styles && `${'bg-' + styles.backgroundColor} ${'text-' + styles.textColor.color}`}`}>
 
             {/* LOGO */}
-            <a
-                href={"/"}
-                className="flex-shrink-0 basis-1/3 flex justify-start">
-                <Logo color={`${styles && styles.textColor.hexColor}`}/>
-            </a>
+            <div className={'flex-shrink-0 basis-1/3 flex justify-start'}>
+                <a
+                    href={"/"}
+                    className="max-w-max">
+                    <Logo color={`${styles && styles.textColor.hexColor}`}/>
+                </a>
+            </div>
 
             {/* DESKTOP NAV */}
             <ul className={'basis-1/3 xl:flex hidden justify-center items-center gap-x-10 font-light'}>
@@ -117,7 +144,8 @@ export default function Header() {
             </div>
 
             {/* MOBILE MENU */}
-            <div className={`fixed top-0 right-0 bottom-0 left-0 z-[100] min-h-screen ${menuOpen ? 'block' : 'hidden'}`}>
+            <div
+                className={`fixed top-0 right-0 bottom-0 left-0 z-[100] min-h-screen ${menuOpen ? 'block' : 'hidden'}`}>
 
                 {/* OVERLAY */}
                 <div
@@ -127,7 +155,8 @@ export default function Header() {
                 </div>
 
                 {/* MENU CONTAINER */}
-                <div className="ml-auto fixed top-0 right-0 bottom-0 left-0  z-[200] bg-white w-full md:w-[400px] h-full">
+                <div
+                    className="ml-auto fixed top-0 right-0 bottom-0 left-0  z-[200] bg-white w-full md:w-[400px] h-full">
 
                     <div className={'px-[10px] py-[10px] ml-auto flex justify-end items-center'}>
                         {/*<IoIosMenu size={25} color={'white'} />*/}
@@ -138,9 +167,9 @@ export default function Header() {
                     <ul className="text-vm-blue text-md mt-[100px] px-5 flex flex-col justify-center items-center">
 
                         {
-                            pathManager.getPaths().map((nav, index)=>{
+                            pathManager.getPaths().map((nav, index) => {
 
-                                return(
+                                return (
                                     <a key={index} href={nav.url}
                                        className={`w-full`}
                                     >
@@ -157,8 +186,11 @@ export default function Header() {
 
                     {/* SEARCH */}
                     <div className="absolute bottom-0 px-5 w-full h-auto mb-10">
-                        <input className="px-3 w-full h-[40px] ring-1 ring-bg-vm-blue/30 placeholder-bg-vm-blue/80" type="text"
-                               placeholder="Search"/>
+                        <input
+                            className="text-vm-blue px-3 w-full h-[40px] ring-1 ring-vm-blue placeholder-vm-blue"
+                            type="text"
+                            placeholder="Search..."/>
+                            {/*placeholder={placeholder}/>*/}
                     </div>
                 </div>
 

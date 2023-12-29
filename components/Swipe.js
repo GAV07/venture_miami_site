@@ -1,16 +1,51 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+// import 'swiper/css/effect-coverflow';
+// import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
 
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+// import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+
+// ---------------------------
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+// import "swiper/css";
+
+import { Pagination } from 'swiper/modules';
 
 export default function Swipe() {
     return (
-            <Swiper
+
+        <Swiper
+            slidesPerView={3}
+            spaceBetween={15}
+            /*pagination={{
+                clickable: true,
+            }}*/
+            // modules={[Pagination]}
+            className="mySwiper"
+        >
+
+            <SwiperSlide><img src="https://images.ctfassets.net/y0vtnt98mulh/3pQ6jfYvBTBGtILn3JfNB1/8d48dc7445ca6ab85a7f1cee3aafd095/TSS-058.jpg" alt="" className={'object-cover aspect-1'}/></SwiperSlide>
+            {/*<SwiperSlide><img src="https://images.ctfassets.net/y0vtnt98mulh/3pQ6jfYvBTBGtILn3JfNB1/8d48dc7445ca6ab85a7f1cee3aafd095/TSS-058.jpg" alt="" className={'object-cover aspect-1'}/></SwiperSlide>*/}
+            {/*<SwiperSlide><img src="https://images.ctfassets.net/y0vtnt98mulh/3pQ6jfYvBTBGtILn3JfNB1/8d48dc7445ca6ab85a7f1cee3aafd095/TSS-058.jpg" alt="" className={'object-cover aspect-1'}/></SwiperSlide>*/}
+            <SwiperSlide><img src="https://images.ctfassets.net/y0vtnt98mulh/3pQ6jfYvBTBGtILn3JfNB1/8d48dc7445ca6ab85a7f1cee3aafd095/TSS-058.jpg" alt="" className={'object-cover aspect-1'}/></SwiperSlide>
+            {/*<SwiperSlide>Slide 1</SwiperSlide>*/}
+            {/*<SwiperSlide>Slide 2</SwiperSlide>*/}
+            {/*<SwiperSlide>Slide 3</SwiperSlide>*/}
+            {/*<SwiperSlide>Slide 4</SwiperSlide>*/}
+            {/*<SwiperSlide>Slide 5</SwiperSlide>*/}
+            {/*<SwiperSlide>Slide 6</SwiperSlide>*/}
+            {/*<SwiperSlide>Slide 7</SwiperSlide>*/}
+            {/*<SwiperSlide>Slide 8</SwiperSlide>*/}
+            {/*<SwiperSlide>Slide 9</SwiperSlide>*/}
+        </Swiper>
+
+    /*        <Swiper
                 grabCursor={true}
                 centeredSlides={true}
                 loop={true}
@@ -25,7 +60,7 @@ export default function Swipe() {
                 className="swiper_container"
             >
                 <SwiperSlide>
-                    {/*<img src={'https:swiperjs.com/images/n4w-logo.svg'} alt="slide_image" />*/}
+                    {/!*<img src={'https:swiperjs.com/images/n4w-logo.svg'} alt="slide_image" />*!/}
                 <div className={"w-full h-full shadow-md shadow-slate-200 rounded-[8px] flex flex-col"}>
                          <div className={"h-full h-[60%]"}>
                              <img
@@ -154,6 +189,8 @@ export default function Swipe() {
                     </div>
                     <div className="swiper-pagination"></div>
                 </div>
-            </Swiper>
+            </Swiper>*/
+
+
     );
 }

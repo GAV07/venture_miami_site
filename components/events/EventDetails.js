@@ -2,43 +2,21 @@ import React, {useEffect, useState} from "react";
 
 import {BsArrowLeft, BsChevronLeft, BsChevronRight} from 'react-icons/bs'
 import Link from "next/link";
+import DateManager from "../../services/DateManager";
 
 export default function EventDetails(props) {
 
     const [events, setEvent] = useState(props.content.sortedEvents);
     const [index, setIndex] = useState(props.content.index);
 
-    function getMonthName(monthNumber, format = "short") {
-        const monthsShort = [
-            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-        ];
+    let date = events[index].fields.Date;
 
-        const monthsLong = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
+    const dateManager = new DateManager(date);
 
-        let monthArray = [];
+    let time = events[index].fields.Time;
+    let weekDay = events[index].fields.Day;
+    let currentFullDate = dateManager.getFullDate();
 
-        if (format === "short") {
-            monthArray = monthsShort;
-        } else if (format === "long") {
-            monthArray = monthsLong;
-        } else {
-            return "Invalid Format";
-        }
-
-        if (monthNumber >= 1 && monthNumber <= 12) {
-            const monthName = monthArray[monthNumber - 1];
-            return monthName;
-        } else {
-            return "Invalid Month";
-        }
-    }
-
-    let monthNumber = events[index].fields.Date.split("/")[0];
-    let day = events[index].fields.Date.split("/")[1];
 
     return (
 
@@ -51,8 +29,12 @@ export default function EventDetails(props) {
                 <div className={"flex flex-col basis-[30%] space-y-[20px] w-full"}>
                     <h2 className={"font-bold text-[30px]"}>{events[index].fields.Name}</h2>
                     <div>
-                        <h2 className={"text-[14px]"}>{getMonthName(monthNumber)} {day}, {new Date().getFullYear()}</h2>
-                        <h2 className={"text-[14px]"}>{events[index].fields.Time}</h2>
+                        <h2 className={"text-[14px]"}>{currentFullDate}</h2>
+                        <div className={'flex items-center gap-x-2'}>
+                            <p className={"text-[14px]"}>{weekDay}</p>
+                            <span>|</span>
+                            <p className={"text-[14px]"}>{time}</p>
+                        </div>
                     </div>
                     <h2 className={"text-[14px]"}>{events[index].fields.Location}</h2>
                 </div>
@@ -78,7 +60,7 @@ export default function EventDetails(props) {
 
                                 <BsChevronLeft/>
                                 <div>
-                                    <h2 className={"text-[14px] text-start"}>{getMonthName(events[index - 1].fields.Date.split("/")[0])} {events[index - 1].fields.Date.split("/")[1]}, {new Date().getFullYear()}</h2>
+                                    <h2 className={"text-[14px] text-start"}>{new DateManager(events[index - 1].fields.Date).getFullDate()}</h2>
 
                                 <p className={"text-[12px]"}>
 
@@ -105,7 +87,7 @@ export default function EventDetails(props) {
                                 className={"flex items-center space-x-[10px]"}
                             >
                                 <div>
-                                    <h2 className={"text-[14px] text-end"}>{getMonthName(events[index + 1].fields.Date.split("/")[0])} {events[index + 1].fields.Date.split("/")[1]}, {new Date().getFullYear()}</h2>
+                                    <h2 className={"text-[14px] text-end"}>{new DateManager(events[index + 1].fields.Date).getFullDate()}</h2>
 
                                 <p className={"text-[12px]"}>
 
