@@ -1,10 +1,10 @@
 import { Container } from '../components/container'
-import Hero from '../components/contact/Hero'
+import ContactHero from '../components/contact/ContactHero'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/contentful'
 import {/*getRecord,*/ getRecords/*, getSchema, postRecord*/} from "../lib/airtable";
-import Form from "../components/contact/Form";
+import ContactForm from "../components/contact/ContactForm";
 
 
 export default function Contact(props) {
@@ -17,8 +17,8 @@ export default function Contact(props) {
                     <title>Venture Miami - Companies</title>
                 </Head>
                 <Container>
-                    {/*<Hero content={props.heroSection}/>*/}
-                    <Form content={props.formSection} />
+                    <ContactHero content={props.heroSection}/>
+                    <ContactForm content={props.formSection} />
                 </Container>
             </Layout>
         </>
@@ -27,7 +27,7 @@ export default function Contact(props) {
 
 export async function getStaticProps() {
 
-    // business page
+    // contact page
     const contactPageEntry = await Client.getEntry("5q7uEexqg1qmDZr7F6JEnS", {include: 10});
 
     // hero section

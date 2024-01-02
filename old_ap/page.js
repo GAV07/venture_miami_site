@@ -1,9 +1,9 @@
 import RootLayout from "./layout";
-import Header from "../components/header";
+import Header from "../components/Header";
 import {Client} from "../lib/contentful";
 import {getRecords, getSite} from "../lib/airtable";
-import Hero from "../components/home/Hero";
-import Footer from "../components/footer";
+import HomeHero from "../components/home/HomeHero";
+import Footer from "../components/Footer";
 
 export default async function Home(props) {
 
@@ -12,7 +12,7 @@ export default async function Home(props) {
     return (
 
         <>
-            <Hero content={data.hero}/>
+            <HomeHero content={data.hero}/>
         </>
     )
 }

@@ -1,65 +1,30 @@
 import React, {useEffect, useState} from "react";
-import {Slider} from "../Slider";
 import {BsArrowRight, BsArrowRightShort} from "react-icons/bs";
-import CarouselComponent from "../CarouselComponent";
+import Carousel from "../Carousel";
 import Section from "../Section";
 import DateManager from "../../services/DateManager";
-// import Swipe from "../Swipe";
 
 export default function EventsInfo(props) {
 
     const [events, setEvents] = useState([]);
     const [sliderItems, setSliderItems] = useState([]);
 
-    function getMonthName(eventDate, format = "long") {
-
-        let date = new Date(eventDate);
-
-        const month = date.toLocaleString('default', {month: format});
-
-        return month;
-    }
-
-    function getDate(eventDate) {
-
-        let date = new Date(eventDate);
-
-        const day = date.getDate();
-
-        return day;
-    }
-
-    const transformDate = (eventDate, format = 'long') => {
-
-        let date = new Date(eventDate);
-
-        const year = date.getFullYear();
-        const month = date.toLocaleString('default', {month: format});
-        const day = date.getDate();
-
-        return month + ' ' + day + ', ' + year;
-    }
     useEffect(() => {
 
-        let sortedEvents = props.content.filter((event) => {
-            // we can show the event
+        let filteredEvents = props.content.filter((event) => {
+            // filter only the events we want to show
             return event && (Object.keys(event.fields).length > 0 && event.fields.Show === "Yes")
-        }).sort((event1, event2) => {
-            // sort them based on ascending dates
-            return new Date(event1.fields.Date) - new Date(event2.fields.Date)
-        });
+        })
 
-        setEvents(sortedEvents);
+        setEvents(filteredEvents);
 
-        let items = sortedEvents.map((event) => {
+        let items = filteredEvents.map((event) => {
 
             const date = event.fields.Date;
 
             const dateManager = new DateManager(date);
             let monthName = dateManager.getMonthName(date);
             let day = dateManager.getDay(date);
-            let time = event.fields.Time;
-            let weekDay = event.fields.Day;
             let fullDate = dateManager.getFullDate();
 
             return (
@@ -76,13 +41,13 @@ export default function EventsInfo(props) {
                     <div
                         className={"absolute top-[10px] right-[10px] p-[3x] bg-white text-center w-[56px] h-[56px] flex flex-col justify-center items-center"}>
                         <p className={"upper text-[14px] leading-[14px]"}>{monthName}</p>
-                        <p className={"text-[26px] leading-[26px]"}>{getDate(date)}</p>
+                        <p className={"text-[26px] leading-[26px]"}>{day}</p>
                     </div>
                     <a
                         href={`/events/${event.fields.Name.trim().toLowerCase().split(" ").join("-")}`}
                         className={"block mt-[10px] flex flex-col justify-center items-start space-y-[2px]"}>
                         <p className={"md:text-[18px] text-[15px] overflow-hidden whitespace-nowrap overflow-ellipsis w-full text-darkGray"}>{event.fields.Name}</p>
-                        <p className={"md:text-[14px] text-[12px] text-black"}>{transformDate(date)}</p>
+                        <p className={"md:text-[14px] text-[12px] text-black"}>{fullDate}</p>
                     </a>
                 </div>
 
@@ -107,42 +72,45 @@ export default function EventsInfo(props) {
                                     Looks like there aren't any news</h1>
                             </div>
                         </Section>
-                    ) :
-
+                    )
+                    :
                     (
 
                         <>
-                            <Section>
-                                {/* FEATURED EVENT SECTION */}
-                                {events.length > 0 && (
-                                    <div
-                                        className="flex justify-between items-start flex-col gap-y-10 gap-x-10 pb-20 md:flex-row md:gap-y-0">
-                                        <div className="md:w-1/2 w-full text-[2.5rem]">
-                                            <div
-                                                className="md:w-[80%] w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start">
-                                                <p className="font-bold text-vm-blue text-[12px]">Featured Event</p>
-                                                <p className="text-black text-[2.25rem] font-light">{events[0].fields.Name}</p>
-                                                <p className="text-black text-[1rem]">{events[0].fields.Description}</p>
-                                                <div className="flex justify-start items-center w-full gap-x-[30px]">
-                                                    <a
-                                                        href={`/events/${events[0].fields.Name.trim().toLowerCase().split(" ").join("-")}`}
-                                                        className="text-[14px] text-vm-blue font-[500] border-solid border-[1.5px] border-vm-blue px-[10px] py-[4px] rounded-full flex items-center gap-x-[7px]">
-                                                        <span>Go to event</span> <BsArrowRightShort color={"#3F47FF"}
-                                                                                                    size={20}/>
-                                                    </a>
+                            {
+                                (events.length > 0) && (
+
+                                    <Section>
+                                        {/* FEATURED EVENT SECTION */}
+                                        <div
+                                            className="flex justify-between items-start flex-col gap-y-10 gap-x-10 pb-20 md:flex-row md:gap-y-0">
+                                            <div className="md:w-1/2 w-full text-[2.5rem]">
+                                                <div
+                                                    className="md:w-[80%] w-full h-full flex flex-col justify-center items-start space-y-5 md:justify-center md:items-start">
+                                                    <p className="font-bold text-vm-blue text-[12px]">Featured Event</p>
+                                                    <p className="text-black text-[2.25rem] font-light">{events[0].fields.Name}</p>
+                                                    <p className="text-black text-[1rem]">{events[0].fields.Description}</p>
+                                                    <div className="flex justify-start items-center w-full gap-x-[30px]">
+                                                        <a
+                                                            href={`/events/${events[0].fields.Name.trim().toLowerCase().split(" ").join("-")}`}
+                                                            className="text-[14px] text-vm-blue font-[500] border-solid border-[1.5px] border-vm-blue px-[10px] py-[4px] rounded-full flex items-center gap-x-[7px]">
+                                                            <span>Go to event</span> <BsArrowRightShort color={"#3F47FF"}
+                                                                                                        size={20}/>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div className="md:w-1/2 w-full mx-auto aspect-[1/1]">
+                                                {<img
+                                                    src={events[0].fields.Image}
+                                                    alt=""
+                                                    className="w-full h-full rounded-[2px] object-cover"
+                                                />}
+                                            </div>
                                         </div>
-                                        <div className="md:w-1/2 w-full mx-auto aspect-[1/1]">
-                                            {<img
-                                                src={events[0].fields.Image}
-                                                alt=""
-                                                className="w-full h-full rounded-[2px] object-cover"
-                                            />}
-                                        </div>
-                                    </div>
-                                )}
-                            </Section>
+                                    </Section>
+                                )
+                            }
 
                             {/* LIST OF EVENTS */}
                             <Section>
@@ -150,7 +118,7 @@ export default function EventsInfo(props) {
                                     More Events
                                 </h1>
                                 <div className="mx-auto w-full">
-                                    <CarouselComponent elements={sliderItems} spaceBetween={15} slidesPerView={3}/>
+                                    <Carousel elements={sliderItems} spaceBetween={15} slidesPerView={3}/>
                                 </div>
                                 <a href="/events/all"
                                    className="max-w-max text-[14px] text-vm-blue flex items-center space-x-[20px]">

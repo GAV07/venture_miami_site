@@ -33,8 +33,8 @@ function getBackgroundColor(type) {
         dining: 'bg-pink-400',
         'colleges & universities': 'bg-purple-400',
         'venues': 'bg-black',
-        'public schools': 'bg-slate-500',
-        'private schools': 'bg-slate-700',
+        'public schools': 'bg-gray-500',
+        'private schools': 'bg-gray-700',
         'point of interest': 'bg-black',
     };
 

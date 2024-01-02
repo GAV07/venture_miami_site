@@ -1,5 +1,5 @@
 import {BiSolidQuoteAltLeft} from "react-icons/bi";
-import StatsComponent from "../StatsComponent";
+import Stats from "../Stats";
 import Section from "../Section";
 
 let MayorsQuote = (props)=>{
@@ -15,7 +15,7 @@ let MayorsQuote = (props)=>{
                         </h1>
                     </div>
 
-                    <div className={'flex justify-end items-center max-h-max gap-x-4 italic'}>
+                    <div className={'w-full flex justify-end items-center max-h-max gap-x-4 italic'}>
                         <span className={'text-vm-blue text-[50px] flex justify-center items-center'}>-</span>
                         <p className="text-[16px] md:text-[20px] leading-8">
                             {props.content.title}

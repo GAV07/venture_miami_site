@@ -1,5 +1,5 @@
 import {Container} from '../components/container'
-import {Hero} from '../components/about/Hero'
+import {AboutHero} from '../components/about/AboutHero'
 import {Team} from '../components/about/Team'
 import Layout from '../components/layout'
 import Head from 'next/head'
@@ -7,7 +7,7 @@ import {Client} from '../lib/contentful'
 import {Partnerships} from "../components/partnerships/PartnerRotate";
 import Community from "../components/about/Community";
 import {Achievements} from "../components/about/Achievements";
-import CTA from '../components/about/CTA'
+import AboutCTA from '../components/about/AboutCTA'
 import Values from "../components/about/Values";
 import Stats from "../components/about/Stats";
 
@@ -19,13 +19,13 @@ export default function Index(props) {
                 <title>Venture Miami - Team</title>
             </Head>
             <Container>
-                <Hero content={props.heroSection}/>
-                {/* <Stats content={props.statsSection}/> */}
+                <AboutHero content={props.heroSection}/>
+                {/* <HomeStats content={props.statsSection}/> */}
                 <Community content={props.communitySection}/>
                 <Achievements content={props.achievementsSection}/>
                 {/*<Values/>*/}
                 <Team content={props.teamSection}/>
-                <CTA content={props.ctaSection}/>
+                <AboutCTA content={props.ctaSection}/>
             </Container>
         </Layout>
     )

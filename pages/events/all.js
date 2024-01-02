@@ -5,7 +5,7 @@ import Layout from "../../components/layout";
 import Head from "next/head";
 import {Container} from "../../components/container";
 import AllEvents from "../../components/events/AllEvents";
-import Hero from "../../components/events/Hero";
+import EventsHero from "../../components/events/EventsHero";
 
 export default function All(props){
 
@@ -18,7 +18,7 @@ export default function All(props){
                 <title>Venture Miami - All Events</title>
             </Head>
             <Container>
-                <Hero content={props.heroSection}/>
+                <EventsHero content={props.heroSection}/>
                 <AllEvents content={events}/>
             </Container>
         </Layout>

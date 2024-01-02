@@ -7,7 +7,6 @@ import {Container} from "../../components/container";
 import EventDetails from "../../components/events/EventDetails";
 import NotFound from "../../pages/404";
 import {useEffect} from "react";
-import {alert} from "@material-tailwind/react";
 
 
 export default function EventsDetail(props) {
@@ -21,18 +20,10 @@ export default function EventsDetail(props) {
         return new Date(event1.fields.Date) - new Date(event2.fields.Date)
     });
 
-
-    useEffect(()=>{
-
-        // alert(event)
-    }, [])
-
     // finds the index
     const index = sortedEvents.findIndex((ev) => {
         return ev.fields.Name.trim().toLowerCase() === event.trim().toLowerCase().split("-").join(" ");
     });
-
-    console.log(event, " ", index)
 
 
     return (

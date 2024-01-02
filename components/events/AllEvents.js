@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {BsArrowRight} from "react-icons/bs";
 import Section from "../Section";
 import DateManager from "../../services/DateManager";
 

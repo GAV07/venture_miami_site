@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {Slider} from "../Slider";
-import CarouselComponent from "../CarouselComponent";
+import Carousel from "../Carousel";
+import Section from "../Section";
 
 
 export default function Community(props) {
@@ -17,7 +18,7 @@ export default function Community(props) {
                     key={index}
                     src={item.fields.file.url}
                     alt=""
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-md"
                 />
             );
         })
@@ -37,7 +38,7 @@ export default function Community(props) {
                 <img
                     key={index}
                     src={item.fields.file.url}
-                    className={'w-full h-full object-cover'}
+                    className={'w-full h-full object-cover rounded-md'}
                     alt={item.fields.file.url}
                 />
             );
@@ -49,11 +50,7 @@ export default function Community(props) {
 
     return (
 
-        <div className={"w-full m-auto pt-20"}>
-
-            <div className={"w-[95%] mx-auto"}>
-                <div
-                    className={"w-full pt-6 border-solid border-t-[1px] border-black flex flex-col justify-center items-start gap-y-10"}>
+        <Section>
                     <div className={'w-full'}>
                         <h1 className="text-[36px] md:text-[56px] font-light mb-3 leading-none">
                             {props.content.title}
@@ -64,14 +61,14 @@ export default function Community(props) {
                     </div>
 
                     <div className={"w-full"}>
-                        <CarouselComponent elements={sliderItems}
-                                           spaceBetween={10}
-                                           slidesPerView={1}
-                                           loop={true}
-                                           autoplay={true}
-                                           pagination={true}
-                                           freeMode={true}
-                                           breakpoints={{
+                        <Carousel elements={sliderItems}
+                                  spaceBetween={10}
+                                  slidesPerView={1}
+                                  loop={true}
+                                  autoplay={true}
+                                  pagination={true}
+                                  freeMode={true}
+                                  breakpoints={{
                                                768: {
                                                    slidesPerView: 2,
                                                    spaceBetween: 10,
@@ -82,11 +79,8 @@ export default function Community(props) {
                                                }
                                            }}/>
                     </div>
-                </div>
 
-
-            </div>
-        </div>
+        </Section>
 
 
     )

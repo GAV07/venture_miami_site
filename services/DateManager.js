@@ -1,3 +1,7 @@
+/*
+
+    Class to handle dates in the Events and News components
+*/
 class DateManager {
 
     #year;

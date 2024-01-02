@@ -72,7 +72,7 @@ export function CompanyForm({open, setOpen}) {
                                                     portalId='23515810'
                                                     formId='cc21a78e-d920-4d9e-b30a-4753229fefac'
                                                     onSubmit={() => console.log('Submit!')}
-                                                    onReady={(form) => console.log('Form ready!')}
+                                                    onReady={(form) => console.log('ContactForm ready!')}
                                                     loading={<div>Loading...</div>}
                                                 />
                                             </div>

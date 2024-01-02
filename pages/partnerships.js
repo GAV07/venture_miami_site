@@ -6,7 +6,7 @@ import {MARKS, BLOCKS} from '@contentful/rich-text-types';
 import {CameraIcon} from '@heroicons/react/solid'
 import PartnershipInfo from "../components/partnerships/PartnershipInfo";
 import Partnerships from "../components/partnerships/Partnerships";
-import CTA from "../components/partnerships/CTA";
+import PartnershipsHero from "../components/partnerships/PartnershipsHero";
 import { PartnerRotate } from "../components/partnerships/PartnerRotate";
 
 
@@ -20,7 +20,7 @@ export default function Contact(props) {
             </Head>
              {/*<Partnerships />*/}
              {/*<PartnerRotate content={props.partnersSection}/>*/}
-            <CTA content={props.heroSection}/>
+            <PartnershipsHero content={props.heroSection}/>
             <PartnershipInfo content={props.partnershipsSection}/>
         </Layout>
     );

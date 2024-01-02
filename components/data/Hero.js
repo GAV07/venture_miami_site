@@ -3,7 +3,7 @@
 // import { Container } from '../container'
 
 
-// export function HeroComponent({content}) {
+// export function NewsHero({content}) {
 //   return (
 //     <Container className="pt-20 pb-16 text-center lg:pt-32">
 //       <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-white sm:text-7xl">
