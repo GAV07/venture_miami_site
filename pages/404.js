@@ -13,7 +13,7 @@ export default function NotFound(props){
                 <title>Venture Miami - Page Not Found</title>
             </Head>
             <Container>
-                <div className={"w-full m-auto pt-16"}>
+                <div className={"w-full m-auto pt-56"}>
 
                     <div className={"w-[90%] mx-auto flex flex-col-reverse md:flex-row justify-center items-center space-x-[50px]"}>
                         <div className={"basis-1/2 flex flex-col justify-center items-center md:justify-start md:items-start space-y-[40px]"}>
