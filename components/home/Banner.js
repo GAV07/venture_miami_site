@@ -23,20 +23,20 @@ export default function Banner(props) {
                     </div>
                     <div className="order-3 mr-2 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
                         <a
-                        href="https://www.eventbrite.com/e/venture-miami-tech-hiring-fair-4-and-talent-summit-tickets-568374271747?aff=erelexpmlt"
+                        href="https://www.eventbrite.com/e/2024-venture-miami-tech-hiring-fair-tickets-848726974227?aff=ebdshpsearchautocomplete"
                         className="flex items-center justify-center rounded-md border border-transparent bg-vm-accent px-4 py-2 text-sm font-medium text-vm-blue shadow-sm hover:bg-yellow-500"
                         >
                         Attend Event
                         </a>
                     </div>
-                    <div className="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
+                    {/* <div className="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
                         <a
                         href="/hiring-fair"
                         className="flex items-center justify-center rounded-md border border-transparent bg-vm-blue px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-500"
                         >
                         More Info
                         </a>
-                    </div>
+                    </div> */}
                     <div className="self-start order-2 flex-shrink-0 sm:order-3 sm:ml-2">
                         <button
                         type="button"
