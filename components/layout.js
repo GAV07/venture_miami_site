@@ -1,6 +1,6 @@
-import Footer from './footer'
+import Footer from './Footer'
 import Meta from '../components/meta'
-import Header from '../components/header'
+import Header from './Header'
 
 export default function Layout({ children, content, transparent }) {
 

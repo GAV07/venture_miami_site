@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {BsArrowLeft, BsChevronLeft, BsChevronRight} from "react-icons/bs";
+import DateManager from "../../services/DateManager";
 
 export default function NewsDetails(props) {
 
@@ -9,7 +10,7 @@ export default function NewsDetails(props) {
     const [post, setPost] = useState(null);
 
 
-    // Skeleton loading when fetching news details
+    // skeleton loading when fetching news details
     if (!news) {
         return (
 
@@ -78,15 +79,27 @@ export default function NewsDetails(props) {
 
     }
 
+    const date = news[index].fields.Date;
+
+    const dateManager = new DateManager(date);
+    let fullDate = dateManager.getFullDate();
+
+
+    let convertToDashes = (title) => {
+
+        return title.trim().toLowerCase().split(" ").join("-")
+    }
+
     return (
 
         <>
 
 
-            {/*<div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">*/}
             <div className={"w-[95%] mx-auto flex flex-col gap-y-10 pt-20"}>
 
-                <a href={"/news"} className={"mt-[30px] max-w-max text-[14px] text-white ring-1 ring-[#161A1D] bg-[#161A1D] flex items-center space-x-[20px] py-[10px] px-[30px]"}><BsArrowLeft size={14}/><span>All news</span></a>
+                <a href={"/news"}
+                   className={"mt-[30px] max-w-max text-[14px] text-white ring-1 ring-[#161A1D] bg-[#161A1D] flex items-center space-x-[20px] py-[10px] px-[30px]"}><BsArrowLeft
+                    size={14}/><span>All news</span></a>
 
                 <div
                     className="pt-10 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
@@ -94,6 +107,7 @@ export default function NewsDetails(props) {
                         className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                         <div className="lg:pr-4">
                             <div className="lg:max-w-lg">
+                                <p className="text-sm text-gray-700">{fullDate}</p>
                                 <p className="text-base font-semibold leading-7 bg-vm-blue max-w-max text-white italic">{news[index].fields.SubTitle}</p>
                                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{news[index].fields.Title}</h1>
                                 <p className="mt-6 text-xl leading-8 text-gray-700 italic first-letter:text-4xl">
@@ -171,7 +185,7 @@ export default function NewsDetails(props) {
 
 
                                 <a
-                                    href={`/news/${news[index - 1].fields.Title.toLowerCase().split(" ").join("-")}`}
+                                    href={`/news/${convertToDashes(news[index - 1].fields.Title)}`}
                                     className={"flex items-center space-x-[10px]"}
                                 >
                                     <BsChevronLeft/>
@@ -199,7 +213,7 @@ export default function NewsDetails(props) {
 
 
                                 <a
-                                    href={`/news/${news[index + 1].fields.Title.toLowerCase().split(" ").join("-")}`}
+                                    href={`/news/${convertToDashes(news[index + 1].fields.Title)}`}
                                     className={"flex items-center space-x-[10px]"}
                                 >
                                 <span>

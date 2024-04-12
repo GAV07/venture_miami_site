@@ -12,30 +12,6 @@ class AirtableManager{
     }
 
 
-    async getSchema(){
-
-        const URL = `https://api.airtable.com/v0/meta/bases/${this.#BASE_ID}/tables`
-        try {
-            const response = await fetch(URL, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${this.#PERSONAL_ACCESS_TOKEN}`,
-                    'Content-Type': 'application/json',
-                }
-            });
-
-            const data = await response.json();
-
-            return data;
-
-        } catch (error) {
-            console.error('Error:', error);
-        }
-
-    }
-
-
-
     async createRecord(recordData){
 
         const airtableURL = `https://api.airtable.com/v0/${this.#BASE_ID}/${this.#TABLE}`;
@@ -101,6 +77,53 @@ class AirtableManager{
         }else if( arguments.length === 2 ){
             airtableURL = `https://api.airtable.com/v0/${this.#BASE_ID}/${this.#TABLE}?filterByFormula=AND({${Object.keys(param1)[0]}} = "${encodeURIComponent(Object.values(param1)[0])}", {${Object.keys(param2)[0]}} = "${encodeURIComponent(Object.values(param2)[0])}")`
         }
+
+        try {
+            const response = await fetch(airtableURL, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${this.#API_KEY}`,
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            const data = await response.json();
+            return data;
+
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+
+    async getRecords(){
+
+        let airtableURL;
+
+        airtableURL = `https://api.airtable.com/v0/${this.#BASE_ID}/${this.#TABLE}`
+
+        try {
+            const response = await fetch(airtableURL, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${this.#API_KEY}`,
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            const data = await response.json();
+            return data;
+
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    async getSortedRecords(field, direction){
+
+        let airtableURL;
+
+        airtableURL = `https://api.airtable.com/v0/${this.#BASE_ID}/${this.#TABLE}?sort%5B0%5D%5Bfield%5D=${field}&sort%5B0%5D%5Bdirection%5D=${direction}`
 
         try {
             const response = await fetch(airtableURL, {

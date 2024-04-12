@@ -1,13 +1,11 @@
-import { Container } from '../components/container'
-import Hero from '../components/home/Hero'
-import Stats from '../components/home/stats/Stats'
-import CTA from '../components/home/CTA'
+import {Container} from '../components/container'
+import HomeHero from '../components/home/HomeHero'
+import HomeStats from '../components/home/HomeStats'
+import HomeCTA from '../components/home/HomeCTA'
 import Layout from '../components/layout'
 import Head from 'next/head'
-import PreLoader from '../components/home/PreLoader'
-import { Client } from '../lib/contentful'
-// import {/*getRecords,*/ getSite} from '../lib/airtable'
-import { getSite } from "../lib/airtable";
+import {Client} from '../lib/contentful'
+import {getSite} from "../lib/airtable";
 import Info from "../components/home/info/Info";
 import MayorsQuote from "../components/home/MayorsQuote";
 
@@ -15,24 +13,20 @@ import MayorsQuote from "../components/home/MayorsQuote";
 export default function Index(props) {
 
 
-    console.log(props.mayorsQuoteSection)
     return (
-      // <PreLoader played={props.storage} setPlayed={props.setStorage}>
-      <Layout content={props.footer} transparent={true}>
-        <Head>
-          <title>Venture Miami - Innovation and Economic Development Office</title>
-        </Head>
-        <Container>
-
-          <Hero content={props.heroSection} video={props.bgVideo}/>
-          <MayorsQuote content={props.mayorsQuoteSection} />
-          <Stats content={props.statsSection} />
-          <Info content={props.infoSection} />
-          <CTA content={props.ctaSection} />
-        </Container>
-      </Layout>
-      // </PreLoader>
-  )
+        <Layout content={props.footer} transparent={true}>
+            <Head>
+                <title>Venture Miami - Innovation and Economic Development Office</title>
+            </Head>
+            <Container>
+                <HomeHero content={props.heroSection} video={props.bgVideo}/>
+                <MayorsQuote content={props.mayorsQuoteSection}/>
+                <HomeStats content={props.statsSection}/>
+                <Info content={props.infoSection}/>
+                <HomeCTA content={props.ctaSection}/>
+            </Container>
+        </Layout>
+    )
 }
 
 export async function getStaticProps() {
@@ -65,69 +59,69 @@ export async function getStaticProps() {
 
     // main bg video
     const bgVideo = await getSite("Media Content");
-  // const founders = await getRecords("Founder Database", "Pitchbook Miami CSA VC Deals - 2013/2023")
+    // const founders = await getRecords("Founder Database", "Pitchbook Miami CSA VC Deals - 2013/2023")
 
-/*
-  const filteredFundingData = founders.reduce((accumulator, data) => {
-    const dateString = data.fields["Deal Date"];
-    const date = new Date(dateString);
-    const year = date.getFullYear();
+    /*
+      const filteredFundingData = founders.reduce((accumulator, data) => {
+        const dateString = data.fields["Deal Date"];
+        const date = new Date(dateString);
+        const year = date.getFullYear();
 
-    if (year <= 2022) {
-      let total = parseFloat(data.fields["Deal Size"]) * 1000000;
+        if (year <= 2022) {
+          let total = parseFloat(data.fields["Deal Size"]) * 1000000;
 
-      if (!isNaN(total)) {
-        const existingItem = accumulator.find(item => item.name === year.toString());
-        if (existingItem) {
-          existingItem.growth += total;
-        } else {
-          accumulator.push({ name: year.toString(), growth: total });
+          if (!isNaN(total)) {
+            const existingItem = accumulator.find(item => item.name === year.toString());
+            if (existingItem) {
+              existingItem.growth += total;
+            } else {
+              accumulator.push({ name: year.toString(), growth: total });
+            }
+          }
         }
-      }
-    }
 
-    return accumulator;
-  }, []);
+        return accumulator;
+      }, []);
 
-  filteredFundingData.sort((a, b) => parseInt(a.name) - parseInt(b.name));
+      filteredFundingData.sort((a, b) => parseInt(a.name) - parseInt(b.name));
 
-  const filteredInvestorsData = founders.reduce((accumulator, data) => {
-    const dateString = data.fields["Deal Date"];
-    const date = new Date(dateString);
-    const year = date.getFullYear();
+      const filteredInvestorsData = founders.reduce((accumulator, data) => {
+        const dateString = data.fields["Deal Date"];
+        const date = new Date(dateString);
+        const year = date.getFullYear();
 
-    if (year <= 2022) {
-      let total = parseFloat(data.fields["Investors"]);
+        if (year <= 2022) {
+          let total = parseFloat(data.fields["Investors"]);
 
-      if (!isNaN(total)) {
-        const existingItem = accumulator.find(item => item.name === year.toString());
-        if (existingItem) {
-          existingItem.growth += total;
-        } else {
-          accumulator.push({ name: year.toString(), growth: total });
+          if (!isNaN(total)) {
+            const existingItem = accumulator.find(item => item.name === year.toString());
+            if (existingItem) {
+              existingItem.growth += total;
+            } else {
+              accumulator.push({ name: year.toString(), growth: total });
+            }
+          }
         }
-      }
+
+        return accumulator;
+      }, []);
+
+      filteredInvestorsData.sort((a, b) => parseInt(a.name) - parseInt(b.name));
+    */
+
+
+    return {
+        props: {
+            bgVideo: bgVideo,
+            heroSection: heroSection,
+            mayorsQuoteSection: mayorsQuoteSection,
+            statsSection: statsSection,
+            infoSection: infoSection,
+            ctaSection: ctaSection,
+            footer: footer.fields,
+            // founders: {filteredFundingData, filteredInvestorsData},
+        }
     }
-
-    return accumulator;
-  }, []);
-
-  filteredInvestorsData.sort((a, b) => parseInt(a.name) - parseInt(b.name));
-*/
-
-
-  return {
-    props: {
-      bgVideo: bgVideo,
-      heroSection: heroSection,
-      mayorsQuoteSection: mayorsQuoteSection,
-      statsSection: statsSection,
-      infoSection: infoSection,
-      ctaSection: ctaSection,
-      footer: footer.fields,
-      // founders: {filteredFundingData, filteredInvestorsData},
-    }
-  }
 }
 
 

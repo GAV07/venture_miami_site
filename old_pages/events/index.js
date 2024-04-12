@@ -4,7 +4,7 @@ import Head from 'next/head'
 import {Client} from "../../lib/contentful";
 import {getSite} from "../../lib/airtable";
 import EventsInfo from "../../components/events/Events";
-import Hero from "../../components/events/Hero";
+import EventsHero from "../../components/events/EventsHero";
 import React from "react";
 
 export default function Index(props) {
@@ -15,7 +15,7 @@ export default function Index(props) {
                 <title>Venture Miami - Events</title>
             </Head>
             <Container>
-                <Hero content={props.heroSection}/>
+                <EventsHero content={props.heroSection}/>
                 <EventsInfo content={props.events}/>
             </Container>
         </Layout>

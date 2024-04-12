@@ -6,10 +6,10 @@
 // }
 
 
-// export function Stats({data}) {
+// export function HomeStats({data}) {
 
 //     const stats = [
-//         { name: 'Total Job Seekers', stat: data.talent.length, previousStat: '70,946', change: '12%', changeType: 'increase' },
+//         { name: 'Total Job Seekers', stat: data.initiatives.length, previousStat: '70,946', change: '12%', changeType: 'increase' },
 //         { name: 'Avg. Work Experience', stat: '58.16%', previousStat: '56.14%', change: '2.02%', changeType: 'increase' },
 //         { name: 'Avg. Click Rate', stat: '24.57%', previousStat: '28.62%', change: '4.05%', changeType: 'decrease' },
 //     ]

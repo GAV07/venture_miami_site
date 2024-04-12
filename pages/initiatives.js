@@ -1,12 +1,12 @@
 import { Container } from '../components/container'
-import { Hero } from '../components/talent/Hero'
-import { Data } from '../components/talent/Data'
-//import { Companies } from '../components/talent/Companies'
+import { InitiativesHero } from '../components/initiatives/InitiativesHero'
+import { Data } from '../components/initiatives/Data'
+//import { Companies } from '../components/initiatives/Companies'
 //import { getTalent } from "../lib/airtable"
 import Layout from '../components/layout'
 import Head from 'next/head'
 import { Client } from '../lib/contentful'
-import Initiatives from "../components/talent/Initiatives";
+import Initiatives from "../components/initiatives/Initiatives";
 
 
 export default function Talent(props) {
@@ -18,7 +18,7 @@ export default function Talent(props) {
           <title>Venture Miami - Initiatives</title>
         </Head>
         <Container>
-          <Hero content={props.heroSection} />
+          <InitiativesHero content={props.heroSection} />
           <Initiatives content={props.initiativesSection}/>
           {/*<Data content={props.data}/>*/}
           {/* <Companies companies={props.companies}/> */}
@@ -46,11 +46,11 @@ export async function getStaticProps() {
 
 
   // initiatives section
-  const initiatives = initiativesPageEntry.fields.initiativesSection;
+  const initiativesSection = initiativesPageEntry.fields.initiativesSection;
 
   // gets the entries for each initiatives in the array
-  const initiativesArray = await Promise.all(
-      initiatives.map(async (initiative) => {
+  const initiatives = await Promise.all(
+      initiativesSection.map(async (initiative) => {
         const init = (await Client.getEntry(initiative.sys.id, { include: 10 })).fields;
         return init;
       })
@@ -59,7 +59,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      initiativesSection: initiativesArray,
+      initiativesSection: initiatives,
       heroSection: heroSection,
       // initiativesSection: initiativesSection,
       // tabs: tabs.fields,

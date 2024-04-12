@@ -46,7 +46,7 @@ export function Stats(props) {
                     arcLinkLabelsTextColor="#ffffff"
                 />
             </div>
-            {/* Stats */}
+            {/* HomeStats */}
             <div>
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
                     <h2 className="text-base font-semibold leading-8 text-indigo-400">{props.content.lead}</h2>

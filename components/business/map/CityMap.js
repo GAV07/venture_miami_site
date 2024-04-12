@@ -15,6 +15,7 @@ import Pin from "./Pin";
 import * as React from "react";
 import {GrPowerReset} from "react-icons/gr";
 import {miamiGeoJSON} from "./miamiGeoJSON";
+import Section from "../../Section";
 
 //mapboxgl.accessToken = process.env.YOUR_MAPBOX_ACCESS_TOKEN;
 
@@ -205,11 +206,9 @@ export default function CityMap(props) {
 
     return (
 
-        <div className={"w-full m-auto pt-20"}>
+        <Section>
 
-            {/* CONTENT */}
-            <div className={"w-[95%] mx-auto flex flex-col justify-center items-start gap-y-10"}>
-                <div className={"border-solid border-t-[1px] border-black mx-auto w-full m-auto text-left"}>
+                <div className={""}>
                     <h1 className="text-[36px] md:text-[56px] font-light mb-3">
                         {props.content.mapHero.title}
                     </h1>
@@ -242,7 +241,7 @@ export default function CityMap(props) {
                             div>
 
 
-                        {/*2D and 3D controls */}
+                        {/*2D and 3D controls (there's an error thrown when toggling to 3D) */}
                         {/*                          <div
                               className="absolute mt-[250px] ml-[10px] z-50 rounded-md flex flex-col justify-center items-center ring-2 ring-black/10 divide-y divide-black/10">
 
@@ -292,7 +291,7 @@ export default function CityMap(props) {
                                     }}
                                 >
                                     <div
-                                        className={"mr-[16px] rounded-full p-2 ring-2 ring-white w-[27px] h-[27px] flex justify-center items-center"}>
+                                        className={"bg-red-400 mr-[16px] rounded-full p-2 ring-2 ring-white w-[27px] h-[27px] flex justify-center items-center"}>
                                         <GrPowerReset size={15} color={"white"}/>
                                     </div>
                                     <div className={""}>
@@ -377,6 +376,7 @@ export default function CityMap(props) {
 
                                                 onClick={(e) => {
 
+                                                    e.stopPropagation();
 
                                                     mapRef.current.flyTo({
                                                         center: [poi.lon, poi.lat],
@@ -489,12 +489,11 @@ export default function CityMap(props) {
                                 }}
                             >
                                 <div
-                                    className={"mr-[16px] rounded-full p-2 ring-2 ring-white w-[27px] h-[27px] flex justify-center items-center"}>
+                                    className={"bg-red-400 mr-[16px] rounded-full p-2 ring-2 ring-white w-[27px] h-[27px] flex justify-center items-center"}>
                                     <GrPowerReset size={15} color={"white"}/>
                                 </div>
                                 <div className={""}>
-                                    <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>Show
-                                        all</p>
+                                    <p className={"mr-[8px] text-left text-[13px] text-[#333] font-medium"}>Show all</p>
                                 </div>
                             </button>
 
@@ -528,8 +527,7 @@ export default function CityMap(props) {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </Section>
 
     )
 }

@@ -6,6 +6,7 @@ import Head from "next/head";
 import {Container} from "../../components/container";
 import EventDetails from "../../components/events/EventDetails";
 import NotFound from "../../pages/404";
+import {useEffect} from "react";
 
 
 export default function EventsDetail(props) {
@@ -19,12 +20,10 @@ export default function EventsDetail(props) {
         return new Date(event1.fields.Date) - new Date(event2.fields.Date)
     });
 
-
-
+    // finds the index
     const index = sortedEvents.findIndex((ev) => {
         return ev.fields.Name.trim().toLowerCase() === event.trim().toLowerCase().split("-").join(" ");
     });
-
 
 
     return (

@@ -8,7 +8,6 @@ import News from "../../components/news/News";
 import NewsDetails from "../../components/news/NewsDetails";
 import NotFound from "../../pages/404";
 
-
 export default function NewsDetail(props) {
 
     const router = useRouter();
